@@ -38,4 +38,4 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 #Haml
-gem 'haml'
+gem "haml-rails"
