@@ -1,0 +1,26 @@
+
+.header
+	PiensaQue
+
+#container
+	.block{:style => 'margin-top: 100px;'}
+		.landing_main_block
+			.landing_info_block
+				.langing_info_block_level_2
+					.landing_info_text="What is the"
+					.landing_info_text_important="thinking"
+					.landing_info_text="of my contacts?"
+			.langing_login_block
+				.langing_login_block_level_2
+					=text_field_tag :email_or_nick, nil, :placeholder => 'Email or nick'
+					=text_field_tag :pass, nil, :placeholder => 'Password'
+					%div{:style => 'display: block; text-align:center; margin-top: 5px;'}
+						%div{:style => 'display: inline-block;float: left;'}="Enter"
+						%div{:style => 'display: inline-block'}="or"
+						%div{:style => 'display: inline-block; float: right'}="Registry"
+				
+
+	#footer_landing
+		.footer_link="About"
+		.footer_link="|"
+		.footer_link="Contact "
