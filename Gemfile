@@ -44,3 +44,6 @@ gem 'jquery-rails'
 
 #Haml
 gem "haml-rails"
+
+#Paperclip (procesado de imagenes)
+gem "paperclip", "~> 3.0"
