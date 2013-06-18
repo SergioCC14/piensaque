@@ -1,4 +1,7 @@
 PiensaQue::Application.routes.draw do
+  resources :users
+
+
   # get "home/index"
 
   # The priority is based upon order of creation:

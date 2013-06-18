@@ -11,6 +11,13 @@ BODY{
 	background-size: 2560px auto;
 }
 
+a {
+	text-decoration: none;
+}
+a {
+	background-color: none;
+}
+
 #background_lading {
 
 }
@@ -28,7 +35,8 @@ BODY{
 	font-family: arial;
 	color: #83B32B;
 	background-color: rgba(27, 24, 19,0.9);
-	padding: 10px;
+	padding: 5px;
+	line-height: 60px;
 }
 
 .block {
@@ -54,15 +62,18 @@ BODY{
 		background-color: #1B1813;
 		padding: 5px;
 		color: #83B32B;
+		font-size: 18px;
 		.langing_info_block_level_2 {
 			margin-top: 80px;
 			.landing_info_text {
 				display: inline-block;
 			}
+
 			.landing_info_text_important {
 				color: #8DC6DA;
 				display: inline-block;
 			}
+
 		}
 	}
 
@@ -76,6 +87,25 @@ BODY{
 		color: #83B32B;
 		.langing_login_block_level_2 {
 			padding: 40px;
+			
+			.landing_zone_button{
+				display: block;
+				text-align:center;
+				padding-top: 20px;
+
+				.landing_button {
+					color: #1B1813;
+					border: solid 2px #5E8E07;
+					padding: 5px;
+					background-color: #83B32B;
+					width: 50%;
+					margin: auto auto;
+				}
+				.landing_button:hover {
+					box-shadow: white 0px 0px 3px;
+					cursor: pointer;
+				}
+			}
 		}
 	}
 }
@@ -96,5 +126,18 @@ BODY{
 	.footer_link {
 		margin: 5px;	
 		display: inline-block;
+	}
+}
+
+
+.normal_link{
+	a {
+	color: #427B8F !important;
+	}
+}
+
+.normal_link:hover {
+	a {
+		color:#52ACDA  !important;
 	}
 }
