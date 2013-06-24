@@ -4,7 +4,7 @@
 #background_lading
 
 #container
-	.block{:style => 'margin-top: 100px;'}
+	.block
 		.landing_main_block
 			.landing_info_block
 				.langing_info_block_level_2
@@ -16,16 +16,13 @@
 					= text_field_tag :email_or_nick, nil, :placeholder => 'Email or nick', :style => 'width: 100%'
 					= text_field_tag :pass, nil, :placeholder => 'Password', :style => 'width: 100%'
 					.landing_zone_button
-						.landing_button="Enter"
+						.landing_button= link_to("Enter", "")
 						.landing_invitation_link
-							.normal_link= link_to('Or order a invitation', '')
+							.normal_link= link_to('Or request an invitation', '')
 
-						
+#footer_landing
+	.footer_link="About"
+	.footer_link="|"
+	.footer_link="Contact "
 
 
-				
-
-	#footer_landing
-		.footer_link="About"
-		.footer_link="|"
-		.footer_link="Contact "
