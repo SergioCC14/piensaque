@@ -16,9 +16,8 @@
 					= text_field_tag :email_or_nick, nil, :placeholder => 'Email or nick', :style => 'width: 100%'
 					= text_field_tag :pass, nil, :placeholder => 'Password', :style => 'width: 100%'
 					.landing_zone_button
-						.landing_button= link_to("Enter", "")
-						.landing_invitation_link
-							.normal_link= link_to('Or request an invitation', '')
+						= link_to("Enter", "", :class => 'landing_button landing_enter')
+						= link_to('Or request an invitation', '', :class => 'normal_link')
 
 #footer_landing
 	.footer_link="About"

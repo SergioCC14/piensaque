@@ -28,7 +28,10 @@ BODY{
 	background-color: rgba(27, 24, 19,0.9);
 	padding: 5px;
 	line-height: 55px;
-	height: 60px;
+	height: 55px;
+
+
+
 }
 
 #container {
@@ -87,23 +90,6 @@ BODY{
 					display: block;
 					text-align:center;
 					padding-top: 20px;
-
-					.landing_button {
-						a {
-							color: #1B1813;
-							border: solid 2px #5E8E07;
-							padding: 5px;
-							background-color: #83B32B;
-							width: 50%;
-							margin: auto auto;
-						}
-					}
-					.landing_button:hover {
-						a {
-						box-shadow: white 0px 0px 3px;
-						cursor: pointer;
-						}
-					}
 				}
 			}
 		}
@@ -127,18 +113,5 @@ BODY{
 	.footer_link {
 		margin: 5px;	
 		display: inline-block;
-	}
-}
-
-
-.normal_link{
-	a {
-	color: #427B8F !important;
-	}
-}
-
-.normal_link:hover {
-	a {
-		color:#52ACDA  !important;
 	}
 }

@@ -22,6 +22,8 @@ pre {
 }
 
 a {
+    color: red;
+
   color: #000;
   text-decoration: none;
   &:visited {
@@ -32,6 +34,36 @@ a {
     color: #fff;
   }
 }
+
+a.normal_link {
+  color: #427B8F; 
+}
+
+a.normal_link:hover {
+  color:#52ACDA; 
+}
+
+a.landing_button {
+  display: block;
+  color: #1B1813;
+  border: solid 2px #5E8E07;
+  padding: 5px 60px;
+  background-color: #83B32B;
+  margin: auto auto;
+  
+}
+a.landing_button:hover {
+
+  box-shadow: white 0px 0px 3px;
+  cursor: pointer;
+
+}
+  .landing_enter {
+    width: 15%;
+    margin-bottom: 5px !important;
+  }
+
+
 
 div {
   &.field, &.actions {
