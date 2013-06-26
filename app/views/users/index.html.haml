@@ -1,19 +1,32 @@
 #users_background
-  #header
+  #header.pq_header
     .title="PiensaQue"
     .sub_title="Beta"
+    .space{:style => 'display: inline-block; width:20px;'}
+    .music_control_panel
+      / .border_icon_music
+      /   %i.icon-play{:id => 'play_b', :onclick => "$('#play_b').toggle();$('#pause_b').toggle();", :style => 'display:none;'}
+      / .border_icon_music
+      /   %i.icon-pause{:id => 'pause_b', :onclick => "$('#play_b').toggle();$('#pause_b').toggle();"}
+
+      / .border_icon_music
+      /   %i.icon-volume-off{:id => 'volume_on', :onclick => "$('#volume_on').toggle();$('#volume_up').toggle();", :style => 'display:none;'}
+      / .border_icon_music
 
 
-
-
-
+      .border_icon_music
+        %i.icon-play{:id => 'play_pause_b', :onclick => "if ($('i#play_pause_b').hasClass('icon-play')) { $('i#play_pause_b').removeClass('icon-play').addClass('icon-pause')} else {$('i#play_pause_b').removeClass('icon-pause').addClass('icon-play')}"}
+      .border_icon_music
+        %i.icon-volume-up{:id => 'volume_up_down', :onclick => "if ($('i#volume_up_down').hasClass('icon-volume-up')) { $('i#volume_up_down').removeClass('icon-volume-up').addClass('icon-volume-off')} else {$('i#volume_up_down').removeClass('icon-volume-off').addClass('icon-volume-up')}"}
+    %i.icon-gear{:style => 'float:right'}
 
   #user_container
     .user_block
       / La idea es que aquí vaya informacion del usuario (Foto y Nombre)
       .name_user_block
         .image_user
-        .name_user="Sergio"
+        .name_user
+          ="Hi, Sergio!"
 
       / Aquí todo el flujo de mensajes, todo el juego de la aplicación debe pasar por este panel
       / Hay que pensarlo por completo
@@ -36,13 +49,14 @@
       / ------------------------------------------------------
 
       .new_message_panel
-        .record_button="Record"
+        .record_button
+          %i.icon-microphone
         .text_wrapper="text_wrapper"
         .tags_wrapper="tags_wrapper"
 
 
 
-    #footer_users
-      .footer_link="About"
-      .footer_link="|"
-      .footer_link="Contact "
+  #footer_users
+    .footer_link="About"
+    .footer_link="|"
+    .footer_link="Contact "
