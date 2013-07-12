@@ -17,7 +17,7 @@
 					.landing_zone_button
 						= link_to("Enter", "", :class => 'landing_button landing_enter')
 						= link_to('Or request an invitation', request_invitation_path, :class => 'normal_link', :remote => true)
-		.invitation_request
+		.invitation_request{:id => 'invitation_request_box'}
 			= render :partial => 'application/request_invitation'
 #footer_landing
 	.footer_link="About"
