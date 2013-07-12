@@ -6,8 +6,6 @@ BODY{
 	padding: 0px;
 	margin: 0px;
 	font-family: arial;
-	
-	
 	background-size: 2560px auto;
 }
 
@@ -18,6 +16,16 @@ BODY{
 	position: fixed;
 	width: 100%;
 	height: 100%;
+	.background_blur {
+		position: fixed;
+		width: 50%;
+		height: 50%;
+		z-index: 1000;
+		background-color: red;
+		margin-top: -100px;
+		margin-left: 400px;
+
+	}
 }
 
 .header {
@@ -29,8 +37,6 @@ BODY{
 	padding: 5px;
 	line-height: 55px;
 	height: 55px;
-
-
 
 }
 
@@ -94,6 +100,20 @@ BODY{
 			}
 		}
 	}
+	}
+	.invitation_request {
+		background-color: #1B1813;
+		border: solid 3px #83B32B;
+		width: 250px;
+		float: right;
+		margin-right: 10px;
+		color: #4BA6DA;
+		text-align: center;
+		.request_card {
+			margin: auto;
+			padding: 10px;
+
+		}
 	}
 }
 

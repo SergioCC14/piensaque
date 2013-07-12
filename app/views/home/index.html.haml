@@ -2,7 +2,6 @@
 	PiensaQue
 
 #background_lading
-
 #container
 	.block
 		.landing_main_block
@@ -17,8 +16,9 @@
 					= text_field_tag :pass, nil, :placeholder => 'Password', :style => 'width: 100%'
 					.landing_zone_button
 						= link_to("Enter", "", :class => 'landing_button landing_enter')
-						= link_to('Or request an invitation', '', :class => 'normal_link')
-
+						= link_to('Or request an invitation', request_invitation_path, :class => 'normal_link', :remote => true)
+		.invitation_request
+			= render :partial => 'application/request_invitation'
 #footer_landing
 	.footer_link="About"
 	.footer_link="|"
