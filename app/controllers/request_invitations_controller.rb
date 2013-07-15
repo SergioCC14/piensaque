@@ -27,7 +27,7 @@ class RequestInvitationsController < ApplicationController
 		@request_invitation.save
 
 	  respond_to do |format|
-	    format.html	{ redirect_to root_path}
+	    format.html	{ redirect_to root_path(:invitation => 'sent')}
 	    format.js { render }
 	  end
 	end

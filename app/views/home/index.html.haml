@@ -4,7 +4,6 @@
 #background_lading
 #container 
 	.block
-		=@current_user
 		.landing_main_block
 			.landing_info_block
 				.langing_info_block_level_2
@@ -19,7 +18,7 @@
 						= link_to("Enter", "", :class => 'landing_button landing_enter')
 						%a{:class => 'normal_link', :onclick => '$("#invitation_request_box").slideToggle();'}='Or request an invitation'
 		.invitation_request{:id => 'invitation_request_box'}
-			= render :partial => 'request_invitation/landing_message'
+			= render :partial => 'request_invitation/landing_message', :locals => {:invitation => params[:invitation]}
 
 
 / #footer_landing

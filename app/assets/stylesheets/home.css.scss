@@ -121,7 +121,13 @@ BODY{
 					width: 180px;
 				}
 			}
-
+			i {
+				display: block;
+				padding-top: 5px;
+				font-size: 20px;
+				line-height: 20px;
+				color: brown;
+			}
 		}
 	}
 }
