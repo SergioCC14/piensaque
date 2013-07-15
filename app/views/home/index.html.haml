@@ -12,8 +12,8 @@
 					.landing_info_text="of my contacts?"
 			.langing_login_block
 				.langing_login_block_level_2
-					= text_field_tag :email_or_nick, nil, :placeholder => 'Email or nick', :style => 'width: 100%'
-					= text_field_tag :pass, nil, :placeholder => 'Password', :style => 'width: 100%'
+					= text_field_tag :email_or_nick, nil, :class => 'default_field', :placeholder => 'Email or nick', :style => 'width: 100%'
+					= password_field_tag :pass, nil, :class => 'default_field', :placeholder => 'Password', :style => 'width: 100%'
 					.landing_zone_button
 						= link_to("Enter", "", :class => 'landing_button landing_enter')
 						%a{:class => 'normal_link', :onclick => '$("#invitation_request_box").slideToggle();'}='Or request an invitation'
