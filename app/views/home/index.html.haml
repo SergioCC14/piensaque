@@ -2,7 +2,7 @@
 	PiensaQue
 
 #background_lading
-#container
+#container 
 	.block
 		.landing_main_block
 			.landing_info_block
@@ -16,12 +16,12 @@
 					= text_field_tag :pass, nil, :placeholder => 'Password', :style => 'width: 100%'
 					.landing_zone_button
 						= link_to("Enter", "", :class => 'landing_button landing_enter')
-						= link_to('Or request an invitation', request_invitation_path, :class => 'normal_link', :remote => true)
+						%a{:class => 'normal_link', :onclick => '$("#invitation_request_box").slideToggle();'}='Or request an invitation'
 		.invitation_request{:id => 'invitation_request_box'}
-			= render :partial => 'application/request_invitation'
-#footer_landing
-	.footer_link="About"
-	.footer_link="|"
-	.footer_link="Contact "
+			= render :partial => 'request_invitation/landing_message'
+/ #footer_landing
+/ 	.footer_link="About"
+/ 	.footer_link="|"
+/ 	.footer_link="Contact "
 
 

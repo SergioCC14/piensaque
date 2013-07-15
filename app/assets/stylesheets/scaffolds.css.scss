@@ -41,6 +41,7 @@ a.normal_link {
 
 a.normal_link:hover {
   color:#52ACDA; 
+  cursor: pointer;
 }
 
 a.landing_button {
@@ -102,4 +103,27 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+// PiensaQue Style
+
+.default_field {
+  border-radius: 0px;
+  border: 2px solid #83B32B;
+  padding: 5px;
+}
+
+.default_field:focus {
+  box-shadow: #83B32B 0px 0px 5px;
+}
+
+.default_submit {
+  border-radius: 0px;
+  border: 2px solid #83B32B;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.default_submit:hover {
+  border-color: #9DCD45;
 }

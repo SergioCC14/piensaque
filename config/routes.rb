@@ -1,9 +1,13 @@
 PiensaQue::Application.routes.draw do
   
   resources :users
+  resources :request_invitations
 
 
-   match '/request_invitation' => 'application#request_invitation', :as => 'request_invitation'
+  # PRUEBAS
+  # match '/request_invitation' => 'application#request_invitation', :as => 'request_invitation'
+
+
 
   # get "home/index"
 

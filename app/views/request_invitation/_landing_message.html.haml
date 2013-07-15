@@ -1,0 +1,10 @@
+.request_card
+	="Now we are in beta fase. \n  If you are interested leave us your email."
+
+	= form_for(@request_invitation) do |f|
+		.field
+			= f.email_field(:email, :class => 'default_field', :placeholder => 'Email')
+
+		.actions{:style => 'margin-bottom: 0px;'}
+			= f.submit('Send',:class => 'default_submit')
+
