@@ -41,9 +41,14 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    used_nick = false
+
+    # Comprueba si el nick ha sido usado, si ha sido usado lo modifica
+    @user.used_nick(@user.nick)
+
 
     respond_to do |format|
-      if @user.save
+      if (@user.save) and (!used_nick)
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else

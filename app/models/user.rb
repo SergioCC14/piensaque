@@ -3,20 +3,29 @@ class User < ActiveRecord::Base
 
 	before_save :assign_rank
 
-
 	# Método para asignar permisos
 	# BIG_BOSS 	- Nivel alto
-	# ADMIN 		- Nivel medio
+	# ADMIN 	- Nivel medio
 	# DEFAULT 	- Nivel bajo
 	def assign_rank(options={})
-		user = user.find(options[:id])
 		if options.blank?
-			user.update_attributes(:rank => 'default')
+			self.rank = 'DEFAULT'
 		elsif (options[:rank] == "BIG BOSS")
-			user.update_attributes(:rank => options[:rank])
+			self.rank = options[:rank]
 		end
-			
-
 	end
+
+	# Comprueba si el nick ha sido utilizado
+	# Change the nick if its the case
+	def used_nick(user_nick)
+		if !User.find_by_nick(user_nick).blank?
+			self.nick = self.nick + (rand(Time.now.sec * Time.now.min)).to_s
+		end
+	end
+
+	def generate_number
+
+			
+	end	
 
 end
