@@ -24,8 +24,7 @@ class User < ActiveRecord::Base
 	end
 
 	def generate_number
-
-			
+		return (rand(Time.now.sec * Time.now.min)).to_s
 	end	
 
 end
