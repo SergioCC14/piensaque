@@ -10,9 +10,14 @@ BODY{
 }
 
 
-#background_lading {
-	background: url("adaff37dd0e845de4f35d6857b58d930.jpg") no-repeat fixed center center / cover  transparent;
+#background_lading {	
 	background-color: #8DC6DA;
+	background-image: url("adaff37dd0e845de4f35d6857b58d930.jpg");
+	background-repeat: no-repeat;
+	background-position: center center; 
+	background-attachment: fixed;
+	background-size: cover;
+	
 	position: fixed;
 	width: 100%;
 	height: 100%;
