@@ -20,14 +20,13 @@
 		.invitation_request{:id => 'invitation_request_box'}
 			= render :partial => 'request_invitation/landing_message', :locals => {:invitation => params[:invitation]}
 
-:javascript
-	if ("#{params[:invitation] == 'sent'}") {
+
+- if (params[:invitation] == 'sent')
+	:javascript
 		$("#invitation_request_box").slideToggle();
-		}
+
 
 / #footer_landing
 / 	.footer_link="About"
 / 	.footer_link="|"
 / 	.footer_link="Contact "
-
-
