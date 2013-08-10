@@ -69,6 +69,6 @@ PiensaQue::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   match '/signin',  :to => 'sessions#new', :as => 'signin_path'
-
+  match '/signout', :to => 'sessions#destroy', :via => 'delete'
 
 end
