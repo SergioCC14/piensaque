@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "general_var";
+
 BODY{
 	padding: 0px;
 	margin: 0px;
@@ -10,7 +12,7 @@ BODY{
 }
 
 #background_lading {	
-	background-color: #8DC6DA;
+	background-color: $blue_letter;
 	background-image: url("adaff37dd0e845de4f35d6857b58d930.jpg");
 	background-repeat: no-repeat;
 	background-position: center center; 
@@ -36,8 +38,8 @@ BODY{
 	height: 100%;
 	font-size: 50px;
 	font-family: arial;
-	color: #83B32B;
-	background-color: rgba(27, 24, 19,0.9);
+	color: $green_letter;
+	background-color: $header_color;
 	padding: 5px;
 	line-height: 55px;
 	height: 55px;
@@ -59,7 +61,7 @@ BODY{
 			margin: auto;
 			display: block;
 			padding: 5px;
-			background-color: #83B32B;
+			background-color: $green_letter;
 
 		.landing_info_block {
 			text-align: center;
@@ -69,7 +71,7 @@ BODY{
 			display: inline-block;
 			background-color: #1B1813;
 			padding: 5px;
-			color: #83B32B;
+			color: $green_letter;
 			font-size: 18px;
 			.langing_info_block_level_2 {
 				margin-top: 80px;
@@ -78,7 +80,7 @@ BODY{
 				}
 
 				.landing_info_text_important {
-					color: #8DC6DA;
+					color: $blue_letter;
 					display: inline-block;
 				}
 
@@ -92,7 +94,7 @@ BODY{
 			padding: 5px;
 			display: inline-block;
 			background-color: #1B1813;
-			color: #83B32B;
+			color: $green_letter;
 			.langing_login_block_level_2 {
 				padding: 40px;
 				
@@ -107,7 +109,7 @@ BODY{
 	}
 	.invitation_request {
 		background-color: #1B1813;
-		border: solid 3px #83B32B;
+		border: solid 3px $green_letter;
 		border-top: none;
 		width: 250px;
 		float: right;
@@ -141,8 +143,8 @@ BODY{
 	width: 100%;
 	font-size: 12px;
 	font-family: arial;
-	color: #83B32B;
-	background-color: rgba(27, 24, 19,0.9);
+	color: $green_letter;
+	background-color: $header_color;
 	padding: 10px;
 	display: block;
 	position: fixed;

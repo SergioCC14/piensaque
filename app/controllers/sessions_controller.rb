@@ -1,8 +1,18 @@
 class SessionsController < ApplicationController
+
   def new
     raise params.inspect
   end
 
+  def index
+    @session = Session.new;
+
+    respond_to do |format|
+      format.html { render  }
+      format.js {  }
+    end    
+  end
+  
   def create
     raise params.inspect
 

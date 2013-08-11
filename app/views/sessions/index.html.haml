@@ -1,0 +1,27 @@
+#background_default
+  #header.pq_header
+    .title="PiensaQue"
+    .sub_title="Beta"
+
+  #container
+    .refused_main_block
+      .refused_title="Sorry!"
+      .refused_subtitle="But the combination email/password is incorrect. Try again."
+      .refused_form_block
+        = form_for(@session) do |f|
+        
+          %div{:style => 'width: 200px;padding: 10px; margin:auto;'}
+            = text_field_tag :email_or_nick, nil, :class => 'default_field', :placeholder => 'Email or nick', :style => 'width: 100%'
+            = password_field_tag :pass, nil, :class => 'default_field', :placeholder => 'Password', :style => 'width: 100%'
+          = f.submit "", :style => 'display:none' ,:id => 'input_new_session'
+        
+        %div{:style => 'width: 200px;padding-top: 5px; margin:auto;'}
+          = link_to("Enter", "", :class => 'landing_button landing_enter', :onclick => "$('#input_new_session').click()", :remote => true)
+
+
+  #footer_session
+    .footer_link="About"
+    .footer_link="|"
+    .footer_link="Contact "
+
+    -#Hacer algo para que el footer no se coma el resto al hacerse mas pequeño

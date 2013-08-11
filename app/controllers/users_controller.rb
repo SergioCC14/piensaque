@@ -46,7 +46,6 @@ class UsersController < ApplicationController
     # Comprueba si el nick ha sido usado, si ha sido usado lo modifica
     @user.used_nick(@user.nick)
 
-
     respond_to do |format|
       if (@user.save) and (!used_nick)
         format.html { redirect_to @user, notice: 'User was successfully created.' }

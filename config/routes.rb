@@ -2,6 +2,7 @@ PiensaQue::Application.routes.draw do
   
   resources :users
   resources :request_invitations
+  resources :sessions
 
 
   # PRUEBAS
@@ -68,7 +69,5 @@ PiensaQue::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-  match '/signin',  :to => 'sessions#new', :as => 'signin_path'
-  match '/signout', :to => 'sessions#destroy', :via => 'delete'
 
 end

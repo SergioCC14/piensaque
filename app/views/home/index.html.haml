@@ -13,11 +13,11 @@
 			
 			.langing_login_block
 				.langing_login_block_level_2
-					= form_for(:session) do |f|
+					= form_for(@session) do |f|
 						= text_field_tag :email_or_nick, nil, :class => 'default_field', :placeholder => 'Email or nick', :style => 'width: 100%'
 						= password_field_tag :pass, nil, :class => 'default_field', :placeholder => 'Password', :style => 'width: 100%'
 
-						= f.submit "", :id => 'input_new_session'
+						= f.submit "", :style => 'display:none' ,:id => 'input_new_session'
 
 					.landing_zone_button
 						= link_to("Enter", "", :class => 'landing_button landing_enter', :onclick => "$('#input_new_session').click()", :remote => true)

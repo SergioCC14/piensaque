@@ -2,11 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "general_var";
+
 #header.pq_header {
 	height: 100%;
 	font-family: arial;
-	color: #83B32B;
-	background-color: rgba(27, 24, 19,0.9);
+	color: $green_letter;
+	background-color: $header_color;
 	padding: 5px;
 	height: 55px;
 	line-height: 55px;
@@ -39,17 +41,11 @@
 	}
 }
 
-#users_background {
-	background: no-repeat fixed center center / cover #505050;
-	position: fixed;
-	width: 100%;
-	height: 100%;
-}
 
 #user_container {
 	width: 980px;
 	margin: auto auto;
-	background-color: #D7D7D7;
+	background-color: $main_block;
 	// height: 100%;
 
 	.user_block {
@@ -75,7 +71,7 @@
 			margin: 5px;
 			margin-top: 0px;
 			border-radius: 5px;
-			background-color: #CCCCCC;
+			background-color: $inside_block;
 
 			// Provisional
 			height: 200px;
@@ -86,7 +82,7 @@
 			margin: 5px;
 			margin-top: 0px;
 			border-radius: 5px;
-			background-color: #CCCCCC ;
+			background-color: $inside_block;
 			height: 60px;
 			.record_button {
 				display: inline-block;
@@ -121,8 +117,8 @@
 		width: 100%;
 		font-size: 12px;
 		font-family: arial;
-		color: #83B32B;
-		background-color: rgba(27, 24, 19,0.9);
+		color: $green_letter;
+		background-color: $header_color;
 		padding: 10px;
 		display: block;
 

@@ -1,3 +1,4 @@
+@import "general_var";
 
 body {
   background-color: #fff;
@@ -8,10 +9,6 @@ body {
   width: 100%;
   height: 100%;
   margin: auto auto;
-}
-
-input[type=submit] {
-  display: none;
 }
 
 p, ol, ul, td {
@@ -41,11 +38,11 @@ a {
 }
 
 a.normal_link {
-  color: #427B8F; 
+  color: $link_default; 
 }
 
 a.normal_link:hover {
-  color:#52ACDA; 
+  color:$link_default_hover; 
   cursor: pointer;
 }
 
@@ -54,7 +51,7 @@ a.landing_button {
   color: #1B1813;
   border: solid 2px #5E8E07;
   padding: 5px 60px;
-  background-color: #83B32B;
+  background-color: $green_letter;
   margin: auto auto;
   
 }
@@ -112,19 +109,26 @@ div {
 
 // PiensaQue Style
 
+#background_default {
+  background: no-repeat fixed center center / cover $background_normal;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
 .default_field {
   border-radius: 0px;
-  border: 2px solid #83B32B;
+  border: 2px solid $green_letter;
   padding: 5px;
 }
 
 .default_field:focus {
-  box-shadow: #83B32B 0px 0px 5px;
+  box-shadow: $green_letter 0px 0px 5px;
 }
 
 .default_submit {
   border-radius: 0px;
-  border: 2px solid #83B32B;
+  border: 2px solid $green_letter;
   padding-left: 5px;
   padding-right: 5px;
 }
