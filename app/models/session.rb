@@ -6,4 +6,6 @@ class Session < ActiveRecord::Base
  
     delete_all "updated_at < '#{time.ago.to_s(:db)}'"
   end
+
+
 end

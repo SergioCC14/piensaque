@@ -9,7 +9,6 @@
       .refused_subtitle="But the combination email/password is incorrect. Try again."
       .refused_form_block
         = form_for(@session) do |f|
-        
           %div{:style => 'width: 200px;padding: 10px; margin:auto;'}
             = text_field_tag :email_or_nick, nil, :class => 'default_field', :placeholder => 'Email or nick', :style => 'width: 100%'
             = password_field_tag :pass, nil, :class => 'default_field', :placeholder => 'Password', :style => 'width: 100%'

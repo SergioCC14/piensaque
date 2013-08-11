@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
+   include SessionsHelper
+
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+
+
+    # raise params.inspect
 
     respond_to do |format|
       format.html # index.html.erb

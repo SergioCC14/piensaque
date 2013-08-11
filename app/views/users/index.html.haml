@@ -27,7 +27,10 @@
       .name_user_block
         .image_user
         .name_user
-          ="Hi, Sergio!"
+          - if current_user.blank?
+            ="Hi, Unknown!"
+          - else
+            ="Hi, #{current_user.name}"
 
       / Aquí todo el flujo de mensajes, todo el juego de la aplicación debe pasar por este panel
       / Hay que pensarlo por completo
