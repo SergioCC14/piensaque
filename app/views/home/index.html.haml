@@ -28,6 +28,9 @@
 		.invitation_request{:id => 'invitation_request_box'}
 			= render :partial => 'request_invitation/landing_message', :locals => {:invitation => params[:invitation]}
 
+		-if current_user
+			%div="Eres #{current_user.nick}"
+
 
 -#Si viene de pedir una invitación
 - if (params[:invitation] == 'sent')

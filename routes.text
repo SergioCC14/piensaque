@@ -1,10 +1,3 @@
-                  users GET    /users(.:format)                        users#index
-                        POST   /users(.:format)                        users#create
-               new_user GET    /users/new(.:format)                    users#new
-              edit_user GET    /users/:id/edit(.:format)               users#edit
-                   user GET    /users/:id(.:format)                    users#show
-                        PUT    /users/:id(.:format)                    users#update
-                        DELETE /users/:id(.:format)                    users#destroy
     request_invitations GET    /request_invitations(.:format)          request_invitations#index
                         POST   /request_invitations(.:format)          request_invitations#create
  new_request_invitation GET    /request_invitations/new(.:format)      request_invitations#new
@@ -19,4 +12,11 @@ edit_request_invitation GET    /request_invitations/:id/edit(.:format) request_i
                 session GET    /sessions/:id(.:format)                 sessions#show
                         PUT    /sessions/:id(.:format)                 sessions#update
                         DELETE /sessions/:id(.:format)                 sessions#destroy
+                  users GET    /users(.:format)                        users#index
+                        POST   /users(.:format)                        users#create
+               new_user GET    /users/new(.:format)                    users#new
+              edit_user GET    /users/:id/edit(.:format)               users#edit
+                   user GET    /users/:id(.:format)                    users#show
+                        PUT    /users/:id(.:format)                    users#update
+                        DELETE /users/:id(.:format)                    users#destroy
                    root        /                                       home#index

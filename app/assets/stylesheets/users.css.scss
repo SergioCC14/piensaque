@@ -13,6 +13,13 @@
 	height: 55px;
 	line-height: 55px;
 
+	a{
+		color: $green_letter;	
+	}
+	a:hover {
+		color: #8CC6DA;
+	}
+
 	.title {
 		font-size: 50px;
 		display: inline-block;
@@ -26,7 +33,7 @@
 		.border_icon_music {
 			display: inline-block;
 			min-width: 60px;
-			text-align: center;
+			text-align: left;
 
 			i {
 
@@ -39,6 +46,23 @@
 		}
 		
 	}
+	.user_menu {
+		font-size: 40px;
+		float: right;
+		padding: 5px;
+		position: relative;
+		top: -5px;
+	}
+	.user_menu:hover {
+		background-color: $background_header_hover;
+		cursor: pointer;
+	}
+  .header_sub_menu {
+  	background-color: red;
+  	.header_sub_opt {
+  		color: blue;
+  	}
+  	}
 }
 
 

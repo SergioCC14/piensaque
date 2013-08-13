@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
-   include SessionsHelper
+  include SessionsHelper
 
   # GET /users
   # GET /users.json
   def index
 
-
     # raise params.inspect
+    # raise current_user.inspect
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,7 +42,6 @@ class UsersController < ApplicationController
   end
 
   # POST /users
-  # POST /users.json
   def create
     @user = User.new(params[:user])
     used_nick = false
@@ -88,4 +87,5 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

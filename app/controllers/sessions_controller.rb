@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  include SessionsHelper  
+  include SessionsHelper
+
   def new
 
   end
@@ -16,6 +17,8 @@ class SessionsController < ApplicationController
   def create
     user = (User.find_by_password(params[:pass])) and 
            ((User.find_by_nick(params[:email_or_nick])) or (User.find_by_email(params[:email_or_nick]))) 
+
+    iniciar_sesion(user)
 
     if user.blank?
       respond_to do |format|
