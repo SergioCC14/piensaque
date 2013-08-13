@@ -13,6 +13,7 @@
 	height: 55px;
 	line-height: 55px;
 
+
 	a{
 		color: $green_letter;	
 	}
@@ -49,20 +50,47 @@
 	.user_menu {
 		font-size: 40px;
 		float: right;
-		padding: 5px;
+		padding-top: 5px;
+		padding-left: 5px;
+		padding-right: 5px;
 		position: relative;
-		top: -5px;
+		top: -5px;		
+		.main_content_user_menu {
+			margin: -5px;
+			padding: 5px;
+		}
 	}
 	.user_menu:hover {
-		background-color: $background_header_hover;
+		
 		cursor: pointer;
+		.main_content_user_menu {
+			background-color: $background_header_hover;
+		}
+
+		.header_sub_menu {
+			display: table;
+		}
 	}
   .header_sub_menu {
-  	background-color: red;
+  	display: none;
+  	background-color: #8A8A8A;
+  	font-size: 20px;
+  	margin-top: 5px;
+  	margin-right: -5px;
+  	margin-left: -5px;
   	.header_sub_opt {
-  		color: blue;
+  		a {
+  		padding-right: 10px;
+  		padding-left: 10px;
+  		display: block;
+  		color: #333333;
+  		}
   	}
+  	.header_sub_opt:hover {
+  		color: #333333;
+  		background-color: $background_header_hover;
   	}
+  }
 }
 
 

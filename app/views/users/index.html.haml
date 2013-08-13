@@ -23,10 +23,18 @@
 
     - if current_user
       .user_menu
-        =current_user.nick
-        %i.icon-user
+        .main_content_user_menu
+          =current_user.nick
+          %i.icon-user
         .header_sub_menu
           .header_sub_opt
+            =link_to(edit_user_path(current_user.id)) do
+              %i.icon-gear
+              ="Edit"
+          .header_sub_opt
+            =link_to(destroy_session_path do
+              %i.icon-signout
+              ="Sign out"            
 
     / %i.icon-gear{:style => 'float:right'}
 
