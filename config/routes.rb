@@ -2,7 +2,7 @@ PiensaQue::Application.routes.draw do
   
   # resources :users
   resources :request_invitations
-  resources :sessions
+
 
   resources :users do
     member do
@@ -12,6 +12,9 @@ PiensaQue::Application.routes.draw do
     end
   end
 
+  resources :sessions
+
+  match '/signout', :to => 'sessions#destroy', :as => 'signout'
 
   # get "home/index"
 

@@ -13,8 +13,13 @@ module SessionsHelper
 
   def sign_out
     self.current_user = nil
-    cookies.delete["PnQ_remember_token"]
+    cookies.delete("PnQ_remember_token")
   end
+
+  def signed_in?
+    !current_user.blank?
+  end
+
 
   def current_user=(user)
     @current_user = user
@@ -24,8 +29,5 @@ module SessionsHelper
     remember_token = User.encrypt(cookies["PnQ_remember_token"])
     @current_user ||= User.find_by_remember_token(remember_token)
   end
-
-
-
 
 end

@@ -11,8 +11,9 @@ class ApplicationController < ActionController::Base
 	  end
   end
 
-  private
-		def current_user
-			@_current_user ||= 	session[:current_user_id] && User.find(session[:current_user_id]) end 
-
+  def connected?
+    if !signed_in?
+      # redirect_to root_path
+    end
+  end
 end

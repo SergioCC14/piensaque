@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   include SessionsHelper
 
+  before_filter :connected?, :except => [:show]
+
   # GET /users
   # GET /users.json
   def index
