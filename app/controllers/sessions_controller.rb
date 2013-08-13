@@ -18,15 +18,14 @@ class SessionsController < ApplicationController
     user = (User.find_by_password(params[:pass])) and 
            ((User.find_by_nick(params[:email_or_nick])) or (User.find_by_email(params[:email_or_nick]))) 
 
-    iniciar_sesion(user)
-
     if user.blank?
       respond_to do |format|
         format.html { redirect_to sessions_path }
         format.js {  }
       end
     else
-
+      
+      iniciar_sesion(user)
       self.current_user= user;
 
       respond_to do |format|
@@ -38,7 +37,7 @@ class SessionsController < ApplicationController
 
   def destroy
     current_user
-    
+
     sign_out
     redirect_to root_url
   end
