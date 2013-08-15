@@ -110,10 +110,10 @@ div {
 // PiensaQue Style
 
 #background_default {
-  background: no-repeat fixed center center / cover $background_normal;
-  position: fixed;
+  background: $background_normal;
   width: 100%;
   height: 100%;
+  position:fixed;
 }
 
 .default_field {

@@ -1,0 +1,35 @@
+#background_lading
+#container 
+  .block
+    .landing_main_block
+      .landing_info_block
+        .langing_info_block_level_2
+          .landing_info_text="What is the"
+          .landing_info_text_important="thinking"
+          .landing_info_text="of my contacts?"
+      
+      .langing_login_block
+        .langing_login_block_level_2
+          = form_for(:session, url: sessions_path) do |f|
+            = text_field_tag :email_or_nick, nil, :class => 'default_field', :placeholder => 'Email or nick', :style => 'width: 100%'
+            = password_field_tag :pass, nil, :class => 'default_field', :placeholder => 'Password', :style => 'width: 100%'
+
+            = f.submit "", :style => 'display:none' ,:id => 'input_new_session'
+
+          .landing_zone_button
+            = link_to("Enter", "", :class => 'landing_button landing_enter', :onclick => "$('#input_new_session').click()", :remote => true)
+
+            %a{:class => 'normal_link', :onclick => '$("#invitation_request_box").slideToggle();'}='Or request an invitation'
+            
+    
+    .invitation_request{:id => 'invitation_request_box'}
+      = render :partial => 'request_invitation/landing_message', :locals => {:invitation => params[:invitation]}
+
+    -if current_user
+      %div="Eres #{current_user.nick}"
+
+
+-#Si viene de pedir una invitación
+- if (params[:invitation] == 'sent')
+  :javascript
+    $("#invitation_request_box").slideToggle();

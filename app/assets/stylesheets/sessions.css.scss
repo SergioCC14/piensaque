@@ -4,11 +4,13 @@
 
 @import "general_var";
 
-#container {
-  width: 980px;
-  height: 100%;
+#container_session {
+  width: 75%;
+  min-width: 510px;
+  height: auto;
   margin: auto auto;
   background-color: $main_block;
+  text-align: center;
 
   .refused_main_block {
     margin: auto;
@@ -34,16 +36,15 @@
 }
 
 #footer_session {
-    height: 20px;
     width: 100%;
     font-size: 12px;
     font-family: arial;
     color: $green_letter;
     background-color: #1B1813;
-    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     display: block;
     position: absolute;
-    left:0px;
     bottom:0px;
 
     .footer_link {

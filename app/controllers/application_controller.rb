@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
 	  end
   end
 
+  def index
+    @request_invitation = RequestInvitation.new
+    @session = Session.new 
+
+  end
+
+
   def connected?
     if !signed_in?
       redirect_to root_path

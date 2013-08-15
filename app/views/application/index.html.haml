@@ -1,0 +1,10 @@
+- if !signed_in? 
+	= render :partial => 'application/lading'
+- else 
+	= render :partial => 'users/dashboard'	
+
+- if false
+	#footer_landing
+		.footer_link="About"
+		.footer_link="|"
+		.footer_link="Contact "

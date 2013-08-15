@@ -1,0 +1,42 @@
+   
+#user_container
+  .user_block
+    / La idea es que aquí vaya informacion del usuario (Foto y Nombre)
+    .name_user_block
+      .image_user
+      .name_user
+        - if current_user.blank?
+          ="Hi, Unknown!"
+        - else
+          ="Hi, #{current_user.nick}"
+
+    / Aquí todo el flujo de mensajes, todo el juego de la aplicación debe pasar por este panel
+    / Hay que pensarlo por completo
+    .information_block
+      ="Mensajes sin leer"
+
+
+    / Este es el panel inferior para añadir nuevas grabaciones
+    / De cara al usuario las grabaciones tendran:
+    /  - La propia grabacion
+    /  - Tags
+    /  - Mensaje (opcional)
+    / _____________________________________________________
+    / | _________ ______________________________________   |
+    / | | New   | |               Mensaje               |  |
+    / | |       | |                                     |  |
+    / | |Record | ---------------------------------------  |
+    / | |       |                                          |
+    / | --------- |Tags||Tags||Tags||Tags||Tags||Tags||Tags|
+    / ------------------------------------------------------
+
+    .new_message_panel
+      .record_button
+        %i.icon-microphone
+      .text_wrapper="text_wrapper"
+      .tags_wrapper="tags_wrapper"
+
+#footer_users
+  .footer_link="About"
+  .footer_link="|"
+  .footer_link="Contact "

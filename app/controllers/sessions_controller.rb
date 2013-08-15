@@ -6,12 +6,21 @@ class SessionsController < ApplicationController
   end
 
   def index
-    @session = Session.new;
 
-    respond_to do |format|
-      format.html { render  }
-      format.js {  }
-    end    
+    if signed_in?
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js {  }
+      end     
+    else
+
+      @session = Session.new;
+
+      respond_to do |format|
+        format.html { render  }
+        format.js {  }
+      end    
+    end
   end
   
   def create
@@ -20,7 +29,7 @@ class SessionsController < ApplicationController
 
     if user.blank?
       respond_to do |format|
-        format.html { redirect_to sessions_path }
+        format.html { redirect_to login_path }
         format.js {  }
       end
     else
@@ -29,7 +38,7 @@ class SessionsController < ApplicationController
       self.current_user= user;
 
       respond_to do |format|
-        format.html { redirect_to users_path }
+        format.html { redirect_to root_path }
         format.js {  }
       end
     end
