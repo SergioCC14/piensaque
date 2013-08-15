@@ -21,4 +21,6 @@ edit_request_invitation GET    /request_invitations/:id/edit(.:format) request_i
                         DELETE /sessions/:id(.:format)                 sessions#destroy
                 signout        /signout(.:format)                      sessions#destroy
                   login        /login(.:format)                        sessions#index
-                   root        /                                       home#index
+               url_nick        /:nick(.:format)                        users#show
+          settings_user        /:nick/settings(.:format)               users#edit
+                   root        /                                       application#index

@@ -17,6 +17,8 @@ PiensaQue::Application.routes.draw do
   match '/signout', :to => 'sessions#destroy', :as => 'signout'
   match '/sessions', :to => 'sessions#index', :as => 'login', :path => '/login'
 
+  match '/:nick' => 'users#show', :as => 'user_nick'
+  match '/users/:id/edit', :to => 'users#edit', :as => 'settings_user',:path => '/:nick/settings'
   # get "home/index"
 
   # The priority is based upon order of creation:

@@ -19,7 +19,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
+    @user = !params[:id].blank? ? User.find(params[:id]) : User.find_by_nick(params[:nick])
+
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,7 +41,17 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    @user = !params[:id].blank? ? User.find(params[:id]) : User.find_by_nick(params[:nick])
+
+    respond_to do |format|
+      if (current_user == @user)
+        format.html { render }
+        format.js { render  }
+      else
+        format.html { redirect_to root_path }
+        format.js { render  }
+      end
+    end
   end
 
   # POST /users
