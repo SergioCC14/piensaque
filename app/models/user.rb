@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :rank, :nick, :password
+  attr_accessible :email, :rank, :nick, :password, :mt_rock, :mt_pop, :mt_electronic, :mt_instrumental, :mt_jazz
 
 	before_save :assign_rank
 	before_create :generate_remember_token
@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
 	# Método para asignar permisos
 	# BIG_BOSS 	- Nivel alto
-	# ADMIN 	- Nivel medio
+	# ADMIN 	  - Nivel medio
 	# DEFAULT 	- Nivel bajo
 	def assign_rank(options={})
 		if options.blank?

@@ -25,7 +25,9 @@ class SessionsController < ApplicationController
   
   def create
     user = (User.find_by_password(params[:pass])) and 
-           ((User.find_by_nick(params[:email_or_nick])) or (User.find_by_email(params[:email_or_nick]))) 
+           ((User.find_by_nick(params[:email_or_nick])) or (User.find_by_email(params[:email_or_nick])))
+
+
 
     if user.blank?
       respond_to do |format|

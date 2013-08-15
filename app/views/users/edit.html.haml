@@ -2,24 +2,51 @@
   .user_settings_block
     .title_section="Settings"
     .information_block
+
       = form_for @user do |f|
-        %table
-          %tr.field
-            %td= f.label :email
-            %td= f.text_field :email, :class => 'default_field'
-          %tr.field
-            %td= f.label :password
-            %td= f.password_field :password, :class => 'default_field'
-          %tr.field
-            %td= f.label :nick
-            %td= f.text_field :nick, :class => 'default_field'
-          %tr.actions
-            %td{:colspan => 2}
-              %div{:style => 'padding-top: 20px; text-align:center;'}
-                = link_to("Enter", "", :class => 'landing_button edit_form', :onclick => "$('#save_edit_#{@user.id}').click()", :remote => true)
-                ="or"  
-                = link_to 'Cancel', users_path
-                = f.submit '', :style => 'display:none', :id => "save_edit_#{@user.id}"
+        %div{:style => 'display:inline-block'}
+          %table
+            %tr.field
+              %td= f.label :email
+              %td= f.text_field :email, :class => 'default_field'
+            %tr.field
+              %td= f.label :nick
+              %td= f.text_field :nick, :class => 'default_field'
+            %tr.actions
+              %td{:colspan => 2}
+                %div{:style => 'padding-top: 20px; text-align:center;'}
+                  = link_to("Enter", "", :class => 'landing_button edit_form', :onclick => "$('#save_edit_#{@user.id}').click()", :remote => true)
+                  ="or"  
+                  = link_to 'Cancel', root_path
+                  = f.submit '', :style => 'display:none', :id => "save_edit_#{@user.id}"
+
+        .edit_musical_tastes
+          %h3="Musical Tastes"
+          %td.edit_musical_tastes
+
+            #taste_rock.edit_musical_taste{:style => "background-color: #EE1D1D", :class => @user.mt_rock ? "selected" : nil, :onclick => "check_mt('#taste_rock','#user_mt_rock')"}="Rock"
+            
+            #taste_pop.edit_musical_taste{:style => "background-color: #83B32B", :class => @user.mt_pop ? "selected" : nil,:onclick => "check_mt('#taste_pop','#user_mt_pop')"}="Pop"
+            
+            #taste_electronic.edit_musical_taste{:style => "background-color: #A4A4A4", :class => @user.mt_electronic ? "selected" : nil,:onclick => "check_mt('#taste_electronic','#user_mt_electronic')"}="Tecno"
+            
+            #taste_instrumental.edit_musical_taste{:style => "background-color: #FF9B00", :class => @user.mt_instrumental ? "selected" : nil,:onclick => "check_mt('#taste_instrumental','#user_mt_instrumental')"}="Instr"
+            
+            #taste_jazz.edit_musical_taste{:style => "background-color: #7F327F", :class => @user.mt_jazz ? "selected" : nil,:onclick => "check_mt('#taste_jazz','#user_mt_jazz')"}="Jazz"
+
+            = f.check_box :mt_rock, :style => 'display:none'
+            = f.check_box :mt_pop, :style => 'display:none'
+            = f.check_box :mt_electronic, :style => 'display:none'
+            = f.check_box :mt_instrumental, :style => 'display:none'
+            = f.check_box :mt_jazz, :style => 'display:none'
+
+
+            :javascript
+              // Cambia la clase según selección y activa la opción que corresponda
+              function check_mt(button,mt) {
+                $(button).toggleClass('selected');
+                $(mt).click()
+              }
     
 #footer_users
   .footer_link="About"

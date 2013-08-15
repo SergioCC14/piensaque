@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813145810) do
+ActiveRecord::Schema.define(:version => 20130815202253) do
 
   create_table "request_invitations", :force => true do |t|
     t.string   "email"
@@ -33,10 +33,15 @@ ActiveRecord::Schema.define(:version => 20130813145810) do
     t.string   "email"
     t.string   "password"
     t.string   "nick"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.string   "rank"
     t.string   "remember_token"
+    t.boolean  "mt_rock"
+    t.boolean  "mt_pop"
+    t.boolean  "mt_electronic"
+    t.boolean  "mt_instrumental", :default => true
+    t.boolean  "mt_jazz"
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"

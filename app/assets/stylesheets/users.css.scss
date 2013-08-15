@@ -170,6 +170,40 @@
 
 }
 
+
+.edit_musical_tastes {
+	border-radius: 2px;
+	background-color: $inside_sub_block;
+	display: inline-block;
+	text-align: center;
+	padding: 10px;
+	vertical-align: top;
+	.edit_musical_taste {
+		cursor: pointer;
+		display: inline-block;
+		border: solid 1px #3D3D3D;
+		width: 60px;
+		height: 60px;
+		margin: 9px;
+		background-color: red;
+		font-family: Droid, sans-serif ;
+		line-height: 65px;
+		font-size: 40px;
+	}
+
+	.edit_musical_taste.selected {
+		border: solid 5px #3D3D3D;
+		margin: 5px;
+
+	}
+
+	.edit_musical_taste:hover {
+		opacity: 0.7;
+	}
+		
+}
+
+
 #footer_users {
 		height: 20px;
 		width: 100%;
