@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130816143136) do
+ActiveRecord::Schema.define(:version => 20130816152938) do
+
+  create_table "musics", :force => true do |t|
+    t.string   "path"
+    t.text     "title"
+    t.text     "artist"
+    t.text     "album"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "pnsqs", :force => true do |t|
     t.string   "audio"
