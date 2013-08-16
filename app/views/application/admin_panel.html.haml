@@ -1,0 +1,18 @@
+#user_container
+  .title_section.center{:style => 'padding: 5px;'}="Welcome to Admin Panel"
+  .information_block
+    .application_admin_panel
+      %h1="Users"
+      = render :partial => 'application/panel_users'
+
+      %h1="Invitation"
+      = render :partial => 'application/panel_invitations'
+
+      %h1="Tags"
+      =Tag.all
+
+      %h1="Musics"
+      =Music.all
+
+      %h1="PnsQs"
+      =Pnsq.all

@@ -83,25 +83,25 @@
   		padding-left: 10px;
   		display: block;
   		color: #333333;
+  		-webkit-transition: 0.25s all;
+  		-ms-transition: 0.25s all;
+  		transition:0.25s all;
   		}
   	}
   	.header_sub_opt:hover {
-  		color: #333333;
+  		a {color: #fff;}
   		background-color: $background_header_hover;
   	}
   }
 }
 
-	.information_block {
-		padding: 5px;
-		margin: 5px;
-		margin-top: 0px;
-		border-radius: 5px;
-		background-color: $inside_block;
-
-		// Provisional
-		height: 200px;
-	}
+.information_block {
+	padding: 5px;
+	margin: 5px;
+	margin-top: 0px;
+	border-radius: 5px;
+	background-color: $inside_block;
+}
 
 
 #user_container {
@@ -109,7 +109,7 @@
 	margin: auto auto;
 	background-color: $main_block;
 	border-radius: 0 0 10px 10px;
-	// height: 100%;
+	padding-bottom: 5px;
 
 	.user_settings_block {
 		padding: 10px;

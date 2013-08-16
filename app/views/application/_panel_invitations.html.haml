@@ -1,0 +1,13 @@
+%table
+  %tr.invitation.title
+    %td.id="ID"
+    %td.email="Email"
+    %td.created_at="Created_at"
+    %td="Edit"
+  - for invitation in RequestInvitation.all
+    %tr.invitation
+      %td=invitation.id
+      %td.email=invitation.email
+      %td.created_at=invitation.created_at
+      %td=link_to('Edit',edit_request_invitation_path(invitation))
+     

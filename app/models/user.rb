@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :pnsqs, :dependent => :destroy
 
-	before_save :assign_rank
+	before_create :assign_rank
 	before_create :generate_remember_token
 
 
@@ -14,10 +14,17 @@ class User < ActiveRecord::Base
 	def assign_rank(options={})
 		if options.blank?
 			self.rank = 'DEFAULT'
-		elsif (options[:rank] == "BIG BOSS")
-			self.rank = options[:rank]
-		end
+    end
 	end
+
+  def admin?
+    self.rank == 'ADMIN' or legendary_soldier?
+  end
+
+  def legendary_soldier?
+    self.rank == 'BIG BOSS'
+  end
+
 
 	# Comprueba si el nick ha sido utilizado
 	# Change the nick if its the case

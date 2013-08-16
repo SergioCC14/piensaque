@@ -16,6 +16,11 @@
 					=current_user.nick
 					%i.icon-user
 			.header_sub_menu
+				- if current_user.admin?
+					.header_sub_opt
+						=link_to(admin_panel_path, :class => 'admin') do
+							%i.icon-chevron-right
+							="Admin Panel"
 				.header_sub_opt
 					=link_to(settings_user_path(current_user.nick)) do
 						%i.icon-gear

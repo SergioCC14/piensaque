@@ -23,4 +23,11 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  # Solo pueden pasar los administradores
+  def admin_panel
+    if !signed_in? or !current_user.admin?
+      redirect_to root_path
+    end
+  end
 end

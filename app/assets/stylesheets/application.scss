@@ -166,3 +166,18 @@ BODY{
     display: inline-block;
   }
 }
+
+
+.application_admin_panel {
+  table{
+    tr.title {
+      font-weight:bold;
+    }
+    tr.users {
+     width: auto;
+    }
+
+
+    
+  }
+}

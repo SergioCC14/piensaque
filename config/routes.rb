@@ -19,7 +19,10 @@ PiensaQue::Application.routes.draw do
 
   match '/:nick' => 'users#show', :as => 'user_nick'
   match '/users/:id/edit', :to => 'users#edit', :as => 'settings_user',:path => '/:nick/settings'
-  # get "home/index"
+
+
+  match 'admin_panel', :to => 'application#admin_panel', :as => 'admin_panel', :path => '/a/panel'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
