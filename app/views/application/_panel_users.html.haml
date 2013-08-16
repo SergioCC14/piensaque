@@ -11,19 +11,23 @@
     %td="Elect?"
     %td="Instr?"
     %td="Jazz?"
-    %td="Edit"
   - for user in User.all
-    %tr.users
-      %td=user.id
-      %td=user.nick
-      %td=user.name
-      %td=user.surname
-      %td=user.email
-      %td=user.rank
-      %td=user.mt_rock ? "Y" : "X"
-      %td=user.mt_pop ? "Y" : "X"
-      %td=user.mt_electronic ? "Y" : "X"
-      %td=user.mt_instrumental ? "Y" : "X"
-      %td=user.mt_jazz ? "Y" : "X"
-      %td=link_to('Edit',settings_user_path(user.nick))
-      -#Create a new edit for admins. 
+    = form_for user do |f|
+      %tr.users
+        %td=user.id
+        %td=f.text_field :nick, :id => "nick_#{user.id}"
+        %td=f.text_field :name, :id => "name_#{user.id}"
+        %td=f.text_field :surname, :id => "surname_#{user.id}"
+        %td=f.text_field :email, :id => "email_#{user.id}"
+        %td=f.text_field :rank, :id => "rank_#{user.id}"
+        %td=f.check_box :mt_rock, :id => "mt_rock_#{user.id}"
+        %td=f.check_box :mt_pop, :id => "mt_pop_#{user.id}"
+        %td=f.check_box :mt_electronic, :id => "mt_electronic_#{user.id}"
+        %td=f.check_box :mt_instrumental, :id => "mt_instrumental_#{user.id}"
+        %td=f.check_box :mt_jazz, :id => "mt_jazz_#{user.id}"
+        %td= f.submit 'E', :style => '', :class => 'submit_admin',:id => "save_#{user.id}"
+      
+      :javascript
+        $('#target').keyup(function() {
+          alert('Handler for .keyup() called.');
+        });

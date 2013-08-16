@@ -37,5 +37,5 @@ edit_request_invitation GET    /request_invitations/:id/edit(.:format) request_i
                   login        /login(.:format)                        sessions#index
               user_nick        /:nick(.:format)                        users#show
           settings_user        /:nick/settings(.:format)               users#edit
-            admin_panel        /admin_panel(.:format)                  application#admin_panel
+            admin_panel        /a/panel(.:format)                      application#admin_panel
                    root        /                                       application#index

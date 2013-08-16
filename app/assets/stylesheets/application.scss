@@ -174,10 +174,19 @@ BODY{
       font-weight:bold;
     }
     tr.users {
-     width: auto;
+      width: auto;
+      td {
+        width: 50px;
+        input{
+          width: 138px;
+        }
+        input.submit_admin {
+          width: 20px;
+        } 
+        select{
+          width: 138px;
+        }
+      }
     }
-
-
-    
   }
 }

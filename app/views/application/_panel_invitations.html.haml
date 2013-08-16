@@ -9,5 +9,4 @@
       %td=invitation.id
       %td.email=invitation.email
       %td.created_at=invitation.created_at
-      %td=link_to('Edit',edit_request_invitation_path(invitation))
-     
+      %td=link_to('Delete',request_invitation_path(invitation), :confirm => "Are you sure?", :method => :delete)

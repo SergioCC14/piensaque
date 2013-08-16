@@ -1,6 +1,5 @@
 class RequestInvitationsController < ApplicationController
   
-
   def index
     @request_invitations = RequestInvitation.all
 		@request_invitation = RequestInvitation.find(params[:request_invitation])
@@ -23,7 +22,6 @@ class RequestInvitationsController < ApplicationController
 
 	def create
 		@request_invitation = RequestInvitation.new(params[:request_invitation])
-
 		@request_invitation.save
 
 	  respond_to do |format|
@@ -31,5 +29,16 @@ class RequestInvitationsController < ApplicationController
 	    format.js { render }
 	  end
 	end
+
+  def destroy
+    @request_invitation = RequestInvitation.find(params[:id])
+    @request_invitation.destroy
+
+    respond_to do |format|
+      format.html { redirect_to admin_panel_path }
+      format.json {  }
+    end
+  end
+
 
 end
