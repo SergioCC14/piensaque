@@ -61,10 +61,9 @@
 		}
 	}
 	.user_menu:hover {
-		
 		cursor: pointer;
 		.main_content_user_menu {
-			background-color: $background_header_hover;
+			background-color: rgba(189, 189, 189, 0.1);
 		}
 
 		.header_sub_menu {
@@ -213,7 +212,7 @@
 		background-color: $header_color;
 		padding: 10px;
 		display: block;
-
+		position: fixed;
 	  left:0px;
 	  bottom:0px;
 

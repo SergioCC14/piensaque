@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130815202253) do
+ActiveRecord::Schema.define(:version => 20130815235210) do
 
   create_table "request_invitations", :force => true do |t|
     t.string   "email"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20130815202253) do
     t.boolean  "mt_electronic"
     t.boolean  "mt_instrumental", :default => true
     t.boolean  "mt_jazz"
+    t.string   "name"
+    t.string   "surname"
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"

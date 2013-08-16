@@ -7,11 +7,16 @@
         %div{:style => 'display:inline-block'}
           %table
             %tr.field
-              %td= f.label :email
-              %td= f.text_field :email, :class => 'default_field'
+              %td= f.label :name
+              %td
+                = f.text_field :name, :class => 'default_field', :style => 'width: 162px;'
+                = f.text_field :surname, :class => 'default_field', :style => 'width: 165px;'
             %tr.field
               %td= f.label :nick
               %td= f.text_field :nick, :class => 'default_field'
+            %tr.field
+              %td= f.label :email
+              %td= f.text_field :email, :class => 'default_field'
             %tr.actions
               %td{:colspan => 2}
                 %div{:style => 'padding-top: 20px; text-align:center;'}

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :rank, :nick, :password, :mt_rock, :mt_pop, :mt_electronic, :mt_instrumental, :mt_jazz
+  attr_accessible :email, :rank, :nick, :password, :name, :surname,:mt_rock, :mt_pop, :mt_electronic, :mt_instrumental, :mt_jazz
 
 	before_save :assign_rank
 	before_create :generate_remember_token

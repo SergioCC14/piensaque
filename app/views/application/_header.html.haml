@@ -1,4 +1,3 @@
-/ .header="PiensaQue"
 #header.pq_header
 	=link_to(root_path) do
 		.title="PiensaQue"
@@ -20,7 +19,7 @@
 				.header_sub_opt
 					=link_to(settings_user_path(current_user.nick)) do
 						%i.icon-gear
-						="Edit"
+						="Settings"
 				.header_sub_opt
 					=link_to(signout_path) do
 						%i.icon-signout
