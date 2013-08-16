@@ -4,12 +4,10 @@
   %b Email:
   = @user.email
 %p
-  %b Password:
-  = @user.password
+  %b Name:
+  = "#{@user.name} #{@user.surname}"
 %p
   %b Nick:
   = @user.nick
-
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+%p
+= link_to 'Back to Edit', settings_user_path(@user.nick)

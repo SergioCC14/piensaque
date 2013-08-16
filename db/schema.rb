@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130815235210) do
+ActiveRecord::Schema.define(:version => 20130816143136) do
+
+  create_table "pnsqs", :force => true do |t|
+    t.string   "audio"
+    t.text     "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "request_invitations", :force => true do |t|
     t.string   "email"
@@ -28,6 +35,15 @@ ActiveRecord::Schema.define(:version => 20130815235210) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.integer  "pnsq_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "tags", ["pnsq_id"], :name => "index_tags_on_pnsq_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"

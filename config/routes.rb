@@ -1,8 +1,8 @@
 PiensaQue::Application.routes.draw do
   
-  # resources :users
   resources :request_invitations
-
+  resources :tags
+  resources :pnsqs
 
   resources :users do
     member do

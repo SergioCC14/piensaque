@@ -5,6 +5,20 @@ edit_request_invitation GET    /request_invitations/:id/edit(.:format) request_i
      request_invitation GET    /request_invitations/:id(.:format)      request_invitations#show
                         PUT    /request_invitations/:id(.:format)      request_invitations#update
                         DELETE /request_invitations/:id(.:format)      request_invitations#destroy
+                   tags GET    /tags(.:format)                         tags#index
+                        POST   /tags(.:format)                         tags#create
+                new_tag GET    /tags/new(.:format)                     tags#new
+               edit_tag GET    /tags/:id/edit(.:format)                tags#edit
+                    tag GET    /tags/:id(.:format)                     tags#show
+                        PUT    /tags/:id(.:format)                     tags#update
+                        DELETE /tags/:id(.:format)                     tags#destroy
+                  pnsqs GET    /pnsqs(.:format)                        pnsqs#index
+                        POST   /pnsqs(.:format)                        pnsqs#create
+               new_pnsq GET    /pnsqs/new(.:format)                    pnsqs#new
+              edit_pnsq GET    /pnsqs/:id/edit(.:format)               pnsqs#edit
+                   pnsq GET    /pnsqs/:id(.:format)                    pnsqs#show
+                        PUT    /pnsqs/:id(.:format)                    pnsqs#update
+                        DELETE /pnsqs/:id(.:format)                    pnsqs#destroy
                   users GET    /users(.:format)                        users#index
                         POST   /users(.:format)                        users#create
                new_user GET    /users/new(.:format)                    users#new
@@ -21,6 +35,6 @@ edit_request_invitation GET    /request_invitations/:id/edit(.:format) request_i
                         DELETE /sessions/:id(.:format)                 sessions#destroy
                 signout        /signout(.:format)                      sessions#destroy
                   login        /login(.:format)                        sessions#index
-               url_nick        /:nick(.:format)                        users#show
+              user_nick        /:nick(.:format)                        users#show
           settings_user        /:nick/settings(.:format)               users#edit
                    root        /                                       application#index

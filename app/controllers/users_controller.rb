@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   include SessionsHelper
+  include ApplicationHelper
 
   before_filter :connected?, :except => [:show]
 
@@ -19,12 +20,13 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = !params[:id].blank? ? User.find(params[:id]) : User.find_by_nick(params[:nick])
-
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
+    if @user = !params[:id].blank? ? User.find(params[:id]) : User.find_by_nick(params[:nick])
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @user }
+      end
+    else
+      error404
     end
   end
 

@@ -2,21 +2,20 @@
   .user_settings_block
     .title_section="Settings"
     .information_block
-
       = form_for @user do |f|
-        %div{:style => 'display:inline-block'}
+        %div{:style => 'display:inline-block; width: 360px; margin-right:100px;'}
           %table
             %tr.field
-              %td= f.label :name
-              %td
-                = f.text_field :name, :class => 'default_field', :style => 'width: 162px;'
-                = f.text_field :surname, :class => 'default_field', :style => 'width: 165px;'
+              %td.label= f.label :name
+              %td.default_field_td
+                = f.text_field :name, :class => 'default_field', :style => 'width:155px;'
+                = f.text_field :surname, :class => 'default_field', :style => 'width: 150px'
             %tr.field
-              %td= f.label :nick
-              %td= f.text_field :nick, :class => 'default_field'
+              %td.label= f.label :nick
+              %td.default_field_td= f.text_field :nick, :class => 'default_field'
             %tr.field
-              %td= f.label :email
-              %td= f.text_field :email, :class => 'default_field'
+              %td.label= f.label :email
+              %td.default_field_td= f.text_field :email, :class => 'default_field'
             %tr.actions
               %td{:colspan => 2}
                 %div{:style => 'padding-top: 20px; text-align:center;'}

@@ -37,6 +37,27 @@ a {
   }
 }
 
+table {
+  width: 100%;
+}
+
+tr.field {
+  td.label {
+    min-width: 40px;
+  }
+  td.default_field_td {
+    input {
+      width: 100%;
+    display: inline-block;
+    }
+    
+  }
+ }
+
+.center {
+  text-align:center;
+}
+
 a.normal_link {
   color: $link_default; 
 }
