@@ -135,37 +135,6 @@
 
 		}
 
-		.new_message_panel {
-			padding: 5px;
-			margin: 5px;
-			margin-top: 0px;
-			border-radius: 5px;
-			background-color: $inside_block;
-			height: 60px;
-			.record_button {
-				display: inline-block;
-				font-size: 50px;
-				padding: 5px;
-				width: 50px;
-				text-align: center;
-			}
-			.record_button:hover {
-				cursor: pointer;
-				border-radius: 5px;
-				background-color: #D44137;
-				i {
-					color: white;
-				}
-			}
-
-      .text_wrapper{
-      	display: inline-block;
-      }
-      .tags_wrapper{
-      	display: inline-block;
-      }
-
-		}
 	}
 
 }

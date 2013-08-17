@@ -1,0 +1,61 @@
+@import "general_var";
+
+.new_pnsq_panel {
+  padding: 5px;
+  margin: 5px;
+  margin-top: 0px;
+  border-radius: 5px;
+  background-color: $inside_block;
+  border: 1px solid $inside_sub_block;
+  height: 73px;
+  width: 440px;
+  .record_button {
+    display: inline-block;
+    font-size: 50px;
+    padding: 5px;
+    width: 50px;
+    text-align: center;
+    position: relative;
+    top: -10px;
+  }
+  .record_button:hover {
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #D44137;
+    i {
+      color: white;
+    }
+  }
+
+  .right_zone {
+    display: inline-block;
+    width: 360px;
+    background-color: #C5C5C5;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    .text_wrapper{
+      display: block;
+      textarea {
+        font-size: 12px;
+        font-family: sans-serif;
+        height: 40px;
+        width: 345px;
+        border-radius: 5px;
+        border: none;
+        padding: 2px;
+      }
+    }
+    .tags_wrapper{
+      display: block;
+      input {
+        font-size: 12px;
+        font-family: sans-serif;
+        width: 345px;
+        border-radius: 5px;
+        border: none;
+        padding: 2px;
+      }
+    }
+  }
+}

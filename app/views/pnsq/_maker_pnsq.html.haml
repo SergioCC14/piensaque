@@ -1,0 +1,10 @@
+= form_for pnsq do |f|
+  %div{:style => 'margin: auto'}
+    .new_pnsq_panel
+      .record_button
+        %i.icon-microphone
+      .right_zone 
+        .text_wrapper
+          = f.text_area :text, :placeholder => 'Add text on your PnsQ...'
+        .tags_wrapper
+          %input{:placeholder => 'Tags...'}

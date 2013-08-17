@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
 
   def index
     @request_invitation = RequestInvitation.new
-    @session = Session.new 
+    @session = Session.new
+    @pnsq = Pnsq.new 
 
   end
 

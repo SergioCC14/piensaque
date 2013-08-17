@@ -29,12 +29,7 @@
     / | |       |                                          |
     / | --------- |Tags||Tags||Tags||Tags||Tags||Tags||Tags|
     / ------------------------------------------------------
-
-    .new_message_panel
-      .record_button
-        %i.icon-microphone
-      .text_wrapper="text_wrapper"
-      .tags_wrapper="tags_wrapper"
+    = render :partial => 'pnsq/maker_pnsq', :locals => {:pnsq => @pnsq}
 
 #footer_users
   .footer_link="About"
