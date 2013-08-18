@@ -26,7 +26,7 @@ class UsersController < ApplicationController
         format.json { render json: @user }
       end
     else
-      error500
+      error404
     end
   end
 
@@ -35,10 +35,17 @@ class UsersController < ApplicationController
   def new
     @user = User.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @user }
-    end
+    if current_user.legendary_soldier? 
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @user }
+      end
+    else
+      respond_to do |format|
+        format.html {redirect_to root_path}
+        format.json { render json: @user }
+      end
+    end    
   end
 
   # GET /users/1/edit
