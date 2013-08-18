@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :rank, :nick, :password, :name, :surname,:mt_rock, :mt_pop, :mt_electronic, :mt_instrumental, :mt_jazz, :avatar
 
   # Avatar
-  has_attached_file :avatar, :styles => { :cmedium => "300x300", :cthumb => "100x100" }, :default_url => "/home/sinak/Escritorio/piensaque_defaults/Avatar/avatar_default.png"
+  has_attached_file :avatar, :styles => { :cmedium => "300x300", :cthumb => "100x100" }, :default_url => "/system/users/avatars/avatar_default.png"
 
   has_many :pnsqs, :dependent => :destroy
 	before_create :assign_rank

@@ -184,18 +184,21 @@ BODY{
     }
     tr.users {
       width: auto;
-      td {
-        width: 50px;
-        input{
-          width: 138px;
-        }
-        input.submit_admin {
-          width: 20px;
-        } 
-        select{
-          width: 138px;
+      td.checkbox {
+        width: 30px;
+        img {
+          width: 30px;
         }
       }
+
+      td.text {
+        width: 30px;
+        input {
+          width: 120px;
+        }
+      }
+
+
     }
   }
 }

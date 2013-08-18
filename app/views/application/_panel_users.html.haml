@@ -1,30 +1,32 @@
 %table
   %tr.title.user
-    %td="ID"
-    %td="Nick"
-    %td="Name"
-    %td="Surname"
-    %td="Email"
-    %td="Rank"
-    %td="Rock?"
-    %td="Pop?"
-    %td="Elect?"
-    %td="Instr?"
-    %td="Jazz?"
+    %td.checkbox
+    %td.checkbox="ID"
+    %td.text="Nick"
+    %td.text="Name"
+    %td.text="Surname"
+    %td.text="Email"
+    %td.text="Rank"
+    %td.checkbox="Rock?"
+    %td.checkbox="Pop?"
+    %td.checkbox="Elect?"
+    %td.checkbox="Instr?"
+    %td.checkbox="Jazz?"
   - for user in User.all
     = form_for user do |f|
       %tr.users
-        %td=user.id
-        %td=f.text_field :nick, :id => "nick_#{user.id}"
-        %td=f.text_field :name, :id => "name_#{user.id}"
-        %td=f.text_field :surname, :id => "surname_#{user.id}"
-        %td=f.text_field :email, :id => "email_#{user.id}"
-        %td=f.text_field :rank, :id => "rank_#{user.id}"
-        %td=f.check_box :mt_rock, :id => "mt_rock_#{user.id}"
-        %td=f.check_box :mt_pop, :id => "mt_pop_#{user.id}"
-        %td=f.check_box :mt_electronic, :id => "mt_electronic_#{user.id}"
-        %td=f.check_box :mt_instrumental, :id => "mt_instrumental_#{user.id}"
-        %td=f.check_box :mt_jazz, :id => "mt_jazz_#{user.id}"
+        %td.checkbox=image_tag(user.avatar.url)
+        %td.checkbox=user.id
+        %td.text=f.text_field :nick, :id => "nick_#{user.id}"
+        %td.text=f.text_field :name, :id => "name_#{user.id}"
+        %td.text=f.text_field :surname, :id => "surname_#{user.id}"
+        %td.text=f.text_field :email, :id => "email_#{user.id}"
+        %td.text=f.text_field :rank, :id => "rank_#{user.id}"
+        %td.checkbox=f.check_box :mt_rock, :id => "mt_rock_#{user.id}"
+        %td.checkbox=f.check_box :mt_pop, :id => "mt_pop_#{user.id}"
+        %td.checkbox=f.check_box :mt_electronic, :id => "mt_electronic_#{user.id}"
+        %td.checkbox=f.check_box :mt_instrumental, :id => "mt_instrumental_#{user.id}"
+        %td.checkbox=f.check_box :mt_jazz, :id => "mt_jazz_#{user.id}"
         %td= f.submit 'E', :style => '', :class => 'submit_admin',:id => "save_#{user.id}"
       
       :javascript

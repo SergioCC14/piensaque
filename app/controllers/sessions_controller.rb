@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
   end
 
   def index
-
     if signed_in?
       respond_to do |format|
         format.html { redirect_to root_path }
@@ -24,12 +23,13 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = (User.find_by_password(params[:pass])) and 
-           ((User.find_by_nick(params[:email_or_nick])) or (User.find_by_email(params[:email_or_nick])))
+    # Busca al usuario por nombre o nick
+    user = (User.find_by_nick(params[:email_or_nick]) or User.find_by_email(params[:email_or_nick].downcase))
 
+    # Comprueba la contraseña para ese usuario
+    check_pass = user.blank? ? nil : params[:pass] == user.password
 
-
-    if user.blank?
+    if user.blank? or !check_pass
       respond_to do |format|
         format.html { redirect_to login_path }
         format.js {  }
