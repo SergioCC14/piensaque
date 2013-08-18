@@ -11,7 +11,9 @@
       %h1="Tags"
       =Tag.all
 
-      %h1="Musics"
+      %h1
+        ="Musics"
+        =link_to('+', new_music_path)
       =Music.all
 
       %h1="PnsQs"
