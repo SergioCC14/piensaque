@@ -3,6 +3,7 @@ PiensaQue::Application.routes.draw do
   resources :request_invitations
   resources :tags
   resources :pnsqs
+  resources :musics
 
   resources :users do
     member do

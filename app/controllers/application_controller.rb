@@ -18,6 +18,11 @@ class ApplicationController < ActionController::Base
 
   end
 
+  def rank_admin?
+    if !current_user.admin?
+      redirect_to root_path
+    end
+  end
 
   def connected?
     if !signed_in?
