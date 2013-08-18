@@ -26,7 +26,7 @@ class UsersController < ApplicationController
         format.json { render json: @user }
       end
     else
-      error404
+      error500
     end
   end
 
