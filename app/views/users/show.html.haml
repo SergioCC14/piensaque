@@ -1,13 +1,12 @@
 %p#notice= notice
 
+
+%div{:style => 'padding:20px; text-align: center; width: 100px;'}
+  %div{:style => 'font-size: 20px; padding-bottom: 10px;'}
+    %b="#{@user.nick}"
+  %div=image_tag(@user.avatar.url(:cthumb))
 %p
-  %b Email:
-  = @user.email
-%p
-  %b Name:
-  = "#{@user.name} #{@user.surname}"
-%p
-  %b Nick:
-  = @user.nick
+  
+  
 %p
 = link_to 'Back to Edit', settings_user_path(@user.nick)

@@ -34,4 +34,8 @@ PiensaQue::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Ruta para guardar los avatares
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+
 end

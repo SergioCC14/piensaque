@@ -83,10 +83,10 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to user_nick_path(@user.nick), notice: 'User was successfully updated.' }
-        format.json { head :no_content }
+        format.js { redirect_to root_path }
       else
         format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.js { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end

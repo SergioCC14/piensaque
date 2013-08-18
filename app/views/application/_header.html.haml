@@ -11,10 +11,9 @@
 				%i.icon-volume-up{:id => 'volume_up_down', :onclick => "if ($('i#volume_up_down').hasClass('icon-volume-up')) { $('i#volume_up_down').removeClass('icon-volume-up').addClass('icon-volume-off')} else {$('i#volume_up_down').removeClass('icon-volume-off').addClass('icon-volume-up')}"}
 
 		.user_menu
-			=link_to(user_nick_path(current_user.nick)) do
-				.main_content_user_menu
-					=current_user.nick
-					%i.icon-user
+			.main_content_user_menu
+				=current_user.nick
+				=image_tag(current_user.avatar.url(:cthumb))
 			.header_sub_menu
 				- if current_user.admin?
 					.header_sub_opt

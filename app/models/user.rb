@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :rank, :nick, :password, :name, :surname,:mt_rock, :mt_pop, :mt_electronic, :mt_instrumental, :mt_jazz
+  attr_accessible :email, :rank, :nick, :password, :name, :surname,:mt_rock, :mt_pop, :mt_electronic, :mt_instrumental, :mt_jazz, :avatar
+
+  # Avatar
+  has_attached_file :avatar, :styles => { :cmedium => "300x300", :cthumb => "100x100" }, :default_url => "/home/sinak/Escritorio/piensaque_defaults/Avatar/avatar_default.png"
 
   has_many :pnsqs, :dependent => :destroy
-
 	before_create :assign_rank
 	before_create :generate_remember_token
-
 
 	# Método para asignar permisos
 	# BIG_BOSS 	- Nivel alto
@@ -24,7 +25,6 @@ class User < ActiveRecord::Base
   def legendary_soldier?
     self.rank == 'BIG BOSS'
   end
-
 
 	# Comprueba si el nick ha sido utilizado
 	# Change the nick if its the case

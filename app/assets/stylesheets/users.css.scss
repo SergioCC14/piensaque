@@ -56,6 +56,11 @@
 		position: relative;
 		top: -5px;		
 		.main_content_user_menu {
+			img {
+				width: 40px;
+				position: relative;
+				top: 5px;
+			}
 			margin: -5px;
 			padding: 5px;
 		}
@@ -67,6 +72,7 @@
 		}
 
 		.header_sub_menu {
+			position: fixed;
 			display: table;
 		}
 	}
@@ -95,15 +101,6 @@
   }
 }
 
-.information_block {
-	padding: 5px;
-	margin: 5px;
-	margin-top: 0px;
-	border-radius: 5px;
-	background-color: $inside_block;
-}
-
-
 #user_container {
 	width: 980px;
 	margin: auto auto;
@@ -115,6 +112,25 @@
 		padding: 10px;
 		label {
 			min-height: 30px;
+		}
+		.information_block {
+			.avatar_block {
+				margin-left: 50px;
+				padding-bottom: 10px;
+				.avatar_img{
+					display: table-cell;
+					border-right: 10px transparent solid;
+					img {
+						border: 1px solid #C5C5C5;
+						box-shadow:  $green_letter 0px 0px 5px;
+					}
+				}
+				.avatar_change{
+					display: table-cell;
+					vertical-align: middle;	
+				}
+			
+			}
 		}
 	}
 
@@ -136,7 +152,6 @@
 		}
 
 	}
-
 }
 
 
