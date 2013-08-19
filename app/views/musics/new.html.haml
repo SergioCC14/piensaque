@@ -7,6 +7,9 @@
           %td.label= f.label :path
           %td.default_field_td= f.file_field :path, :class => 'default_field'
         %tr.field
+          %td.label= f.label :cover
+          %td.default_field_td= f.file_field :cover, :class => 'default_field'
+        %tr.field
           %td.label= f.label :title
           %td.default_field_td= f.text_field :title, :class => 'default_field'
         %tr.field
@@ -18,4 +21,6 @@
         %tr.field
           %td.label= f.label :genre
           %td.default_field_td= f.text_field :genre, :class => 'default_field'
+        %tr.field
+          %td.default_field_td{:colspan => 2, :style => 'border-top: 10px solid transparent; text-align: center;'}= f.submit(:class => 'default_submit', :style => 'background-color: #CCCCCC; height: 50px; font-size: 30px; width: 70%')
 

@@ -1,3 +1,5 @@
+-maxTags = 3
+
 = form_for pnsq do |f|
   %div{:style => 'margin: auto'}
     .new_pnsq_panel
@@ -5,6 +7,9 @@
         %i.icon-microphone
       .right_zone 
         .text_wrapper
-          = f.text_area :text, :placeholder => 'Add text on your PnsQ...'
-        .tags_wrapper
-          %input{:placeholder => 'Tags...'}
+          = f.text_area :text, :maxlength => 80, :placeholder => 'Add text on your PnsQ...'
+
+        - for mt in maxTags.times
+          = f.fields_for @tag do |t|
+            .tags_wrapper
+              = t.text_field(:name, :placeholder => 'Tags...', :id => 'tag_#{mt}')

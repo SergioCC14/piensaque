@@ -14,7 +14,8 @@ class ApplicationController < ActionController::Base
   def index
     @request_invitation = RequestInvitation.new
     @session = Session.new
-    @pnsq = Pnsq.new 
+    @pnsq = Pnsq.new
+    @tag = Tag.new 
 
   end
 
