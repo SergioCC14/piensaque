@@ -186,11 +186,15 @@ BODY{
       width: auto;
       td.checkbox {
         width: 30px;
+        
         img {
           width: 30px;
         }
       }
-
+      input[type="submit"] {
+          
+          padding: 0px;
+        }
       td.text {
         width: 30px;
         input {
