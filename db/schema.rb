@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130820162305) do
+ActiveRecord::Schema.define(:version => 20130820202755) do
 
   create_table "musics", :force => true do |t|
     t.text     "title"
@@ -81,6 +81,8 @@ ActiveRecord::Schema.define(:version => 20130820162305) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.boolean  "mt_country"
+    t.boolean  "mt_hiphop"
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"

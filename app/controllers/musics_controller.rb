@@ -29,7 +29,6 @@ class MusicsController < ApplicationController
   end
 
   def create
-    raise params[:music][:artist].inspect
     @music = Music.new(params[:music])
     # @Music.mp3toOgg 
     @music.save
