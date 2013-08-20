@@ -17,4 +17,5 @@
 #Paperclip
 /public/system/
 
-#/app/models/sanpedro.rb
+#
+/app/models/sanpedro.rb
