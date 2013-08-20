@@ -14,7 +14,7 @@
       %h1
         ="Musics"
         =link_to('+', new_music_path)
-      =Music.all
+      = render :partial => 'application/panel_music'
 
       %h1="PnsQs"
       =Pnsq.all

@@ -1,0 +1,25 @@
+%table
+  %tr.title.music
+    %td.checkbox="ID"
+    %td.checkbox="Cover"
+    %td.text="Title"
+    %td.text="Artist"
+    %td.text="Album"
+    %td.text="Genre"
+    %td.text="Type"
+    %td.text="Song"
+    %td.text="created_at" 
+  - for music in Music.all
+    = form_for(music, :remote => true) do |f|
+      %tr.music
+        %td.cover=music.id
+        %td.cover=image_tag(music.cover.url(:thumb))
+
+        %td.text=f.text_field :title, :id => "title#{music.id}"
+        %td.text=f.text_field :artist, :id => "artist#{music.id}"
+        %td.text=f.text_field :album, :id => "album#{music.id}"
+        %td.text=f.text_field :genre, :id => "genre#{music.id}"
+        %td.text=music.song_content_type
+        %td.text=audio_tag(music.song.url(:original), :autoplay => false, :controls => true, :type => music.song_content_type )
+        %td.text=f.text_field :created_at, :id => "created_at_#{music.id}"
+        %td= f.submit 'U', :style => '', :class => 'submit_admin',:id => "save_#{music.id}"

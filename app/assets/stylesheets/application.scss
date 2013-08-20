@@ -201,8 +201,32 @@ BODY{
           width: 120px;
         }
       }
-
-
     }
   }
+    tr.music {
+      width: auto;
+      td.cover {
+        width: 10px;
+        img {
+          width: 60px;
+        }
+      }
+      input[type="submit"] {
+          
+          padding: 0px;
+        }
+      td.text {
+        width: 30px;
+        audio {
+
+          position: relative;
+          top: -5px;
+          width: 250px;
+        }
+        input {
+          width: 120px;
+        }
+      }
+    }
+  
 }
