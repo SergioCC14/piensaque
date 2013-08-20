@@ -15,7 +15,6 @@
 /tmp
 
 #Paperclip
-/public/system
+/public/system/
 
-#
-/home/sinak/Escritorio/PiensaQue/app/models/sanpedro.rb
+#/app/models/sanpedro.rb
