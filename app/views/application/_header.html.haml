@@ -13,7 +13,7 @@
 		.user_menu
 			.main_content_user_menu
 				=current_user.nick
-				=image_tag(current_user.avatar.url(:cthumb))
+				=image_tag(current_user.avatar.url(:thumb))
 			.header_sub_menu
 				- if current_user.admin?
 					.header_sub_opt

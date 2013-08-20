@@ -5,7 +5,7 @@
       = form_for @user do |f|
         %div{:style => 'display:inline-block; width: 360px; margin-right:100px;'}
           .avatar_block
-            .avatar_img=image_tag(@user.avatar.url(:cthumb), :id => 'avatar_img')
+            .avatar_img=image_tag(@user.avatar.url(:thumb), :id => 'avatar_img')
             .avatar_change
               =(f.file_field :avatar, :style => 'display:none', :id => "file_field_avatar_for_#{@user.id}")
 
