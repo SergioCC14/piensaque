@@ -5,7 +5,7 @@
     %td.created_at="Created_at"
     %td="Edit"
   - for invitation in RequestInvitation.all
-    %tr.invitation
+    %tr.invitation{:style => cycle(nil, 'background-color: #C7C7C7; border-color:#BBBBBB')}
       %td=invitation.id
       %td.email=invitation.email
       %td.created_at=invitation.created_at

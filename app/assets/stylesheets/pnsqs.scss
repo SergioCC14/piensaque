@@ -1,14 +1,13 @@
 @import "general_var";
 
 .new_pnsq_panel {
-  padding: 5px;
-  margin: 5px;
-  margin-top: 0px;
+  padding-top: 3px;
+  padding-left: 5px;
   border-radius: 5px;
   background-color: $inside_block;
   border: 1px solid $inside_sub_block;
-  height: 73px;
-  width: 440px;
+  height: 67px;
+  width: 415px;
   .record_button {
     display: inline-block;
     font-size: 50px;
@@ -16,7 +15,7 @@
     width: 50px;
     text-align: center;
     position: relative;
-    top: -10px;
+    top: -11px;
   }
   .record_button:hover {
     cursor: pointer;
@@ -29,9 +28,7 @@
 
   .right_zone {
     display: inline-block;
-    width: 360px;
-    background-color: #C5C5C5;
-    padding: 5px;
+    width: 340px;
     text-align: center;
     border-radius: 5px;
     .text_wrapper{

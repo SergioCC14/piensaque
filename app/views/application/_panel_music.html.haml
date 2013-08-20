@@ -13,8 +13,8 @@
     %td.text="created_at" 
   - for music in Music.all
     = form_for(music, :remote => true) do |f|
-      %tr.music
-        %td.cover=music.id
+      %tr.music{:style => cycle(nil, 'background-color: #C7C7C7; border-color:#BBBBBB')}
+        %td.cover=link_to(music.id, music)
         %td.cover=image_tag(music.cover.url(:thumb))
 
         %td.text=f.text_field :title, :id => "title#{music.id}"

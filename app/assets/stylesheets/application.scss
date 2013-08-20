@@ -178,10 +178,16 @@ BODY{
 
 
 .application_admin_panel {
+  h1.title_panel {
+    cursor:pointer;
+  }
   table{
+    text-align: center;
     tr.title {
       font-weight:bold;
+      background-color:#AAAAAA;
     }
+
     tr.users {
       width: auto;
       td.checkbox {

@@ -43,11 +43,17 @@
               
               #taste_jazz.edit_musical_taste{:style => "background-color: #7F327F", :class => @user.mt_jazz ? "selected" : nil,:onclick => "check_mt('#taste_jazz','#user_mt_jazz')"}="Jazz"
 
+              #taste_country.edit_musical_taste{:style => "background-color: #7F77CF", :class => @user.mt_country ? "selected" : nil,:onclick => "check_mt('#taste_country','#user_mt_country')"}="Country"
+
+              #taste_hiphop.edit_musical_taste{:style => "background-color: #fff", :class => @user.mt_hiphop ? "selected" : nil,:onclick => "check_mt('#taste_hiphop','#user_mt_hiphop')"}="hiphop"
+
               = f.check_box :mt_rock, :style => 'display:none'
               = f.check_box :mt_pop, :style => 'display:none'
               = f.check_box :mt_electronic, :style => 'display:none'
               = f.check_box :mt_instrumental, :style => 'display:none'
               = f.check_box :mt_jazz, :style => 'display:none'
+              = f.check_box :mt_country, :style => 'display:none'
+              = f.check_box :mt_hiphop, :style => 'display:none'
 
 
               :javascript

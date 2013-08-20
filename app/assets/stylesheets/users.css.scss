@@ -156,8 +156,8 @@
 	}
 }
 
-
 .edit_musical_tastes {
+	max-width: 435px;
 	border-radius: 2px;
 	background-color: $inside_sub_block;
 	display: inline-block;
@@ -168,13 +168,13 @@
 		cursor: pointer;
 		display: inline-block;
 		border: solid 1px #3D3D3D;
-		width: 60px;
-		height: 60px;
+		width: 65px;
+		height: 65px;
 		margin: 9px;
 		background-color: red;
 		font-family: Droid, sans-serif ;
-		line-height: 65px;
-		font-size: 40px;
+		line-height: 70px;
+		font-size: 43px;
 	}
 
 	.edit_musical_taste.selected {

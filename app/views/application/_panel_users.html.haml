@@ -12,11 +12,13 @@
     %td.checkbox="Elect?"
     %td.checkbox="Instr?"
     %td.checkbox="Jazz?"
+    %td.checkbox="Countr?"
+    %td.checkbox="HipHop?"
   - for user in User.all
     = form_for(user, :remote => true) do |f|
-      %tr.users
+      %tr.users{:style => cycle(nil, 'background-color: #C7C7C7; border-color:#BBBBBB')}
         %td.checkbox=image_tag(user.avatar.url)
-        %td.checkbox=user.id
+        %td.checkbox=link_to(user.id, user)
         %td.text=f.text_field :nick, :id => "nick_#{user.id}"
         %td.text=f.text_field :name, :id => "name_#{user.id}"
         %td.text=f.text_field :surname, :id => "surname_#{user.id}"
@@ -27,6 +29,8 @@
         %td.checkbox=f.check_box :mt_electronic, :id => "mt_electronic_#{user.id}"
         %td.checkbox=f.check_box :mt_instrumental, :id => "mt_instrumental_#{user.id}"
         %td.checkbox=f.check_box :mt_jazz, :id => "mt_jazz_#{user.id}"
+        %td.checkbox=f.check_box :mt_country, :id => "mt_country#{user.id}"
+        %td.checkbox=f.check_box :mt_hiphop, :id => "mt_hiphop#{user.id}"
         %td= f.submit 'U', :style => '', :class => 'submit_admin',:id => "save_#{user.id}"
       
       :javascript
