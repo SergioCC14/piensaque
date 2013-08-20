@@ -1,0 +1,10 @@
+%p#notice= notice
+#user_container
+  .user_settings_block
+    .title_section="#{@music.title}"
+    %div{:style => 'padding:20px;'}
+      %div{:style => 'font-size: 20px; padding-bottom: 10px;'}
+      %div=@music.inspect
+      %div="Hola"
+      =audio_tag(@music.song.url(:original), :autoplay => true, :controls => true, :type => @music.song_content_type )
+      /=audio_tag(@music.song.url(:original), :controls => true)

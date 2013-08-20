@@ -11,10 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130819220416) do
+ActiveRecord::Schema.define(:version => 20130820162305) do
 
   create_table "musics", :force => true do |t|
-    t.string   "path"
     t.text     "title"
     t.text     "artist"
     t.text     "album"
@@ -25,6 +24,10 @@ ActiveRecord::Schema.define(:version => 20130819220416) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+    t.string   "song_file_name"
+    t.string   "song_content_type"
+    t.integer  "song_file_size"
+    t.datetime "song_updated_at"
   end
 
   create_table "pnsqs", :force => true do |t|

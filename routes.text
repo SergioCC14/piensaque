@@ -19,6 +19,13 @@ edit_request_invitation GET    /request_invitations/:id/edit(.:format) request_i
                    pnsq GET    /pnsqs/:id(.:format)                    pnsqs#show
                         PUT    /pnsqs/:id(.:format)                    pnsqs#update
                         DELETE /pnsqs/:id(.:format)                    pnsqs#destroy
+                 musics GET    /musics(.:format)                       musics#index
+                        POST   /musics(.:format)                       musics#create
+              new_music GET    /musics/new(.:format)                   musics#new
+             edit_music GET    /musics/:id/edit(.:format)              musics#edit
+                  music GET    /musics/:id(.:format)                   musics#show
+                        PUT    /musics/:id(.:format)                   musics#update
+                        DELETE /musics/:id(.:format)                   musics#destroy
                   users GET    /users(.:format)                        users#index
                         POST   /users(.:format)                        users#create
                new_user GET    /users/new(.:format)                    users#new

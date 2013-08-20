@@ -1,6 +1,5 @@
 PiensaQue::Application.configure do
 
-
   # Paperclip AWS
   config.paperclip_defaults = {
     :storage => :s3,

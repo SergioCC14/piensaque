@@ -13,6 +13,7 @@
                 $("#file_field_avatar_for_#{@user.id}").change(function(){
                   readURL(this, $('#avatar_img'));
                 });
+                
               %a{:class => 'normal_link', :onclick => "$('#file_field_avatar_for_#{@user.id}').click();"}='Change your avatar'
           %table
             %tr.field

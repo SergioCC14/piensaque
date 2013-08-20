@@ -1,4 +1,11 @@
 PiensaQue::Application.configure do
+
+  config.paperclip_defaults = {
+    :path => ":rails_root/public/system/:class/:attachment/:id_partition/:style/:filename",
+    :url => "http://localhost:3000/system/:class/:attachment/:id_partition/:style/:filename"
+  }
+
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on

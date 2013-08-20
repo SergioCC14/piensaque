@@ -11,6 +11,12 @@ gem 'pg'
 # Amazon Web Services SDK
 gem 'aws-sdk'
 
+# Amazon Web Services SDK (especifico para aws-s3) NO LO USAS POR AHORA
+gem 'aws-s3'
+
+# Metadatos para una cancion MP3
+gem 'ruby-mp3info', :require => 'mp3info'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

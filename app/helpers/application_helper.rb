@@ -7,4 +7,5 @@ module ApplicationHelper
   def error500
     render :file => ("public/500.html")  
   end
+
 end
