@@ -10,7 +10,7 @@
               =(f.file_field :avatar, :style => 'display:none', :id => "file_field_avatar_for_#{@user.id}")
 
               :javascript
-                $('#file_field_avatar_for_18').change(function(){
+                $("#file_field_avatar_for_#{user.id}").change(function(){
                   readURL(this, $('#avatar_img'));
                 });
               %a{:class => 'normal_link', :onclick => "$('#file_field_avatar_for_#{@user.id}').click();"}='Change your avatar'
