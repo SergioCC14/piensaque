@@ -25,7 +25,7 @@ class Music < ActiveRecord::Base
     ogg_url = url.gsub(/mp3/, "ogg")
 
     # Lo fuerzo a 128k
-    yup = %x[avconv -i #{path} -b 128k #{ogg_path}]
+    yup = %x[avconv -i #{path} -b 128k -acodec libvorbis #{ogg_path}]
 
     self.ogg_song_file_size     = File.size(ogg_path)       # => Tamaño
     self.ogg_song_content_type  = 'audio/mpeg'              # => Tipo
