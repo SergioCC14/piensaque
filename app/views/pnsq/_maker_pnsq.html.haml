@@ -7,7 +7,7 @@
         %i.icon-microphone
       .right_zone 
         .text_wrapper
-          = f.text_area :text, :maxlength => 80, :placeholder => 'Add text on your PnsQ...'
+          = f.text_area :text, :maxlength => 80, :overflow => 'hidden', :placeholder => 'Add text on your PnsQ...'
 
         - for mt in maxTags.times
           = f.fields_for @tag do |t|
