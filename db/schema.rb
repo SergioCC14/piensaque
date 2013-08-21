@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130821171211) do
+ActiveRecord::Schema.define(:version => 20130821185609) do
 
   create_table "musics", :force => true do |t|
     t.text     "title"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(:version => 20130821171211) do
     t.datetime "ogg_song_updated_at"
     t.string   "ogg_song_file_path"
     t.string   "ogg_song_file_url"
+  end
+
+  create_table "playlists", :force => true do |t|
+    t.string   "name"
+    t.string   "genre"
+    t.string   "order"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "pnsqs", :force => true do |t|

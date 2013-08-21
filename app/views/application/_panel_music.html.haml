@@ -25,9 +25,9 @@
         %td.text
           %audio{:controls => ""}
             %source{:src => music.ogg_song_file_url, :type => "audio/ogg"}
-              %source{:src => music.song.url(:original), :type => "audio/mpeg"}
-                Your browser does not support the audio element.
-          
+              - if !music.ogg_song_file_url.blank?
+                %source{:src => music.song.url(:original), :type => "audio/mpeg"}
+                  Your browser does not support the audio element.  
         %td.text
           - if !music.song.url.blank?
             ="Mp3"

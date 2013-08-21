@@ -3,12 +3,16 @@ class Music < ActiveRecord::Base
 
   attr_accessible  :title, :artist, :album, :genre, :song, :cover, :song_ogg
 
+  belongs_to :playlists
 
   has_attached_file :song
   has_attached_file :cover, :styles => {
-    thumb: '100x100>' ,
-    square: '200x200#' ,
-    medium: '300x300>' ,
+    icon:    '50x50#'   ,
+    thumb:   '100x100>' ,
+    cthumb:  '100x100#' ,
+    cmedium: '200x200>' ,
+    medium:  '200x200#' ,
+    cbig:    '300x300#' ,
   }
 
   # # # # # # # # # # # # # Funciones # # # # # # # # # # # # #

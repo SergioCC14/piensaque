@@ -3,13 +3,16 @@ class User < ActiveRecord::Base
 
   # Avatar
   has_attached_file :avatar, :styles => {
-    thumb: '100x100>' ,
-    square: '200x200#' ,
-    medium: '300x300>' ,
+    icon:    '50x50#'   ,
+    thumb:  '100x100>'  ,
+    cthumb:  '100x100#' ,
+    cmedium: '200x200>' ,
+    medium:  '200x200#' ,
+    cbig:    '300x300#' ,
   }, :default_url => "/system/users/avatars/avatar_default.png"
 
 
-
+  has_one :playlists, :dependent => :destroy
   has_many :pnsqs, :dependent => :destroy
 	before_create :assign_rank
 	before_create :generate_remember_token

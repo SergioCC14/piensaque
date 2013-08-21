@@ -29,6 +29,10 @@
     / | |       |                                          |
     / | --------- |Tags||Tags||Tags||Tags||Tags||Tags||Tags|
     / ------------------------------------------------------
+
+
+    %input{:type=> "file", :accept => "audio/*;capture=microphone"}
+    
     = render :partial => 'pnsq/maker_pnsq', :locals => {:pnsq => @pnsq}
 
 #footer_users
