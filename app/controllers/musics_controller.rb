@@ -3,6 +3,9 @@ class MusicsController < ApplicationController
   
   before_filter :rank_admin?
 
+  # before_filter :convert_to_ogg
+  # before_attachment_post_process :convert_to_ogg
+
   def index
     respond_to do |format|
       format.html 

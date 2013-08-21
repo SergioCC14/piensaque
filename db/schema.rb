@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130820202755) do
+ActiveRecord::Schema.define(:version => 20130821171211) do
 
   create_table "musics", :force => true do |t|
     t.text     "title"
     t.text     "artist"
     t.text     "album"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
     t.string   "genre"
     t.string   "cover_file_name"
     t.string   "cover_content_type"
@@ -28,6 +28,12 @@ ActiveRecord::Schema.define(:version => 20130820202755) do
     t.string   "song_content_type"
     t.integer  "song_file_size"
     t.datetime "song_updated_at"
+    t.string   "ogg_song_file_name"
+    t.string   "ogg_song_content_type"
+    t.integer  "ogg_song_file_size"
+    t.datetime "ogg_song_updated_at"
+    t.string   "ogg_song_file_path"
+    t.string   "ogg_song_file_url"
   end
 
   create_table "pnsqs", :force => true do |t|
