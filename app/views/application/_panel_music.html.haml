@@ -8,10 +8,11 @@
     %td.text="Artist"
     %td.text="Album"
     %td.text="Genre"
-    %td.text="Type"
-    %td.text="Song"
     %td.text="Formats"
-    %td.text="created_at" 
+    %td.text="Song"
+    %td.text="created_at"
+    %td.checkbox
+    %td.checkbox
   - for music in Music.all
     = form_for(music, :remote => true) do |f|
       %tr.music{:style => cycle(nil, 'background-color: #C7C7C7; border-color:#BBBBBB')}
@@ -21,18 +22,20 @@
         %td.text=f.text_field :artist, :id => "artist#{music.id}"
         %td.text=f.text_field :album, :id => "album#{music.id}"
         %td.text=f.text_field :genre, :id => "genre#{music.id}"
-        %td.text=music.song_content_type
         %td.text
+          - if !music.song.blank?
+            =music.song.content_type
+          - if !music.ogg_song.blank?
+            =music.ogg_song.content_type
+        %td.text
+
           %audio{:controls => ""}
-            %source{:src => music.song.url(:original), :type => "audio/mpeg"}
-              - if !music.ogg_song_file_url.blank?
-                %source{:src => music.ogg_song_file_url, :type => "audio/ogg"}
-                  Your browser does not support the audio element.  
-        %td.text
-          - if !music.song.url.blank?
-            ="Mp3"
-          - if !music.ogg_song_file_url.blank?
-            ="Ogg"
+            %source{:src => music.song.url(:original), :type => music.song.content_type}
+              - if !music.ogg_song.blank?
+                %source{:src => music.ogg_song.url(:original), :type => music.ogg_song.content_type}
+                  Your browser does not support the audio element.
+
 
         %td.text=music.created_at
         %td= f.submit 'U', :style => '', :class => 'submit_admin',:id => "save_#{music.id}"
+        %td=link_to('Delete',music_path(music), :confirm => "Are you sure?", :method => :delete)

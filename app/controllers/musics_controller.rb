@@ -21,6 +21,22 @@ class MusicsController < ApplicationController
     end
   end
 
+  # PUT /music/1
+  # PUT /music/1.json
+  def update
+    @music = Music.find(params[:id])
+
+    respond_to do |format|
+      if @music.update_attributes(params[:music])
+        format.html { redirect_to music_path, notice: 'Music was successfully updated.' }
+        format.js { redirect_to root_path }
+      else
+        format.html { render action: "edit" }
+        format.js { render json: @music.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def show
 
     @music = Music.find(params[:id])
@@ -33,9 +49,7 @@ class MusicsController < ApplicationController
 
   def create
     @music = Music.new(params[:music])
-    # @Music.mp3toOgg 
     @music.save
-
 
     respond_to do |format|
       format.html { redirect_to }

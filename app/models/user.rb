@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :rank, :nick, :password, :name, :surname,:mt_rock, :mt_pop, :mt_electronic, :mt_instrumental, :mt_jazz, :mt_hiphop, :mt_country, :avatar
 
-
   # Avatar
   has_attached_file :avatar, :styles => {
     icon:    '50x50#'   ,
@@ -12,6 +11,7 @@ class User < ActiveRecord::Base
     cbig:    '300x300#' ,
   }, :default_url => "/system/users/avatars/avatar_default.png"
 
+  validates_attachment :avatar, :content_type => { :content_type => "image/jpg" }
 
   has_one :playlists, :dependent => :destroy
   has_many :pnsqs, :dependent => :destroy

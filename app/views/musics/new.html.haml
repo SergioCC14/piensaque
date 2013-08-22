@@ -7,6 +7,9 @@
           %td.label= f.label :song
           %td.default_field_td= f.file_field :song, :class => 'default_field', :onchange => 'music_title.value = music_song.files[0].name'
         %tr.field
+          %td.label= f.label :song
+          %td.default_field_td= f.file_field :ogg_song, :class => 'default_field'
+        %tr.field
           %td.label= f.label :cover
           %td.default_field_td= f.file_field :cover, :class => 'default_field'
         %tr.field
