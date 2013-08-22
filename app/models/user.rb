@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :rank, :nick, :password, :name, :surname,:mt_rock, :mt_pop, :mt_electronic, :mt_instrumental, :mt_jazz, :mt_hiphop, :mt_country, :avatar
 
+
   # Avatar
   has_attached_file :avatar, :styles => {
     icon:    '50x50#'   ,
