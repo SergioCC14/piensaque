@@ -118,18 +118,28 @@
 			.avatar_block {
 				margin-left: 50px;
 				padding-bottom: 10px;
-				height: 85px;
+				height: 100;
+
 				.avatar_img{
+					background-position: center center;
+					background-size: cover !important;
 					display: table-cell;
 					border-right: 10px transparent solid;
+					width: 100px;
+					height: 100px;
+					border: 1px solid #C5C5C5;
+					box-shadow:  $green_letter 0px 0px 5px;
 					img {
-						width: 80px;
-						border: 1px solid #C5C5C5;
-						box-shadow:  $green_letter 0px 0px 5px;
+						display: none;
+						width: 100px;
+						//height: 100px;
+						box-shadow:  $green_letter 0px 0px 5px;					
 					}
+
 				}
 				.avatar_change{
 					display: table-cell;
+					border: 20px transparent solid;
 					vertical-align: middle;	
 				}
 			

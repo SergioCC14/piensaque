@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 
+// Cambia img
 function readURL(input, previewImg) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
@@ -25,3 +26,17 @@ function readURL(input, previewImg) {
     reader.readAsDataURL(input.files[0]);
   }
 }
+
+// Cambia background
+function loadPreview(input, previewImg) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+      
+    reader.onload = function (e) {
+      previewImg.attr('src', e.target.result);
+    }
+      
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+

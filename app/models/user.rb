@@ -4,14 +4,24 @@ class User < ActiveRecord::Base
   # Avatar
   has_attached_file :avatar, :styles => {
     icon:    '50x50#'   ,
-    thumb:  '100x100>'  ,
+    thumb:   '100x100>'  ,
     cthumb:  '100x100#' ,
     cmedium: '200x200>' ,
     medium:  '200x200#' ,
     cbig:    '300x300#' ,
   }, :default_url => "/system/users/avatars/avatar_default.png"
 
-  validates_attachment :avatar, :content_type => { :content_type => "image/jpg" }
+  validates_attachment  :avatar,
+                        :content_type => { 
+                                          :content_type =>
+                                                  ['image/jpeg',
+                                                  'image/pjpeg',                   
+                                                  'image/jpg',
+                                                  'image/png',
+                                                  'image/tif',
+                                                  'image/gif'],
+                                                   :message => "has to be a image"
+                                          }
 
   has_one :playlists, :dependent => :destroy
   has_many :pnsqs, :dependent => :destroy

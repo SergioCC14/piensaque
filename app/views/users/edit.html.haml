@@ -7,13 +7,16 @@
       = form_for @user do |f|
         %div{:style => 'display:inline-block; width: 360px; margin-right:100px;'}
           .avatar_block
-            .avatar_img=image_tag(@user.avatar.url(:thumb), :id => 'avatar_img')
+            .avatar_img{:style => "background: url(#{@user.avatar.url(:cmedium)})", :id => 'wrapper_user_avatar'}
+              =image_tag('',:id => 'avatar_img')
             .avatar_change
               =(f.file_field :avatar, :style => 'display:none', :id => "file_field_avatar_for_#{@user.id}")
 
               :javascript
                 $("#file_field_avatar_for_#{@user.id}").change(function(){
                   readURL(this, $('#avatar_img'));
+                  $('#avatar_img').show();
+                  $('#wrapper_user_avatar').css('background', 'none').css('box-shadow','none').css('border-color', 'transparent');
                 });
                 
               %a{:class => 'normal_link', :onclick => "$('#file_field_avatar_for_#{@user.id}').click();"}='Change your avatar'
