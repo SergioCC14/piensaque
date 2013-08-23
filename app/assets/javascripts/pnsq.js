@@ -15,14 +15,25 @@ if (hasGetUserMedia()) {
     alert('getUserMedia() is not supported in your browser');
 }
 
-// Funcion general para guardar el audio
-function record_audio() {
+// ------------------------- Generales -------------------------
+// START
+function start_record_audio() {
   if (!!navigator.mozGetUserMedia) {
-    record_audio_moz();
+    start_record_audio_moz();
   } else if (!!navigator.mozGetUserMedia) {
     record_audio_webkit();
   }
 }
+
+// STOP
+function stop_record_audio() {
+  if (!!navigator.mozGetUserMedia) {
+    stop_record_audio_moz();
+  } else if (!!navigator.mozGetUserMedia) {
+    record_audio_webkit();
+  }
+}
+
 
  var onFailSoHard = function(e) {
     console.log('Reeeejected!', e);
@@ -30,30 +41,61 @@ function record_audio() {
 
 
 // ------------------------- FIREFOX -------------------------
-  // Funcion para guardar audio (MOZ)
-  
-  function record_audio_moz() {
-    try {
-      window.navigator.mozGetUserMedia({audio: true}, function(stream) {
-        message.innerHTML = "<p>Success!</p>";
-        content.appendChild(audio);
-        audio.mozSrcObject = stream;
-        audio.play();
 
-      }, function(err) {
-        message.innerHTML = "<p class='error'>" + err + "</p>";
-        stopMedia();
-      });
-    } catch(e) {
-      message.innerHTML = "<p class='error'>" + e + "</p>";
+  var pnsq = document.createElement("audio");
+  pnsq.setAttribute("controls", true);
+
+// Funcion para guardar audio (MOZ - START)
+function start_record_audio_moz() {
+  try {
+    window.navigator.mozGetUserMedia({audio: true}, function(stream) {
+      // content.appendChild(audio);
+      pnsq.mozSrcObject = stream;
+      pnsq.play();
+
+    }, function(err) {
+      message.innerHTML = "<p class='error'>" + err + "</p>";
       stopMedia();
-    }
+    });
+  } catch(e) {
+    message.innerHTML = "<p class='error'>" + e + "</p>";
+    stopMedia();
   }
+}
+
+function pause_record_audio_moz() {
+  try {
+    window.navigator.mozGetUserMedia({audio: true}, function(stream) {
+      message.innerHTML = "<p>Success!</p>";
+      content.appendChild(pnsq);
+      pnsq.mozSrcObject = stream;
+      pnsq.play();
+
+    }, function(err) {
+      message.innerHTML = "<p class='error'>" + err + "</p>";
+      stop_record_audio_moz();
+    });
+  } catch(e) {
+    message.innerHTML = "<p class='error'>" + e + "</p>";
+    stop_record_audio_moz();
+  }
+}
+
+// MOZ - PAUSE
+function stop_record_audio_moz() {
+  pnsq.mozSrcObject.stop();
+  pnsq.mozSrcObject = null;
+  // content.removeChild(audio);
+  audio_status = false;
+  
+  saved_stream = null;
+
+}
 
 // ------------------------- WEBKIT -------------------------
-  // Funcion para guardar audio (WEBKIT)
-  var context = new window.webkitAudioContext();
+  // Funcion para guardar audio (WEBKIT - START)
   function record_audio_webkit() {
+    var context = new window.webkitAudioContext();
     navigator.webkitGetUserMedia({audio: true}, function(stream) {
       var microphone = context.createMediaStreamSource(stream);
       var filter = context.createBiquadFilter();

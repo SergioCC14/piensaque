@@ -1,4 +1,6 @@
 -maxTags = 3
+-#En content es donde se clava el audio
+#content
 = form_for pnsq do |f|
   %div{:style => 'margin: auto; display:table;'}
     .new_pnsq_panel
@@ -13,9 +15,14 @@
             .tags_wrapper
               = t.text_field(:name, :placeholder => 'Tags...', :id => 'tag_#{mt}')
 
+    %div{:id => 'stop_record', :style => 'cursor:pointer;'}="Stop record"
 
   :javascript
     $('#pnsq_microphone').click(function() {
       hasGetUserMedia();
-      record_audio();
+      start_record_audio();
+    });
+
+    $('#stop_record').click(function() {
+      stop_record_audio();
     });
