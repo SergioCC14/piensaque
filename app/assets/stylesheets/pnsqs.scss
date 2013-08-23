@@ -6,20 +6,29 @@
   border-radius: 5px;
   background-color: $inside_block;
   border: 1px solid $inside_sub_block;
-  height: 67px;
+  height: 64px;
   width: 415px;
   .record_button {
     display: inline-block;
-    font-size: 50px;
+   
     padding: 5px;
     width: 50px;
+    height: 50px;
     text-align: center;
     position: relative;
-    top: -11px;
+    background-color: $inside_sub_block;
+    border-radius: 5px;
+    i {
+      position: absolute;
+      line-height: 50px;
+      font-size: 50px;
+      left: 13px;
+      top: 8px;
+    }
   }
   .record_button:hover {
     cursor: pointer;
-    border-radius: 5px;
+    
     background-color: #D44137;
     i {
       color: white;

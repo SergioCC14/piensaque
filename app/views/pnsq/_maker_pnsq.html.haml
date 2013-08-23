@@ -1,9 +1,8 @@
 -maxTags = 3
-
 = form_for pnsq do |f|
   %div{:style => 'margin: auto; display:table;'}
     .new_pnsq_panel
-      .record_button
+      .record_button#pnsq_microphone
         %i.icon-microphone
       .right_zone 
         .text_wrapper
@@ -13,3 +12,10 @@
           = f.fields_for @tag do |t|
             .tags_wrapper
               = t.text_field(:name, :placeholder => 'Tags...', :id => 'tag_#{mt}')
+
+
+  :javascript
+    $('#pnsq_microphone').click(function() {
+      hasGetUserMedia();
+      record_audio();
+    });
