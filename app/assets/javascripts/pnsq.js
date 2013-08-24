@@ -9,19 +9,13 @@ function hasGetUserMedia() {
             navigator.mozGetUserMedia || navigator.msGetUserMedia);
   }
 
-if (hasGetUserMedia()) {
-
-} else {
-    alert('getUserMedia() is not supported in your browser');
-}
-
 // ------------------------- Generales -------------------------
 // START
 function start_record_audio() {
   if (!!navigator.mozGetUserMedia) {
     start_record_audio_moz();
-  } else if (!!navigator.mozGetUserMedia) {
-    record_audio_webkit();
+  } else if (!!navigator.webkitGetUserMedia) {
+    start_record_audio_webkit();
   }
 }
 
@@ -42,12 +36,6 @@ function stop_record_audio() {
     record_audio_webkit();
   }
 }
-
-
- var onFailSoHard = function(e) {
-    console.log('Reeeejected!', e);
-  }; 
-
 
 // ------------------------- FIREFOX -------------------------
 
@@ -96,15 +84,22 @@ function stop_record_audio_moz() {
 }
 
 // ------------------------- WEBKIT -------------------------
-  // Funcion para guardar audio (WEBKIT - START)
-  function record_audio_webkit() {
-    var context = new window.webkitAudioContext();
-    navigator.webkitGetUserMedia({audio: true}, function(stream) {
-      var microphone = context.createMediaStreamSource(stream);
-      var filter = context.createBiquadFilter();
+  var onFailSoHard = function(e) {
+    console.log('Reeeejected!', e);
+  };
 
-      // microphone -> filter -> destination.
-      microphone.connect(filter);
-      filter.connect(context.destination);
-    }, onFailSoHard);
-  }
+  
+// Funcion para guardar audio (WEBKIT - START)
+function start_record_audio_webkit() {
+
+  var context = new window.webkitAudioContext();
+
+  navigator.webkitGetUserMedia({audio: true}, function(stream) {
+    var microphone = context.createMediaStreamSource(stream);
+    var filter = context.createBiquadFilter();
+
+    // microphone -> filter -> destination.
+    microphone.connect(filter);
+    filter.connect(context.destination);
+  }, onFailSoHard);
+}
