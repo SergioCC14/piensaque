@@ -16,7 +16,10 @@
     height: 50px;
     text-align: center;
     position: relative;
-    background-color: $inside_sub_block;
+     background-color: $light_green_letter;
+     color: #3D3D3D;
+    // box-shadow: 0px 0px 3px 1px $light_green_letter;
+    // background-color: $inside_sub_block;
     border-radius: 30px;
     i {
       position: absolute;
@@ -30,19 +33,20 @@
   .record_button.recording {
     background-color: #56D656;
     color: #FFFFFF;
-    box-shadow: 0px 0px 5px #56D656;
+    box-shadow: 0px 0px 5px 1px #56D656;
     animation-duration: 1.25s;
     animation-name: recording;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 
-    -webkit-animation: recording 2s alternate infinite;
+    -webkit-animation: -webkit-recording 2s alternate infinite;
   }
 
   .record_button:hover {
     cursor: pointer;
     
     background-color: $light_green_letter;
+    box-shadow: 0px 0px 3px 1px $light_green_letter;
     i {
       color: white;
     }
@@ -64,6 +68,7 @@
         border: none;
         padding: 2px;
         resize: none;
+        outline: none;
       }
       textarea:focus {
         box-shadow: 0px 0px 5px #FFFFFF;
@@ -81,6 +86,7 @@
         border-radius: 0px 0px 5px 5px;
         border: none;
         padding: 2px;
+        outline: none;
       }
       input:focus {
         box-shadow: 0px 0px 5px #FFFFFF;

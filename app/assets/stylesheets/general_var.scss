@@ -20,27 +20,45 @@ $inside_sub_block: #C5C5C5;
 $background_header_hover: rgba(189, 189, 189, 0.5);
 
 
-//keyframes
+//KEYFRAMES
 @keyframes recording {
-  
   0% {
     background-color:#189618;
+    box-shadow: 0px 0px 3px 1px #189618;
     color: #FFFFFF;
   }
-
   33% {
     background-color: #3ABA3A;
+    box-shadow: 0px 0px 3px 1px #3ABA3A;
     color: #FFFFFF;
   }
-
-
-
   90% {
     background-color: $light_green_letter;
+    box-shadow: 0px 0px 3px 1px $light_green_letter;
     color: #FFFFFF;
   }
 }
 
+@-webkit-keyframes -webkit-recording {
+  0% {
+    background-color:#189618;
+    box-shadow: 0px 0px 3px 1px #189618;
+    color: #FFFFFF;
+  }
+  33% {
+    background-color: #3ABA3A;
+    box-shadow: 0px 0px 3px 1px #3ABA3A;
+    color: #FFFFFF;
+  }
+  90% {
+    background-color: $light_green_letter;
+    box-shadow: 0px 0px 3px 1px $light_green_letter;
+    color: #FFFFFF;
+  }
+}
+
+
+// En un futuro (Fondos molones)
 @keyframes color_one {
   0%    { opacity:0.8; }
   17%   { opacity:0.4; }
