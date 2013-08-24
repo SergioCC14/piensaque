@@ -1,11 +1,12 @@
 -maxTags = 3
--#En content es donde se clava el audio
-#content
+
 = form_for pnsq do |f|
   %div{:style => 'margin: auto; display:table;'}
     .new_pnsq_panel
       .record_button#pnsq_microphone
         %i.icon-microphone
+      -#En content es donde se clava el audio
+      #content{:style => 'display:none'}
       .right_zone 
         .text_wrapper
           = f.text_area :text, :maxlength => 80, :overflow => 'hidden', :placeholder => 'Add text on your PnsQ...'
@@ -16,13 +17,25 @@
               = t.text_field(:name, :placeholder => 'Tags...', :id => 'tag_#{mt}')
 
     %div{:id => 'stop_record', :style => 'cursor:pointer;'}="Stop record"
+    %div{:id => 'pause_record', :style => 'cursor:pointer;'}="Pause record"
 
   :javascript
     $('#pnsq_microphone').click(function() {
       hasGetUserMedia();
-      start_record_audio();
+      if (pnsq.mozSrcObject == null) {
+        $('#pnsq_microphone').addClass("recording")
+        start_record_audio();
+      } else {
+        stop_record_audio();
+        $('#pnsq_microphone').removeClass("recording")
+      }
+
     });
 
     $('#stop_record').click(function() {
       stop_record_audio();
+    });
+
+    $('#pause_record').click(function() {
+      pause_record_audio();
     });

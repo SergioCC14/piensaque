@@ -17,7 +17,7 @@
     text-align: center;
     position: relative;
     background-color: $inside_sub_block;
-    border-radius: 5px;
+    border-radius: 30px;
     i {
       position: absolute;
       line-height: 50px;
@@ -26,10 +26,23 @@
       top: 8px;
     }
   }
+
+  .record_button.recording {
+    background-color: #56D656;
+    color: #FFFFFF;
+    box-shadow: 0px 0px 5px #56D656;
+    animation-duration: 1.25s;
+    animation-name: recording;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+    -webkit-animation: recording 2s alternate infinite;
+  }
+
   .record_button:hover {
     cursor: pointer;
     
-    background-color: #D44137;
+    background-color: $light_green_letter;
     i {
       color: white;
     }
@@ -52,6 +65,9 @@
         padding: 2px;
         resize: none;
       }
+      textarea:focus {
+        box-shadow: 0px 0px 5px #FFFFFF;
+      }
     }
     .tags_wrapper{
       display: inline-block;
@@ -65,6 +81,9 @@
         border-radius: 0px 0px 5px 5px;
         border: none;
         padding: 2px;
+      }
+      input:focus {
+        box-shadow: 0px 0px 5px #FFFFFF;
       }
     }
   }

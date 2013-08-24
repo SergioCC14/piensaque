@@ -25,6 +25,15 @@ function start_record_audio() {
   }
 }
 
+// PAUSE
+function pause_record_audio() {
+  if (!!navigator.mozGetUserMedia) {
+    pause_record_audio_moz();
+  } else if (!!navigator.mozGetUserMedia) {
+    record_audio_webkit();
+  }
+}
+
 // STOP
 function stop_record_audio() {
   if (!!navigator.mozGetUserMedia) {
@@ -44,6 +53,7 @@ function stop_record_audio() {
 
   var pnsq = document.createElement("audio");
   pnsq.setAttribute("controls", true);
+  saved_stream = null;  //Para guardar el audio al pausar
 
 // Funcion para guardar audio (MOZ - START)
 function start_record_audio_moz() {
@@ -64,20 +74,13 @@ function start_record_audio_moz() {
 }
 
 function pause_record_audio_moz() {
-  try {
-    window.navigator.mozGetUserMedia({audio: true}, function(stream) {
-      message.innerHTML = "<p>Success!</p>";
-      content.appendChild(pnsq);
-      pnsq.mozSrcObject = stream;
-      pnsq.play();
-
-    }, function(err) {
-      message.innerHTML = "<p class='error'>" + err + "</p>";
-      stop_record_audio_moz();
-    });
-  } catch(e) {
-    message.innerHTML = "<p class='error'>" + e + "</p>";
-    stop_record_audio_moz();
+   if (saved_stream) {
+    pnsq.mozSrcObject = saved_stream;
+    pnsq.play();
+  } else {
+    pnsq.pause();
+    saved_stream = pnsq.mozSrcObject;
+    pnsq.mozSrcObject = null;    
   }
 }
 
