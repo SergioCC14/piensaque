@@ -90,10 +90,16 @@ a.landing_button:hover {
   cursor: pointer;
 
 }
-  .landing_enter {
-    width: 15%;
-    margin-bottom: 5px !important;
-  }
+a.landing_button:focus {
+
+  box-shadow: white 0px 0px 3px;
+  cursor: pointer;
+
+}
+.landing_enter {
+  width: 15%;
+  margin-bottom: 5px !important;
+}
 
 // Style for Admins
 a.admin:hover {
