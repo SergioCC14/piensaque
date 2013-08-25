@@ -38,11 +38,15 @@ function stop_record_audio() {
   }
 }
 
+// --------------------- APUNTES para MOZ ---------------------
+
+//window.URL
+//window.URL.createObjectURL(pnsq.mozSrcObject)
+
 // ------------------------- FIREFOX -------------------------
 
   var pnsq = document.createElement("audio");
   pnsq.setAttribute("controls", true);
-
   saved_stream = null;  //Para guardar el audio al pausar
 
 // Funcion para guardar audio (MOZ - START)
