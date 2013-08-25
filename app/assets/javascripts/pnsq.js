@@ -1,7 +1,8 @@
 // Tutoriales sacados de
-// http://www.html5rocks.com/en/tutorials/getusermedia/intro/
-// http://chimera.labs.oreilly.com/books/1234000001552/ch01.html#s01_2
-// http://mozilla.github.io/
+// // http://www.html5rocks.com/en/tutorials/getusermedia/intro/
+// // http://chimera.labs.oreilly.com/books/1234000001552/ch01.html#s01_2
+// // http://mozilla.github.io/ (mozilla)
+// // http://webaudiodemos.appspot.com/AudioRecorder/index.html (webkit)
 
 // Comprueba si el navegador soporta GetUserMedia()
 function hasGetUserMedia() {
@@ -24,7 +25,7 @@ function pause_record_audio() {
   if (!!navigator.mozGetUserMedia) {
     pause_record_audio_moz();
   } else if (!!navigator.mozGetUserMedia) {
-    record_audio_webkit();
+    pause_record_audio_webkit();
   }
 }
 
@@ -33,7 +34,7 @@ function stop_record_audio() {
   if (!!navigator.mozGetUserMedia) {
     stop_record_audio_moz();
   } else if (!!navigator.mozGetUserMedia) {
-    record_audio_webkit();
+    stop_record_audio_webkit();
   }
 }
 
@@ -41,10 +42,12 @@ function stop_record_audio() {
 
   var pnsq = document.createElement("audio");
   pnsq.setAttribute("controls", true);
+
   saved_stream = null;  //Para guardar el audio al pausar
 
 // Funcion para guardar audio (MOZ - START)
 function start_record_audio_moz() {
+
   try {
     window.navigator.mozGetUserMedia({audio: true}, function(stream) {
       // content.appendChild(audio);
@@ -84,14 +87,15 @@ function stop_record_audio_moz() {
 }
 
 // ------------------------- WEBKIT -------------------------
+  
+  // En caso de fallo
   var onFailSoHard = function(e) {
     console.log('Reeeejected!', e);
   };
 
   
-// Funcion para guardar audio (WEBKIT - START)
+// Funcion para guardar audio (WEBKIT - START) sin terminar
 function start_record_audio_webkit() {
-
   var context = new window.webkitAudioContext();
 
   navigator.webkitGetUserMedia({audio: true}, function(stream) {
@@ -101,5 +105,21 @@ function start_record_audio_webkit() {
     // microphone -> filter -> destination.
     microphone.connect(filter);
     filter.connect(context.destination);
+
+  }, onFailSoHard);
+}
+
+  
+// Funcion para guardar audio (WEBKIT - STOP) no hecho
+function stop_record_audio_webkit() {
+  var context = new window.webkitAudioContext();
+  navigator.webkitGetUserMedia({audio: true}, function(stream) {
+  var microphone = context.createMediaStreamSource(stream);
+  var filter = context.createBiquadFilter();
+
+    // microphone -> filter -> destination.
+    microphone.connect(filter);
+    filter.connect(context.destination);
+    
   }, onFailSoHard);
 }

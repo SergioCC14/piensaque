@@ -6,7 +6,11 @@
       .record_button#pnsq_microphone
         %i.icon-microphone
       -#En content es donde se clava el audio
-      #content{:style => 'display:none'}
+
+      %content{:style => 'display:none'}
+
+      %audio#audio_content{:controls => true}
+        %source#source_content{:src => ''}
       .right_zone 
         .text_wrapper
           = f.text_area :text, :maxlength => 80, :overflow => 'hidden', :placeholder => 'Add text on your PnsQ...'
