@@ -1,6 +1,5 @@
-- maxTags = 3
-
-= form_for pnsq do |f|
+-# Multipart (documentacion)
+= form_for(pnsq, :multipart => true) do |f|
   %div{:style => 'margin: auto; display:table;'}
     .new_pnsq_panel
       .record_button#pnsq_microphone
@@ -11,30 +10,30 @@
 
       %audio#audio_content{:controls => true, :style => 'display: none'}
         %source#source_content{:src => ''}
-        
+      //= f.file_field :audio, :id => 'audio_pnsq',:style => ''
+
       .right_zone 
         .text_wrapper
           = f.text_area :text, :maxlength => 80, :overflow => 'hidden', :placeholder => 'Add text on your PnsQ...'
 
-        - for mt in maxTags.times
-          = f.fields_for @tag do |t|
-            .tags_wrapper
-              = t.text_field(:name, :placeholder => 'Tags...', :id => 'tag_#{mt}')
+        = f.fields_for :tags do |t|
+          .tags_wrapper
+            = t.text_field(:name, :placeholder => 'Tags...', :id => "tag")
 
     %div{:id => 'stop_record', :style => 'cursor:pointer;'}="Stop record"
     %div{:id => 'pause_record', :style => 'cursor:pointer;'}="Pause record"
+    =f.submit
 
   :javascript
     $('#pnsq_microphone').click(function() {
       hasGetUserMedia();
-      if (pnsq.mozSrcObject == null) {
+      if (context.currentTime == 0) {
         $('#pnsq_microphone').addClass("recording")
         start_record_audio();
       } else {
         stop_record_audio();
         $('#pnsq_microphone').removeClass("recording")
       }
-
     });
 
     $('#stop_record').click(function() {

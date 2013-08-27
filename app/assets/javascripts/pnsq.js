@@ -4,6 +4,8 @@
 // // http://mozilla.github.io/ (mozilla)
 // // http://webaudiodemos.appspot.com/AudioRecorder/index.html (webkit)
 
+// // PARA WEBKIT: http://webaudiodemos.appspot.com/AudioRecorder/index.html
+
 // Comprueba si el navegador soporta GetUserMedia()
 function hasGetUserMedia() {
   return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
@@ -34,6 +36,7 @@ function stop_record_audio() {
   if (!!navigator.mozGetUserMedia) {
     stop_record_audio_moz();
   } else if (!!navigator.mozGetUserMedia) {
+    alert(1);
     stop_record_audio_webkit();
   }
 }
@@ -49,6 +52,7 @@ function stop_record_audio() {
   pnsq.setAttribute("controls", true);
   saved_stream = null;  //Para guardar el audio al pausar
 
+
 // Funcion para guardar audio (MOZ - START)
 function start_record_audio_moz() {
 
@@ -56,6 +60,7 @@ function start_record_audio_moz() {
     window.navigator.mozGetUserMedia({audio: true}, function(stream) {
       // content.appendChild(audio);
       pnsq.mozSrcObject = stream;
+
       pnsq.play();
 
     }, function(err) {
@@ -97,10 +102,11 @@ function stop_record_audio_moz() {
     console.log('Reeeejected!', e);
   };
 
-  
+  var context = new window.webkitAudioContext();
+
 // Funcion para guardar audio (WEBKIT - START) sin terminar
 function start_record_audio_webkit() {
-  var context = new window.webkitAudioContext();
+  
 
   navigator.webkitGetUserMedia({audio: true}, function(stream) {
     var microphone = context.createMediaStreamSource(stream);
@@ -116,14 +122,6 @@ function start_record_audio_webkit() {
   
 // Funcion para guardar audio (WEBKIT - STOP) no hecho
 function stop_record_audio_webkit() {
-  var context = new window.webkitAudioContext();
-  navigator.webkitGetUserMedia({audio: true}, function(stream) {
-  var microphone = context.createMediaStreamSource(stream);
-  var filter = context.createBiquadFilter();
+  context.stop();
 
-    // microphone -> filter -> destination.
-    microphone.connect(filter);
-    filter.connect(context.destination);
-    
-  }, onFailSoHard);
 }
