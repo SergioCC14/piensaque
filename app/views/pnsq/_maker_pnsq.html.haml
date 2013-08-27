@@ -1,4 +1,4 @@
--maxTags = 3
+- maxTags = 3
 
 = form_for pnsq do |f|
   %div{:style => 'margin: auto; display:table;'}
@@ -9,8 +9,9 @@
 
       %content{:style => 'display:none'}
 
-      %audio#audio_content{:controls => true}
+      %audio#audio_content{:controls => true, :style => 'display: none'}
         %source#source_content{:src => ''}
+        
       .right_zone 
         .text_wrapper
           = f.text_area :text, :maxlength => 80, :overflow => 'hidden', :placeholder => 'Add text on your PnsQ...'

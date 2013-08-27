@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
 
-    if current_user.legendary_soldier? 
+    if !current_user.blank? and current_user.legendary_soldier? 
       respond_to do |format|
         format.html # new.html.erb
         format.json { render json: @user }
