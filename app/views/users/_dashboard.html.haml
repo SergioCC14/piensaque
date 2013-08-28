@@ -12,7 +12,19 @@
     / Aquí todo el flujo de mensajes, todo el juego de la aplicación debe pasar por este panel
     / Hay que pensarlo por completo
     .information_block
-      ="Mensajes sin leer"
+      .column_top
+        -#Provisional
+        - for mt in 15.times
+          = render :partial => 'pnsq/pnsq_box'
+
+      %div{:style => 'display:inline-block; height: 400px; width: 50px;text-align: center;'}
+        %div{:style => 'background-color: #505050; margin-top: 15px; height: 90%; width: 1px; display:inline-block; '}
+
+      .column_discover
+        -#Provisional
+        - for mt in 15.times
+          = render :partial => 'pnsq/pnsq_box'
+
 
 
     / Este es el panel inferior para añadir nuevas grabaciones

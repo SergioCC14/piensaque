@@ -43,7 +43,7 @@ function stop_record_audio() {
 //window.URL
 //window.URL.createObjectURL(pnsq.mozSrcObject)
 
-// ------------------------- FIREFOX -------------------------
+// ----------------- FIREFOX (dejada de lado) ------------------
 
   var pnsq = document.createElement("audio");
   pnsq.setAttribute("controls", true);
