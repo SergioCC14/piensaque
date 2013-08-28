@@ -71,6 +71,7 @@ BODY{
       display: block;
       padding: 5px;
       background-color: $green_letter;
+      border-radius: 2px;
 
     .landing_info_block {
       text-align: center;
@@ -82,6 +83,7 @@ BODY{
       padding: 5px;
       color: $green_letter;
       font-size: 18px;
+      border-radius: 2px;
       .langing_info_block_level_2 {
         margin-top: 80px;
         .landing_info_text {
@@ -104,6 +106,7 @@ BODY{
       display: inline-block;
       background-color: #1B1813;
       color: $green_letter;
+      border-radius: 2px;
       .langing_login_block_level_2 {
         padding: 40px;
         

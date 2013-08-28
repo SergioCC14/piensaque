@@ -1,3 +1,6 @@
+# Documentacion:
+# http://railscasts.com/episodes/196-nested-model-form-part-1
+
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
@@ -12,9 +15,14 @@ class ApplicationController < ActionController::Base
   end
 
   def index
+    max_tags = 3
+
+
     @request_invitation = RequestInvitation.new
     @session = Session.new
     @pnsq = Pnsq.new
+    
+    max_tags.times{ @pnsq.tags.build }
     @tag = Tag.new 
 
   end

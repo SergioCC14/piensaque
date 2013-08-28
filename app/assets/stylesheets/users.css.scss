@@ -56,13 +56,13 @@
 		position: relative;
 		top: -5px;		
 		.main_content_user_menu {
+						margin: -5px;
+			padding:5px 5px 2px;
 			img {
 				width: 40px;
 				position: relative;
 				top: 5px;
 			}
-			margin: -5px;
-			padding: 5px;
 		}
 	}
 	.user_menu:hover {
@@ -80,7 +80,6 @@
   	display: none;
   	background-color: #201D19;
   	font-size: 20px;
-  	margin-top: 5px;
   	margin-right: -5px;
   	margin-left: -5px;
   	.header_sub_opt {

@@ -13,14 +13,17 @@
               %tr.field
                 %td.label= f.label :name
                 %td.default_field_td
-                  = f.text_field :name, :class => 'default_field', :style => 'width:155px;'
-                  = f.text_field :surname, :class => 'default_field', :style => 'width: 150px'
+                  = f.text_field :name, :required => true, :class => 'default_field', :style => 'width:137px;'
+                  = f.text_field :surname, :class => 'default_field', :style => 'width: 147px'
               %tr.field
                 %td.label= f.label :nick
-                %td.default_field_td= f.text_field :nick, :class => 'default_field'
+                %td.default_field_td= f.text_field :nick, :required => true, :class => 'default_field'
               %tr.field
                 %td.label= f.label :email
-                %td.default_field_td= f.text_field :email, :class => 'default_field'
+                %td.default_field_td= f.text_field :email, :required => true, :class => 'default_field'
+              %tr.field
+                %td.label= f.label :password
+                %td.default_field_td= f.password_field :password, :required => true, :class => 'default_field'
               %tr.actions
                 %td{:colspan => 2}
                   %div{:style => 'padding-top: 20px; text-align:center;'}
