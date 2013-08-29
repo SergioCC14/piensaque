@@ -176,19 +176,17 @@ BODY{
   margin-top: 0px;
   border-radius: 5px;
   background-color: $inside_block;
-  .column_top {
-    vertical-align: top;
-    display: inline-block;
-    padding: 10px;
-    width: 45%;
-  }
-  .column_discover {
+  .pnsq_column {
     vertical-align: top;
     text-align: right;
     display: inline-block;
-    width: 45%;
+    width: 375px;
     padding: 10px;
-    float: right;
+  }
+  .middle_zone {
+    display: inline-block;
+    width:150px;
+    height: 395px;
   }
 }
 

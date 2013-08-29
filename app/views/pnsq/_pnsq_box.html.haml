@@ -1,3 +1,11 @@
 -#El color de fondo variará dependiendo del tipo de música que suene en el monento en que se grabó
 
 .pnsq_box{:style => "background-color: #{cycle('#E24F4F','#97B959','#AEAEAE','#EEA83B','#945E94','#EEEEEE')}"}
+  
+  / =image_tag(current_user.avatar.url(:thumb))
+  .back_pnsq
+    .pnsq_user{:style => "background-image: url('#{current_user.avatar.url(:cthumb)}')"}
+    %i.icon-cloud.cloud_up
+    %i.icon-cloud.cloud_down
+  .pnsq_user_name="SergioCC14"
+

@@ -185,12 +185,20 @@ h3 {
   border-color: #9DCD45;
 }
 
-// No lo uso
-.vertical_line {
-  margin-top: 15px;
-  background-color: $background_normal;
-  border: 1px solid #505050;
-  height: 360px;
-  border-radius: 10px;
-  display: inline-block;
+.vl {
+  background-color: #A9A9A9;
+  width: 2px;
+  margin-top: 20%;
+  height: 85%;
+  margin: auto;
+  margin-top: 20%;
+  border-radius: 2px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }

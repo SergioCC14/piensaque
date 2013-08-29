@@ -1,6 +1,7 @@
 @import "general_var";
 
 .pnsq_box {
+  position: relative;
   display: inline-block;
   cursor: pointer;
   width: 60px;
@@ -9,6 +10,55 @@
   margin: 5px;
   background-color: #E24F4F;
   border-radius: 5px;
+  .pnsq_user {
+    width: 40px;
+    height: 40px;
+    background-color: #D7D7D7;
+    position: absolute;
+    z-index: 5;
+    top: 10px;
+    left: 18px;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: center center; 
+    background-size: cover;
+  
+  }
+  .pnsq_user_name {
+    color:#3D3D3D;
+    text-align: left;
+    position: relative;
+    top: 50px;
+  }
+  .back_pnsq {
+    position: absolute;
+    width: 75px;
+    height: 65px;
+    text-align: left;
+    margin: -5px;
+    overflow:hidden;
+    top: 10px;
+    i.icon-cloud {
+      color: #8DC6DA;
+      font-size: 50px;
+      line-height: 50px;
+      left: 3px;
+    }
+    .cloud_up:before{
+      transform: rotate(305deg);
+      -webkit-transform: rotate(305deg);
+      position: absolute;
+      left: -2px;
+    }
+    .cloud_down:before {
+      position: absolute;
+      top: 10px;
+      transform: rotate(125deg);
+      -webkit-transform: rotate(125deg);
+      left: 20px;
+    }
+  }
+
 }
 .pnsq_box:hover {
   opacity: 0.5;

@@ -5,22 +5,23 @@
       .image_user
       .name_user
         - if current_user.blank?
-          ="Hi, Unknown!"
+          ="Hi, Unknown! I caught you"
         - else
           ="Hi, #{current_user.nick}"
 
-    / Aquí todo el flujo de mensajes, todo el juego de la aplicación debe pasar por este panel
-    / Hay que pensarlo por completo
+
     .information_block
-      .column_top
+      -# Last
+      .pnsq_column
         -#Provisional
         - for mt in 15.times
           = render :partial => 'pnsq/pnsq_box'
 
-      %div{:style => 'display:inline-block; height: 400px; width: 50px;text-align: center;'}
-        %div{:style => 'background-color: #505050; margin-top: 15px; height: 90%; width: 1px; display:inline-block; '}
+      -# Discover/Top
+      .middle_zone
+        .vl
 
-      .column_discover
+      .pnsq_column.right
         -#Provisional
         - for mt in 15.times
           = render :partial => 'pnsq/pnsq_box'
@@ -41,7 +42,7 @@
     / ------------------------------------------------------
 
     
-    = render :partial => 'pnsq/maker_pnsq', :locals => {:pnsq => @pnsq}
+    -#= render :partial => 'pnsq/maker_pnsq', :locals => {:pnsq => @pnsq}
 
 #footer_users
   .footer_link="About"

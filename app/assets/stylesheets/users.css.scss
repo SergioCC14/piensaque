@@ -199,20 +199,21 @@
 
 
 #footer_users {
-		height: 20px;
-		width: 100%;
-		font-size: 12px;
-		font-family: arial;
-		color: $green_letter;
-		background-color: $header_color;
-		padding: 10px;
-		display: block;
-		position: fixed;
-	  left:0px;
-	  bottom:0px;
+	z-index: 20;
+	height: 20px;
+	width: 100%;
+	font-size: 12px;
+	font-family: arial;
+	color: $green_letter;
+	background-color: $header_color;
+	padding: 10px;
+	display: block;
+	position: fixed;
+  left:0px;
+  bottom:0px;
 
-		.footer_link {
-			margin: 5px;	
-			display: inline-block;
-		}
+	.footer_link {
+		margin: 5px;	
+		display: inline-block;
 	}
+}
