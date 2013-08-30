@@ -2,8 +2,7 @@
   .user_block
     / La idea es que aquí vaya informacion del usuario (Foto y Nombre)
     .name_user_block
-      .image_user
-      .name_user
+      .user_row
         - if current_user.blank?
           ="Hi, Unknown! I caught you"
         - else
@@ -12,16 +11,17 @@
 
     .information_block
       -# Last
-      .pnsq_column
+      .pnsq_column{:style => 'text-align: left;'}
         -#Provisional
         - for mt in 15.times
           = render :partial => 'pnsq/pnsq_box'
 
-      -# Discover/Top
-      .middle_zone
-        .vl
+      - if false
+        -# Discover/Top
+        .middle_zone
+          .vl
 
-      .pnsq_column.right
+      .pnsq_column{:style => 'float: right;'}
         -#Provisional
         - for mt in 15.times
           = render :partial => 'pnsq/pnsq_box'

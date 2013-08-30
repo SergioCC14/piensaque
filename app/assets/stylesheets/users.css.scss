@@ -12,7 +12,7 @@
 	padding: 5px;
 	height: 55px;
 	line-height: 55px;
-	// overflow: hidden;
+	box-shadow: 0px 1px 3px #9D9D9D;
 
 	a{
 		color: $green_letter;	
@@ -155,7 +155,7 @@
 			.image_user {
 
 			}
-     	.name_user {
+     	.user_row {
      		font-size: 30px;
      	}
 

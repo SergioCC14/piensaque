@@ -9,6 +9,7 @@
 			.actions{:style => 'margin-bottom: 0px;'}
 				= f.submit('Send',:class => 'default_submit')
 	- else
-		="The invitation was sent successfully."
-		="Maybe you want a coffee while you wait."
+		="The invitation was sent."
+		%div="This will take a few weeks."
+		%div="Maybe you want a coffee."
 		%i.icon-coffee
