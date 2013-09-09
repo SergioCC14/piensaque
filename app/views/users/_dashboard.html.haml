@@ -6,7 +6,10 @@
         - if current_user.blank?
           ="Hi, Unknown! I caught you"
         - else 
-          ="Hi, #{current_user.nick}"
+          .user_row_principal_text="#{current_user.nick.capitalize}"
+          .connections_panel
+            .follow="#{current_user.followers} Followers"
+            .follow="#{current_user.following} Following"
           .tools_panel
             %i.icon-inbox{:title => 'Answering'}
 

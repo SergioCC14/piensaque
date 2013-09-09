@@ -12,7 +12,7 @@
 	padding: 5px;
 	height: 55px;
 	line-height: 55px;
-	box-shadow: 0px 1px 3px #9D9D9D;
+	box-shadow: 0px 1px 3px #6C6C6C;
 
 	a{
 		color: $green_letter;	
@@ -153,11 +153,22 @@
 			}
      	.user_row {
      		font-size: 30px;
+        .user_row_principal_text {
+        	display: inline-block;
+        	width: 500px;
+          }
+     		.connections_panel {
+     			display: inline-block;
+     			.follow {
+     				padding-left: 25px; 
+     				display: inline-block;
+     			}
+     		}
      		.tools_panel {
      			float: right;
      			i {
      				cursor: pointer;
-     				line-height: 16px;
+     				line-height: 20px;
      			}
      			i:hover {
      				color: #505050;

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130822193255) do
+ActiveRecord::Schema.define(:version => 20130909171039) do
 
   create_table "musics", :force => true do |t|
     t.text     "title"
@@ -95,6 +95,8 @@ ActiveRecord::Schema.define(:version => 20130822193255) do
     t.datetime "avatar_updated_at"
     t.boolean  "mt_country"
     t.boolean  "mt_hiphop"
+    t.integer  "followers",           :default => 0
+    t.integer  "following",           :default => 0
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
