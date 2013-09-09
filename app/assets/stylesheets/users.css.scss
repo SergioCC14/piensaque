@@ -50,14 +50,12 @@
 	.user_menu {
 		font-size: 40px;
 		float: right;
-		padding-top: 5px;
-		padding-left: 5px;
-		padding-right: 5px;
+		padding: 5px;
 		position: relative;
 		top: -5px;		
 		.main_content_user_menu {
-						margin: -5px;
-			padding:5px 5px 2px;
+			margin: -5px;
+			padding:5px;
 			img {
 				width: 40px;
 				position: relative;
@@ -76,12 +74,12 @@
 		}
 	}
   .header_sub_menu {
+  	z-index: 20;
   	position: absolute;
   	display: none;
   	background-color: #201D19;
   	font-size: 20px;
-  	margin-right: -5px;
-  	margin-left: -5px;
+  	margin: 5px -5px 0;
   	.header_sub_opt {
   		a {
   		padding-right: 10px;
@@ -146,10 +144,8 @@
 
 	.user_block {
 		.name_user_block {
-			padding: 20px;
-			padding-bottom: 10px;
-			margin: 5px;
-			margin-top: 0px;
+			padding: 20px 25px 10px;
+			margin: 0 5px 5px;
 			
 			//background-color: #CCCCCC ;
 			.image_user {
@@ -157,10 +153,18 @@
 			}
      	.user_row {
      		font-size: 30px;
+     		.tools_panel {
+     			float: right;
+     			i {
+     				cursor: pointer;
+     				line-height: 16px;
+     			}
+     			i:hover {
+     				color: #505050;
+     			}
+     		}
      	}
-
 		}
-
 	}
 }
 

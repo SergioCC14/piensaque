@@ -26,6 +26,7 @@
   }
   .pnsq_user_name {
     font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
     color:#3D3D3D;
     font-size: 14px;
     text-align: left;
@@ -63,7 +64,10 @@
 
 }
 .pnsq_box:hover {
-  opacity: 0.5;
+  opacity: 0.9;
+  .pnsq_user_name {
+    color: #8DC6DA;
+  }
 }
 
 .new_pnsq_panel {

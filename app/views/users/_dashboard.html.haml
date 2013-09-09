@@ -5,9 +5,10 @@
       .user_row
         - if current_user.blank?
           ="Hi, Unknown! I caught you"
-        - else
+        - else 
           ="Hi, #{current_user.nick}"
-
+          .tools_panel
+            %i.icon-inbox{:title => 'Answering'}
 
     .information_block
       -# Last
@@ -43,8 +44,8 @@
 
     
     -#= render :partial => 'pnsq/maker_pnsq', :locals => {:pnsq => @pnsq}
-
-#footer_users
-  .footer_link="About"
-  .footer_link="|"
-  .footer_link="Contact "
+- if false
+  #footer_users
+    .footer_link="About"
+    .footer_link="|"
+    .footer_link="Contact "
