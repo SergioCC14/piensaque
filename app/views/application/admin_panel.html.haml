@@ -2,8 +2,6 @@
   .title_section.center{:style => 'padding: 5px;'}="Welcome to Admin Panel"
   .information_block
     .application_admin_panel
-      =Rails.root
-
       -#User
       %h1.title_panel{:onclick => "slidePanel($('#panel_users'))"}
         ="Users (#{User.all.count})"
