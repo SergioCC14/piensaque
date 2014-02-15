@@ -61,6 +61,6 @@ module PiensaQue
 
     # Precompilar Assets
     config.assets.initialize_on_precompile = false
-    config.assets.compile = true
+    config.assets.compile = false
   end
 end
