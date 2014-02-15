@@ -49,8 +49,6 @@ function stop_record_audio() {
 
   // Funcion para guardar audio (MOZ - START)
   function start_record_audio_moz() {
-    
-
     navigator.mozGetUserMedia({audio: true}, function(stream) {
       var microphone = context.createMediaStreamSource(stream);
       var filter = context.createBiquadFilter();
