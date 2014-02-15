@@ -2,9 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.15'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 #Postgres
 gem 'pg'
 
@@ -29,8 +26,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# jQuery
 gem 'jquery-rails'
-
 
 #Haml
 gem "haml-rails"
