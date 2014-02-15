@@ -10,8 +10,7 @@
           .connections_panel
             .follow="#{current_user.followers} Followers"
             .follow="#{current_user.following} Following"
-          .tools_panel
-            %i.icon-inbox{:title => 'Answering'}
+
 
     .information_block
       -# Last
@@ -47,6 +46,8 @@
 
     
     -#= render :partial => 'pnsq/maker_pnsq', :locals => {:pnsq => @pnsq}
+
+
 - if false
   #footer_users
     .footer_link="About"

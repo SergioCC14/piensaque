@@ -155,17 +155,19 @@
      		font-size: 30px;
         .user_row_principal_text {
         	display: inline-block;
-        	width: 500px;
+        	min-width: 200px;
           }
      		.connections_panel {
      			display: inline-block;
+          float: right;
      			.follow {
      				padding-left: 25px; 
      				display: inline-block;
      			}
      		}
      		.tools_panel {
-     			float: right;
+     			display: inline-block; 
+          float: right;
      			i {
      				cursor: pointer;
      				line-height: 20px;

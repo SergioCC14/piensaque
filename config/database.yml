@@ -3,15 +3,10 @@ development:
   encoding: unicode
   database: piensaque_dev
   host: localhost
-  pool: 5
-  username: sergio 
-  password: pass
+
 
 test:
   adapter: postgresql
   encoding: unicode
   database: piensaque_test
   host: localhost
-  pool: 5
-  username: sergio
-  password: pass
