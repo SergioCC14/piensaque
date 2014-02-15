@@ -24,6 +24,7 @@
     %div{:id => 'pause_record', :style => 'cursor:pointer;'}="Pause record"
     =f.submit
 
+
   :javascript
     $('#pnsq_microphone').click(function() {
       hasGetUserMedia();
@@ -35,6 +36,7 @@
         $('#pnsq_microphone').removeClass("recording")
       }
     });
+
 
     $('#stop_record').click(function() {
       stop_record_audio();

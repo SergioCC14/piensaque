@@ -41,38 +41,28 @@ function stop_record_audio() {
   }
 }
 
-// --------------------- APUNTES para MOZ ---------------------
-
-//window.URL
-//window.URL.createObjectURL(pnsq.mozSrcObject)
-
-// ----------------- FIREFOX (dejada de lado) ------------------
+// ----------------- FIREFOX ------------------
 
   var pnsq = document.createElement("audio");
-  pnsq.setAttribute("controls", true);
-  saved_stream = null;  //Para guardar el audio al pausar
+  var context = new window.AudioContext();
 
 
-// Funcion para guardar audio (MOZ - START)
-function start_record_audio_moz() {
+  // Funcion para guardar audio (MOZ - START)
+  function start_record_audio_moz() {
+    
 
-  try {
-    window.navigator.mozGetUserMedia({audio: true}, function(stream) {
-      // content.appendChild(audio);
-      pnsq.mozSrcObject = stream;
+    navigator.mozGetUserMedia({audio: true}, function(stream) {
+      var microphone = context.createMediaStreamSource(stream);
+      var filter = context.createBiquadFilter();
 
-      pnsq.play();
+      // microphone -> filter -> destination.
+      microphone.connect(filter);
+      filter.connect(context.destination);
 
-    }, function(err) {
-      message.innerHTML = "<p class='error'>" + err + "</p>";
-      stopMedia();
-    });
-  } catch(e) {
-    message.innerHTML = "<p class='error'>" + e + "</p>";
-    stopMedia();
+    }, onFailSoHard);
   }
-}
 
+// MOZ - PAUSE
 function pause_record_audio_moz() {
    if (saved_stream) {
     pnsq.mozSrcObject = saved_stream;
@@ -84,7 +74,7 @@ function pause_record_audio_moz() {
   }
 }
 
-// MOZ - PAUSE
+// MOZ - STOP
 function stop_record_audio_moz() {
   pnsq.mozSrcObject.stop();
   pnsq.mozSrcObject = null;
@@ -102,19 +92,19 @@ function stop_record_audio_moz() {
     console.log('Reeeejected!', e);
   };
 
-  var context = new window.webkitAudioContext();
+  var context_webkit = new window.webkitAudioContext();
 
 // Funcion para guardar audio (WEBKIT - START) sin terminar
 function start_record_audio_webkit() {
   
 
   navigator.webkitGetUserMedia({audio: true}, function(stream) {
-    var microphone = context.createMediaStreamSource(stream);
-    var filter = context.createBiquadFilter();
+    var microphone = context_webkit.createMediaStreamSource(stream);
+    var filter = context_webkit.createBiquadFilter();
 
     // microphone -> filter -> destination.
     microphone.connect(filter);
-    filter.connect(context.destination);
+    filter.connect(context_webkit.destination);
 
   }, onFailSoHard);
 }
@@ -122,6 +112,6 @@ function start_record_audio_webkit() {
   
 // Funcion para guardar audio (WEBKIT - STOP) no hecho
 function stop_record_audio_webkit() {
-  context.stop();
+  context_webkit.stop();
 
 }
