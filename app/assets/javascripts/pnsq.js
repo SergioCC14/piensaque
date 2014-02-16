@@ -3,8 +3,9 @@
 // // http://chimera.labs.oreilly.com/books/1234000001552/ch01.html#s01_2
 // // http://mozilla.github.io/ (mozilla)
 // // http://webaudiodemos.appspot.com/AudioRecorder/index.html (webkit)
-
 // // PARA WEBKIT: http://webaudiodemos.appspot.com/AudioRecorder/index.html
+
+// // Obj MediaStream: https://developer.mozilla.org/es/docs/WebRTC/MediaStream_API
 
 // Comprueba si el navegador soporta GetUserMedia()
 function hasGetUserMedia() {
@@ -36,7 +37,6 @@ function stop_record_audio() {
   if (!!navigator.mozGetUserMedia) {
     stop_record_audio_moz();
   } else if (!!navigator.mozGetUserMedia) {
-    alert(1);
     stop_record_audio_webkit();
   }
 }
@@ -44,11 +44,14 @@ function stop_record_audio() {
 // ----------------- FIREFOX ------------------
 
   var pnsq = document.createElement("audio");
-  var context = new window.AudioContext();
+  
 
 
   // Funcion para guardar audio (MOZ - START)
   function start_record_audio_moz() {
+
+    context = new window.AudioContext();
+
     navigator.mozGetUserMedia({audio: true}, function(stream) {
       var microphone = context.createMediaStreamSource(stream);
       var filter = context.createBiquadFilter();
@@ -63,20 +66,16 @@ function stop_record_audio() {
 // MOZ - PAUSE
 function pause_record_audio_moz() {
    if (saved_stream) {
-    pnsq.mozSrcObject = saved_stream;
     pnsq.play();
   } else {
     pnsq.pause();
-    saved_stream = pnsq.mozSrcObject;
-    pnsq.mozSrcObject = null;    
+    
+    
   }
 }
 
 // MOZ - STOP
 function stop_record_audio_moz() {
-  pnsq.mozSrcObject.stop();
-  pnsq.mozSrcObject = null;
-  // content.removeChild(audio);
   audio_status = false;
   
   saved_stream = null;
@@ -94,8 +93,6 @@ function stop_record_audio_moz() {
 
 // Funcion para guardar audio (WEBKIT - START) sin terminar
 function start_record_audio_webkit() {
-  
-
   navigator.webkitGetUserMedia({audio: true}, function(stream) {
     var microphone = context_webkit.createMediaStreamSource(stream);
     var filter = context_webkit.createBiquadFilter();
