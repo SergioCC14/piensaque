@@ -5,6 +5,8 @@
 // // http://webaudiodemos.appspot.com/AudioRecorder/index.html (webkit)
 // // PARA WEBKIT: http://webaudiodemos.appspot.com/AudioRecorder/index.html
 
+// // Guardar el Audio -> http://webaudiodemos.appspot.com/AudioRecorder/index.html
+
 // // Obj MediaStream: https://developer.mozilla.org/es/docs/WebRTC/MediaStream_API
 
 // Comprueba si el navegador soporta GetUserMedia()
@@ -13,100 +15,58 @@ function hasGetUserMedia() {
             navigator.mozGetUserMedia || navigator.msGetUserMedia);
   }
 
-// ------------------------- Generales -------------------------
 // START
 function start_record_audio() {
-  if (!!navigator.mozGetUserMedia) {
-    start_record_audio_moz();
-  } else if (!!navigator.webkitGetUserMedia) {
-    start_record_audio_webkit();
-  }
+
+  window.AudioContext = window.AudioContext || window.webkitAudioContext;
+
+  audioContext = new AudioContext();
+  audioInput = null;
+  //     realAudioInput = null,
+  inputPoint = null
+  audioRecorder = null;
+  // var rafID = null;
+  // var recIndex = 0;
+
+  if (!navigator.getUserMedia)
+      navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+  if (!navigator.cancelAnimationFrame)
+      navigator.cancelAnimationFrame = navigator.webkitCancelAnimationFrame || navigator.mozCancelAnimationFrame;
+  if (!navigator.requestAnimationFrame)
+      navigator.requestAnimationFrame = navigator.webkitRequestAnimationFrame || navigator.mozRequestAnimationFrame;
+
+  navigator.getUserMedia({audio:true}, gotStream, function(e) {
+      alert('Error getting audio');
+      console.log(e);
+  });
+
+
 }
 
 // PAUSE
 function pause_record_audio() {
-  if (!!navigator.mozGetUserMedia) {
-    pause_record_audio_moz();
-  } else if (!!navigator.mozGetUserMedia) {
-    pause_record_audio_webkit();
-  }
+
 }
 
 // STOP
 function stop_record_audio() {
-  if (!!navigator.mozGetUserMedia) {
-    stop_record_audio_moz();
-  } else if (!!navigator.mozGetUserMedia) {
-    stop_record_audio_webkit();
-  }
-}
-
-// ----------------- FIREFOX ------------------
-
-  var pnsq = document.createElement("audio");
-  
-
-
-  // Funcion para guardar audio (MOZ - START)
-  function start_record_audio_moz() {
-
-    context = new window.AudioContext();
-
-    navigator.mozGetUserMedia({audio: true}, function(stream) {
-      var microphone = context.createMediaStreamSource(stream);
-      var filter = context.createBiquadFilter();
-
-      // microphone -> filter -> destination.
-      microphone.connect(filter);
-      filter.connect(context.destination);
-
-    }, onFailSoHard);
-  }
-
-// MOZ - PAUSE
-function pause_record_audio_moz() {
-   if (saved_stream) {
-    pnsq.play();
-  } else {
-    pnsq.pause();
-    
-    
-  }
-}
-
-// MOZ - STOP
-function stop_record_audio_moz() {
-  audio_status = false;
-  
-  saved_stream = null;
 
 }
 
-// ------------------------- WEBKIT -------------------------
-  
-  // En caso de fallo
-  var onFailSoHard = function(e) {
-    console.log('Reeeejected!', e);
-  };
 
-  var context_webkit = new window.webkitAudioContext();
+// Sacadas de: http://webaudiodemos.appspot.com/AudioRecorder/index.html
+function gotStream(stream) {
+    inputPoint = audioContext.createGain();
 
-// Funcion para guardar audio (WEBKIT - START) sin terminar
-function start_record_audio_webkit() {
-  navigator.webkitGetUserMedia({audio: true}, function(stream) {
-    var microphone = context_webkit.createMediaStreamSource(stream);
-    var filter = context_webkit.createBiquadFilter();
+    // Create an AudioNode from the stream.
+    realAudioInput = audioContext.createMediaStreamSource(stream);
+    audioInput = realAudioInput;
+    audioInput.connect(inputPoint);
 
-    // microphone -> filter -> destination.
-    microphone.connect(filter);
-    filter.connect(context_webkit.destination);
+    audioRecorder = new Recorder( inputPoint );
 
-  }, onFailSoHard);
-}
-
-  
-// Funcion para guardar audio (WEBKIT - STOP) no hecho
-function stop_record_audio_webkit() {
-  context_webkit.stop();
-
+    zeroGain = audioContext.createGain();
+    zeroGain.gain.value = 0.0;
+    inputPoint.connect( zeroGain );
+    zeroGain.connect( audioContext.destination );
 }

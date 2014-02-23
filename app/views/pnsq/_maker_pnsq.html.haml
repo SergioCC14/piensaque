@@ -20,35 +20,17 @@
           = f.fields_for :tags do |t|
             .tags_wrapper
               = t.text_field(:name, :placeholder => 'Tags...', :id => "tag")
-    
-    %div{:id => 'play_record', :style => 'cursor:pointer; display: inline-block;'}="PLAY record"  
-    %div{:id => 'stop_record', :style => 'cursor:pointer; display: inline-block;'}="STOP record"
-    %div{:id => 'pause_record', :style => 'cursor:pointer; display: inline-block;'}="PAUSE record"
     =f.submit
-
 
   :javascript
     $('#pnsq_microphone').click(function() {
-      hasGetUserMedia();
-      if (context == 0) {
+      if ($(this).hasClass('recording')) {
+        stop_record_audio();
+        $('#pnsq_microphone').removeClass("recording");  
+      } else {
         $('#pnsq_microphone').addClass("recording")
         start_record_audio();
-      } else {
-        stop_record_audio();
-        $('#pnsq_microphone').removeClass("recording")
       }
     });
 
-
-    $('#play_record').click(function() {
-      start_record_audio();
-    });
-
-
-    $('#stop_record').click(function() {
-      stop_record_audio();
-    });
-
-    $('#pause_record').click(function() {
-      pause_record_audio();
-    });
+    start_record_audio();
