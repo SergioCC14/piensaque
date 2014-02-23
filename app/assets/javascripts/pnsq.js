@@ -15,18 +15,16 @@ function hasGetUserMedia() {
             navigator.mozGetUserMedia || navigator.msGetUserMedia);
   }
 
-// START
-function start_record_audio() {
-
+function init_record_audio() {
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
   audioContext = new AudioContext();
   audioInput = null;
-  //     realAudioInput = null,
   inputPoint = null
   audioRecorder = null;
   // var rafID = null;
   // var recIndex = 0;
+  // realAudioInput = null;
 
   if (!navigator.getUserMedia)
       navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
@@ -39,8 +37,12 @@ function start_record_audio() {
       alert('Error getting audio');
       console.log(e);
   });
+}
 
-
+// START
+function start_record_audio() {
+  audioRecorder.clear();
+  audioRecorder.record();
 }
 
 // PAUSE
@@ -50,23 +52,24 @@ function pause_record_audio() {
 
 // STOP
 function stop_record_audio() {
-
+  audioRecorder.stop();
+  audioRecorder.getBuffers( gotBuffers );
 }
 
 
 // Sacadas de: http://webaudiodemos.appspot.com/AudioRecorder/index.html
 function gotStream(stream) {
-    inputPoint = audioContext.createGain();
+  inputPoint = audioContext.createGain();
 
-    // Create an AudioNode from the stream.
-    realAudioInput = audioContext.createMediaStreamSource(stream);
-    audioInput = realAudioInput;
-    audioInput.connect(inputPoint);
+  // Create an AudioNode from the stream.
+  realAudioInput = audioContext.createMediaStreamSource(stream);
+  audioInput = realAudioInput;
+  audioInput.connect(inputPoint);
 
-    audioRecorder = new Recorder( inputPoint );
+  audioRecorder = new Recorder( inputPoint );
 
-    zeroGain = audioContext.createGain();
-    zeroGain.gain.value = 0.0;
-    inputPoint.connect( zeroGain );
-    zeroGain.connect( audioContext.destination );
+  zeroGain = audioContext.createGain();
+  zeroGain.gain.value = 0.0;
+  inputPoint.connect( zeroGain );
+  zeroGain.connect( audioContext.destination );
 }

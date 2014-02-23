@@ -22,6 +22,7 @@ DEALINGS IN THE SOFTWARE.
   var WORKER_PATH = '/assets/recorder.js';
 
   var Recorder = function(source, cfg){
+
     var config = cfg || {};
     var bufferLen = config.bufferLen || 4096;
     this.context = source.context;
