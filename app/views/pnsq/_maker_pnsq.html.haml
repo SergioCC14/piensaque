@@ -4,14 +4,9 @@
     .new_pnsq_panel
       .record_button#pnsq_microphone
         %i.icon-microphone
-      -#En content es donde se clava el audio
 
-      %content{:style => 'display:none'}
-
-      %audio#audio_content{:controls => true, :style => 'display: block'}
-        %source#source_content{:src => ''}
-      //= f.file_field :audio, :id => 'audio_pnsq',:style => ''
-
+      %content
+        #audio-file{:style => 'display:inline-block;'}="Fichero?"
       - if false #Para añadir texto
         .right_zone 
           .text_wrapper
@@ -20,7 +15,7 @@
           = f.fields_for :tags do |t|
             .tags_wrapper
               = t.text_field(:name, :placeholder => 'Tags...', :id => "tag")
-    =f.submit
+    -#=f.submit
 
   :javascript
     $('#pnsq_microphone').click(function() {
@@ -32,5 +27,3 @@
         start_record_audio();
       }
     });
-
-    init_record_audio();

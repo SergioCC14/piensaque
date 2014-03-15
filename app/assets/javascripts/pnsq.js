@@ -9,6 +9,7 @@
 
 // // Obj MediaStream: https://developer.mozilla.org/es/docs/WebRTC/MediaStream_API
 
+
 // Comprueba si el navegador soporta GetUserMedia()
 function hasGetUserMedia() {
   return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
@@ -22,16 +23,18 @@ function init_record_audio() {
   audioInput = null;
   inputPoint = null
   audioRecorder = null;
-  // var rafID = null;
-  // var recIndex = 0;
-  // realAudioInput = null;
+  recIndex = 0;
+  realAudioInput = null;
 
   if (!navigator.getUserMedia)
       navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
   if (!navigator.cancelAnimationFrame)
       navigator.cancelAnimationFrame = navigator.webkitCancelAnimationFrame || navigator.mozCancelAnimationFrame;
+
   if (!navigator.requestAnimationFrame)
       navigator.requestAnimationFrame = navigator.webkitRequestAnimationFrame || navigator.mozRequestAnimationFrame;
+
 
   navigator.getUserMedia({audio:true}, gotStream, function(e) {
       alert('Error getting audio');
@@ -58,6 +61,7 @@ function stop_record_audio() {
 
 
 // Sacadas de: http://webaudiodemos.appspot.com/AudioRecorder/index.html
+// Thanks you: Chris & Matt
 function gotStream(stream) {
   inputPoint = audioContext.createGain();
 
@@ -73,3 +77,21 @@ function gotStream(stream) {
   inputPoint.connect( zeroGain );
   zeroGain.connect( audioContext.destination );
 }
+
+function saveAudio() {
+    audioRecorder.exportWAV( doneEncoding );
+}
+
+function gotBuffers( buffers ) {
+    // the ONLY time gotBuffers is called is right after a new recording is completed - 
+    // so here's where we should set up the download.
+    audioRecorder.exportWAV( doneEncoding );
+}
+
+function doneEncoding( blob ) {
+    alert("doneEncoding");
+    Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
+    recIndex++;
+}
+
+window.addEventListener('load', init_record_audio );
