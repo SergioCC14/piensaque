@@ -107,4 +107,9 @@ class UsersController < ApplicationController
     end
   end
 
+  private
+    def user_params
+      params.require(:email, :rank).permit(:nick, :password, :name, :surname,:mt_rock, :mt_pop, :mt_electronic, :mt_instrumental, :mt_jazz, :mt_hiphop, :mt_country, :avatar, :updated_at, :created_at)
+    end
+
 end

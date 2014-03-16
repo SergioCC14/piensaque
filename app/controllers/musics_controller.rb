@@ -65,5 +65,8 @@ class MusicsController < ApplicationController
     end
   end
 
-
+  private
+    def user_params
+      params.require(:song).permit(:title, :artist, :album, :genre, :cover, :ogg_song, :updated_at, :created_at)
+    end
 end

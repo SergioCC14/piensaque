@@ -1,8 +1,6 @@
 class Music < ActiveRecord::Base
   # has_many :music_stores, :dependent => :destroy
 
-  attr_accessible  :title, :artist, :album, :genre, :song, :cover, :ogg_song
-
   belongs_to :playlists
 
   has_attached_file :song

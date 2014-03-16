@@ -15,13 +15,13 @@ PiensaQue::Application.routes.draw do
 
   resources :sessions
 
-  match '/signout', :to => 'sessions#destroy', :as => 'signout'
-  match '/sessions', :to => 'sessions#index', :as => 'login', :path => '/login'
+  get '/signout', :to => 'sessions#destroy', :as => 'signout'
+  get '/sessions', :to => 'sessions#index', :as => 'login', :path => '/login'
 
-  match '/:nick' => 'users#show', :as => 'user_nick'
-  match '/users/:id/edit', :to => 'users#edit', :as => 'settings_user',:path => '/:nick/settings'
+  get '/:nick' => 'users#show', :as => 'user_nick'
+  get '/users/:id/edit', :to => 'users#edit', :as => 'settings_user',:path => '/:nick/settings'
 
-  match 'admin_panel', :to => 'application#admin_panel', :as => 'admin_panel', :path => '/a/panel'
+  get 'admin_panel', :to => 'application#admin_panel', :as => 'admin_panel', :path => '/a/panel'
 
 
   # The priority is based upon order of creation:

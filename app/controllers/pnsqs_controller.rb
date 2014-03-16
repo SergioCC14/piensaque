@@ -82,4 +82,9 @@ class PnsqsController < ApplicationController
     end
   end
 
+  private
+    def pnsq_params
+      params.require(:audio, :text).permit(:updated_at, :created_at)
+    end
+
 end
