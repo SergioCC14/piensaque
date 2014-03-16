@@ -56,7 +56,7 @@ function pause_record_audio() {
 // STOP
 function stop_record_audio() {
   audioRecorder.stop();
-  audioRecorder.getBuffers( gotBuffers );
+  saveAudio();
 }
 
 
@@ -82,14 +82,7 @@ function saveAudio() {
     audioRecorder.exportWAV( doneEncoding );
 }
 
-function gotBuffers( buffers ) {
-    // the ONLY time gotBuffers is called is right after a new recording is completed - 
-    // so here's where we should set up the download.
-    audioRecorder.exportWAV( doneEncoding );
-}
-
 function doneEncoding( blob ) {
-    alert("doneEncoding");
     Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
     recIndex++;
 }

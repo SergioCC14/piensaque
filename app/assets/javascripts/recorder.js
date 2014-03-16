@@ -101,11 +101,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   };
 
   Recorder.setupDownload = function(blob, filename){
-    alert("setupDownload");
     var url = (window.URL || window.webkitURL).createObjectURL(blob);
     var link = document.getElementById("audio-file");
     link.href = url;
     link.download = filename || 'output.wav';
+
+    // $('#audio-file').attr('href', url);
+    // $('#audio-file').attr('download', filename || 'output.wav')
+
   }
 
   window.Recorder = Recorder;
