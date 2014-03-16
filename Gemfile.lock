@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     actionmailer (4.0.3)
       actionpack (= 4.0.3)
@@ -31,7 +31,7 @@ GEM
       builder
       mime-types
       xml-simple
-    aws-sdk (1.36.1)
+    aws-sdk (1.30.1)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
@@ -130,7 +130,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-s3
-  aws-sdk
+  aws-sdk (= 1.30.1)
   coffee-rails (~> 4.0.0)
   haml-rails
   jquery-rails

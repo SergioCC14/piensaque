@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.1.1"
 
 gem 'rails', '4.0.3'
 
@@ -6,7 +7,7 @@ gem 'rails', '4.0.3'
 gem 'pg'
 
 # Amazon Web Services SDK
-gem 'aws-sdk'
+gem 'aws-sdk', '1.30.1' # La necesita el paperclip para trabajar con S3
 
 # Amazon Web Services SDK (especifico para aws-s3) NO LO USAS POR AHORA
 gem 'aws-s3'
