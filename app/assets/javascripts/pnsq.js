@@ -9,6 +9,9 @@
 
 // // Obj MediaStream: https://developer.mozilla.org/es/docs/WebRTC/MediaStream_API
 
+// // File API (para blob) -> http://www.w3.org/TR/FileAPI/
+
+// // Blob -> https://developer.mozilla.org/en-US/docs/Web/API/Blob
 
 // Comprueba si el navegador soporta GetUserMedia()
 function hasGetUserMedia() {
