@@ -11,7 +11,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 (function(window){
 
-  var WORKER_PATH = 'assets/recorderWorker.js';
+  var WORKER_PATH = '/assets/recorderWorker.js';
 
   var Recorder = function(source, cfg){
 
@@ -103,6 +103,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   Recorder.setupDownload = function(blob, filename){
     var url = (window.URL || window.webkitURL).createObjectURL(blob);
     var link = document.getElementById("audio-file");
+
+    prueba = blob;
+    
     link.href = url;
     link.download = filename || 'output.wav';
 

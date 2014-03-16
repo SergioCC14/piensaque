@@ -6,6 +6,7 @@
         %i.icon-microphone
 
       %content
+        = f.file_field :audio, :style => 'display:block', :id => "audio-pnsq" 
         %a#audio-file{:style => 'display:inline-block;', :href => '#'}="Fichero?"
       - if false #Para añadir texto
         .right_zone 
@@ -15,7 +16,7 @@
           = f.fields_for :tags do |t|
             .tags_wrapper
               = t.text_field(:name, :placeholder => 'Tags...', :id => "tag")
-    -#=f.submit
+    =f.submit
 
   :javascript
     $('#pnsq_microphone').click(function() {
