@@ -62,6 +62,7 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
+
     @user = User.new(params[:user])
     used_nick = false
 
@@ -82,6 +83,9 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
+
+    raise params.inspect
+
     @user = User.find(params[:id])
 
     respond_to do |format|

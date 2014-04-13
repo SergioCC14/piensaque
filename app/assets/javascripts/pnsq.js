@@ -1,9 +1,7 @@
 // Tutoriales sacados de
 // // http://www.html5rocks.com/en/tutorials/getusermedia/intro/
 // // http://chimera.labs.oreilly.com/books/1234000001552/ch01.html#s01_2
-// // http://mozilla.github.io/ (mozilla)
 // // http://webaudiodemos.appspot.com/AudioRecorder/index.html (webkit)
-// // PARA WEBKIT: http://webaudiodemos.appspot.com/AudioRecorder/index.html
 
 // // Guardar el Audio -> http://webaudiodemos.appspot.com/AudioRecorder/index.html
 
@@ -12,6 +10,9 @@
 // // File API (para blob) -> http://www.w3.org/TR/FileAPI/
 
 // // Blob -> https://developer.mozilla.org/en-US/docs/Web/API/Blob
+
+// // Para subir un fichero Blob por JS -> http://stackoverflow.com/questions/15795678/upload-audio-recorded-in-browser-using-html5
+
 
 // Comprueba si el navegador soporta GetUserMedia()
 function hasGetUserMedia() {

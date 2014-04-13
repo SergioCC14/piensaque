@@ -6,8 +6,8 @@
         %i.icon-microphone
 
       %content
-        = f.file_field :audio, :style => 'display:block', :id => "audio-pnsq" 
         %a#audio-file{:style => 'display:inline-block;', :href => '#'}="Fichero?"
+
       - if false #Para añadir texto
         .right_zone 
           .text_wrapper
@@ -28,3 +28,28 @@
         start_record_audio();
       }
     });
+
+  :javascript
+    // Para la subida del fichero
+    function uploadForm() {
+      var form = new FormData(document.getElementById("new_pnsq"));
+      form.append("user_audio_blob", prueba);
+      var request = new XMLHttpRequest();
+      var async = true;
+      request.open("POST", "/pnsqs.js", async);
+      if (async) {
+          request.onreadystatechange = function() {
+              if(request.readyState == 4 && request.status == 200) {
+                  var response = null;
+                  try {
+                      response = JSON.parse(request.responseText);
+                  } catch (e) {
+                      response = request.responseText;
+                  }
+                  uploadFormCallback(response);
+              }
+          }
+      }
+      request.send(form);
+    }
+
