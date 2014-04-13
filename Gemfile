@@ -18,7 +18,9 @@ gem 'ruby-mp3info', :require => 'mp3info'
 # Gems used only for assets and not required
 # in production environments by default.
 
-
+group :production do
+  gem 'rails_12factor'
+end
 
 group :assets do
   gem 'sass-rails', '~> 4.0.0'
