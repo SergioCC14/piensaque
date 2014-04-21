@@ -34,7 +34,6 @@ class PnsqsController < ApplicationController
 
   # GET /pnsqs/1/edit
   def edit
-    
     respond_to do |format|
       format.html # edit.html.erb
       format.json { render json: @user }

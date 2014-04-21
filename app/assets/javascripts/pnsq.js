@@ -52,15 +52,15 @@ function start_record_audio() {
   audioRecorder.record();
 }
 
-// PAUSE
-function pause_record_audio() {
-
-}
-
-// STOP
-function stop_record_audio() {
+// STOP: Se le pasa el ID del formulario que va a ser mandado
+function stop_record_audio(form_id) {
   audioRecorder.stop();
   saveAudio();
+  
+  setTimeout(
+      function() {
+        uploadForm(form_id)
+      }, 5);
 }
 
 
@@ -91,4 +91,26 @@ function doneEncoding( blob ) {
     recIndex++;
 }
 
-window.addEventListener('load', init_record_audio );
+// Para la subida del fichero
+function uploadForm(form_id) {
+  var form = new FormData(document.getElementById(form_id));
+  form.append("user_audio_blob", pnsq_audio);
+  var request = new XMLHttpRequest();
+  var async = true;
+  request.open("POST", "/pnsqs.js", async);
+  if (async) {
+      request.onreadystatechange = function() {
+          if(request.readyState == 4 && request.status == 200) {
+              var response = null;
+              try {
+                  response = JSON.parse(request.responseText);
+              } catch (e) {
+                  response = request.responseText;
+              }
+              uploadFormCallback(response);
+          }
+      }
+  }
+  request.send(form);
+}
+

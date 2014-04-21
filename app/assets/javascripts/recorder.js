@@ -104,8 +104,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     var url = (window.URL || window.webkitURL).createObjectURL(blob);
     var link = document.getElementById("audio-file");
 
-    prueba = blob;
-    
+    pnsq_audio = blob;
     link.href = url;
     link.download = filename || 'output.wav';
 
