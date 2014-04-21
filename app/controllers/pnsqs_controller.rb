@@ -43,13 +43,13 @@ class PnsqsController < ApplicationController
 
   # POST /pnsqs
   def create
-    raise params.inspect
-    @pnsq = Pnsq.new(params[:pnsq])
-
-
-    respond_to do |format|
-      format.html { redirect_to }
-      format.js { render }
+    if (@pnsq = Pnsq.new(params[:pnsq]))
+      respond_to do |format|
+        format.html { redirect_to home_path, notice: 'Pnsq was successfully updated.' }
+        format.js { render }
+      end
+    else
+      error404
     end
   end
 

@@ -60,7 +60,7 @@ function stop_record_audio(form_id) {
   setTimeout(
       function() {
         uploadForm(form_id)
-      }, 5);
+      }, 50);
 }
 
 
@@ -94,7 +94,7 @@ function doneEncoding( blob ) {
 // Para la subida del fichero
 function uploadForm(form_id) {
   var form = new FormData(document.getElementById(form_id));
-  form.append("user_audio_blob", pnsq_audio);
+  form.append("audio", pnsq_audio);
   var request = new XMLHttpRequest();
   var async = true;
   request.open("POST", "/pnsqs.js", async);
