@@ -48,7 +48,7 @@ class MusicsController < ApplicationController
   end
 
   def create
-    @music = Music.new(params[:music])
+    @music = Music.new(music_params)
     @music.save
 
     respond_to do |format|
@@ -66,7 +66,7 @@ class MusicsController < ApplicationController
   end
 
   private
-    def user_params
-      params.require(:song).permit(:title, :artist, :album, :genre, :cover, :ogg_song, :updated_at, :created_at)
+    def music_params
+      params.require(:music).permit(:song, :title, :artist, :album, :genre, :cover, :ogg_song, :updated_at, :created_at)
     end
 end

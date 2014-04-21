@@ -94,7 +94,7 @@ function doneEncoding( blob ) {
 // Para la subida del fichero
 function uploadForm(form_id) {
   var form = new FormData(document.getElementById(form_id));
-  form.append("audio", pnsq_audio);
+  form.append("pnsq[audio]", pnsq_audio);
   var request = new XMLHttpRequest();
   var async = true;
   request.open("POST", "/pnsqs.js", async);

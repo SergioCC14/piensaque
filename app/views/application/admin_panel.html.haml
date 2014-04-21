@@ -26,7 +26,7 @@
       %h1.title_panel{:onclick => "slidePanel($('#panel_pnsqs'))"}
         ="PnsQs(#{Pnsq.all.count})"
       #panel_pnsqs{:style => 'display:none'}
-        =Pnsq.all
+        = render :partial => 'application/panel_pnsq'
 
       -#Tags
       %h1.title_panel{:onclick => "slidePanel($('#panel_tag'))"}

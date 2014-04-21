@@ -1,0 +1,26 @@
+-#Pensar en añadir año
+
+%table
+  %tr.title.music
+    %td.cover="ID"
+    %td.text="Text"
+    %td.text="Audio"
+    %td.text="created_at"
+    %td.cover
+    %td.cover
+  - for pnsq in Pnsq.all
+    = form_for(pnsq, :remote => true) do |f|
+      %tr.pnsq{:style => cycle(nil, 'background-color: #C7C7C7; border-color:#BBBBBB')}
+        %td.cover=link_to(pnsq.id, pnsq)
+        %td.text=pnsq.text
+          
+        %td.text
+
+          %audio{:controls => ""}
+            %source{:src => pnsq.audio.url(:original), :type => pnsq.audio.content_type}
+
+
+        %td.text=pnsq.created_at
+        %td= f.submit 'U', :style => '', :class => 'submit_admin',:id => "save_#{pnsq.id}"
+        %td=link_to('Delete',pnsq_path(pnsq), :confirm => "Are you sure?", :method => :delete)
+

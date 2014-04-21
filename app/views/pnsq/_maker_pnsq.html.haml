@@ -12,6 +12,7 @@
           .text_wrapper
             = f.text_area :text, :maxlength => 80, :overflow => 'hidden', :placeholder => 'Add text on your PnsQ...'
 
+          
           = f.fields_for :tags do |t|
             .tags_wrapper
               = t.text_field(:name, :placeholder => 'Tags...', :id => "tag")

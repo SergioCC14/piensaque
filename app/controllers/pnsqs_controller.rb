@@ -43,10 +43,17 @@ class PnsqsController < ApplicationController
 
   # POST /pnsqs
   def create
-    if (@pnsq = Pnsq.new(params[:pnsq]))
+    # TODO:
+    # Primero hay que comprobar si le llegan los parámetros
+    # Luego lo creamos
+
+    if (@pnsq = Pnsq.create(pnsq_params))
+
+      
+
       respond_to do |format|
         format.html { redirect_to home_path, notice: 'Pnsq was successfully updated.' }
-        format.js { render }
+        format.js { render :nothing => true }
       end
     else
       error404
@@ -83,7 +90,7 @@ class PnsqsController < ApplicationController
 
   private
     def pnsq_params
-      params.require(:audio, :text).permit(:updated_at, :created_at)
+      params.require(:pnsq).permit(:text, :audio, :tags, :updated_at, :created_at)
     end
 
 end
