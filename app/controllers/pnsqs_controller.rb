@@ -90,7 +90,7 @@ class PnsqsController < ApplicationController
 
   private
     def pnsq_params
-      params.require(:pnsq).permit(:text, :audio, :tags, :updated_at, :created_at)
+      params.require(:pnsq).permit(:text, :audio, :tags, :user_id, :updated_at, :created_at)
     end
 
 end

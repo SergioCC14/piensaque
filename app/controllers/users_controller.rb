@@ -84,12 +84,10 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
 
-    raise params.inspect
-
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if @user.update_attributes(user_params)
         format.html { redirect_to user_nick_path(@user.nick), notice: 'User was successfully updated.' }
         format.js { redirect_to root_path }
       else
@@ -113,7 +111,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:email, :rank).permit(:nick, :password, :name, :surname,:mt_rock, :mt_pop, :mt_electronic, :mt_instrumental, :mt_jazz, :mt_hiphop, :mt_country, :avatar, :updated_at, :created_at)
+      params.require(:user).permit(:email, :rank, :nick, :password, :name, :surname,:mt_rock, :mt_pop, :mt_electronic, :mt_instrumental, :mt_jazz, :mt_hiphop, :mt_country, :avatar, :updated_at, :created_at)
     end
 
 end

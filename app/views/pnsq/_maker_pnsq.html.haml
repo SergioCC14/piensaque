@@ -7,7 +7,7 @@
 
       %content
         %a#audio-file{:style => 'display:inline-block;', :href => '#'}
-
+        = text_field_tag 'pnsq[user_id]', current_user.id , :style => 'display: none'
         .right_zone 
           .text_wrapper
             = f.text_area :text, :maxlength => 80, :overflow => 'hidden', :placeholder => 'Add text on your PnsQ...'
