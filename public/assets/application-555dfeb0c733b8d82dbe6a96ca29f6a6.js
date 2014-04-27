@@ -10808,16 +10808,24 @@ function start_record_audio() {
 }
 
 // STOP: Se le pasa el ID del formulario que va a ser mandado
-function stop_record_audio(form_id) {
+function stop_record_audio(form_id, user_id) {
   audioRecorder.stop();
   saveAudio();
   
   setTimeout(
       function() {
-        uploadForm(form_id)
+        uploadForm(form_id, user_id)
       }, 50);
 }
 
+// Pnsq Audio Blob (GET y SET)
+function setPnsq_audio(blob) {
+  pnsq_audio = blob;
+}
+
+function getPnsq_audio() {
+  return pnsq_audio;
+}
 
 // Sacadas de: http://webaudiodemos.appspot.com/AudioRecorder/index.html
 // Thanks you: Chris & Matt
@@ -10842,14 +10850,15 @@ function saveAudio() {
 }
 
 function doneEncoding( blob ) {
-    Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
+    Recorder.setupDownload( blob, "psnq" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
     recIndex++;
 }
 
 // Para la subida del fichero
-function uploadForm(form_id) {
+function uploadForm(form_id, user_id) {
   var form = new FormData(document.getElementById(form_id));
-  form.append("pnsq[audio]", pnsq_audio);
+  form.append("pnsq[audio]", getPnsq_audio(), "pnsq_" + user_id + "_" + Date.now() + ".wav");
+
   var request = new XMLHttpRequest();
   var async = true;
   request.open("POST", "/pnsqs.js", async);
@@ -10862,7 +10871,6 @@ function uploadForm(form_id) {
               } catch (e) {
                   response = request.responseText;
               }
-              uploadFormCallback(response);
           }
       }
   }
@@ -10977,7 +10985,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     var url = (window.URL || window.webkitURL).createObjectURL(blob);
     var link = document.getElementById("audio-file");
 
-    pnsq_audio = blob;
+    setPnsq_audio(blob)
+    // window.pnsq_audio = blob;
     link.href = url;
     link.download = filename || 'output.wav';
 
