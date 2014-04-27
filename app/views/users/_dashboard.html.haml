@@ -16,8 +16,8 @@
       -# Last
       .pnsq_column{:style => 'text-align: left;'}
         -#Provisional
-        - for mt in 2.times
-          = render :partial => 'pnsq/pnsq_box'
+        - for pnsq in Pnsq.all
+          = render :partial => 'pnsq/pnsq_box', :locals => {:pnsq => pnsq} 
 
       .pnsq_column{:style => 'float: right;'}
         -#Provisional

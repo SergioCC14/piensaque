@@ -24,7 +24,7 @@
     window.addEventListener('load', init_record_audio );
     $('#pnsq_microphone').click(function() {
       if ($(this).hasClass('recording')) {
-        stop_record_audio('new_pnsq');
+        stop_record_audio('new_pnsq', "#{current_user.id}");
 
         $('#pnsq_microphone').removeClass("recording");  
       } else {

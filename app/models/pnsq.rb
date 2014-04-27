@@ -6,5 +6,4 @@ class Pnsq < ActiveRecord::Base
   accepts_nested_attributes_for :tags
 
   has_attached_file :audio
-
 end
