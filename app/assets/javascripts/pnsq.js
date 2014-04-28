@@ -14,6 +14,8 @@
 // // Para subir un fichero Blob por JS -> http://stackoverflow.com/questions/15795678/upload-audio-recorded-in-browser-using-html5
 
 
+var pnsq_audio;
+
 // Comprueba si el navegador soporta GetUserMedia()
 function hasGetUserMedia() {
   return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
