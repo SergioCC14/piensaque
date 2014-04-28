@@ -2,7 +2,7 @@ class RequestInvitationsController < ApplicationController
   
   def index
     @request_invitations = RequestInvitation.all
-		@request_invitation = RequestInvitation.find(params[:request_invitation])
+		@request_invitation = RequestInvitation.find(request_invitation_params)
 
     respond_to do |format|
       format.html 
@@ -15,13 +15,13 @@ class RequestInvitationsController < ApplicationController
 
 
     respond_to do |format|
-      format.html	{ render  }
+      format.html	{ render }
       format.js { render }
     end
   end
 
 	def create
-		@request_invitation = RequestInvitation.new(params[:request_invitation])
+		@request_invitation = RequestInvitation.new(request_invitation_params)
 		@request_invitation.save
 
 	  respond_to do |format|
@@ -42,7 +42,6 @@ class RequestInvitationsController < ApplicationController
 
   private
     def request_invitation_params
-      params.require(:email).permit(:updated_at, :created_at)
+      params.require(:request_invitation).permit(:email, :updated_at, :created_at)
     end
-
 end
