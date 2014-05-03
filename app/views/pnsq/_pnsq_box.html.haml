@@ -7,8 +7,9 @@
     %table{:style => "background-color: #{cycle('#E24F4F','#97B959','#AEAEAE','#EEA83B','#945E94','#EEEEEE')}"}
       %tr
         %td.avatar{:style => "background-image: url('#{current_user.avatar.url(:cmedium)}'); "}
-          .icon-play{:id => "play_#{pnsq.id}_#{pnsq.user.id}"}
-          .duration{:id => "duration_#{pnsq.id}_#{pnsq.user.id}"}
+          .audio-controls
+            .icon-play{:id => "play_#{pnsq.id}_#{pnsq.user.id}"}
+            .duration{:id => "duration_#{pnsq.id}_#{pnsq.user.id}"}
         
         %td.text=pnsq.text
       

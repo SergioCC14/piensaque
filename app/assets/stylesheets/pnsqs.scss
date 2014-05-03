@@ -21,9 +21,18 @@
         background-position: center center;
         background-size: cover;
         border-radius: 50px;
-        .icon-play {
-          
-          font-size: 30px;
+        .audio-controls {
+          display: none;
+          cursor: pointer;
+          .icon-play {
+            color: #83B32B;
+            font-size: 30px;            
+          }
+        }
+      }
+      td.avatar:hover {
+        .audio-controls {
+          display: block;
         }
       }
       td.text {
