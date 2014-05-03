@@ -49,7 +49,6 @@ class PnsqsController < ApplicationController
 
     if (@pnsq = Pnsq.create(pnsq_params))
 
-      
 
       respond_to do |format|
         format.html { redirect_to home_path, notice: 'Pnsq was successfully updated.' }

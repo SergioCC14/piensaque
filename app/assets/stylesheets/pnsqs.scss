@@ -1,73 +1,70 @@
 @import "general_var";
 
-.pnsq_box {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  width: 100px;
-  height: 100px;
-  padding: 10px;
-  margin: 5px;
-  background-color: #E24F4F;
-  border-radius: 5px;
-  .pnsq_user {
-    width: 65px;
-    height: 65px;
-    background-color: #D7D7D7;
+.psnq_box {
+  display: inline-block; position: relative;
+  table {
+    width: 120px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    display: inline-block;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    
+    tr {
+      td.avatar {
+        width: 100px;
+        height: 100px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        border-radius: 50px;
+      }
+      td.text {
+        display: none;
+        text-align: center;
+        width: 250px;
+        font-size: 10pt;
+        font-style: italic;
+      }
+      td.user_name {
+        max-width: 100px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      td.tags {
+        display: none;
+        font-size: 8pt;
+        text-align: center;
+        .tag_text {
+          display: inline-block;
+        }
+      }
+    } 
+  }
+  .expander {
     position: absolute;
-    z-index: 5;
-    top: 15px;
-    left: 25px;
-    border-radius: 30px;
-    background-repeat: no-repeat;
-    background-position: center center; 
-    background-size: cover;
-  
+    right: 10px;
+    bottom: 7px;
+    color: #004DBC;
   }
-  .pnsq_user_name {
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    color:#3D3D3D;
-    font-size: 14px;
-    text-align: left;
-    position: relative;
-    top: 88px;
+  .expander:hover {
+    color: #1A88F7;
+    cursor: pointer;
   }
-  .back_pnsq {
-    position: absolute;
-    width: 110px;
-    height: 110px;
-    text-align: left;
-    margin: -5px;
-    overflow:hidden;
-    top: 10px;
-    i.icon-cloud {
-      color: #8DC6DA;
-      font-size: 88px;
-      line-height: 85px;
-      left: 3px;
-    }
-    .cloud_up:before{
-      transform: rotate(305deg);
-      -webkit-transform: rotate(305deg);
-      position: absolute;
-      left: -2px;
-    }
-    .cloud_down:before {
-      position: absolute;
-      top: 10px;
-      transform: rotate(125deg);
-      -webkit-transform: rotate(125deg);
-      left: 20px;
-    }
-  }
-
 }
-.pnsq_box:hover {
-  opacity: 0.9;
-  .pnsq_user_name {
-    color: #8DC6DA;
-  }
+.psnq_box.expand{
+  table{
+    width: 389px;
+    tr {
+      td.text {
+        display: table-cell;
+      }
+      td.tags {
+        display: table-cell;
+      }
+    }
+  } 
 }
 
 .new_pnsq_panel {

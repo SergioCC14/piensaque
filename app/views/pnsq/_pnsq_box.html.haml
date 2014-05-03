@@ -1,20 +1,38 @@
 -#El color de fondo variará dependiendo del tipo de música que suene en el monento en que se grabó
 - if defined?(pnsq)
-  .pnsq_box{:style => "background-color: #{cycle('#E24F4F','#97B959','#AEAEAE','#EEA83B','#945E94','#EEEEEE')}"}
+  
+  %div.psnq_box{:id => "pnsq_#{pnsq.id}_#{pnsq.user.id}"}
+    %table{:style => "background-color: #{cycle('#E24F4F','#97B959','#AEAEAE','#EEA83B','#945E94','#EEEEEE')}"}
+      %tr
+        %td.avatar{:style => "background-image: url('#{current_user.avatar.url(:cmedium)}'); "}
+        
+        %td.text=pnsq.text
+      
+      %tr
+        %td.user_name=pnsq.user.name
+        %td.tags
+          - if !pnsq.tags.blank?
+            =pnsq.tags
+          .tag_text="Tag1"
+          .tag_text="Tag2ssssss"
+          .tag_text="Tag2sssssssdadssdads"
     
-    / =image_tag(current_user.avatar.url(:thumb))
-    .back_pnsq
-      .pnsq_user{:style => "background-image: url('#{current_user.avatar.url(:cmedium)}')"}
-      %i.icon-cloud.cloud_up
-      %i.icon-cloud.cloud_down
-    .pnsq_user_name=pnsq.user.name
+    .expander{:id => "expand_#{pnsq.id}_#{pnsq.user.id}"}="+"
+    
+  :javascript
+    $("#expand_#{pnsq.id}_#{pnsq.user.id}").click(function() { 
+      ($(this).text() == "+") ? $(this).text("-") : $(this).text("+")
+      $(this).parent().toggleClass("expand")
+    });
 
 - else
+  -#Provisional. Solo para pruebas
   .pnsq_box{:style => "background-color: #{cycle('#E24F4F','#97B959','#AEAEAE','#EEA83B','#945E94','#EEEEEE')}"}
     
     / =image_tag(current_user.avatar.url(:thumb))
-    .back_pnsq
+    .avatar_pnsq
       .pnsq_user{:style => "background-image: url('#{current_user.avatar.url(:cmedium)}')"}
       %i.icon-cloud.cloud_up
       %i.icon-cloud.cloud_down
     .pnsq_user_name="SergioCC14"
+
