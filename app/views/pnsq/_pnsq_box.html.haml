@@ -1,3 +1,5 @@
+-# Documentacion (HTML Audio/Video Properties) http://www.w3schools.com/tags/ref_av_dom.asp
+
 -#El color de fondo variará dependiendo del tipo de música que suene en el monento en que se grabó
 - if defined?(pnsq)
   
@@ -5,18 +7,23 @@
     %table{:style => "background-color: #{cycle('#E24F4F','#97B959','#AEAEAE','#EEA83B','#945E94','#EEEEEE')}"}
       %tr
         %td.avatar{:style => "background-image: url('#{current_user.avatar.url(:cmedium)}'); "}
+          .icon-play{:id => "play_#{pnsq.id}_#{pnsq.user.id}"}
+          .duration{:id => "duration_#{pnsq.id}_#{pnsq.user.id}"}
         
         %td.text=pnsq.text
       
       %tr
-        %td.user_name=pnsq.user.name
+        %td.user_name
+          =link_to(pnsq.user.nick, user_nick_path(pnsq.user.nick))
         %td.tags
           - if !pnsq.tags.blank?
             =pnsq.tags
           .tag_text="Tag1"
           .tag_text="Tag2ssssss"
           .tag_text="Tag2sssssssdadssdads"
-    
+
+        %audio{:controls => '', :id => "audio_#{pnsq.id}_#{pnsq.user.id}", :style => 'display:none'}
+          %source{:src => pnsq.audio.url(:original), :type => pnsq.audio.content_type}
     .expander{:id => "expand_#{pnsq.id}_#{pnsq.user.id}"}="+"
     
   :javascript
@@ -24,15 +31,18 @@
       ($(this).text() == "+") ? $(this).text("-") : $(this).text("+")
       $(this).parent().toggleClass("expand")
     });
+    function playPnsq(audio_id) {
+      audio_id.get(0).play();
+    }
+    $(document).ready(function() {
+      $("#duration_#{pnsq.id}_#{pnsq.user.id}").text(parseInt($("#audio_#{pnsq.id}_#{pnsq.user.id}").get(0).duration) + "\"")
+    });
+
+    $("#play_#{pnsq.id}_#{pnsq.user.id}").click(function() { 
+      playPnsq($("#audio_#{pnsq.id}_#{pnsq.user.id}"))
+    });
+
+
 
 - else
-  -#Provisional. Solo para pruebas
-  .pnsq_box{:style => "background-color: #{cycle('#E24F4F','#97B959','#AEAEAE','#EEA83B','#945E94','#EEEEEE')}"}
-    
-    / =image_tag(current_user.avatar.url(:thumb))
-    .avatar_pnsq
-      .pnsq_user{:style => "background-image: url('#{current_user.avatar.url(:cmedium)}')"}
-      %i.icon-cloud.cloud_up
-      %i.icon-cloud.cloud_down
-    .pnsq_user_name="SergioCC14"
-
+  ="Sin Pnsq"

@@ -18,6 +18,9 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     if @user = !params[:id].blank? ? User.find(params[:id]) : User.find_by_nick(params[:nick])
+
+      @pnsqs = Pnsq.where(:user_id => @user.id)
+
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @user }
@@ -88,7 +91,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(user_params)
-        format.html { redirect_to user_nick_path(@user.nick), notice: 'User was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'User was successfully updated.' }
         format.js { redirect_to root_path }
       else
         format.html { render action: "edit" }

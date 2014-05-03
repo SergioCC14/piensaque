@@ -1,8 +1,10 @@
 @import "general_var";
 
 .psnq_box {
-  display: inline-block; position: relative;
+  display: inline-block;
+  position: relative;
   table {
+    transition: all 0.15s;
     width: 120px;
     padding: 5px;
     border-radius: 5px;
@@ -14,10 +16,15 @@
       td.avatar {
         width: 100px;
         height: 100px;
+        text-align: center;
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
         border-radius: 50px;
+        .icon-play {
+          
+          font-size: 30px;
+        }
       }
       td.text {
         display: none;

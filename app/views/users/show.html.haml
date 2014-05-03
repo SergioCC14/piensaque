@@ -1,12 +1,14 @@
-%p#notice= notice
+#user_container
+  .user_block
+    -#La idea es que aquí vaya informacion del usuario (Foto y Nombre)
+    .name_user_block
+      .user_row  
+        .user_row_principal_text="#{@user.nick.capitalize}"
+        .connections_panel
+          .follow="#{@user.followers} Followers"
+          .follow="#{@user.following} Following"
 
 
-%div{:style => 'padding:20px; text-align: center; width: 100px;'}
-  %div{:style => 'font-size: 20px; padding-bottom: 10px;'}
-    %b="#{@user.nick}"
-  %div=image_tag(@user.avatar.url(:thumb))
-%p
-  
-  
-%p
-= link_to 'Back to Edit', settings_user_path(@user.nick)
+    .information_block
+      - for pnsq in @pnsqs
+        = render :partial => 'pnsq/pnsq_box', :locals => {:pnsq => pnsq} 
