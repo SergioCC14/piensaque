@@ -14,10 +14,10 @@
     %td.checkbox="Jazz?"
     %td.checkbox="Countr?"
     %td.checkbox="HipHop?"
-  - for user in User.all
+  - for user in User.all.order('id ASC')
     = form_for(user, :remote => true) do |f|
       %tr.users{:style => cycle(nil, 'background-color: #C7C7C7; border-color:#BBBBBB')}
-        %td.checkbox=image_tag(user.avatar.url)
+        %td.checkbox=image_tag(user.avatar.url(:cthumb))
         %td.checkbox=link_to(user.id, user)
         %td.text=f.text_field :nick, :id => "nick_#{user.id}"
         %td.text=f.text_field :name, :id => "name_#{user.id}"
