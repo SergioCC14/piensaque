@@ -22,7 +22,8 @@
         background-size: cover;
         border-radius: 50px;
         .audio-controls {
-          display: none;
+          opacity: 0;
+          display: inline-block;
           
           background-color: rgba(0, 0, 0, 0.7);
           padding: 2px 20px 0;
@@ -38,7 +39,7 @@
       }
       td.avatar:hover {
         .audio-controls {
-          display: inline-block;
+          opacity: 1;
         }
       }
       td.text {
