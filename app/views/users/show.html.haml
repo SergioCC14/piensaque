@@ -1,6 +1,5 @@
 #user_container
   .user_block
-    -#La idea es que aquí vaya informacion del usuario (Foto y Nombre)
     .name_user_block
       .user_row
         =image_tag(@user.avatar.url(:icon), :class => 'user_row_avatar')
@@ -9,8 +8,8 @@
         = render :partial => 'relation/follow', :locals => {:user => @user} 
 
         .connections_panel
-          .follow="#{@user.followers} Followers"
-          .follow="#{@user.following} Following"
+          .follow="#{@user.followers_count} Followers"
+          .follow="#{@user.following_count} Following"
 
     .information_block
       - for pnsq in @pnsqs

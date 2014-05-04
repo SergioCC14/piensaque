@@ -18,10 +18,8 @@
           =link_to(pnsq.user.nick, user_nick_path(pnsq.user.nick))
         %td.tags
           - if !pnsq.tags.blank?
-            =pnsq.tags
-          .tag_text="Tag1"
-          .tag_text="Tag2ssssss"
-          .tag_text="Tag2sssssssdadssdads"
+            - for tag in pnsq.tags
+              .tag_text=tag.name
 
         %audio{:controls => '', :id => "audio_#{pnsq.id}_#{pnsq.user.id}", :style => 'display:none'}
           %source{:src => pnsq.audio.url(:original), :type => pnsq.audio.content_type}

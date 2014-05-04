@@ -46,9 +46,16 @@ class PnsqsController < ApplicationController
     # TODO:
     # Primero hay que comprobar si le llegan los parámetros
     # Luego lo creamos
-
+    
     if (@pnsq = Pnsq.create(pnsq_params))
 
+      # Creación de Tags
+      # TODO: Comprobar si esa tag existe
+      if params[:pnsq][:tags_attributes]
+        for tag in params[:pnsq][:tags_attributes]
+          Tag.create(:name => tag[1]["name"], :pnsq_id => @pnsq.id)
+        end
+      end
 
       respond_to do |format|
         format.html { redirect_to home_path, notice: 'Pnsq was successfully updated.' }

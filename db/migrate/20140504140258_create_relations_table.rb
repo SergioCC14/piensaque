@@ -6,5 +6,9 @@ class CreateRelationsTable < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    rename_column :users, :following, :following_count
+    rename_column :users, :followers, :followers_count
+
   end
 end
