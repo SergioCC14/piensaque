@@ -1,6 +1,8 @@
-class CreateRelationsTable < ActiveRecord::Migration
+class CreateFollow < ActiveRecord::Migration
   def change
-    create_table :relations_tables do |t|
+    drop_table :relations_tables
+
+    create_table :relations do |t|
       t.integer :user_id
       t.integer :user_relation_id
 

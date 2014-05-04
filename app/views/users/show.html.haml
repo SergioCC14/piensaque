@@ -5,7 +5,7 @@
         =image_tag(@user.avatar.url(:icon), :class => 'user_row_avatar')
         .user_row_principal_text="#{@user.nick.capitalize}"
 
-        = render :partial => 'relation/follow', :locals => {:user => @user} 
+        = render :partial => 'relations/follow', :locals => {:user => @user} 
 
         .connections_panel
           .follow="#{@user.followers_count} Followers"

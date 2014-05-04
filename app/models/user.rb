@@ -53,6 +53,10 @@ class User < ActiveRecord::Base
 		end
 	end
 
+  def following?(user_id)
+    Relation.where(:user_id => self.id, :user_relation_id => user_id)
+  end
+
 	def generate_number
 		return (rand(Time.now.sec * Time.now.min)).to_s
 	end	

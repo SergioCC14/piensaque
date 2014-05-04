@@ -1,6 +1,7 @@
 PiensaQue::Application.routes.draw do
   
   resources :request_invitations
+  resources :relations
   resources :tags
   resources :pnsqs
   resources :musics
@@ -14,6 +15,7 @@ PiensaQue::Application.routes.draw do
   end
 
   resources :sessions
+
 
   get '/signout', :to => 'sessions#destroy', :as => 'signout'
   get '/sessions', :to => 'sessions#index', :as => 'login', :path => '/login'
