@@ -12,5 +12,8 @@
           .follow="#{@user.following_count} Following"
 
     .information_block
-      - for pnsq in @pnsqs
-        = render :partial => 'pnsq/pnsq_box', :locals => {:pnsq => pnsq} 
+      - if !@pnsqs.blank?
+        - for pnsq in @pnsqs
+          = render :partial => 'pnsq/pnsq_box', :locals => {:pnsq => pnsq} 
+      - else
+        .not_pnsq="Not Pnsqs Yet"

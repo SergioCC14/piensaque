@@ -177,6 +177,12 @@ BODY{
   margin-top: 0px;
   border-radius: 5px;
   background-color: $inside_block;
+  .not_pnsq {
+    color: $background_normal;
+    font-size: 35pt;
+    text-align: center;
+    padding: 25px;
+  }
   .pnsq_column {
     vertical-align: top;
     text-align: right;
