@@ -2,12 +2,15 @@
   .user_block
     -#La idea es que aquí vaya informacion del usuario (Foto y Nombre)
     .name_user_block
-      .user_row  
+      .user_row
+        =image_tag(@user.avatar.url(:icon), :class => 'user_row_avatar')
         .user_row_principal_text="#{@user.nick.capitalize}"
+
+        = render :partial => 'relation/follow', :locals => {:user => @user} 
+
         .connections_panel
           .follow="#{@user.followers} Followers"
           .follow="#{@user.following} Following"
-
 
     .information_block
       - for pnsq in @pnsqs

@@ -23,16 +23,22 @@
         border-radius: 50px;
         .audio-controls {
           display: none;
-          cursor: pointer;
+          
+          background-color: rgba(0, 0, 0, 0.7);
+          padding: 2px 20px 0;
           .icon-play {
             color: #83B32B;
-            font-size: 30px;            
+            font-size: 30px;  
+            cursor: pointer;          
+          }
+          .duration {
+            color: #D9D9D9;
           }
         }
       }
       td.avatar:hover {
         .audio-controls {
-          display: block;
+          display: inline-block;
         }
       }
       td.text {

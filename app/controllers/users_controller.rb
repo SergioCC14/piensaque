@@ -66,7 +66,7 @@ class UsersController < ApplicationController
   # POST /users
   def create
 
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
     used_nick = false
 
     # Comprueba si el nick ha sido usado, si ha sido usado lo modifica

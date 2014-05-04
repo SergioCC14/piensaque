@@ -155,9 +155,15 @@
      		font-size: 30px;
         .user_row_principal_text {
         	display: inline-block;
-        	min-width: 200px;
+        	max-width: 200px;
           }
-     		.connections_panel {
+
+        img.user_row_avatar {
+          border-radius: 30px;
+          width: 30px;
+        }
+     		
+        .connections_panel {
      			display: inline-block;
           float: right;
      			.follow {

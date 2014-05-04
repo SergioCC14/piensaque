@@ -1,0 +1,3 @@
+class RequestInvitationsController < ApplicationController
+
+end

@@ -1,0 +1,17 @@
+.relation_tag {
+    background-color: rgba(31, 29, 24, 0.8);
+    color: #D0D0D0;
+    display: inline-block;
+    font-size: 12pt;
+    padding: 1px 5px;
+  .label {
+    display: inline-block;
+  }
+  .icon {
+    display: inline-block;
+  }
+}
+
+.relation_tag:hover {
+  cursor: pointer;
+}
