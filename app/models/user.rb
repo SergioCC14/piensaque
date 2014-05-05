@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
 	end
 
   def following?(user_id)
-    Relation.where(:user_id => self.id, :user_relation_id => user_id)
+    return ((Relation.where(:user_id => self.id, :user_relation_id => user_id).count > 0) ? true : false)
   end
 
 	def generate_number

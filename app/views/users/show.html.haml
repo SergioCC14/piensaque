@@ -5,7 +5,7 @@
         =image_tag(@user.avatar.url(:icon), :class => 'user_row_avatar')
         .user_row_principal_text="#{@user.nick.capitalize}"
 
-        = render :partial => 'relations/follow', :locals => {:user => @user} 
+        = render :partial => 'relations/follow', :locals => {:user => @user, :relation => @relation} 
 
         .connections_panel
           .follow="#{@user.followers_count} Followers"
@@ -16,4 +16,4 @@
         - for pnsq in @pnsqs
           = render :partial => 'pnsq/pnsq_box', :locals => {:pnsq => pnsq} 
       - else
-        .not_pnsq="Not Pnsqs Yet"
+        .not_pnsq="Not Pnsqs Yet" 
