@@ -38,6 +38,9 @@ end
 # jQuery
 gem 'jquery-rails'
 
+# Para incrementar los contadores
+gem 'rails_atomic_increment'
+
 #Haml
 gem "haml-rails"
 

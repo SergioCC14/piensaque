@@ -5,7 +5,9 @@ class RelationsController < ApplicationController
     # Hay que comprobar que no se siga a si mismo
     # Hay que renderizar de nuevo el botón con (Siguiendo/Seguir)
 
-    if @relation = Relation.create(relation_params)
+    if (@relation = Relation.create(relation_params))
+
+      @user = User.find_by_id(@relation.user_relation_id)
 
       respond_to do |format|
         format.html { render }
@@ -20,6 +22,7 @@ class RelationsController < ApplicationController
   def destroy
     if (@relation = Relation.find_by_id(params[:id]))
 
+        @user = User.find_by_id(@relation.user_relation_id)
         @relation.destroy
 
         respond_to do |format|
