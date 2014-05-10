@@ -1,1 +1,3 @@
-$('#place_for_window_in_holder').append('<%= escape_javascript render(:partial => "application/window_in_holder", :locals => {:title => '', :close => params[:action] + params[:controller]}) %>');
+$('#place_for_window_in_holder').html('<%= escape_javascript render(:partial => "application/window_in_holder", :locals => {:title => '', :window_id => params[:action]}) %>');
+
+$("#window_for_<%= params[:action]%>").append('<%= escape_javascript render(:partial => "users/relations_in_holder", :locals => {:relations => @relations}) %>');

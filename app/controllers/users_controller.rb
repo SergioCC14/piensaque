@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   # 
   def relations_in_holder
     if (@user = User.find_by_id(params[:id]))
-      
+
       if (params[:role] == 'following')
         @relations = Relation.where(:user_relation_id => @user.id)
       else
