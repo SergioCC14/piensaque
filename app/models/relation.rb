@@ -1,6 +1,8 @@
 class Relation < ActiveRecord::Base
   
   belongs_to :user
+  belongs_to :user_relation, :class_name => "User"
+
 
   before_destroy :decrement_follows
   before_create :increment_follows

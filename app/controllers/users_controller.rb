@@ -14,6 +14,29 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/:id/relations_in_holder
+  # 
+  # params: role => following or followed
+  # 
+  def relations_in_holder
+    if (@user = User.find_by_id(params[:id]))
+      
+      if (params[:role] == 'following')
+        @relations = Relation.where(:user_relation_id => @user.id)
+      else
+        @relations = Relation.where(:user_id => @user.id)
+      end
+
+      respond_to do |format|
+        format.html { render }
+        format.js { render }
+      end
+
+    else
+      error404
+    end
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show

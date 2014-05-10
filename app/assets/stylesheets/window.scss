@@ -1,0 +1,15 @@
+.window_container {
+  position: absolute;
+  top: -15px;
+  left: 114px;
+
+  background-color: #C0C0C0;
+  margin: 20px auto;
+  padding: 2px;
+  border: solid 1px black;
+
+  .window_in_holder {
+    position: relative;
+    min-width: 690px;
+  }
+}
