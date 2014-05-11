@@ -1,26 +1,39 @@
-#place_for_window_in_holder {
-  .window_holder {
-    .inner_window {
-      position: relative;
-      background-color: #F6F6F6;
-      box-shadow: 0px 1px 5px 5px #D0D0D0;
-      border-radius: 10px;
-      margin: 40px auto 0;
-      padding: 5px 20px 20px;
-      width: 400px;
+@import "general_var";
 
-      .md-close {
-        position: absolute;
-        right: 10px;
+.window_holder {
+  max-width: 560px;
 
-      }
-      .closer_window:hover {
-        cursor: pointer;
-      }
+  .inner_window.md-content > div {
+    padding: 0px;
+  }
 
-      .inner_window {
-        position: relative;
-      }
+  .inner_window.md-content {
+    position: relative;
+    background-color: #F6F6F6;
+    box-shadow: 0px 1px 5px 5px #D0D0D0;
+    border-radius: 10px;
+    padding: 5px 20px 20px;
+    
+  
+    .md-close {
+      position: absolute;
+      right: 10px;
+      color: $text_color;
     }
+
+    .md-close:hover {
+      cursor: pointer;
+    }
+
+    .window_header {
+      padding: 0px 10px;
+      text-align: center;
+      color: $text_color;
+    }
+
+    .content_in_holder {
+      
+    }
+
   }
 }

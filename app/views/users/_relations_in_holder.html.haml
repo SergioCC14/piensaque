@@ -1,12 +1,4 @@
-.window_header
-  %h2="Following"
-.content_in_holder
-  %table.relations_in_holder
-    - for relation in @relations
-      %tr
-        %td.avatar
-          =image_tag(relation.user_relation.avatar.url(:icon))
-        %td.name
-          =relation.user_relation.name
-        %td.button
-          = render :partial => 'relations/follow', :locals => {:user => relation.user_relation, :relation => relation} 
+- if params[:role] == 'following'
+  = render :partial => 'users/relation_in_holder_following', :locals => {:relations => @relations} 
+- else
+  = render :partial => 'users/relation_in_holder_followers', :locals => {:relations => @relations}

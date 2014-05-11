@@ -8,8 +8,8 @@
         = render :partial => 'relations/follow', :locals => {:user => @user, :relation => @relation} 
 
         .connections_panel
-          .follow="#{@user.followers_count} Followers"
-          .follow="#{@user.following_count} Following"
+          =link_to("#{@user.followers_count} Followers", relations_in_holder_user_path(@user.id, :role => 'followers'), :remote => true)
+          =link_to("#{@user.following_count} Following", relations_in_holder_user_path(@user.id, :role => 'following'), :remote => true)
 
     .information_block
       - if !@pnsqs.blank?

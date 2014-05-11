@@ -22,9 +22,9 @@ class UsersController < ApplicationController
     if (@user = User.find_by_id(params[:id]))
 
       if (params[:role] == 'following')
-        @relations = Relation.where(:user_relation_id => @user.id)
-      else
         @relations = Relation.where(:user_id => @user.id)
+      else
+        @relations = Relation.where(:user_relation_id => @user.id)
       end
 
       respond_to do |format|

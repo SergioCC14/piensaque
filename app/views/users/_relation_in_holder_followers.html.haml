@@ -1,0 +1,12 @@
+.window_header
+  %h2="Followers"
+.content_in_holder
+  %table.relations_in_holder
+    - for relation in relations
+      %tr
+        %td.avatar
+          =image_tag(relation.user.avatar.url(:icon))
+        %td.name
+          =relation.user.name
+        %td.button
+          = render :partial => 'relations/follow', :locals => {:user => relation.user, :relation => relation} 
