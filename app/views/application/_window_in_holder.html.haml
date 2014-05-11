@@ -1,5 +1,7 @@
-.window_holder
-  .window_container{:id => "window_#{window_id}"}
-    .closer_window{:id => "closer_#{window_id}"}="X"
-    .inner_window.window{:id => "inner_#{window_id}"}
-      %div{:id => "window_for_#{window_id}"}
+-# Este es el código para la función prepare_for_modal() en application.js
+  #md-window.window_holder.md-modal.md-effect-2
+    #md-inner_window.inner_window.window.md-content
+      .md-close="X"
+
+  :javascript
+    $('#closer_modal').click(function() {close_window();});

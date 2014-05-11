@@ -1,11 +1,13 @@
-%html
+%html{:itemscope => "itemscope", :itemtype => "http://schema.org/WebPage"}
   %head
     %title PiensaQue
-    = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
+    = stylesheet_link_tag    'application'
+    = javascript_include_tag 'application'
+    
     = csrf_meta_tags
-    = favicon_link_tag('favicon.ico', :rel => 'shortcut icon')
+    = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
   %body
     / #background_default 
     = render :partial => 'application/header'
     = yield
+    #place_for_window_in_holder
