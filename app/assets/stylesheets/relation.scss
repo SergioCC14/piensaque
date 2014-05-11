@@ -15,3 +15,24 @@
 .relation_tag:hover {
   cursor: pointer;
 }
+
+
+table.relations_in_holder {
+  tr {
+    td {
+      padding: 5px 0px;
+    }
+    td.avatar {
+      width: 30%;
+      img {
+        border-radius: 40px;
+      }
+    }
+    td.name {
+      font-size: 14px;
+    }
+    td.button {
+      text-align: right;
+    }
+  }
+}

@@ -39,3 +39,8 @@ function loadPreview(input, previewImg) {
     reader.readAsDataURL(input.files[0]);
   }
 }
+
+// Cierra la ventana abierta
+function close_window() {
+  $('#place_for_window_in_holder')
+}
