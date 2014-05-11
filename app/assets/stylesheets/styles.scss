@@ -37,7 +37,14 @@ tr.field {
       width: 100%;
       display: inline-block;
     }
-    
+    textarea {
+      font-family: verdana,arial,helvetica,sans-serif;
+      width: 100%;
+      font-size: 13px;
+      line-height: 18px;
+      height: 90px;
+      resize: none;
+    }
   }
  }
 
