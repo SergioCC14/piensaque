@@ -1,6 +1,6 @@
 class CreateFollow < ActiveRecord::Migration
   def change
-    drop_table :relations_tables
+    
 
     create_table :relations do |t|
       t.integer :user_id
