@@ -8,9 +8,8 @@ class CreateFollow < ActiveRecord::Migration
 
       t.timestamps
     end
-
-    rename_column :users, :following, :following_count
-    rename_column :users, :followers, :followers_count
+    add_column :users, :followers_count, :integer, :default => 0
+    add_column :users, :following_count,  :integer, :default => 0
 
   end
 end
