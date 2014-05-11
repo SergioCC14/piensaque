@@ -1,12 +1,5 @@
 .window_holder
   .window_container{:id => "window_#{window_id}"}
     .closer_window{:id => "closer_#{window_id}"}="X"
-    .window_in_holder.window{:id => "inner_#{window_id}"}
+    .inner_window.window{:id => "inner_#{window_id}"}
       %div{:id => "window_for_#{window_id}"}
-
-:javascript
-  $(function() {
-    $( "#window_in_holder_#{window_id}" ).draggable({
-      handle: ".header_window"
-    });
-  });
