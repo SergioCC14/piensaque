@@ -13,15 +13,16 @@
 
     .information_block
       -# Last
-      .pnsq_column{:style => 'text-align: left;'}
+      .pnsq_column{:style => 'width: 100%; text-align: left;'}
         -#Provisional
+        .psnq_hollow#new_pnsq_hollow
         - for pnsq in Pnsq.all
-          = render :partial => 'pnsq/pnsq_box', :locals => {:pnsq => pnsq} 
+          = render :partial => 'pnsqs/pnsq_box', :locals => {:pnsq => pnsq} 
 
-      .pnsq_column{:style => 'float: right;'}
+      -#.pnsq_column{:style => 'float: right;'}
         -#Provisional
         - for mt in 2.times
-          = render :partial => 'pnsq/pnsq_box'
+          = render :partial => 'pnsqs/pnsq_box'
 
 
     -#
@@ -40,4 +41,4 @@
       / +-------------------------------------------------------+
 
     
-    = render :partial => 'pnsq/maker_pnsq', :locals => {:pnsq => @pnsq}
+    = render :partial => 'pnsqs/maker_pnsq', :locals => {:pnsq => @pnsq}

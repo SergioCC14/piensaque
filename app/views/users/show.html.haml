@@ -14,6 +14,6 @@
     .information_block
       - if !@pnsqs.blank?
         - for pnsq in @pnsqs
-          = render :partial => 'pnsq/pnsq_box', :locals => {:pnsq => pnsq} 
+          = render :partial => 'pnsqs/pnsq_box', :locals => {:pnsq => pnsq} 
       - else
         .not_pnsq="Not Pnsqs Yet" 

@@ -2,11 +2,14 @@
   %h2="Following"
 .content_in_holder
   %table.relations_in_holder
-    - for relation in relations
-      %tr
-        %td.avatar
-          =image_tag(relation.user_relation.avatar.url(:icon))
-        %td.name
-          =relation.user_relation.name
-        %td.button
-          = render :partial => 'relations/follow', :locals => {:user => relation.user_relation, :relation => relation} 
+    - if !relations.blank?
+      - for relation in relations
+        %tr
+          %td.avatar
+            =image_tag(relation.user_relation.avatar.url(:icon))
+          %td.name
+            =link_to(relation.user_relation.name, user_nick_path(relation.user_relation.nick))
+          %td.button
+            = render :partial => 'relations/follow', :locals => {:user => relation.user_relation, :relation => relation} 
+    - else
+      .text="Not Following Yet"

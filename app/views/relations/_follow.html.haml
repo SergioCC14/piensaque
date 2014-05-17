@@ -1,26 +1,27 @@
 - relation = defined?(relation) ? relation : ''
 
-- if !(current_user.id == user.id)
-  - if !(current_user.following?(user.id))
-    .relation_tag{:id => "follow_#{user.id}"}
-      .icon.icon-plus
-      .label="Follow"
+- if signed_in?
+  - if !(current_user.id == user.id)
+    - if !(current_user.following?(user.id))
+      .relation_tag{:id => "follow_#{user.id}"}
+        .icon.icon-plus
+        .label="Follow"
 
-    :javascript
-      $("#follow_#{user.id}").click(function() {
-        $.post("#{relations_path(:format => 'js')}", { relation: {user_id: "#{current_user.id}", user_relation_id: "#{user.id}"}});
-      });
-      
-  - else
-    .relation_tag{:id => "follow_#{user.id}", :style => 'background-color: #6A86C2; color: #FFF;'}
-      .label="Following"
+      :javascript
+        $("#follow_#{user.id}").click(function() {
+          $.post("#{relations_path(:format => 'js')}", { relation: {user_id: "#{current_user.id}", user_relation_id: "#{user.id}"}});
+        });
+        
+    - else
+      .relation_tag{:id => "follow_#{user.id}", :style => 'background-color: #6A86C2; color: #FFF;'}
+        .label="Following"
 
-    :javascript
-      $("#follow_#{user.id}").click(function() {
-        $.ajax({
-          url: "/relations/#{relation.id}.js",
-          type: 'DELETE',
-          data: {} ,
-          contentType: false
-        });         
-      });
+      :javascript
+        $("#follow_#{user.id}").click(function() {
+          $.ajax({
+            url: "/relations/#{relation.id}.js",
+            type: 'DELETE',
+            data: {} ,
+            contentType: false
+          });         
+        });

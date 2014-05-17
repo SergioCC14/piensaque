@@ -43,7 +43,8 @@ class UsersController < ApplicationController
 
       @pnsqs = Pnsq.where(:user_id => @user.id)
 
-      if (current_user.id != @user.id)
+      # Comprueba si mostrar el botón de Seguir
+      if (signed_in?) and (current_user.id != @user.id)
         @relation = Relation.where(:user_id => current_user.id, :user_relation_id => @user.id).first
       end
 

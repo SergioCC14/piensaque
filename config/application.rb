@@ -18,6 +18,8 @@ module PiensaQue
   class Application < Rails::Application
 
     config.action_mailer.delivery_method = :ses
+
+    
     
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

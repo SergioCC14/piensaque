@@ -59,7 +59,7 @@ class PnsqsController < ApplicationController
 
       respond_to do |format|
         format.html { redirect_to home_path, notice: 'Pnsq was successfully updated.' }
-        format.js { render :nothing => true }
+        format.js { render  }
       end
     else
       error404
