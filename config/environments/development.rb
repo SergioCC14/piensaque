@@ -1,12 +1,17 @@
+  # Gestión de Errores por Mail
+  PiensaQue::Application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[PiensaQue] ",
+    :sender_address => %{"notifier" <piensaque.com@gmail.com>},
+    :exception_recipients => %w{sergio.canis@outlook.com}
+  }
+
 PiensaQue::Application.configure do
 
   config.paperclip_defaults = {
     :path => ":rails_root/public/system/:class/:attachment/:id_partition/:style/:filename",
     :url => "http://localhost:3000/system/:class/:attachment/:id_partition/:style/:filename"
   }
-
-
-  # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -19,6 +24,7 @@ PiensaQue::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :ses
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -35,4 +41,5 @@ PiensaQue::Application.configure do
   # Ruta para guardar los avatares
   Paperclip.options[:command_path] = "/usr/local/bin/"
 
+  config.eager_load = false
 end

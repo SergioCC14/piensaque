@@ -22,3 +22,12 @@
 
 
 config/database.yml
+
+.env
+
+config/initializers/dev_enviroments_vars.rb
+
+config/initializers/01_dev_enviroments_vars.rb
+
+# Ignore application configuration
+/config/application.yml

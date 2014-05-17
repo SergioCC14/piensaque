@@ -34,6 +34,11 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
+    aws-ses (0.5.0)
+      builder
+      mail (> 2.2.5)
+      mime-types
+      xml-simple
     builder (3.1.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -47,6 +52,9 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     erubis (2.7.0)
+    exception_notification (4.0.1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
     execjs (2.0.2)
     haml (4.0.5)
       tilt
@@ -136,7 +144,9 @@ PLATFORMS
 DEPENDENCIES
   aws-s3
   aws-sdk (= 1.30.1)
+  aws-ses
   coffee-rails (~> 4.0.0)
+  exception_notification
   haml-rails
   jquery-rails
   paperclip (~> 3.0)

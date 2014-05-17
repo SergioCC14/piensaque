@@ -4,7 +4,6 @@ development:
   database: piensaque_dev
   host: localhost
 
-
 test:
   adapter: postgresql
   encoding: unicode

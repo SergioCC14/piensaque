@@ -37,8 +37,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1
-  # GET /users/1.json
+  # GET /users/:id
   def show
     if @user = !params[:id].blank? ? User.find(params[:id]) : User.find_by_nick(params[:nick])
 
@@ -58,7 +57,6 @@ class UsersController < ApplicationController
   end
 
   # GET /users/new
-  # GET /users/new.json
   def new
     @user = User.new
 
@@ -75,7 +73,7 @@ class UsersController < ApplicationController
     end    
   end
 
-  # GET /users/1/edit
+  # GET /users/:id/edit
   def edit
     @user = !params[:id].blank? ? User.find(params[:id]) : User.find_by_nick(params[:nick])
 
@@ -110,8 +108,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/1
-  # PUT /users/1.json
+  # PUT /users/:id
   def update
 
     @user = User.find(params[:id])
@@ -127,8 +124,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
+  # DELETE /users/:id
   def destroy
     @user = User.find(params[:id])
     @user.destroy

@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 ruby "2.1.1"
-
 gem 'rails', '4.0.3'
 
 #Postgres
@@ -15,8 +14,12 @@ gem 'aws-s3'
 # Metadatos para una cancion MP3
 gem 'ruby-mp3info', :require => 'mp3info'
 
-# Gems used only for assets and not required
-# in production environments by default.
+
+# Gestión de errores por Mail
+gem 'exception_notification'
+
+# Amazon SES (Simple Email Service)
+gem "aws-ses", :require => 'aws/ses'
 
 group :production do
   gem 'rails_12factor'
