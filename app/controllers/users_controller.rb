@@ -39,7 +39,9 @@ class UsersController < ApplicationController
 
   # GET /users/:id
   def show
+
     if @user = !params[:id].blank? ? User.find(params[:id]) : User.find_by_nick(params[:nick])
+
 
       @pnsqs = Pnsq.where(:user_id => @user.id)
 

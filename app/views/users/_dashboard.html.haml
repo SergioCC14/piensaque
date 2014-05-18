@@ -10,12 +10,11 @@
             .follow="#{current_user.followers_count} Followers"
             .follow="#{current_user.following_count} Following"
 
-
     .information_block
       -# Last
       .pnsq_column{:style => 'width: 100%; text-align: left;'}
         -#Provisional
-        .psnq_hollow#new_pnsq_hollow
+        .pnsq_hollow#new_pnsq_hollow
         - for pnsq in Pnsq.all
           = render :partial => 'pnsqs/pnsq_box', :locals => {:pnsq => pnsq} 
 

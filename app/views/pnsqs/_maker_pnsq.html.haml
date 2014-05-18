@@ -1,5 +1,5 @@
 -# Multipart (documentacion)
-= form_for(pnsq, :multipart => true) do |f|
+= form_for(pnsq, :multipart => true, :remote => true, :format => [:js]) do |f|
   %div{:style => 'margin: auto; display:table;'}
     .new_pnsq_panel
       .record_button#pnsq_microphone
@@ -16,8 +16,6 @@
           = f.fields_for :tags do |t|
             .tags_wrapper
               = t.text_field(:name, :placeholder => 'Tags...', :id => "tag")
-    
-    -#=f.submit
 
   :javascript
     // Inicia la recogida de Audio

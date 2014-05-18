@@ -46,7 +46,7 @@ class PnsqsController < ApplicationController
     # TODO:
     # Primero hay que comprobar si le llegan los parámetros
     # Luego lo creamos
-    
+
     if (@pnsq = Pnsq.create(pnsq_params))
 
       # Creación de Tags
@@ -59,7 +59,7 @@ class PnsqsController < ApplicationController
 
       respond_to do |format|
         format.html { redirect_to home_path, notice: 'Pnsq was successfully updated.' }
-        format.js { render  }
+        format.js { render }
       end
     else
       error404

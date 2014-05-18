@@ -109,14 +109,16 @@ function uploadForm(form_id, user_id) {
   var request = new XMLHttpRequest();
   var async = true;
   request.open("POST", "/pnsqs.js", async);
+  request.responseType = 'text/javascript'
+
   if (async) {
       request.onreadystatechange = function() {
-          if(request.readyState == 4 && request.status == 200) {
+          if (request.readyState == 4 && request.status == 200) {
               var response = null;
               try {
-                  response = JSON.parse(request.responseText);
+                  setTimeout(request.responseText, 5);
               } catch (e) {
-                  response = request.responseText;
+                  console.log(e);
               }
           }
       }
