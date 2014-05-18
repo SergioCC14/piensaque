@@ -10,7 +10,9 @@
             .icon-play{:id => "play_#{pnsq.id}_#{pnsq.user.id}"}
             .duration{:id => "duration_#{pnsq.id}_#{pnsq.user.id}"}
         
-        %td.text=pnsq.text
+        %td.text
+          =pnsq.text
+          .date="Recorded on #{pnsq.created_at.to_formatted_s(:long)}"
       
       %tr
         %td.user_name

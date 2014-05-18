@@ -148,29 +148,32 @@
 			margin: 0 5px 5px;
 			
 			//background-color: #CCCCCC ;
-			.image_user {
-
-			}
      	.user_row {
-     		font-size: 30px;
-        .user_row_principal_text {
-        	display: inline-block;
-        	max-width: 200px;
+        table.user_row_info {
+          tr {
+            td.user_row_avatar {
+              img {
+                border-radius: 50px;
+                width: 50px;
+              }
+            }
+            td.user_row_name {
+              font-size: 40px;
+              .relation_tag {
+                vertical-align: middle;
+              }
+            }
+            td.connections_panel {
+              font-size: 25px;
+              text-align: right;
+            }
+            td.user_row_bio {
+              color: $background_normal;
+            }
           }
 
-        img.user_row_avatar {
-          border-radius: 30px;
-          width: 30px;
         }
-     		
-        .connections_panel {
-     			display: inline-block;
-          float: right;
-     			.follow {
-     				padding-left: 25px; 
-     				display: inline-block;
-     			}
-     		}
+
      		.tools_panel {
      			display: inline-block; 
           float: right;
