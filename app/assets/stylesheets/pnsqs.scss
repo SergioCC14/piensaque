@@ -3,8 +3,9 @@
 .psnq_box {
   display: inline-block;
   position: relative;
+  transition: all 1.5s;
   table {
-    transition: all 0.15s;
+    transition: all 0.25s;
     width: 120px;
     padding: 5px;
     border-radius: 5px;
@@ -88,6 +89,11 @@
       }
     }
   } 
+}
+
+.psnq_box.new {
+  opacity: 0;
+  width: 0px;
 }
 
 .new_pnsq_panel {

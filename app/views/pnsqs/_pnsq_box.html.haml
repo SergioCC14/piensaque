@@ -2,8 +2,7 @@
 
 -#El color de fondo variará dependiendo del tipo de música que suene en el monento en que se grabó
 - if defined?(pnsq)
-  
-  %div.psnq_box{:id => "pnsq_#{pnsq.id}_#{pnsq.user.id}"}
+  %div.psnq_box{:id => "pnsq_#{pnsq.id}_#{pnsq.user.id}", :class => defined?(new_pnsq) ? 'new' : nil}
     %table{:style => "background-color: #{cycle('#E24F4F','#97B959','#AEAEAE','#EEA83B','#945E94','#EEEEEE')}"}
       %tr
         %td.avatar{:style => "background-image: url('#{pnsq.user.avatar.url(:cmedium)}'); "}
@@ -33,10 +32,9 @@
     function playPnsq(audio_id) {
       audio_id.get(0).play();
     }
-    $(document).ready(function() {
+    $("#{pnsq.id}_#{pnsq.user.id}").ready(function() {
       $("#duration_#{pnsq.id}_#{pnsq.user.id}").text(parseInt($("#audio_#{pnsq.id}_#{pnsq.user.id}").get(0).duration) + "\"")
     });
-
     $("#play_#{pnsq.id}_#{pnsq.user.id}").click(function() { 
       playPnsq($("#audio_#{pnsq.id}_#{pnsq.user.id}"))
     });

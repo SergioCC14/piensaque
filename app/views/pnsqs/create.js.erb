@@ -1,1 +1,8 @@
-$("#new_pnsq_hollow").append("<%= escape_javascript render(:partial => 'pnsqs/pnsq_box', :locals => {:pnsq => @pnsq}) %>");
+$("#new_pnsq_hollow").prepend("<%= escape_javascript render(:partial => 'pnsqs/pnsq_box', :locals => {:pnsq => @pnsq, :new_pnsq => 'new_pnsq'}) %>");
+
+setTimeout(
+  function() {
+    $('#pnsq_<%= @pnsq.id %>_<%= @pnsq.user.id %>').toggleClass('new')
+    $("#duration_<%= @pnsq.id %>_<%= @pnsq.user.id %>").text(parseInt($("#audio_<%= @pnsq.id %>_<%= @pnsq.user.id %>").get(0).duration) + "\"")
+  }
+, 500)
