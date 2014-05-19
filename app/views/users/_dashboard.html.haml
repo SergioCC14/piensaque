@@ -27,7 +27,7 @@
       .pnsq_column{:style => 'width: 100%; text-align: left;'}
         -#Provisional
         .pnsq_hollow#new_pnsq_hollow
-        - for pnsq in Pnsq.order('id ASC')
+        - for pnsq in Pnsq.order('id DESC')
           = render :partial => 'pnsqs/pnsq_box', :locals => {:pnsq => pnsq} 
 
       -#.pnsq_column{:style => 'float: right;'}
