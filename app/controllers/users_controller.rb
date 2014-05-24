@@ -120,8 +120,7 @@ class UsersController < ApplicationController
     if (@user = User.find(params[:id]))
 
       # Compruebo que no exista ningun Usuario con Nick o Email igual
-      if (((User.where(:nick => User.clean_nick(params[:user][:nick]))).count > 1) and ((User.where(:nick => params[:user][:email])).count > 1))
-        raise params.inspect
+      if ((check_new_mail) and (check_new_nick))
         respond_to do |format|
           if @user.update_attributes(user_params)
             format.html { redirect_to root_path, notice: 'User was successfully updated.' }
@@ -150,6 +149,32 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
+    end
+  end
+
+  # Valida el nuevo email. Si es valido, devuelve true
+  def check_new_mail
+    if (params[:user][:email] != @user.email)
+      if (User.where(:nick => params[:user][:email]).count > 0)
+        false
+      else
+        true
+      end
+    else
+      true
+    end
+  end
+
+  # Valida el nuevo nick. Si es valido, devuelve true
+  def check_new_nick
+    if (params[:user][:nick] != @user.nick)
+      if (User.where(:nick => User.clean_nick(params[:user][:nick])).count > 0)
+        false
+      else
+        true
+      end
+    else
+      true
     end
   end
 

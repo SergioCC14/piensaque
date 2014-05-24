@@ -24,8 +24,10 @@ class User < ActiveRecord::Base
 
   has_one :playlists, :dependent => :destroy
   has_many :pnsqs, :dependent => :destroy
+
 	before_create :assign_rank
 	before_create :generate_remember_token
+  before_save :clean_nick
 
   # Color para TASTE
   DEFAULT_COLOR="#FFFFFF"
@@ -73,6 +75,11 @@ class User < ActiveRecord::Base
   def self.clean_nick(nick)
     return nick.force_encoding('utf-8').gsub(/[-‐‒–—―⁃−­]/, '-').gsub('#', 'sharp').gsub('+', 'plus').gsub('&', 'and').unaccent.to_ascii({'ñ' => 'ñ', 'Ñ' => 'Ñ'}).downcase.gsub(/[^a-zñ0-9 ]/, ' ').strip.gsub(/[ ]+/, '-')
   end
+
+  def clean_nick
+    self.nick = User.clean_nick(self.nick)
+  end
+
 
   # Comprueba si el usuario actual sigue al usuario con ID: User_id
   def following?(user_id)
