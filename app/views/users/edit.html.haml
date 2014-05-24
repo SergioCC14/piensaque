@@ -28,10 +28,10 @@
                 = f.text_field :surname, :class => 'default_field', :style => 'width: 150px'
             %tr.field
               %td.label= f.label :nick
-              %td.default_field_td= f.text_field :nick, :class => 'default_field'
+              %td.default_field_td= f.text_field :nick, :required => true, :class => 'default_field'
             %tr.field
               %td.label= f.label :email
-              %td.default_field_td= f.text_field :email, :class => 'default_field'
+              %td.default_field_td= f.text_field :email, :required => true, :class => 'default_field'
             %tr.field
               %td.label= f.label :bio
               %td.default_field_td= f.text_area :bio, :class => 'default_field'
@@ -48,6 +48,3 @@
           = render :partial => 'users/edit_musical_tates', :locals => {:user => @user, :f => f}
               
 #footer_users
-  .footer_link="About"
-  .footer_link="|"
-  .footer_link="Contact "

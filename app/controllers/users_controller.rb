@@ -39,9 +39,7 @@ class UsersController < ApplicationController
 
   # GET /users/:id
   def show
-
     if @user = !params[:id].blank? ? User.find(params[:id]) : User.find_by_nick(params[:nick])
-
 
       @pnsqs = Pnsq.where(:user_id => @user.id)
 
@@ -78,13 +76,19 @@ class UsersController < ApplicationController
 
   # GET /users/:id/edit
   def edit
-    @user = !params[:id].blank? ? User.find(params[:id]) : User.find_by_nick(params[:nick])
+    if @user = !params[:id].blank? ? User.find(params[:id]) : User.find_by_nick(params[:nick])
 
-    respond_to do |format|
-      if (current_user == @user)
-        format.html { render }
-        format.js { render  }
-      else
+      respond_to do |format|
+        if (current_user == @user)
+          format.html { render }
+          format.js { render  }
+        else
+          format.html { redirect_to root_path }
+          format.js { render  }
+        end
+      end
+    else
+      respond_to do |format|
         format.html { redirect_to root_path }
         format.js { render  }
       end
@@ -113,17 +117,28 @@ class UsersController < ApplicationController
 
   # PUT /users/:id
   def update
+    if (@user = User.find(params[:id]))
 
-    @user = User.find(params[:id])
-
-    respond_to do |format|
-      if @user.update_attributes(user_params)
-        format.html { redirect_to root_path, notice: 'User was successfully updated.' }
-        format.js { redirect_to root_path }
+      # Compruebo que no exista ningun Usuario con Nick o Email igual
+      if (((User.where(:nick => User.clean_nick(params[:user][:nick]))).count > 1) and ((User.where(:nick => params[:user][:email])).count > 1))
+        raise params.inspect
+        respond_to do |format|
+          if @user.update_attributes(user_params)
+            format.html { redirect_to root_path, notice: 'User was successfully updated.' }
+            format.js { redirect_to root_path }
+          else
+            format.html { render action: "edit" }
+            format.js { render json: @user.errors, status: :unprocessable_entity }
+          end
+        end
       else
-        format.html { render action: "edit" }
-        format.js { render json: @user.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          format.html { redirect_to settings_user_path(@user.nick), :notice => 'User or Mail in use' }
+          format.js { redirect_to settings_user_path(@user.nick), :notice => 'User or Mail in use'  }
+        end
       end
+    else
+      error404
     end
   end
 

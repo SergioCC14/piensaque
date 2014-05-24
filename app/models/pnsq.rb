@@ -5,13 +5,14 @@ class Pnsq < ActiveRecord::Base
   has_attached_file :audio
   accepts_nested_attributes_for :tags
 
-  before_create :choose_taste
+  before_save :choose_taste
 
   # Elige el Taste para el PnsQ. Depende de los gustos del usuario
   def choose_taste
+
     if (!self.user.blank?)
       taste = self.user.getTastes
-      self.update_column(:taste, taste[rand(taste.count)])
+      self.taste = taste[rand(taste.count)]
     end
   end
 

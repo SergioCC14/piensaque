@@ -21,6 +21,10 @@ gem 'exception_notification'
 # Amazon SES (Simple Email Service)
 gem "aws-ses", :require => 'aws/ses'
 
+# Para limpiar nick
+gem 'unidecoder'
+gem 'sixarm_ruby_unaccent'
+
 group :production do
   gem 'rails_12factor'
 end

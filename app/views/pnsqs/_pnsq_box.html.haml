@@ -3,7 +3,7 @@
 -#El color de fondo variará dependiendo del tipo de música que suene en el monento en que se grabó
 - if defined?(pnsq)
   %div.psnq_box{:id => "pnsq_#{pnsq.id}_#{pnsq.user.id}", :class => defined?(new_pnsq) ? 'new' : nil}
-    %table{:style => "background-color: #{cycle('#E24F4F','#97B959','#AEAEAE','#EEA83B','#945E94','#EEEEEE')}"}
+    %table{:style => "background-color: #{color(pnsq)}"}
       %tr
         %td.avatar{:style => "background-image: url('#{pnsq.user.avatar.url(:cmedium)}'); "}
           .audio-controls

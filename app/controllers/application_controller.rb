@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   include SessionsHelper
+  include PnsqHelper
 
   # No funciona, pero usalo como ejemplo
   def request_invitation

@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
 	before_create :generate_remember_token
 
   # Color para TASTE
+  DEFAULT_COLOR="#FFFFFF"
   ROCK_COLOR="#EE1D1D"
   POP_COLOR="#83B32B"
   ELECTRONICAL_COLOR="#943805"
@@ -68,6 +69,11 @@ class User < ActiveRecord::Base
 		end
 	end
 
+  # Quito espacios, elimino simbolos raros
+  def self.clean_nick(nick)
+    return nick.force_encoding('utf-8').gsub(/[-‐‒–—―⁃−­]/, '-').gsub('#', 'sharp').gsub('+', 'plus').gsub('&', 'and').unaccent.to_ascii({'ñ' => 'ñ', 'Ñ' => 'Ñ'}).downcase.gsub(/[^a-zñ0-9 ]/, ' ').strip.gsub(/[ ]+/, '-')
+  end
+
   # Comprueba si el usuario actual sigue al usuario con ID: User_id
   def following?(user_id)
     return ((Relation.where(:user_id => self.id, :user_relation_id => user_id).count > 0) ? true : false)
@@ -84,6 +90,11 @@ class User < ActiveRecord::Base
     self.mt_jazz          ? tastes << 'jazz' : nil
     self.mt_country       ? tastes << 'country' : nil
     self.mt_hiphop        ? tastes << 'hiphop' : nil
+    self.mt_classical     ? tastes << 'classical' : nil
+    self.mt_dance         ? tastes << 'dance' : nil
+    self.mt_heavy         ? tastes << 'heavy' : nil
+    self.mt_reggae        ? tastes << 'raggae' : nil
+    self.mt_funk          ? tastes << 'funk' : nil
 
     return tastes
   end

@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require './lib/deax.rb'
 
 if (Rails.env == 'development')
   require './config/initializers/dev_enviroments_vars.rb'
