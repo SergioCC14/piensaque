@@ -1,3 +1,19 @@
+-#
+  / Este es el panel inferior para añadir nuevas grabaciones
+  / De cara al usuario las grabaciones tendran:
+  /  - La propia grabacion
+  /  - Tags
+  /  - Mensaje (opcional)
+  / _________________________________________________________
+  / | __________ _________________________________________  |
+  / | |        | |                Mensaje                |  |
+  / | | New    | |                                       |  |
+  / | | Record | +---------------------------------------+  |
+  / | |        |                                            |
+  / | ---------+ |Tags||Tags||Tags||Tags||Tags||Tags||Tags| |
+  / +-------------------------------------------------------+
+
+
 -# Multipart (documentacion)
 = form_for(pnsq, :multipart => true, :remote => true, :format => [:js]) do |f|
   %div{:style => 'margin: auto; display:table;'}

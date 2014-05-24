@@ -192,7 +192,7 @@
 }
 
 .edit_musical_tastes {
-	max-width: 435px;
+	max-width: 480px;
 	border-radius: 2px;
 	background-color: $inside_sub_block;
 	display: inline-block;
@@ -203,19 +203,28 @@
 		cursor: pointer;
 		display: inline-block;
 		border: solid 1px #3D3D3D;
-		width: 65px;
-		height: 65px;
-		margin: 9px;
+		width: 90px;
+		height: 90px;
+		margin: 10px;
 		background-color: red;
-		font-family: Droid, sans-serif ;
-		line-height: 70px;
-		font-size: 43px;
+    overflow: hidden;
+    .taste_container {
+      display: table;
+      width: 100%;
+      height: 100%;
+      .taste_text {
+        display: table-cell;
+        vertical-align: middle;
+        font-family: Droid, sans-serif ;
+        font-size: 45px;
+        line-height: 50px;
+      }
+    }
 	}
 
 	.edit_musical_taste.selected {
 		border: solid 5px #3D3D3D;
-		margin: 5px;
-
+		margin: 6px;
 	}
 
 	.edit_musical_taste:hover {

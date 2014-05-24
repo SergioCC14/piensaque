@@ -1,0 +1,71 @@
+%h3="Musical Tastes"
+%td.edit_musical_tastes
+
+#taste_rock.edit_musical_taste{:style => "background-color: #{User::ROCK_COLOR}", :class => user.mt_rock ? "selected" : nil, :onclick => "check_mt('#taste_rock','#user_mt_rock')"}
+  .taste_container
+    .taste_text="Rock"
+
+#taste_electronic.edit_musical_taste{:style => "background-color: #{User::ELECTRONICAL_COLOR}", :class => user.mt_electronic ? "selected" : nil,:onclick => "check_mt('#taste_electronic','#user_mt_electronic')"}
+  .taste_container
+    .taste_text="Tecno"
+
+#taste_pop.edit_musical_taste{:style => "background-color: #{User::POP_COLOR}", :class => user.mt_pop ? "selected" : nil,:onclick => "check_mt('#taste_pop','#user_mt_pop')"}
+  .taste_container
+    .taste_text="Pop"
+
+#taste_reggae.edit_musical_taste{:style => "background-color: #{User::REGGAE_COLOR}", :class => user.mt_reggae ? "selected" : nil,:onclick => "check_mt('#taste_reggae','#user_mt_reggae')"}
+  .taste_container
+    .taste_text="reggae"
+      
+#taste_country.edit_musical_taste{:style => "background-color: #{User::COUNTRY_COLOR}", :class => user.mt_country ? "selected" : nil,:onclick => "check_mt('#taste_country','#user_mt_country')"}
+  .taste_container
+    .taste_text="Country"
+
+#taste_jazz.edit_musical_taste{:style => "background-color: #{User::JAZZ_COLOR}", :class => user.mt_jazz ? "selected" : nil,:onclick => "check_mt('#taste_jazz','#user_mt_jazz')"}
+  .taste_container
+    .taste_text="Jazz"
+
+#taste_classical.edit_musical_taste{:style => "background-color: #{User::CLASSICAL_COLOR}", :class => user.mt_classical ? "selected" : nil,:onclick => "check_mt('#taste_classical','#user_mt_classical')"}
+  .taste_container
+    .taste_text="classical"
+
+#taste_instrumental.edit_musical_taste{:style => "background-color: #{User::INSTRUMENTAL_COLOR}", :class => user.mt_instrumental ? "selected" : nil,:onclick => "check_mt('#taste_instrumental','#user_mt_instrumental')"}
+  .taste_container
+    .taste_text="Instrumental"
+
+#taste_hiphop.edit_musical_taste{:style => "background-color: #{User::HIPHOP_COLOR}", :class => user.mt_hiphop ? "selected" : nil,:onclick => "check_mt('#taste_hiphop','#user_mt_hiphop')"}
+  .taste_container
+    .taste_text="hiphop"
+
+#taste_dance.edit_musical_taste{:style => "background-color: #{User::DANCE_COLOR}", :class => user.mt_dance ? "selected" : nil,:onclick => "check_mt('#taste_dance','#user_mt_dance')"}
+  .taste_container
+    .taste_text="dance"
+
+#taste_heavy.edit_musical_taste{:style => "background-color: #{User::HEAVY_COLOR}", :class => user.mt_heavy ? "selected" : nil,:onclick => "check_mt('#taste_heavy','#user_mt_heavy')"}
+  .taste_container
+    .taste_text="Heavy Metal"
+
+#taste_funk.edit_musical_taste{:style => "background-color: #{User::FUNK_COLOR}", :class => user.mt_funk ? "selected" : nil,:onclick => "check_mt('#taste_funk','#user_mt_funk')"}
+  .taste_container
+    .taste_text="funk"
+
+= f.check_box :mt_rock, :style => 'display:none'
+= f.check_box :mt_pop, :style => 'display:none'
+= f.check_box :mt_electronic, :style => 'display:none'
+= f.check_box :mt_instrumental, :style => 'display:none'
+= f.check_box :mt_jazz, :style => 'display:none'
+= f.check_box :mt_country, :style => 'display:none'
+= f.check_box :mt_hiphop, :style => 'display:none'
+= f.check_box :mt_classical, :style => 'display:none'
+= f.check_box :mt_dance, :style => 'display:none'
+= f.check_box :mt_heavy, :style => 'display:none'
+= f.check_box :mt_reggae, :style => 'display:none'
+= f.check_box :mt_funk, :style => 'display:none'
+
+
+:javascript
+  // Cambia la clase según selección y activa la opción que corresponda
+  function check_mt(button,mt) {
+    $(button).toggleClass('selected');
+    $(mt).click()
+  }

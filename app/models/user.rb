@@ -27,6 +27,21 @@ class User < ActiveRecord::Base
 	before_create :assign_rank
 	before_create :generate_remember_token
 
+  # Color para TASTE
+  ROCK_COLOR="#EE1D1D"
+  POP_COLOR="#83B32B"
+  ELECTRONICAL_COLOR="#943805"
+  INSTRUMENTAL_COLOR="#FF9B00"
+  JAZZ_COLOR="#3666AE"
+  COUNTRY_COLOR="#7F77CF"
+  HIPHOP_COLOR="#7F327F"
+  CLASSICAL_COLOR="#4EB6FF"
+  DANCE_COLOR="#FF90FF"
+  HEAVY_COLOR="#6D6D6D"
+  REGGAE_COLOR="#00923F"
+  FUNK_COLOR="#ED5F21"
+
+
 	# Método para asignar permisos
 	# BIG_BOSS 	- Nivel alto
 	# ADMIN 	  - Nivel medio
@@ -53,8 +68,24 @@ class User < ActiveRecord::Base
 		end
 	end
 
+  # Comprueba si el usuario actual sigue al usuario con ID: User_id
   def following?(user_id)
     return ((Relation.where(:user_id => self.id, :user_relation_id => user_id).count > 0) ? true : false)
+  end
+
+  # Devuelve un array con los gustos musicales
+  def getTastes
+    tastes = []
+    
+    self.mt_rock          ? tastes << 'rock' : nil
+    self.mt_pop           ? tastes << 'pop' : nil
+    self.mt_electronic    ? tastes << 'electronic' : nil
+    self.mt_instrumental  ? tastes << 'instrumental' : nil
+    self.mt_jazz          ? tastes << 'jazz' : nil
+    self.mt_country       ? tastes << 'country' : nil
+    self.mt_hiphop        ? tastes << 'hiphop' : nil
+
+    return tastes
   end
 
 	def generate_number

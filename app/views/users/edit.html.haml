@@ -5,7 +5,7 @@
     .title_section="Settings"
     .information_block
       = form_for @user do |f|
-        %div{:style => 'display:inline-block; width: 360px; margin-right:100px;'}
+        %div{:style => 'display:inline-block; width: 360px; margin-right:60px;'}
           .avatar_block
             .avatar_img{:style => "background: url(#{@user.avatar.url(:cmedium)})", :id => 'wrapper_user_avatar'}
               =image_tag('',:id => 'avatar_img')
@@ -45,40 +45,8 @@
                   = f.submit '', :style => 'display:none', :id => "save_edit_#{@user.id}"
 
         .edit_musical_tastes
-          %h3="Musical Tastes"
-          %td.edit_musical_tastes
-
-            #taste_rock.edit_musical_taste{:style => "background-color: #EE1D1D", :class => @user.mt_rock ? "selected" : nil, :onclick => "check_mt('#taste_rock','#user_mt_rock')"}="Rock"
-            
-            #taste_pop.edit_musical_taste{:style => "background-color: #83B32B", :class => @user.mt_pop ? "selected" : nil,:onclick => "check_mt('#taste_pop','#user_mt_pop')"}="Pop"
-            
-            #taste_electronic.edit_musical_taste{:style => "background-color: #A4A4A4", :class => @user.mt_electronic ? "selected" : nil,:onclick => "check_mt('#taste_electronic','#user_mt_electronic')"}="Tecno"
-            
-            #taste_instrumental.edit_musical_taste{:style => "background-color: #FF9B00", :class => @user.mt_instrumental ? "selected" : nil,:onclick => "check_mt('#taste_instrumental','#user_mt_instrumental')"}="Instr"
-            
-                          
-            #taste_jazz.edit_musical_taste{:style => "background-color: #7F327F", :class => @user.mt_jazz ? "selected" : nil,:onclick => "check_mt('#taste_jazz','#user_mt_jazz')"}="Jazz"
-
-            #taste_country.edit_musical_taste{:style => "background-color: #7F77CF", :class => @user.mt_country ? "selected" : nil,:onclick => "check_mt('#taste_country','#user_mt_country')"}="Country"
-
-            #taste_hiphop.edit_musical_taste{:style => "background-color: #fff", :class => @user.mt_hiphop ? "selected" : nil,:onclick => "check_mt('#taste_hiphop','#user_mt_hiphop')"}="hiphop"
-
-            = f.check_box :mt_rock, :style => 'display:none'
-            = f.check_box :mt_pop, :style => 'display:none'
-            = f.check_box :mt_electronic, :style => 'display:none'
-            = f.check_box :mt_instrumental, :style => 'display:none'
-            = f.check_box :mt_jazz, :style => 'display:none'
-            = f.check_box :mt_country, :style => 'display:none'
-            = f.check_box :mt_hiphop, :style => 'display:none'
-
-
-            :javascript
-              // Cambia la clase según selección y activa la opción que corresponda
-              function check_mt(button,mt) {
-                $(button).toggleClass('selected');
-                $(mt).click()
-              }
-    
+          = render :partial => 'users/edit_musical_tates', :locals => {:user => @user, :f => f}
+              
 #footer_users
   .footer_link="About"
   .footer_link="|"

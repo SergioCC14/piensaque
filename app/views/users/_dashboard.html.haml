@@ -23,33 +23,10 @@
             %td
  
     .information_block
+      = render :partial => 'pnsqs/maker_pnsq', :locals => {:pnsq => @pnsq}
       -# Last
       .pnsq_column{:style => 'width: 100%; text-align: left;'}
         -#Provisional
         .pnsq_hollow#new_pnsq_hollow
         - for pnsq in Pnsq.order('id DESC')
           = render :partial => 'pnsqs/pnsq_box', :locals => {:pnsq => pnsq} 
-
-      -#.pnsq_column{:style => 'float: right;'}
-        -#Provisional
-        - for mt in 2.times
-          = render :partial => 'pnsqs/pnsq_box'
-
-
-    -#
-      / Este es el panel inferior para añadir nuevas grabaciones
-      / De cara al usuario las grabaciones tendran:
-      /  - La propia grabacion
-      /  - Tags
-      /  - Mensaje (opcional)
-      / _________________________________________________________
-      / | __________ _________________________________________  |
-      / | |        | |                Mensaje                |  |
-      / | | New    | |                                       |  |
-      / | | Record | +---------------------------------------+  |
-      / | |        |                                            |
-      / | ---------+ |Tags||Tags||Tags||Tags||Tags||Tags||Tags| |
-      / +-------------------------------------------------------+
-
-    
-    = render :partial => 'pnsqs/maker_pnsq', :locals => {:pnsq => @pnsq}
