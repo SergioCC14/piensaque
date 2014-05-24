@@ -58,6 +58,12 @@
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
+        a {
+          color: #3D3D3D;
+        }
+        a:hover {
+          color: $link_default_hover;
+        }
       }
       td.tags {
         display: none;
