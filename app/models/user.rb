@@ -128,12 +128,6 @@ class User < ActiveRecord::Base
     return (self.password == User.encrypt("--#{password_to_check}--#{self.created_at}--#{self.password_salt}"))
   end
 
-    def generate_password
-      self.password_salt = User.encrypt("--#{Time.now.utc}--#{ENV['SALT']}")
-      self.password = User.encrypt("--#{self.password}--#{self.created_at}--#{self.password_salt}")
-      self.save
-    end
-
   private
     # Genera un Token único por sesión al usuario
     def generate_remember_token
@@ -143,6 +137,11 @@ class User < ActiveRecord::Base
     # Creacion de contraseña: Genera una contraseña para el usuario
     #   - Prepara una salt para el usuario
     #   - Encriptación de contraseña (contraseña, created_at, salt)
+    def generate_password
+      self.password_salt = User.encrypt("--#{Time.now.utc}--#{ENV['SALT']}")
+      self.password = User.encrypt("--#{self.password}--#{self.created_at}--#{self.password_salt}")
+      self.save
+    end
 
 
 end
