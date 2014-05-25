@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  require 'digest/sha1'
+
   # Avatar
   has_attached_file :avatar, :styles => {
     icon:    '50x50#'   ,
@@ -115,9 +117,9 @@ class User < ActiveRecord::Base
     SecureRandom.urlsafe_base64
   end
 
-  # Cifra usando SHA1 el token
+  # Cifra usando SHA2 el token
   def User.encrypt(token)
-    Digest::SHA1.hexdigest(token.to_s)
+    Digest::SHA2.hexdigest(token.to_s)
   end
 
   private
@@ -125,5 +127,31 @@ class User < ActiveRecord::Base
     def generate_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
     end
+
+    # Recibe una contraseña y comprueba si es esa contraseña
+    def check_password(password_to_check)
+      return (self.password == self.encrypt_pass(password_to_check))
+    end
+
+    # Creacion de contraseña: Genera una contraseña para el usuario
+    def generate_password(password)
+      self.ready_salt
+      self.encrypt_pass(password)
+      self.save
+    end
+
+    # Creacion de contraseña: Prepara una salt para el usuario
+    def ready_salt
+      self.password_salt = User.encrypt("--#{Time.now.utc}--#{ENV['SALT']}")
+    end
+
+    # Creacion de contraseña: Encriptación de contraseña (contraseña, created_at, salt)
+    def encrypt_pass(password)
+      self.password = User.encrypt("--#{password}--#{self.created_at}--#{self.password_salt}")
+    end
+
+
+
+
 
 end

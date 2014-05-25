@@ -1,27 +1,7 @@
 #user_container
   .user_block
     .name_user_block
-      .user_row
-        %table.user_row_info
-          %tr
-            %td.user_row_avatar
-              =image_tag(@user.avatar.url(:icon))
-            %td.user_row_name
-              =@user.nick.capitalize
-              = render :partial => 'relations/follow', :locals => {:user => @user, :relation => @relation} 
-            %td.connections_panel
-              =link_to("#{@user.followers_count} Followers", relations_in_holder_user_path(@user.id, :role => 'followers'), :remote => true)
-              =link_to("#{@user.following_count} Following", relations_in_holder_user_path(@user.id, :role => 'following'), :remote => true)
-          %tr
-            %td
-            %td.user_row_bio
-              =@user.bio.capitalize
-            %td
-          %tr
-            %td
-            %td.user_row_bio
-              = pretty_tastes(@user)
-            %td
+      = render :partial => 'users/user_row', :locals => {:user => @user, :relation => @relation}
 
     .information_block
       - if !@pnsqs.blank?

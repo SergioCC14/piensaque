@@ -29,4 +29,9 @@ module SessionsHelper
     @current_user ||= User.find_by_remember_token(remember_token)
   end
 
+  # Comprueba si el usuario es el mismo que el usuario que navega
+  def its_me?(user)
+    return (signed_in? and (current_user.id == user.id))
+  end
+
 end

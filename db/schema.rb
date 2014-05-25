@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140524155735) do
+ActiveRecord::Schema.define(version: 20140525093559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140524155735) do
     t.datetime "audio_updated_at"
     t.integer  "user_id"
     t.string   "taste"
+    t.integer  "to_user_id"
   end
 
   create_table "relations", force: true do |t|
@@ -118,6 +119,7 @@ ActiveRecord::Schema.define(version: 20140524155735) do
     t.boolean  "mt_heavy",            default: false
     t.boolean  "mt_reggae",           default: false
     t.boolean  "mt_funk",             default: false
+    t.string   "password_salt"
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree

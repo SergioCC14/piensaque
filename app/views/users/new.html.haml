@@ -1,4 +1,4 @@
-- if current_user.legendary_soldier?
+- if true or (signed_in? and current_user.legendary_soldier?)
   #user_container
     .user_settings_block
       .title_section="New User"
