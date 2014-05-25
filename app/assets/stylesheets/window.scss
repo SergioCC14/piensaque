@@ -33,10 +33,18 @@
 
     .content_in_holder {
       color: $text_color;
-      text-align: center;
-      font-style: italic;
-      font-size: 14pt;
-      padding: 20px;
+      font-size: 12px;
+      .sub_title {
+        padding-bottom: 20px;
+        text-align: center;
+        font-size: 14px;
+      }
+      .text {
+        text-align: center;
+        font-style: italic;
+        font-size: 14pt;
+        padding: 20px;
+      }
     }
 
   }

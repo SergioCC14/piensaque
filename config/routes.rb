@@ -10,6 +10,8 @@ PiensaQue::Application.routes.draw do
   resources :users do
     member do
       get :relations_in_holder
+      get :change_password_in_holder
+      put :update_password
     end
 
     collection do
@@ -27,5 +29,4 @@ PiensaQue::Application.routes.draw do
 
 
   root :to => 'application#index'
-
 end

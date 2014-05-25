@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -113,6 +112,39 @@ class UsersController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # GET /users/:id/change_password_in_holder
+  def change_password_in_holder
+    if (@user = User.find_by_id(params[:id]))
+      respond_to do |format|
+        format.html { render :nothing => true }
+        format.js { render }
+      end
+
+    else
+      error404
+    end
+  end
+
+  # PUT /users/:id/update_password
+  def update_password
+    if (@user = User.find_by_id(params[:id]))
+      
+      @user.password_salt = User.encrypt("--#{Time.now.utc}--#{ENV['SALT']}")
+      @user.password = User.encrypt("--#{params[:password]}--#{@user.created_at}--#{@user.password_salt}")
+      
+      if (@user.save)
+        respond_to do |format|
+          format.html { redirect_to root_path, :notice => 'Password changed' }
+          format.js { render :nothing => true }
+        end
+      else
+        error404
+      end
+    else
+      error404
     end
   end
 

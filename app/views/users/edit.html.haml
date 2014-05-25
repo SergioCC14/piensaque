@@ -35,13 +35,14 @@
             %tr.field
               %td.label= f.label :bio
               %td.default_field_td= f.text_area :bio, :class => 'default_field'
-              
+            %tr.field
+              %td
+              %td
+                =link_to("Change Password", change_password_in_holder_user_path(@user.id), :remote => true)
             %tr.actions
               %td{:colspan => 2}
-                %div{:style => 'padding-top: 20px; text-align:center;'}
-                  = link_to("Enter", "", :class => 'landing_button edit_form', :onclick => "$('#save_edit_#{@user.id}').click()", :remote => true)
-                  ="or"  
-                  = link_to 'Cancel', root_path
+                %div{:style => 'padding-top: 40px; text-align:right;'}
+                  = link_to("Save", "", :class => 'landing_button edit_form', :onclick => "$('#save_edit_#{@user.id}').click()", :remote => true)
                   = f.submit '', :style => 'display:none', :id => "save_edit_#{@user.id}"
 
         .edit_musical_tastes

@@ -58,7 +58,7 @@ tr.field {
 a {
     color: red;
 
-  color: #000;
+  color: $link_default;
   text-decoration: none;
   &:visited {
     color: #666;
