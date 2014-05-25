@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
 
 	before_create :assign_rank
 	before_create :generate_remember_token
+  before_create :generate_password
   before_save :clean_nick
 
   # Color para TASTE
@@ -122,36 +123,26 @@ class User < ActiveRecord::Base
     Digest::SHA2.hexdigest(token.to_s)
   end
 
+  # Recibe una contraseña y comprueba si es esa contraseña
+  def check_password(password_to_check)
+    return (self.password == User.encrypt("--#{password_to_check}--#{self.created_at}--#{self.password_salt}"))
+  end
+
+    def generate_password
+      self.password_salt = User.encrypt("--#{Time.now.utc}--#{ENV['SALT']}")
+      self.password = User.encrypt("--#{self.password}--#{self.created_at}--#{self.password_salt}")
+      self.save
+    end
+
   private
     # Genera un Token único por sesión al usuario
     def generate_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
     end
 
-    # Recibe una contraseña y comprueba si es esa contraseña
-    def check_password(password_to_check)
-      return (self.password == self.encrypt_pass(password_to_check))
-    end
-
     # Creacion de contraseña: Genera una contraseña para el usuario
-    def generate_password(password)
-      self.ready_salt
-      self.encrypt_pass(password)
-      self.save
-    end
-
-    # Creacion de contraseña: Prepara una salt para el usuario
-    def ready_salt
-      self.password_salt = User.encrypt("--#{Time.now.utc}--#{ENV['SALT']}")
-    end
-
-    # Creacion de contraseña: Encriptación de contraseña (contraseña, created_at, salt)
-    def encrypt_pass(password)
-      self.password = User.encrypt("--#{password}--#{self.created_at}--#{self.password_salt}")
-    end
-
-
-
+    #   - Prepara una salt para el usuario
+    #   - Encriptación de contraseña (contraseña, created_at, salt)
 
 
 end

@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
     user = (User.find_by_nick(params[:email_or_nick].downcase)) or (User.find_by_email(params[:email_or_nick].downcase))
 
     # Comprueba la contraseña para ese usuario
-    check_pass = user.blank? ? nil : params[:pass] == user.password
+    check_pass = user.blank? ? nil : user.check_password(params[:pass])
 
     if user.blank? or !check_pass
       respond_to do |format|

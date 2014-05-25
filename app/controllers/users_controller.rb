@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
 
-    if true or (!current_user.blank? and current_user.legendary_soldier? )
+    if (!current_user.blank? and current_user.legendary_soldier?)
       respond_to do |format|
         format.html # new.html.erb
         format.json { render json: @user }
@@ -104,12 +104,6 @@ class UsersController < ApplicationController
     # Comprueba si el nick ha sido usado, si ha sido usado lo modifica
     @user.used_nick(@user.nick)
 
-raise params.inspect
-
-    # Genera una contraseña cifrada
-    @user.generate_password(params[:user])
-
-    
 
     respond_to do |format|
       if (@user.save) and (!used_nick)

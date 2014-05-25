@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
   def index
     max_tags = 3
 
-
     @request_invitation = RequestInvitation.new
     @session = Session.new
     @pnsq = Pnsq.new
