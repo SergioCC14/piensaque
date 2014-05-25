@@ -16,22 +16,32 @@
 
 -# Multipart (documentacion)
 = form_for(pnsq, :multipart => true, :remote => true, :format => [:js]) do |f|
-  %div{:style => 'margin: auto; display:table;'}
-    .new_pnsq_panel
-      .record_button#pnsq_microphone
-        %i.icon-microphone
+  %table.new_pnsq_panel
+    %tr
+      %td.record
+        .record_button#pnsq_microphone
+          %i.icon-microphone
+        %a#audio-file{:style => 'display:inline-block;', :href => '#'}
+        = text_field_tag 'pnsq[user_id]', current_user.id , :style => 'display: none'
+      %td.text
+        .text_wrapper
 
-      %content
+          = f.text_area :text, :maxlength => 80, :overflow => 'hidden', :placeholder => 'Add text on your PnsQ...'
+
+  - if false
+    %div{:style => 'margin: auto; display:table; width: 100%;'}
+      .new_pnsq_panel
+        .record_button#pnsq_microphone
+          %i.icon-microphone
+
+        
         %a#audio-file{:style => 'display:inline-block;', :href => '#'}
         = text_field_tag 'pnsq[user_id]', current_user.id , :style => 'display: none'
         .right_zone 
           .text_wrapper
             = f.text_area :text, :maxlength => 80, :overflow => 'hidden', :placeholder => 'Add text on your PnsQ...'
 
-          
-          = f.fields_for :tags do |t|
-            .tags_wrapper
-              = t.text_field(:name, :placeholder => 'Tags...', :id => "tag")
+
 
   :javascript
     // Inicia la recogida de Audio

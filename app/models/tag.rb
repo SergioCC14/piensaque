@@ -1,5 +1,5 @@
 class Tag < ActiveRecord::Base
 
-  belongs_to :pnsq
+  has_and_belongs_to_many :pnsq
   
 end

@@ -51,11 +51,11 @@ class PnsqsController < ApplicationController
 
       # Creación de Tags
       # TODO: Comprobar si esa tag existe
-      if params[:pnsq][:tags_attributes]
-        for tag in params[:pnsq][:tags_attributes]
-          Tag.create(:name => tag[1]["name"], :pnsq_id => @pnsq.id)
-        end
-      end
+      # if params[:pnsq][:tags_attributes]
+      #   for tag in params[:pnsq][:tags_attributes]
+      #     Tag.create(:name => tag[1]["name"], :pnsq_id => @pnsq.id)
+      #   end
+      # end
 
       respond_to do |format|
         format.html { redirect_to home_path, notice: 'Pnsq was successfully updated.' }
@@ -96,7 +96,7 @@ class PnsqsController < ApplicationController
 
   private
     def pnsq_params
-      params.require(:pnsq).permit(:text, :audio, :tags, :user_id, :updated_at, :created_at)
+      params.require(:pnsq).permit(:text, :audio, :tags, :user_id, :updated_at, :created_at, :tags_attributes)
     end
 
 end
