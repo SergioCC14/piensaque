@@ -63,7 +63,25 @@ class UsersController < ApplicationController
     if (@user = User.find_by_id(params[:id]))
 
       respond_to do |format|
-        format.html { render }
+        format.html { render :nothing => true}
+        format.js { render }
+      end
+
+    else
+      error404
+    end
+  end
+
+  # GET /users/:id/new_personal_pnsq_in_holder
+  # 
+  # Ventana emergente para visualizar los Mensajes Privados
+  def personal_pnsq_in_holder
+    if ((@user = User.find_by_id(params[:id])) and (its_me?(@user)))
+
+      @pnsqs = @user.pnsqs.privates
+
+      respond_to do |format|
+        format.html { render :nothing => true}
         format.js { render }
       end
 

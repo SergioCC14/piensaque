@@ -46,6 +46,12 @@
         padding: 20px;
       }
     }
+  }
+}
 
+.window_holder.small {
+  max-width: 400px;
+  .inner_window.md-content { 
+    background-color: $main_block;
   }
 }

@@ -1,0 +1,24 @@
+%tr{:class => its_me?(pnsq.user) ? "owner" : nill, :id => "personal_pnsq_#{pnsq.id}_#{pnsq.user.id}"}
+  %td.avatar
+    .background-avatar{:style => "background-image: url('#{pnsq.user.avatar.url(:cmedium)}'); "}
+      .audio-controls
+        .icon-play{:id => "play_#{pnsq.id}_#{pnsq.user.id}"}
+        .duration{:id => "duration_#{pnsq.id}_#{pnsq.user.id}"}
+  %td.description
+    =link_to(pnsq.user.nick, user_nick_path(pnsq.user.nick))
+    .date="recorded on #{pnsq.created_at.to_formatted_s(:long)}"
+    .text=pnsq.text
+
+    %audio{:controls => '', :id => "audio_#{pnsq.id}_#{pnsq.user.id}", :style => 'display:none'}
+      %source{:src => pnsq.audio.url(:original), :type => pnsq.audio.content_type}
+
+  :javascript
+    function playPnsq(audio_id) {
+      audio_id.get(0).play();
+    }
+    $("#play_#{pnsq.id}_#{pnsq.user.id}").click(function() { 
+      playPnsq($("#audio_#{pnsq.id}_#{pnsq.user.id}"))
+    });
+    setTimeout( function() {
+      $("#duration_#{pnsq.id}_#{pnsq.user.id}").text(parseInt($("#audio_#{pnsq.id}_#{pnsq.user.id}").get(0).duration) + "\"")
+    }, 500 );

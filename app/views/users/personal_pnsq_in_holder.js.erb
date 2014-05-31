@@ -1,0 +1,5 @@
+prepare_for_modal_2();
+
+$("#md-inner_window").append('<%= escape_javascript render(:partial => "users/personal_pnsq_in_holder", :locals => {:user => @user, :pnsqs => @pnsqs}) %>');
+
+show_modal();

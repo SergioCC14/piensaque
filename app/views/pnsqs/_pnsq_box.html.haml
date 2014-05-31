@@ -34,9 +34,9 @@
     function playPnsq(audio_id) {
       audio_id.get(0).play();
     }
-    $("#{pnsq.id}_#{pnsq.user.id}").ready(function() {
+    setTimeout( function() {
       $("#duration_#{pnsq.id}_#{pnsq.user.id}").text(parseInt($("#audio_#{pnsq.id}_#{pnsq.user.id}").get(0).duration) + "\"")
-    });
+    }, 500 );
     $("#play_#{pnsq.id}_#{pnsq.user.id}").click(function() { 
       playPnsq($("#audio_#{pnsq.id}_#{pnsq.user.id}"))
     });

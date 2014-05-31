@@ -185,3 +185,41 @@ table.new_pnsq_panel {
       }
   }
 }
+
+
+table.pnsq_in_holder {
+  border-collapse: collapse;
+  tr {
+    background-color: $inside_block;
+    border: 1px solid #B3B3B3;
+    td {
+    padding: 5px 10px;
+    }
+    td.avatar{
+
+      .background-avatar {
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        border-radius: 50px;
+      }
+    }
+    td.description {
+      text-align: center;
+      .date {
+        font-style: italic;
+        display: inline-block;
+      }
+      .text {
+        display: block;
+      }
+    }
+  }
+
+  tr.owner {
+    background-color: $inside_sub_block;
+  }
+}

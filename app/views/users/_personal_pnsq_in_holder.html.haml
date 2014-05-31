@@ -1,0 +1,10 @@
+.window_header
+  %h2="Personal messages"
+.content_in_holder
+  %table.pnsq_in_holder
+    - if !pnsqs.blank?
+      - for pnsq in pnsqs
+        = render :partial => 'users/personal_pnsq_row', :locals => {:pnsq => pnsq} 
+           
+    - else
+      .text="Not Personal Pnsqs Yet"
