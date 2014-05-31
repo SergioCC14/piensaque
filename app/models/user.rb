@@ -83,7 +83,6 @@ class User < ActiveRecord::Base
     self.nick = User.clean_nick(self.nick)
   end
 
-
   # Comprueba si el usuario actual sigue al usuario con ID: User_id
   def following?(user_id)
     return ((Relation.where(:user_id => self.id, :user_relation_id => user_id).count > 0) ? true : false)
