@@ -5,7 +5,6 @@ class PnsqsController < ApplicationController
   # GET /pnsqs
   # GET /pnsqs.json
   def index
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @pnsqs }
@@ -24,12 +23,10 @@ class PnsqsController < ApplicationController
   # GET /pnsqs/new
   # GET /pnsqs/new.json
   def new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
     end
-   
   end
 
   # GET /pnsqs/1/edit

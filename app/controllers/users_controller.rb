@@ -48,9 +48,25 @@ class UsersController < ApplicationController
       end
 
       respond_to do |format|
-        format.html # show.html.erb
-        format.json { render json: @user }
+        format.html { render }
+        format.js { render}
       end
+    else
+      error404
+    end
+  end
+
+  # GET /users/:id/new_personal_pnsq_in_holder
+  # 
+  # Ventana emergente para enviar un Mensaje Privado de Audio a un usuario @user
+  def new_personal_pnsq_in_holder
+    if (@user = User.find_by_id(params[:id]))
+
+      respond_to do |format|
+        format.html { render }
+        format.js { render }
+      end
+
     else
       error404
     end
