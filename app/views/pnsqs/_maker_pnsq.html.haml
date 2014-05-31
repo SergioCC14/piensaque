@@ -13,7 +13,6 @@
   / | ---------+ |Tags||Tags||Tags||Tags||Tags||Tags||Tags| |
   / +-------------------------------------------------------+
 
-
 -# Multipart (documentacion)
 = form_for(pnsq, :multipart => true, :remote => true, :format => [:js]) do |f|
   %table.new_pnsq_panel
@@ -25,31 +24,18 @@
         = text_field_tag 'pnsq[user_id]', current_user.id , :style => 'display: none'
       %td.text
         .text_wrapper
-
           = f.text_area :text, :maxlength => 80, :overflow => 'hidden', :placeholder => 'Add text on your PnsQ...'
 
-  - if false
-    %div{:style => 'margin: auto; display:table; width: 100%;'}
-      .new_pnsq_panel
-        .record_button#pnsq_microphone
-          %i.icon-microphone
-
-        
-        %a#audio-file{:style => 'display:inline-block;', :href => '#'}
-        = text_field_tag 'pnsq[user_id]', current_user.id , :style => 'display: none'
-        .right_zone 
-          .text_wrapper
-            = f.text_area :text, :maxlength => 80, :overflow => 'hidden', :placeholder => 'Add text on your PnsQ...'
-
+        - if defined?(to_user)
+          = text_field_tag 'pnsq[to_user_id]', to_user.id , :style => 'display: none'
 
 
   :javascript
     // Inicia la recogida de Audio
-    window.addEventListener('load', init_record_audio );
+    init_record_audio();
     $('#pnsq_microphone').click(function() {
       if ($(this).hasClass('recording')) {
         stop_record_audio('new_pnsq', "#{current_user.id}");
-
         $('#pnsq_microphone').removeClass("recording");  
       } else {
         $('#pnsq_microphone').addClass("recording")

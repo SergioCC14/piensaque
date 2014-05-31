@@ -1,8 +1,13 @@
-$("#new_pnsq_hollow").prepend("<%= escape_javascript render(:partial => 'pnsqs/pnsq_box', :locals => {:pnsq => @pnsq, :new_pnsq => 'new_pnsq'}) %>");
+<%- if @pnsq.to_user_id.blank? %>
+  $("#new_pnsq_hollow").prepend("<%= escape_javascript render(:partial => 'pnsqs/pnsq_box', :locals => {:pnsq => @pnsq, :new_pnsq => 'new_pnsq'}) %>");
 
-setTimeout(
-  function() {
-    $('#pnsq_<%= @pnsq.id %>_<%= @pnsq.user.id %>').toggleClass('new')
-    $("#duration_<%= @pnsq.id %>_<%= @pnsq.user.id %>").text(parseInt($("#audio_<%= @pnsq.id %>_<%= @pnsq.user.id %>").get(0).duration) + "\"")
-  }
-, 500)
+  setTimeout(
+    function() {
+      $('#pnsq_<%= @pnsq.id %>_<%= @pnsq.user.id %>').toggleClass('new')
+      $("#duration_<%= @pnsq.id %>_<%= @pnsq.user.id %>").text(parseInt($("#audio_<%= @pnsq.id %>_<%= @pnsq.user.id %>").get(0).duration) + "\"")
+    }
+  , 500)
+
+<%- else %>
+  alert('PnsQ created!');
+<%- end %>

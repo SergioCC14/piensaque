@@ -46,36 +46,12 @@ class PnsqsController < ApplicationController
 
     if (@pnsq = Pnsq.create(pnsq_params))
 
-      # Creación de Tags
-      # TODO: Comprobar si esa tag existe
-      # if params[:pnsq][:tags_attributes]
-      #   for tag in params[:pnsq][:tags_attributes]
-      #     Tag.create(:name => tag[1]["name"], :pnsq_id => @pnsq.id)
-      #   end
-      # end
-
       respond_to do |format|
         format.html { redirect_to home_path, notice: 'Pnsq was successfully updated.' }
         format.js { render }
       end
     else
       error404
-    end
-  end
-
-  # PUT /pnsqs/1
-  # PUT /pnsqs/1.json
-  def update
-    @pnsq = Pnsq.find(params[:id])
-
-    respond_to do |format|
-      if @pnsq.update_attributes(params[:pnsq])
-        format.html { redirect_to music_path, notice: 'Pnsq was successfully updated.' }
-        format.js { redirect_to root_path }
-      else
-        format.html { render action: "edit" }
-        format.js { render json: @pnsq.errors, status: :unprocessable_entity }
-      end
     end
   end
 
@@ -93,7 +69,7 @@ class PnsqsController < ApplicationController
 
   private
     def pnsq_params
-      params.require(:pnsq).permit(:text, :audio, :tags, :user_id, :updated_at, :created_at, :tags_attributes)
+      params.require(:pnsq).permit(:to_user_id, :text, :audio, :tags, :user_id, :updated_at, :created_at, :tags_attributes)
     end
 
 end

@@ -89,6 +89,16 @@ class User < ActiveRecord::Base
     return ((Relation.where(:user_id => self.id, :user_relation_id => user_id).count > 0) ? true : false)
   end
 
+  # Devuelve todos los PnsQ privados (Enviados)
+  def pnsq_privates_sent
+    return Pnsq.privates.where(:user_id => self.id)
+  end
+
+  # Devuelve todos los PnsQ privados (Recibidos)
+  def pnsq_privates_received
+    return Pnsq.privates.where(:to_user_id => self.id)
+  end
+
   # Devuelve un array con los gustos musicales
   def getTastes
     tastes = []
