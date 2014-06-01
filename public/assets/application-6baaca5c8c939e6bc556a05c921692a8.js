@@ -16491,7 +16491,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 (function(window){
 
-  var WORKER_PATH = 'https://s3.amazonaws.com/public.piensaque.com/assets/recorderWorker.js';
+  var WORKER_PATH = '/assets/recorderWorker.js';
 
   var Recorder = function(source, cfg){
 
@@ -16752,6 +16752,7 @@ function encodeWAV(samples){
 
 
 
+
 // Cambia img
 function readURL(input, previewImg) {
   if (input.files && input.files[0]) {
@@ -16784,9 +16785,15 @@ function prepare_for_modal() {
   $('#place_for_window_in_holder').html('<div id="md-window" class="window_holder md-modal md-effect-1"><div id ="md-inner_window" class="inner_window window md-content"><div id="closer_modal" class="md-close">X</div></div></div> <script> $("#closer_modal").click(function() {close_window();}); </script>');
 }
 
-// Prepara para lanzar una nueva ventana modal
+// Prepara para lanzar una nueva ventana modal (más pequeña)
 function prepare_for_modal_2() {
   $('#place_for_window_in_holder').html('<div id="md-window" class="window_holder small md-modal md-effect-1"><div id ="md-inner_window" class="inner_window window md-content"><div id="closer_modal" class="md-close">X</div></div></div> <script> $("#closer_modal").click(function() {close_window();}); </script>');
+}
+
+// Prepara para lanzar una nueva ventana modal
+function prepare_for_modal_info(text) {
+  $('#place_for_window_in_holder_info').html('<div id="md-window-info" class="window_holder md-modal info md-effect-10"><div id ="md-inner_window" class="inner_window window md-content"><div class="text">' + text + '</div><i class="icon-spinner"></div></div>');
+
 }
 
 // Muestra la ventana modal, después de estar montada 
@@ -16796,8 +16803,26 @@ function show_modal() {
   }, 50 );
 }
 
+// Muestra la ventana modal, después de estar montada 
+function show_modal_info() {
+  setTimeout( function() {
+    $('#md-window-info').toggleClass('md-show')
+  }, 50 );
+}
+
 // Cierra la ventana abierta
 function close_window() {
   $('#md-window').toggleClass('md-show')
+}
+
+// Cierra la ventana abierta
+function close_window_info() {
+  $('#md-window-info').toggleClass('md-show')
+}
+
+// Cierra todas las modales
+function close_modals() {
+  close_window();
+  close_window_info();
 }
 ;
