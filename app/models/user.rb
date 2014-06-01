@@ -90,12 +90,12 @@ class User < ActiveRecord::Base
 
   # Devuelve todos los PnsQ privados (Recibidos)
   def pnsq_privates_received
-    return Pnsq.privates.where(:to_user_id => self.id)
+    return Pnsq.privates.where(:to_user_id => self.id).order('id DESC')
   end
 
   # Devuelve todos los PnsQ privados
   def privates_all
-    return Pnsq.privates.where('to_user_id = ? OR user_id = ? ',self.id ,self.id)
+    return Pnsq.privates.where('to_user_id = ? OR user_id = ? ',self.id ,self.id).order('id DESC')
   end
 
   # Devuelve un array con los gustos musicales

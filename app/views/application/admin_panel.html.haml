@@ -16,23 +16,23 @@
         = render :partial => 'application/panel_invitations'
 
       -#Music
-      %h1.title_panel
-        %div{:style => 'display: inline;', :onclick => "slidePanel($('#panel_musics'))"}="Musics(#{Music.all.count})"
-        =link_to('+', new_music_path)
-      #panel_musics{:style => 'display:none'}
-        = render :partial => 'application/panel_music'
+        %h1.title_panel
+          %div{:style => 'display: inline;', :onclick => "slidePanel($('#panel_musics'))"}="Musics(#{Music.all.count})"
+          =link_to('+', new_music_path)
+        #panel_musics{:style => 'display:none'}
+          = render :partial => 'application/panel_music'
 
       -#Pnsqs
       %h1.title_panel{:onclick => "slidePanel($('#panel_pnsqs'))"}
-        ="PnsQs(#{Pnsq.all.count})"
+        ="PnsQs(#{Pnsq.publics.count}) - Privates (#{Pnsq.privates.count})"
       #panel_pnsqs{:style => 'display:none'}
         = render :partial => 'application/panel_pnsq'
 
       -#Tags
-      %h1.title_panel{:onclick => "slidePanel($('#panel_tag'))"}
-        ="Tags(#{Tag.all.count})"
-      #panel_tag{:style => 'display:none'}
-        =Tag.all
+        %h1.title_panel{:onclick => "slidePanel($('#panel_tag'))"}
+          ="Tags(#{Tag.all.count})"
+        #panel_tag{:style => 'display:none'}
+          =Tag.all
 
   :javascript
     function slidePanel(id) {

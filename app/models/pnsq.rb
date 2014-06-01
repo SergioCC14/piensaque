@@ -9,8 +9,8 @@ class Pnsq < ActiveRecord::Base
   before_save :choose_taste
   after_create :increment_notifications
 
-  scope :publics, -> { where('to_user_id IS NULL') }
-  scope :privates, -> { where('to_user_id IS NOT NULL') }
+  scope :publics, -> { where('to_user_id IS NULL').order('id DESC') }
+  scope :privates, -> { where('to_user_id IS NOT NULL').order('id DESC') }
 
   # Elige el Taste para el PnsQ. Depende de los gustos del usuario
   def choose_taste
