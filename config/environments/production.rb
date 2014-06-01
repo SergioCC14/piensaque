@@ -1,12 +1,11 @@
-
 # Gestión de Errores por Mail
 PiensaQue::Application.config.middleware.use ExceptionNotification::Rack,
 :email => {
   :email_prefix => "[PiensaQue] ",
   :sender_address => %{"notifier" <piensaque.com@gmail.com>},
-  :exception_recipients => %w{sergio.canis@outlook.com}
+  :exception_recipients => %w{sergiocc14.12@gmail.com}
 }
-
+  
 PiensaQue::Application.configure do
   # Paperclip AWS
   config.paperclip_defaults = {
@@ -18,7 +17,15 @@ PiensaQue::Application.configure do
     }
   }
   
-  config.action_mailer.delivery_method = :ses
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => ENV['SMTP_ADDRESS'],
+    :authentication => :login,
+    :user_name => ENV['SMTP_USERNAME'],
+    :password => ENV['SMTP_PASSWORD'],
+    :enable_starttls_auto => true,
+    :port => 25
+  }
   
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
