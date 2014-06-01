@@ -115,6 +115,8 @@ class UsersController < ApplicationController
             :nick => checker_nick(ri.email.split("@").first.gsub('.','')),
             :email => ri.email
           )
+        # Marcamos como hecha, la ivitación
+        ri.update_attributes(:checked => true)
       else
         @user = User.new
       end
