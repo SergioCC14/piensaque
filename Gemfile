@@ -24,11 +24,12 @@ gem "aws-ses", :require => 'aws/ses'
 gem 'unidecoder'
 gem 'sixarm_ruby_unaccent'
 
+# Gestión de Assets
+gem "asset_sync"
+
 group :production do
   gem 'rails_12factor'
   
-  # Gestión de Assets
-  gem "asset_sync"
 end
 
 group :assets do

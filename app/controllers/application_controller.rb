@@ -17,16 +17,17 @@ class ApplicationController < ActionController::Base
 	  end
   end
 
+
+  # root_path
   def index
-    max_tags = 3
+    if (!signed_in?)
+      @request_invitation = RequestInvitation.new
+      @session = Session.new
 
-    @request_invitation = RequestInvitation.new
-    @session = Session.new
-    @pnsq = Pnsq.new
-    
-    max_tags.times{ @pnsq.tags.build }
-    @tag = Tag.new 
+    else
+      @pnsq_list = current_user.pnsqs.publics.order('id DESC')
 
+    end
   end
 
   def rank_admin?

@@ -187,6 +187,28 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/:id/user_next_step
+  # 
+  # Params: step = [dashboard_help, user_show_help]
+  # 
+  def user_next_step
+    if (@user = User.find_by_id(params[:id]))
+
+      if (UserNextStep.exist_step?(params[:step])) and (user_next_step = UserNextStep.find_or_create_by(:user_id => @user.id)) and (!user_next_step[params[:step].to_sym])
+
+        respond_to do |format|
+          format.html { redirect_to root_path }
+          format.js { render :template => 'users/user_next_step/next_step' }
+        end
+
+      else
+        error404
+      end
+    else
+      error404
+    end
+  end
+
   # PUT /users/:id/update_password
   def update_password
     if (@user = User.find_by_id(params[:id]))

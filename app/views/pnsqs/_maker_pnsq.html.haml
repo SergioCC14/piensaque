@@ -1,24 +1,12 @@
--#
-  / Este es el panel inferior para añadir nuevas grabaciones
-  / De cara al usuario las grabaciones tendran:
-  /  - La propia grabacion
-  /  - Tags
-  /  - Mensaje (opcional)
-  / _________________________________________________________
-  / | __________ _________________________________________  |
-  / | |        | |                Mensaje                |  |
-  / | | New    | |                                       |  |
-  / | | Record | +---------------------------------------+  |
-  / | |        |                                            |
-  / | ---------+ |Tags||Tags||Tags||Tags||Tags||Tags||Tags| |
-  / +-------------------------------------------------------+
+- to_user_id = defined?(to_user) ? to_user.id : nil
+- to_user = defined?(to_user) ? to_user : nil
 
 -# Multipart (documentacion)
-= form_for(pnsq, :multipart => true, :remote => true, :format => [:js]) do |f|
+= form_for(pnsq, :multipart => true, :remote => true, :format => [:js], :html => {:id => "new_pnsq_#{to_user_id}"}) do |f|
   %table.new_pnsq_panel
     %tr
       %td.record
-        .record_button#pnsq_microphone
+        .record_button{:id => "pnsq_microphone_#{Time.now.to_i}"}
           %i.icon-microphone
         %a#audio-file{:style => 'display:inline-block;', :href => '#'}
         = text_field_tag 'pnsq[user_id]', current_user.id , :style => 'display: none'
@@ -26,22 +14,29 @@
         .text_wrapper
           = f.text_area :text, :maxlength => 80, :overflow => 'hidden', :placeholder => 'Add text to your PnsQ...'
 
-        - if defined?(to_user)
+        - if !to_user.blank?
           = text_field_tag 'pnsq[to_user_id]', to_user.id , :style => 'display: none'
 
   :javascript
-    // Inicia la recogida de Audio
-    init_record_audio();
-    $('#pnsq_microphone').click(function() {
+    // Inicia la recogida de Audio. No volvemos a pedir permisos si ya los hemos pedido una vez
+    if (typeof(audioContext) == 'undefined') { init_record_audio(); }
+    
+    $("#pnsq_microphone_#{Time.now.to_i}").click(function() {
       if ($(this).hasClass('recording')) {
-        stop_record_audio('new_pnsq', "#{current_user.id}");
-        
-        $('#pnsq_microphone').removeClass("recording");
-        prepare_for_modal_info('Creating PnsQ. Please, wait..');
-        show_modal_info();
-
+        if (check_if_can_record()) {
+          stop_record_audio("new_pnsq_#{to_user_id}", "#{current_user.id}");
+          $("#pnsq_microphone_#{Time.now.to_i}").removeClass("recording"); 
+          prepare_for_modal_info('Creating PnsQ. Please, wait..');
+          show_modal_info();
+        } else {
+          alert('Primero debes aceptar los permisos de tu navegador. Es un símbolo con una cámara. Está situado en una esquina de la barra de direcciones.')
+          }
       } else {
-        $('#pnsq_microphone').addClass("recording")
-        start_record_audio();
+        if (check_if_can_record()) {
+          $("#pnsq_microphone_#{Time.now.to_i}").addClass("recording")
+          start_record_audio();
+        } else {
+          alert('Primero debes aceptar los permisos de tu navegador.\nEs un símbolo con una cámara. Está situado en una esquina de la barra de direcciones.')
+          }
       }
     });

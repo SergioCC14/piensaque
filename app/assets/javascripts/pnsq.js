@@ -43,7 +43,7 @@ function init_record_audio() {
 
 
   navigator.getUserMedia({audio:true}, gotStream, function(e) {
-      alert('Error getting audio');
+      alert('Por favor, habilite la toma de audio de su navegador.');
       console.log(e);
   });
 }
@@ -124,5 +124,14 @@ function uploadForm(form_id, user_id) {
       }
   }
   request.send(form);
+}
+
+// Comprobamos si el usuario ha acceptado los permisos
+function check_if_can_record() {
+  if (typeof(audioRecorder) !== 'undefined' && audioRecorder == null) {
+    return false
+  } else {
+    return true
+  }
 }
 

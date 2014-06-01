@@ -12,8 +12,8 @@
     %audio{:controls => '', :id => "personal_pnsq_audio_#{pnsq.id}_#{pnsq.user.id}", :style => 'display:none'}
       %source{:src => pnsq.audio.url(:original), :type => pnsq.audio.content_type}
 
-  %td.actions{:id => "personal_pnsq_reply_#{pnsq.id}_#{pnsq.user.id}", :class => its_me?(pnsq.user) ? 'disabled' : nil}
-    %i.icon-mail-forward
+  %td.actions{:id => "personal_pnsq_reply_#{pnsq.id}_#{pnsq.user.id}", :class => its_me?(pnsq.user) ? 'disabled' : nil, :title => its_me?(pnsq.user) ? nil : "Reply #{pnsq.user.nick}"}
+    %i.icon-reply
 
   :javascript
     function playPnsq(audio_id) {
