@@ -11,7 +11,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 (function(window){
 
-  var WORKER_PATH = '/assets/recorderWorker.js';
+  var WORKER_PATH = 'https://s3.amazonaws.com/public.piensaque.com/assets/recorderWorker.js';
 
   var Recorder = function(source, cfg){
 
