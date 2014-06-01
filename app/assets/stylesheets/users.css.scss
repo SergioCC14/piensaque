@@ -132,13 +132,15 @@
 					background-position: center center;
 					background-size: cover !important;
 					display: table-cell;
+          vertical-align: middle;
+          text-align: center;
 					width: 100px;
 					height: 100px;
 					box-shadow:  $green_letter 0px 0px 5px;
 					img {
 						display: none;
-						width: 100px;
-						//height: 100px;
+						max-width: 100px;
+						max-height: 100px;
 						box-shadow:  $green_letter 0px 0px 5px;					
 					}
 

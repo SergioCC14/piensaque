@@ -1,55 +1,58 @@
-- if signed_in? and current_user.legendary_soldier?
-  #user_container
-    .user_settings_block
-      .title_section="New User"
-      .information_block
-        = form_for (User.new) do |f|
-          %div{:style => 'display:inline-block; width: 360px; margin-right: 60px;'}
-            .avatar_block
-              .avatar_img{:style => "background: url(#{@user.avatar.url(:cmedium)})", :id => 'wrapper_user_avatar'}
-                =image_tag('',:id => 'avatar_img')
-              .avatar_change
-                =(f.file_field :avatar, :style => 'display:none', :id => "file_field_avatar_for_#{@user.id}")
 
-                :javascript
-                  $("#file_field_avatar_for_#{@user.id}").change(function(){
-                    readURL(this, $('#avatar_img'));
-                    $('#avatar_img').show();
-                    $('#wrapper_user_avatar').css('background', 'none').css('box-shadow','none').css('border-color', 'transparent');
-                  });
-                  
-                %a{:class => 'normal_link', :onclick => "$('#file_field_avatar_for_#{@user.id}').click();"}='Change your avatar'
-            %table
-              %tr.field
-                %td.label= f.label :name
-                %td.default_field_td
-                  = f.text_field :name, :required => true, :class => 'default_field', :style => 'width:137px;'
-                  = f.text_field :surname, :class => 'default_field', :style => 'width: 147px'
-              %tr.field
-                %td.label= f.label :nick
-                %td.default_field_td= f.text_field :nick, :required => true, :class => 'default_field'
-              %tr.field
-                %td.label= f.label :email
-                %td.default_field_td= f.text_field :email, :required => true, :class => 'default_field'
-              %tr.field
-                %td.label= f.label :password
-                %td.default_field_td= f.password_field :password, :required => true, :class => 'default_field'
+#user_container
+  .user_settings_block
+    .title_section="New User"
+    .information_block
+      = form_for (User.new) do |f|
+        %div{:style => 'display:inline-block; width: 360px; margin-right: 60px;'}
+          .avatar_block
+            .avatar_img{:style => "background: url(#{@user.avatar.url(:cmedium)})", :id => 'wrapper_user_avatar'}
+              =image_tag('',:id => 'avatar_img')
+            .avatar_change
+              =(f.file_field :avatar, :style => 'display:none', :id => "file_field_avatar_for_#{@user.id}")
 
-              %tr.field
-                %td.label= f.label :bio
-                %td.default_field_td= f.text_area :bio, :class => 'default_field'
-                %tr.actions
-                %td{:colspan => 2}
-                  %div{:style => 'padding-top: 20px; text-align:center;'}
-                    = link_to("Enter", "", :class => 'landing_button edit_form', :onclick => "$('#save_edit_#{@user.id}').click()", :remote => true)
-                    ="or"  
-                    = link_to 'Cancel', root_path
-                    = f.submit '', :style => 'display:none', :id => "save_edit_#{@user.id}"
+              :javascript
+                $("#file_field_avatar_for_#{@user.id}").change(function(){
+                  readURL(this, $('#avatar_img'));
+                  $('#avatar_img').show();
+                  $('#wrapper_user_avatar').css('background', 'none').css('box-shadow','none').css('border-color', 'transparent');
+                });
+                
+              %a{:class => 'normal_link', :onclick => "$('#file_field_avatar_for_#{@user.id}').click();"}='Change your avatar'
+          %table
+            %tr.field
+              %td.label= f.label :name
+              %td.default_field_td
+                = text_field_tag :name, @user.name , :required => true, :class => 'default_field', :style => 'width:137px;'
+                = f.text_field :surname, :class => 'default_field', :style => 'width: 147px'
+            
+            %tr.field
+              %td.label= f.label :nick
+              %td.default_field_td= text_field_tag :nick, @user.nick, :required => true, :class => 'default_field'
+            
+            %tr.field
+              %td.label= f.label :email
+              %td.default_field_td= text_field_tag :email, @user.email, :required => true, :class => 'default_field'
+            
+            %tr.field
+              %td.label= f.label :password
+              %td.default_field_td= f.password_field :password, :required => true, :class => 'default_field'
 
-          .edit_musical_tastes
-            = render :partial => 'users/edit_musical_tates', :locals => {:user => @user, :f => f}
+            %tr.field
+              %td.label= f.label :bio
+              %td.default_field_td= f.text_area :bio, :class => 'default_field'
+              %tr.actions
+              %td{:colspan => 2}
+                %div{:style => 'padding-top: 20px; text-align:center;'}
+                  = link_to("Enter", "", :class => 'landing_button edit_form', :onclick => "$('#save_edit_#{@user.id}').click()", :remote => true)
+                  ="or"  
+                  = link_to 'Cancel', root_path
+                  = f.submit '', :style => 'display:none', :id => "save_edit_#{@user.id}"
 
-  #footer_users
-    .footer_link="About"
-    .footer_link="|"
-    .footer_link="Contact "
+        .edit_musical_tastes
+          = render :partial => 'users/edit_musical_tates', :locals => {:user => @user, :f => f}
+
+#footer_users
+  .footer_link="About"
+  .footer_link="|"
+  .footer_link="Contact "

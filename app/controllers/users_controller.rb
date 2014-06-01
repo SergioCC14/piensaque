@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   include SessionsHelper
   include ApplicationHelper
+  include UsersHelper
 
   # before_filter :connected?, :except => [:show]
 
@@ -100,20 +101,35 @@ class UsersController < ApplicationController
   end
 
   # GET /users/new
+  # 
+  # Las invitaciones llegan con los params[:ri] y params[:tkn]
+  # 
   def new
-    @user = User.new
+    if ((!params[:tkn].blank? and !params[:ri].blank?) and (ri = RequestInvitation.find_by(:id => params[:ri].to_i, :token => params[:tkn]))) or (signed_in? and current_user.legendary_soldier?)
 
-    if (!current_user.blank? and current_user.legendary_soldier?)
+
+      if (!ri.blank?)
+
+        @user = User.new(
+            :name => ri.email.split("@").first.gsub('.',''),
+            :nick => checker_nick(ri.email.split("@").first.gsub('.','')),
+            :email => ri.email
+          )
+      else
+        @user = User.new
+      end
+
       respond_to do |format|
         format.html # new.html.erb
         format.json { render json: @user }
       end
+ 
     else
       respond_to do |format|
         format.html {redirect_to root_path}
         format.json { render json: @user }
       end
-    end    
+    end
   end
 
   # GET /users/:id/edit

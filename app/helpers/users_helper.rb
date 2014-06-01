@@ -6,4 +6,13 @@ module UsersHelper
     return taste
   end
 
+  # Comprueba si el nick ha sido utilizado
+  def checker_nick(user_nick)
+    if !User.find_by_nick(user_nick).blank?
+      return user_nick + (rand(Time.now.sec * Time.now.hour * Time.now.min)).to_s
+    else
+      return user_nick
+    end
+  end
+
 end
