@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include PnsqHelper
 
+  before_filter :set_cache_buster
+
   # No funciona, pero usalo como ejemplo
   def request_invitation
 	  respond_to do |format|
@@ -50,4 +52,15 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  # Establece unas cabeceras para evitar (Solicitud desde origen distinto bloqueada: la política de mismo origen impide leer el recurso remoto en http://s3.amazonaws.com/static.piensaque/assets/font-awesome/font/fontawesome-webfont.woff?v=3.2.1. Esto se puede arreglar moviendo el recurso al mismo dominio o activando CORS.)
+  def set_cache_buster
+    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Credentials"] = "true"
+    response.headers["X-Frame-Options"] = "ALLOWALL"
+  end
+
 end
