@@ -13,6 +13,8 @@ PiensaQue::Application.configure do
     :url => "http://localhost:3000/system/:class/:attachment/:id_partition/:style/:filename"
   }
 
+  # s3.amazonaws.com/static.piensaque/
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -34,9 +36,6 @@ PiensaQue::Application.configure do
     :enable_starttls_auto => true,
     :port => 25
   }
-
-  # Habilita la subida de assets con assets_sync
-  config.action_controller.asset_host = "//s3.amazonaws.com/#{ENV['FOG_DIRECTORY']}"
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
