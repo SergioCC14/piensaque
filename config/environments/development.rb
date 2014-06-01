@@ -35,6 +35,9 @@ PiensaQue::Application.configure do
     :port => 25
   }
 
+  # Habilita la subida de assets con assets_sync
+  config.action_controller.asset_host = "//s3.amazonaws.com/#{ENV['FOG_DIRECTORY']}"
+
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 

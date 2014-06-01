@@ -14,6 +14,8 @@ gem 'aws-s3'
 # Metadatos para una cancion MP3
 gem 'ruby-mp3info', :require => 'mp3info'
 
+# Gestión de Assets
+gem "asset_sync"
 
 # Gestión de errores por Mail
 gem 'exception_notification'

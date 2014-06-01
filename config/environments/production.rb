@@ -21,6 +21,9 @@ PiensaQue::Application.configure do
 
   config.action_mailer.delivery_method = :ses
 
+  # Habilita la subida de assets con assets_sync
+  config.action_controller.asset_host = "//s3.amazonaws.com/#{ENV['FOG_DIRECTORY']}"
+
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
@@ -46,7 +49,7 @@ PiensaQue::Application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
-  config.i18n.fallbacks = true
+  # config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify

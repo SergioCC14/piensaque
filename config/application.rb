@@ -19,8 +19,6 @@ module PiensaQue
   class Application < Rails::Application
 
     config.action_mailer.delivery_method = :ses
-
-    
     
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
@@ -38,6 +36,8 @@ module PiensaQue
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    config.assets.digest = true
+    # config.assets.precompile += %w( blogs.css firmhouse.css inbound_marketing.css )
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
