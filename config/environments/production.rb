@@ -1,12 +1,3 @@
-
-# Gestión de Errores por Mail
-PiensaQue::Application.config.middleware.use ExceptionNotification::Rack,
-  :email => {
-    :email_prefix => "[PiensaQue] ",
-    :sender_address => %{"notifier" <piensaque.com@gmail.com>},
-    :exception_recipients => %w{sergio.canis@outlook.com}
-  }
-
 PiensaQue::Application.configure do
 
   # Paperclip AWS
@@ -18,12 +9,20 @@ PiensaQue::Application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+  
+  # Gestión de Errores por Mail
+  config.middleware.use ExceptionNotification::Rack,
+    :email => {
+      :email_prefix => "[PiensaQue] ",
+      :sender_address => %{"notifier" <piensaque.com@gmail.com>},
+      :exception_recipients => %w{sergio.canis@outlook.com}
+    }
 
   config.action_mailer.delivery_method = :ses
 
   # Habilita la subida de assets con assets_sync
   config.action_controller.asset_host = "//s3.amazonaws.com/static.piensaque"
-
+  
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
@@ -41,7 +40,7 @@ PiensaQue::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = true
+  config.assets.compile = false
 
   # Generate digests for assets URLs
   config.assets.digest = true
