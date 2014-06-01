@@ -1,11 +1,11 @@
 
-  Gestión de Errores por Mail
-  PiensaQue::Application.config.middleware.use ExceptionNotification::Rack,
-  :email => {
-    :email_prefix => "[PiensaQue] ",
-    :sender_address => %{"notifier" <piensaque.com@gmail.com>},
-    :exception_recipients => %w{sergio.canis@outlook.com}
-  }
+# Gestión de Errores por Mail
+PiensaQue::Application.config.middleware.use ExceptionNotification::Rack,
+:email => {
+  :email_prefix => "[PiensaQue] ",
+  :sender_address => %{"notifier" <piensaque.com@gmail.com>},
+  :exception_recipients => %w{sergio.canis@outlook.com}
+}
 
 PiensaQue::Application.configure do
   # Paperclip AWS
