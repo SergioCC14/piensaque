@@ -21,7 +21,7 @@ PiensaQue::Application.configure do
   config.action_mailer.delivery_method = :ses
 
   # Habilita la subida de assets con assets_sync
-  config.action_controller.asset_host = "//s3.amazonaws.com/public.piensaque"
+  config.action_controller.asset_host = "//s3.amazonaws.com/public.piensaque.com"
   
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
