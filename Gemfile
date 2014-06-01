@@ -14,9 +14,6 @@ gem 'aws-s3'
 # Metadatos para una cancion MP3
 gem 'ruby-mp3info', :require => 'mp3info'
 
-# Gestión de Assets
-gem "asset_sync"
-
 # Gestión de errores por Mail
 gem 'exception_notification'
 
@@ -29,6 +26,9 @@ gem 'sixarm_ruby_unaccent'
 
 group :production do
   gem 'rails_12factor'
+  
+  # Gestión de Assets
+  gem "asset_sync"
 end
 
 group :assets do
@@ -36,7 +36,6 @@ group :assets do
   
   # Use CoffeeScript for .js.coffee assets and views
   gem 'coffee-rails', '~> 4.0.0'
-
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby

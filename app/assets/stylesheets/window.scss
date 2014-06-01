@@ -58,3 +58,27 @@
     background-color: $main_block;
   }
 }
+
+.window_holder.info {
+  max-width: 350px;
+
+  .inner_window.md-content { 
+    background-color: rgba(31, 29, 24, 0.9);
+    border-radius: 0px;
+    box-shadow: none;
+    text-align: center;
+    padding: 15px 20px;
+    .text {
+      margin-bottom: 20px;
+    }
+    i.icon-spinner:before {
+      font-size: 40px;
+      animation-name: spinner-loop;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+      animation-delay: 0s;
+       -webkit-animation: -webkit-spinner-loop 3s normal infinite;
+    }
+  }
+}

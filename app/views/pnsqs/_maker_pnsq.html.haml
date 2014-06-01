@@ -29,14 +29,17 @@
         - if defined?(to_user)
           = text_field_tag 'pnsq[to_user_id]', to_user.id , :style => 'display: none'
 
-
   :javascript
     // Inicia la recogida de Audio
     init_record_audio();
     $('#pnsq_microphone').click(function() {
       if ($(this).hasClass('recording')) {
         stop_record_audio('new_pnsq', "#{current_user.id}");
-        $('#pnsq_microphone').removeClass("recording");  
+        
+        $('#pnsq_microphone').removeClass("recording");
+        prepare_for_modal_info('Creating PnsQ. Please, wait..');
+        show_modal_info();
+
       } else {
         $('#pnsq_microphone').addClass("recording")
         start_record_audio();

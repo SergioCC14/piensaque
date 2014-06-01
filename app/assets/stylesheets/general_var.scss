@@ -52,6 +52,28 @@ $background_header_hover: rgba(189, 189, 189, 0.5);
   }
 }
 
+@keyframes spinner-loop {
+ 0% { transform: rotate(0deg) }
+ 12% { transform: rotate(45deg) }
+ 25% { transform: rotate(90deg) }
+ 37% { transform: rotate(135deg) }
+ 50% { transform: rotate(180deg) }
+ 62% { transform: rotate(225deg) }
+ 75% { transform: rotate(270deg) }
+ 100% { transform: rotate(320deg) }
+}
+
+@-webkit-keyframes -webkit-spinner-loop {
+ 0% { transform: rotate(0deg) }
+ 12% { transform: rotate(45deg) }
+ 25% { transform: rotate(90deg) }
+ 37% { transform: rotate(135deg) }
+ 50% { transform: rotate(180deg) }
+ 62% { transform: rotate(225deg) }
+ 75% { transform: rotate(270deg) }
+ 100% { transform: rotate(320deg) }
+}
+
 
 // En un futuro (Fondos molones)
 @keyframes color_one {
