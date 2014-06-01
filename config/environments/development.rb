@@ -13,7 +13,7 @@ PiensaQue::Application.configure do
     :url => "http://localhost:3000/system/:class/:attachment/:id_partition/:style/:filename"
   }
 
-  # s3.amazonaws.com/static.piensaque/
+  # s3.amazonaws.com/public.piensaque/
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

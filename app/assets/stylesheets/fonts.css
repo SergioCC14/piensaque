@@ -1,20 +1,20 @@
 @font-face {
   font-family: 'CopperCanyonNF';
-  src: url('CopperCanyonNF.ttf');
+  src: url('http://s3.amazonaws.com/public.piensaque/assets/CopperCanyonNF.ttf');
   font-weight: normal;
   font-style: normal;
 }
 
  @font-face {
    font-family: 'DetectivesInc';
-   src: url('detectivesinc.ttf');
+   src: url('http://s3.amazonaws.com/public.piensaque/assets/detectivesinc.ttf');
    font-weight: normal;
    font-style: normal;
  }
 
  @font-face {
    font-family: 'Droid';
-   src: url('DROID.ttf');
+   src: url('http://s3.amazonaws.com/public.piensaque/assets/DROID.ttf');
    font-weight: normal;
    font-style: normal;
  }
