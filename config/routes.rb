@@ -12,7 +12,7 @@ PiensaQue::Application.routes.draw do
       get :relations_in_holder
       get :change_password_in_holder
       get :new_personal_pnsq_in_holder
-      get :personal_pnsq_in_holder
+      get :personal_pnsqs_in_holder
       put :update_password
     end
 

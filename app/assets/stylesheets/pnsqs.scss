@@ -186,11 +186,10 @@ table.new_pnsq_panel {
   }
 }
 
-
 table.pnsq_in_holder {
   border-collapse: collapse;
   tr {
-    background-color: $inside_block;
+    background-color: $inside_sub_block;
     border: 1px solid #B3B3B3;
     td {
     padding: 5px 10px;
@@ -205,6 +204,29 @@ table.pnsq_in_holder {
         background-position: center center;
         background-size: cover;
         border-radius: 50px;
+        .audio-controls {
+          opacity: 0;
+          display: inline-block;
+          background-color: rgba(0, 0, 0, 0.7);
+          width: 100%;
+          height: 100%;
+          border-radius: 30px;
+
+          .icon-play {
+            line-height: 30px;
+            color: #83B32B;
+            font-size: 20px;
+            cursor: pointer;          
+          }
+          .duration {
+            color: #D9D9D9;
+          }
+        }
+      }
+      .background-avatar:hover {
+        .audio-controls {
+          opacity: 1;
+        }
       }
     }
     td.description {
@@ -213,13 +235,25 @@ table.pnsq_in_holder {
         font-style: italic;
         display: inline-block;
       }
-      .text {
+      .description-text {
+        font-size: 10px;
         display: block;
       }
     }
   }
 
+  td.actions:hover {
+    background-color: #1F1D18;
+    color: $green_letter;
+    cursor: pointer;
+  }
+
+  td.actions.disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
   tr.owner {
-    background-color: $inside_sub_block;
+    background-color: #BCBCBC;
   }
 }

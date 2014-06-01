@@ -37,9 +37,20 @@
 			text-align: left;
 
 			i {
-
 				cursor: pointer;
 				font-size: 40px;
+        position: relative;
+        .notification_count {
+          font-family: Arial, sans-serif;
+          font-size: 12px;
+          position: absolute;
+          background-color: red;
+          padding: 2px 6px;
+          color: #FFF;
+          border-radius: 10px;
+          bottom: 0px;
+          right: 0px;
+        }
 			}
 			i:hover {
 				color: #8CC6DA;

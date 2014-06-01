@@ -21,8 +21,10 @@
 					%i.icon-home{:title => 'Dashboard'}
 
 			.border_icon_music
-				= link_to(personal_pnsq_in_holder_user_path(current_user.id), :remote => true) do
+				= link_to(personal_pnsqs_in_holder_user_path(current_user.id), :remote => true) do
 					%i.icon-inbox{:title => 'Answering'}
+						- if signed_in? and (current_user.notifications_count > 0)
+							.notification_count#notification_count=current_user.notifications_count
 
 		.user_menu
 			.main_content_user_menu{:onclick => "$('#header_sub_menu').slideToggle();"}

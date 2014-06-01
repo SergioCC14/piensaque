@@ -1,0 +1,9 @@
+prepare_for_modal_2();
+
+$("#md-inner_window").append('<%= escape_javascript render(:partial => "users/personal_pnsqs_in_holder", :locals => {:user => @user, :pnsqs => @pnsqs}) %>');
+
+  setTimeout( function() {
+    $('#notification_count').fadeOut();
+  }, 500 );
+
+show_modal();

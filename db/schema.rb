@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525144514) do
+ActiveRecord::Schema.define(version: 20140531235351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,12 @@ ActiveRecord::Schema.define(version: 20140525144514) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_next_steps", force: true do |t|
+    t.integer "user_id"
+    t.boolean "dashboard_help"
+    t.boolean "user_show_help"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "password"
@@ -124,6 +130,7 @@ ActiveRecord::Schema.define(version: 20140525144514) do
     t.boolean  "mt_reggae",           default: false
     t.boolean  "mt_funk",             default: false
     t.string   "password_salt"
+    t.integer  "notifications_count", default: 0
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree

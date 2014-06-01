@@ -34,6 +34,9 @@
     .content_in_holder {
       color: $text_color;
       font-size: 12px;
+      max-height: 335px;
+      overflow-y: auto;
+      overflow-x: hidden;
       .sub_title {
         padding-bottom: 20px;
         text-align: center;

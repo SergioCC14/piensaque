@@ -56,29 +56,38 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/:id/new_personal_pnsq_in_holder
+  # GET /users/:id/new_personal_pnsqs_in_holder
   # 
   # Ventana emergente para enviar un Mensaje Privado de Audio a un usuario @user
   def new_personal_pnsq_in_holder
     if (@user = User.find_by_id(params[:id]))
 
-      respond_to do |format|
-        format.html { render :nothing => true}
-        format.js { render }
+      if !its_me?(@user)
+        respond_to do |format|
+          format.html { render :nothing => true}
+          format.js { render }
+        end
+      else
+        respond_to do |format|
+          format.html { render :nothing => true}
+          format.js { redirect_to root_path, notice: "You cannot send a personal message for yourself"}
+        end
       end
-
     else
       error404
     end
   end
 
-  # GET /users/:id/new_personal_pnsq_in_holder
+  # GET /users/:id/new_personals_pnsq_in_holder
   # 
   # Ventana emergente para visualizar los Mensajes Privados
-  def personal_pnsq_in_holder
+  def personal_pnsqs_in_holder
     if ((@user = User.find_by_id(params[:id])) and (its_me?(@user)))
 
-      @pnsqs = @user.pnsqs.privates
+      @pnsqs = @user.privates_all
+
+      # Notificaciones leidas
+      @user.update_attributes(:notifications_count => 0)
 
       respond_to do |format|
         format.html { render :nothing => true}
