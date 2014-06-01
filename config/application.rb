@@ -37,7 +37,7 @@ module PiensaQue
     # Enable the asset pipeline
     config.assets.enabled = true
     config.assets.digest = true
-    # config.assets.precompile += %w( blogs.css firmhouse.css inbound_marketing.css )
+    config.assets.precompile += %w( recorderWorker.js )
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
