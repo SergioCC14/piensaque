@@ -1,5 +1,13 @@
-PiensaQue::Application.configure do
 
+  Gestión de Errores por Mail
+  PiensaQue::Application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[PiensaQue] ",
+    :sender_address => %{"notifier" <piensaque.com@gmail.com>},
+    :exception_recipients => %w{sergio.canis@outlook.com}
+  }
+
+PiensaQue::Application.configure do
   # Paperclip AWS
   config.paperclip_defaults = {
     :storage => :s3,
@@ -10,21 +18,13 @@ PiensaQue::Application.configure do
     }
   }
   
-  # Gestión de Errores por Mail
-  config.middleware.use ExceptionNotification::Rack,
-    :email => {
-      :email_prefix => "[PiensaQue] ",
-      :sender_address => %{"notifier" <piensaque.com@gmail.com>},
-      :exception_recipients => %w{sergio.canis@outlook.com}
-    }
-
   config.action_mailer.delivery_method = :ses
-
-  # Habilita la subida de assets con assets_sync
-  config.action_controller.asset_host = "//s3.amazonaws.com/public.piensaque.com"
   
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
+
+  # Habilita la subida de assets con assets_sync
+  config.action_controller.asset_host = "//s3.amazonaws.com/public.piensaque.com"
 
   # Code is not reloaded between requests
   config.cache_classes = true
