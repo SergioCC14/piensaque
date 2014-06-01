@@ -42,6 +42,6 @@ class RequestInvitationsController < ApplicationController
 
   private
     def request_invitation_params
-      params.require(:request_invitation).permit(:email, :updated_at, :created_at)
+      params.require(:request_invitation).permit(:email, :checked, :token, :updated_at, :created_at)
     end
 end
