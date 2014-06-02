@@ -29,6 +29,16 @@ function loadPreview(input, previewImg) {
   }
 }
 
+// Prepara un contenedor oscuro para el fondo
+function ready_full_container() {
+  $('body').append('<div id="full_container"></div>')
+}
+
+// Cierra un contenedor oscuro para el fondo
+function close_full_container() {
+  $('#full_container').remove();
+}
+
 
 // Prepara para lanzar una nueva ventana modal
 function prepare_for_modal() {
@@ -74,4 +84,12 @@ function close_window_info() {
 function close_modals() {
   close_window();
   close_window_info();
+  $('#full_container').remove();
 }
+
+// Habilita la tecla ESC para cerrar todas las ventanas y contenedores de la página
+$(document).keypress(function(e){
+  if(e.which == 0){
+    close_modals();
+  }
+});

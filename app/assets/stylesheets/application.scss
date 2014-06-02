@@ -19,6 +19,19 @@ BODY{
   margin: 0px;
   font-family: arial;
   background-size: 2560px auto;
+
+  #full_container {
+    background-color: rgba(0, 0, 0, .6);
+    height: 100%;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    z-index: 102;
+  }
 }
 
 #background_lading {  
