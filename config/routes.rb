@@ -15,6 +15,7 @@ PiensaQue::Application.routes.draw do
       get :relations_in_holder      
       put :update_password
       get :user_next_step
+      post :user_next_step
     end
 
     collection do

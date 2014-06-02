@@ -190,6 +190,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/:id/user_next_step
+  # POST /users/:id/user_next_step
   # 
   # Params: step = [dashboard_help, user_show_help]
   # 
@@ -197,14 +198,23 @@ class UsersController < ApplicationController
     if (@user = User.find_by_id(params[:id]))
       
       if (UserNextStep.exist_step?(params[:step])) and (user_next_step = UserNextStep.find_or_create_by(:user_id => @user.id)) and (!user_next_step[params[:step].to_sym])
+        # Petición POST?
+        if request.post?
+          
+          user_next_step.update_attributes(:dashboard_help => true)
+          respond_to do |format|
+            format.html { render :nothing => true }
+            format.js { render :nothing => true }
+          end
 
-        @step = params[:step]
+        else
+          @step = params[:step]
 
-        respond_to do |format|
-          format.html { redirect_to root_path }
-          format.js { render :template => 'users/user_next_step/next_step' }
+          respond_to do |format|
+            format.html { redirect_to root_path }
+            format.js { render :template => 'users/user_next_step/next_step' }
+          end
         end
-
       else
         error404
       end

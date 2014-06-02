@@ -13,7 +13,6 @@
   inbox_voice_left = $('#icon-inbox').offset().left
   inbox_voice_top = $('#icon-inbox').offset().top
 
-
 -#new_pnsq_panel
 #tutorial_welcome_block
   #welcome-text.block-text{:style => 'width: 390px;'}
@@ -61,7 +60,7 @@
   #inbox_voice-text.block-text
     %span
       .text="Aquí esta tu buzón de voz. Todos tus mensajes personales con otros usuarios irán aquí."
-    #tutorial_inbox_voice_btn.btn.right{:onclick => "$('.real_submit').click()"}
+    #tutorial_inbox_voice_btn.btn.right
       = "Finalizar"
 
 :javascript
@@ -83,6 +82,7 @@
     next.toggleClass('hide');
   }
 
-  $('.real_submit').click(function() {
-    close_full_container();
+  $('#tutorial_inbox_voice_btn').click(function() {
+    $.post("#{user_next_step_user_path(current_user.id, :step => 'dashboard_help')}");
+    close_modals();
   });
