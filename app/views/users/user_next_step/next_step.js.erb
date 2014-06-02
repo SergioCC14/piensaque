@@ -1,0 +1,13 @@
+<%- if !@step.blank? %>
+  
+  ready_full_container();
+
+  <%- if (@step == 'dashboard_help')  %>
+    $('#full_container').html('<%= escape_javascript render(partial: 'users/user_next_step/dashboard_help', :locals => {:user => @user}) %>');
+
+  <%- elsif (@step == 'user_show_help')  %>
+    $('#full_container').html('<%= escape_javascript render(partial: 'users/user_next_step/user_show_help', :locals => {:user => @user}) %>');
+
+  <%- end %>  
+
+<%- end %>

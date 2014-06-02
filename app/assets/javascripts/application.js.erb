@@ -39,7 +39,6 @@ function close_full_container() {
   $('#full_container').remove();
 }
 
-
 // Prepara para lanzar una nueva ventana modal
 function prepare_for_modal() {
   $('#place_for_window_in_holder').html('<div id="md-window" class="window_holder md-modal md-effect-1"><div id ="md-inner_window" class="inner_window window md-content"><div id="closer_modal" class="md-close">X</div></div></div> <script> $("#closer_modal").click(function() {close_window();}); </script>');
@@ -53,7 +52,6 @@ function prepare_for_modal_2() {
 // Prepara para lanzar una nueva ventana modal
 function prepare_for_modal_info(text) {
   $('#place_for_window_in_holder_info').html('<div id="md-window-info" class="window_holder md-modal info md-effect-10"><div id ="md-inner_window" class="inner_window window md-content"><div class="text">' + text + '</div><i class="icon-spinner"></div></div>');
-
 }
 
 // Muestra la ventana modal, después de estar montada 

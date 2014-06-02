@@ -210,3 +210,17 @@ h3 {
 .right {
   float: right;
 }
+
+.btn {
+  background-color: $green_letter;
+  padding: 5px 10px;
+  display: inline;
+  border-radius: 2px;
+  font-size: 12px;
+
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: $green_letter_dark;
+}

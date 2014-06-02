@@ -195,8 +195,10 @@ class UsersController < ApplicationController
   # 
   def user_next_step
     if (@user = User.find_by_id(params[:id]))
-
+      
       if (UserNextStep.exist_step?(params[:step])) and (user_next_step = UserNextStep.find_or_create_by(:user_id => @user.id)) and (!user_next_step[params[:step].to_sym])
+
+        @step = params[:step]
 
         respond_to do |format|
           format.html { redirect_to root_path }

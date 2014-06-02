@@ -1,0 +1,31 @@
+:javascript
+  // Calculate main positions
+  header_top = 50;
+  icon_top = 7;
+  
+  new_pnsq_panel_left = $('.new_pnsq_panel').offset().left
+  new_pnsq_panel_top = $('.new_pnsq_panel').offset().top
+
+-#new_pnsq_panel
+#tutorial_new_pnsq_panel_block.hide
+  #profile-text.block-text{:style => 'width: 280px;'}
+    %span="Texto largo tal tal tal tal tal ta"
+    #new_pnsq_panel_btn.btn.info-bottom
+      = "Continuar"
+
+-# Inbox Voice
+
+
+-# Permisos de voz
+
+
+:javascript
+
+
+  
+  function continue_tutorial(current, next) {
+    current.toggleClass('hide');
+    next.toggleClass('hide');
+  }
+
+
