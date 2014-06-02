@@ -135,3 +135,13 @@ function check_if_can_record() {
   }
 }
 
+function check_if_still_recording(btn) {
+  setTimeout( function() {
+    if ((btn.hasClass('recording')) && (recording == true)) {
+      btn.click();
+    }
+  }, 8000 ); 
+  
+
+
+}
