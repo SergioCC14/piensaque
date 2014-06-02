@@ -1,6 +1,6 @@
 class UserNextStep < ActiveRecord::Base
 
-  STEPS = ['dashboard_help', 'user_show_help']
+  STEPS = ['dashboard_help']
 
   # Comprueba si ese paso existe en el tutorial
   def self.exist_step?(step)

@@ -22,7 +22,7 @@
 
 			.border_icon_music
 				= link_to(personal_pnsqs_in_holder_user_path(current_user.id), :remote => true) do
-					%i.icon-inbox{:title => 'Answering'}
+					%i.icon-inbox#icon-inbox{:title => 'Answering'}
 						- if signed_in? and (current_user.notifications_count > 0)
 							.notification_count#notification_count=current_user.notifications_count
 

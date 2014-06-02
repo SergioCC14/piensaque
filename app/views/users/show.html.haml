@@ -11,6 +11,6 @@
         .not_pnsq="Not Pnsqs Yet"
 
 
-  - if (user_next_step = UserNextStep.find_or_create_by(:user_id => current_user.id)) and (!user_next_step.user_show_help)
+  - if false and (user_next_step = UserNextStep.find_or_create_by(:user_id => current_user.id)) and (!user_next_step.user_show_help)
     :javascript
       $.getScript("#{user_next_step_user_path(current_user.id, :step => 'user_show_help')}")

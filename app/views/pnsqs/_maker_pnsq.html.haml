@@ -3,7 +3,7 @@
 
 -# Multipart (documentacion)
 = form_for(pnsq, :multipart => true, :remote => true, :format => [:js], :html => {:id => "new_pnsq_#{to_user_id}"}) do |f|
-  %table.new_pnsq_panel
+  %table.new_pnsq_panel#new_pnsq_panel
     %tr
       %td.record
         .record_button{:id => "pnsq_microphone_#{Time.now.to_i}"}

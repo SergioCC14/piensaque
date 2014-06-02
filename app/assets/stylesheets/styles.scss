@@ -203,6 +203,11 @@ h3 {
   border-radius: 2px;
 }
 
+.clearfix{
+  clear: both;
+  height: 1px
+}
+
 .left {
   float: left;
 }
@@ -211,10 +216,18 @@ h3 {
   float: right;
 }
 
+.hide {
+  display: none;
+}
+
+.absolute {
+  position: absolute;
+}
+
 .btn {
   background-color: $green_letter;
-  padding: 5px 10px;
-  display: inline;
+  padding: 6px 10px;
+  display: inline-block;
   border-radius: 2px;
   font-size: 12px;
 

@@ -1,7 +1,30 @@
 @import "general_var";
 
+  img.tutorial_arrow {
+    width: 70px;
+    position: absolute;
+  }
+
+  .icon-white {
+    color: white;
+    position: absolute;
+    font-size: 40px;
+  } 
+
+  .fake {
+     box-shadow: 0px 0px 10px 2px rgb(204, 204, 204);
+     border-radius: 2px;
+  }
+
+  .no-touch {
+    position: absolute;
+    top: 0px;
+    min-width: 100%;
+    background-color: transparent;
+    min-height: 100%;
+  }
   .block-text{
-    position: fixed;
+    position: absolute;
     color: #FFF;
     font-size: 20px;
     width: 260px;
@@ -11,12 +34,26 @@
 
     span {
       display: block;
+      padding-bottom: 15px;
+      .title {
+        padding-bottom: 5px;
+        color: $green_letter;
+      }
+      .text {
+        font-size: 12px;
+      }
     }
 
     .skip {
       color: #b2b2b2; 
       margin: 10px 0 0 0;
       font-size: 12px;
+      display: inline-block;
+    }
+
+    .skip:hover {
+      text-decoration: underline;
+      cursor: pointer;
     }
 
   }

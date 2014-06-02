@@ -1,31 +1,88 @@
 :javascript
   // Calculate main positions
-  header_top = 50;
-  icon_top = 7;
+  icon_top = 15;
   
+  welcome_panel_left = $('.new_pnsq_panel').offset().left
+  welcome_panel_top = icon_top + 100
+
+  allow_audio_left = $('.new_pnsq_panel').offset().left
+
   new_pnsq_panel_left = $('.new_pnsq_panel').offset().left
   new_pnsq_panel_top = $('.new_pnsq_panel').offset().top
 
+  inbox_voice_left = $('#icon-inbox').offset().left
+  inbox_voice_top = $('#icon-inbox').offset().top
+
+
+-#new_pnsq_panel
+#tutorial_welcome_block
+  #welcome-text.block-text{:style => 'width: 390px;'}
+    %span
+      .title="Bienvenido a PiensaQue"
+      .text="PiensaQue utiliza una asombrosa caracteristica que permite transimir el audio sin necesidad de complemento de terceros. Algunos navegadores no utilizan esta alucinante caracteristica."
+    #welcome_panel_btn.btn.right{onclick: "continue_tutorial($('#tutorial_welcome_block'), $('#tutorial_allow_audio_block'));"}
+      = "Empezar"
+    -#new_pnsq_panel_skip.skip
+      ="Skip"
+
+-# Permisos de voz
+#tutorial_allow_audio_block.hide
+  %img#tutorial_allow_audio_trigger.tutorial_arrow{src: "https://s3.amazonaws.com/static.piensaque/images/arrow_down_top.png"}
+  #allow-text.block-text{:style => 'width: 325px'}
+    %span
+      .text="Para activar esta caracteristica debes permitir el uso de micrófonos. Normalmente aparece un icono de una cámara en la barra superior de direcciones. En Firefox, por ejemplo, a la izquierda."
+    #tutorial_allow_audio_btn.btn.right{onclick: "continue_tutorial($('#tutorial_allow_audio_block'), $('#tutorial_new_pnsq_panel_block'));"}
+      = "Continuar"
+
 -#new_pnsq_panel
 #tutorial_new_pnsq_panel_block.hide
-  #profile-text.block-text{:style => 'width: 280px;'}
-    %span="Texto largo tal tal tal tal tal ta"
-    #new_pnsq_panel_btn.btn.info-bottom
+  %img#tutorial_new_pnsq_panel_trigger.tutorial_arrow{src: "https://s3.amazonaws.com/static.piensaque/images/arrow_right_top.png", :style => 'width: 110px;'}
+  #fake-new_pnsq.absolute.fake{:style => 'background-color: #CCCCCC;'}
+    %table.new_pnsq_panel{:style => 'width:300px;'}
+      %tr
+        %td.record
+          .record_button
+            %i.icon-microphone
+        %td.text
+          .text_wrapper
+            = text_area_tag :text, '', :maxlength => 80, :overflow => 'hidden', :placeholder => 'Add text to your PnsQ...'
+    #no-touch.no-touch
+
+  #new_pnsq-text.block-text{:style => 'width: 325px'}
+    %span
+      .text="Desde aquí podrás contarle a todos lo que piensas. Es simple. Escribe un texto (o no), pulsa el botón para hablar y otra vez para mandar."
+    #tutorial_new_pnsq_panel_btn.btn.right{onclick: "continue_tutorial($('#tutorial_new_pnsq_panel_block'), $('#tutorial_inbox_voice_block'));"}
       = "Continuar"
 
 -# Inbox Voice
-
-
--# Permisos de voz
-
+#tutorial_inbox_voice_block.hide
+  %img#tutorial_inbox_voice_trigger.tutorial_arrow{src: "https://s3.amazonaws.com/static.piensaque/images/arrow_right_top.png", :style => 'width: 110px;'}
+  #inbox_voice-icon.icon-inbox.icon-white
+  #inbox_voice-text.block-text
+    %span
+      .text="Aquí esta tu buzón de voz. Todos tus mensajes personales con otros usuarios irán aquí."
+    #tutorial_inbox_voice_btn.btn.right{:onclick => "$('.real_submit').click()"}
+      = "Finalizar"
 
 :javascript
+  $('#welcome-text').css('left', welcome_panel_left).css('top', welcome_panel_top)
 
+  $('#tutorial_allow_audio_trigger').css('left', allow_audio_left + 170).css('top', 10);
+  $('#allow-text').css('left', allow_audio_left + 35).css('top', 200);
 
-  
+  $('#tutorial_new_pnsq_panel_trigger').css('left', new_pnsq_panel_left + 50).css('top', new_pnsq_panel_top + 90); 
+  $('#fake-new_pnsq').css('left', new_pnsq_panel_left + 7).css('top', new_pnsq_panel_top);
+  $('#new_pnsq-text').css('left', new_pnsq_panel_left + 170).css('top', new_pnsq_panel_top + 150);
+
+  $('#tutorial_inbox_voice_trigger').css('left', inbox_voice_left).css('top', icon_top + 50);
+  $('#inbox_voice-icon').css('left', inbox_voice_left).css('top', icon_top);
+  $('#inbox_voice-text').css('left', inbox_voice_left + 120).css('top', icon_top + 120);
+
   function continue_tutorial(current, next) {
     current.toggleClass('hide');
     next.toggleClass('hide');
   }
 
-
+  $('.real_submit').click(function() {
+    close_full_container();
+  });
