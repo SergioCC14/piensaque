@@ -15,3 +15,5 @@
   - if (user_next_step = UserNextStep.find_or_create_by(:user_id => current_user.id)) and (!user_next_step.dashboard_help)
     :javascript
       $.getScript("#{user_next_step_user_path(current_user.id, :step => 'dashboard_help')}")
+
+  #footer_users

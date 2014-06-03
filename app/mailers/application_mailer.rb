@@ -1,10 +1,13 @@
 class ApplicationMailer < ActionMailer::Base
   default from: "piensaque.com@gmail.com"
 
-  def welcome_mail(user)
-    @user = user
-    @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+
+  # Mail de bienvenida para los que pidieron invitación
+  def welcome_mail_invitations(request_invitation)
+    @ri = request_invitation
+    @url  = new_user_path(ri: @ri.id, tkn: @ri.token)
+
+    mail(to: @ri.email, subject: 'Se acabaron los cafés', from: "'PiensaQue' <piensaque.com@gmail.com>")
   end
 
 end

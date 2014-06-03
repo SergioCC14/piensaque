@@ -23,7 +23,7 @@ module UsersHelper
     for id in user_ids
       user = User.find_by(id: id)
 
-      users << "<a href=#{user_nick_path(user.nick)}> #{name_or_nick(user)}</a>"
+      users << "<a href=#{user_nick_path(user.nick)} class='normal_link'> #{name_or_nick(user)}</a>"
     end
 
     return users.join(", ")

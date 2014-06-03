@@ -105,7 +105,7 @@ class UsersController < ApplicationController
   # Las invitaciones llegan con los params[:ri] y params[:tkn]
   # 
   def new
-    if ((!params[:tkn].blank? and !params[:ri].blank?) and (ri = RequestInvitation.find_by(:id => params[:ri].to_i, :token => params[:tkn]))) or (signed_in? and current_user.legendary_soldier?)
+    if ((!params[:tkn].blank? and !params[:ri].blank?) and (ri = RequestInvitation.find_by(:id => params[:ri].to_i, :token => params[:tkn])) and ri.checked!) or (signed_in? and current_user.legendary_soldier?)
 
 
       if (!ri.blank?)
