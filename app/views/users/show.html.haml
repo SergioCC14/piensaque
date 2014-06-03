@@ -9,7 +9,5 @@
           = render :partial => 'pnsqs/pnsq_box', :locals => {:pnsq => pnsq} 
       - else
         .not_pnsq="Not Pnsqs Yet"
-
-  - if false and (user_next_step = UserNextStep.find_or_create_by(:user_id => current_user.id)) and (!user_next_step.user_show_help)
-    :javascript
-      $.getScript("#{user_next_step_user_path(current_user.id, :step => 'user_show_help')}")
+        
+    = render :partial => 'users/some_users'
