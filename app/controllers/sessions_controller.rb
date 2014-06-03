@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
     end
   end
   
+  # Crea la sesion
   def create
     # Busca al usuario por nombre o nick
     user = (User.find_by_nick(params[:email_or_nick].downcase)) or (User.find_by_email(params[:email_or_nick].downcase))
@@ -46,13 +47,12 @@ class SessionsController < ApplicationController
     end
   end
 
+  # Elimina la sesión
   def destroy
     current_user
 
     sign_out
     redirect_to root_url
   end
-
-
 
 end

@@ -2,6 +2,8 @@ class PnsqsController < ApplicationController
   include SessionsHelper
   include ApplicationHelper
 
+  before_filter :rank_admin? , :only => [:delete, :index, :destroy]
+
   # GET /pnsqs
   # GET /pnsqs.json
   def index

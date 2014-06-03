@@ -7,18 +7,10 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include PnsqHelper
 
+  before_filter :rank_admin? , :only => [:admin_panel]
   before_filter :set_cache_buster
 
-  # No funciona, pero usalo como ejemplo
-  def request_invitation
-	  respond_to do |format|
-	    format.html	{ render }
-	    format.js { render :template => 'application/request_invitation'}
-	  end
-  end
-
-
-  # root_path
+  # Ruta Dashboard / Landing
   def index
     if (!signed_in?)
       @request_invitation = RequestInvitation.new
@@ -30,6 +22,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Comprueba si tiene rango Admin
   def rank_admin?
     if signed_in?
       if !current_user.admin?
@@ -38,9 +31,9 @@ class ApplicationController < ActionController::Base
     else
       redirect_to root_path
     end
-
   end
 
+  # Comprueba si el usuario esta conectado
   def connected?
     if !signed_in?
       redirect_to root_path

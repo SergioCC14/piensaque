@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   include ApplicationHelper
   include UsersHelper
 
-  # before_filter :connected?, :except => [:show]
+  before_filter :connected?, :only => [:show]
 
   # GET /users
   # GET /users.json

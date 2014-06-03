@@ -1,5 +1,7 @@
 class RequestInvitationsController < ApplicationController
   
+  before_filter :rank_admin? , :only => [:destroy, :delete]
+
   def index
     @request_invitations = RequestInvitation.all
 		@request_invitation = RequestInvitation.find(request_invitation_params)
