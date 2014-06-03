@@ -49,9 +49,10 @@ function prepare_for_modal_2() {
   $('#place_for_window_in_holder').html('<div id="md-window" class="window_holder small md-modal md-effect-1"><div id ="md-inner_window" class="inner_window window md-content"><div id="closer_modal" class="md-close">X</div></div></div> <script> $("#closer_modal").click(function() {close_window();}); </script>');
 }
 
-// Prepara para lanzar una nueva ventana modal
-function prepare_for_modal_info(text) {
+// Prepara y lanza una nueva ventana modal
+function prepare_for_modal_loading(text) {
   $('#place_for_window_in_holder_info').html('<div id="md-window-info" class="window_holder md-modal info md-effect-10"><div id ="md-inner_window" class="inner_window window md-content"><div class="text">' + text + '</div><i class="icon-spinner"></div></div>');
+    show_modal_info();
 }
 
 // Muestra la ventana modal, después de estar montada 
@@ -86,8 +87,8 @@ function close_modals() {
 }
 recording = false;
 // Habilita la tecla ESC para cerrar todas las ventanas y contenedores de la página
-$(document).keypress(function(e){
-  if(e.which == 0){
+$(document).keyup(function(e){
+  if(e.which == 27){
     close_modals();
   }
 });

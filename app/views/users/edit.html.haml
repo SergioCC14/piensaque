@@ -42,7 +42,7 @@
             %tr.actions
               %td{:colspan => 2}
                 %div{:style => 'padding-top: 40px; text-align:right;'}
-                  = link_to("Save", "", :class => 'landing_button edit_form', :onclick => "$('#save_edit_#{@user.id}').click()", :remote => true)
+                  = link_to("Save", "", :class => 'landing_button edit_form', :onclick => "prepare_for_modal_loading('Guardando cambios...'); $('#save_edit_#{@user.id}').click();", :remote => true)
                   = f.submit '', :style => 'display:none', :id => "save_edit_#{@user.id}"
 
         .edit_musical_tastes

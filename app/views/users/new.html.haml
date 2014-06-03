@@ -44,7 +44,7 @@
               %tr.actions
               %td{:colspan => 2}
                 %div{:style => 'padding-top: 20px; text-align:center;'}
-                  = link_to("Enter", "", :class => 'landing_button edit_form', :onclick => "$('#save_edit_#{@user.id}').click()", :remote => true)
+                  = link_to("Enter", "", :class => 'landing_button edit_form', :onclick => "prepare_for_modal_loading('Creando usuario...'); $('#save_edit_#{@user.id}').click()", :remote => true)
                   ="or"  
                   = link_to 'Cancel', root_path
                   = f.submit '', :style => 'display:none', :id => "save_edit_#{@user.id}"
@@ -53,6 +53,7 @@
           = render :partial => 'users/edit_musical_tates', :locals => {:user => @user, :f => f}
 
 #footer_users
-  .footer_link="About"
-  .footer_link="|"
-  .footer_link="Contact "
+  -#
+    .footer_link="About"
+    .footer_link="|"
+    .footer_link="Contact "
