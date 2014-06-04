@@ -1,15 +1,15 @@
 .request_card
 	- if !(invitation == 'sent')
-		="Now we are in beta phase. \n  If you are interested leave us your email."
+		="Ahora estamos en fase beta. \n  Si estas interesado, puedes dejarnos tu email."
 
 		= form_for(@request_invitation) do |f|
 			.field
 				= f.email_field(:email, :class => 'default_field', :placeholder => 'Email')
 
 			.actions{:style => 'margin-bottom: 0px;'}
-				= f.submit('Send',:class => 'default_submit')
+				= f.submit('Enviar',:class => 'default_submit')
 	- else
-		="We have received your request."
-		%div="This will take a few weeks."
-		%div="Maybe you want a coffee."
+		="Hemos recibido tu petición"
+		%div="Esto puede llevar unas semanas"
+		%div="Tal vez, te apetezca un café"
 		%i.icon-coffee

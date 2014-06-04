@@ -18,11 +18,11 @@
 
 			.border_icon_music
 				= link_to(root_path) do	
-					%i.icon-home{:title => 'Dashboard'}
+					%i.icon-home{:title => 'Home'}
 
 			.border_icon_music
 				= link_to(personal_pnsqs_in_holder_user_path(current_user.id), :remote => true) do
-					%i.icon-inbox#icon-inbox{:title => 'Answering'}
+					%i.icon-inbox#icon-inbox{:title => 'Buzón de Voz'}
 						- if signed_in? and (current_user.notifications_count > 0)
 							.notification_count#notification_count=current_user.notifications_count
 
@@ -39,8 +39,8 @@
 				.header_sub_opt
 					=link_to(settings_user_path(current_user.nick)) do
 						%i.icon-gear
-						="Settings"
+						="Opciones"
 				.header_sub_opt
 					=link_to(signout_path) do
 						%i.icon-signout
-						="Sign out" 
+						="Desconectar" 

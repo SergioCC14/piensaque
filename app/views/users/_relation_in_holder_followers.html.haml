@@ -1,5 +1,5 @@
 .window_header
-  %h2="Followers"
+  %h2="Seguidores"
 .content_in_holder
   %table.relations_in_holder
     - if !relations.blank?
@@ -12,4 +12,4 @@
           %td.button
             = render :partial => 'relations/follow', :locals => {:user => relation.user, :relation => relation} 
     - else
-      .text="Not Followers Yet"
+      .text="Sin seguidores todavía"

@@ -5,14 +5,14 @@
         .icon-play{:id => "personal_pnsq_play_#{pnsq.id}_#{pnsq.user.id}"}
         .duration{:id => "personal_pnsq_duration_#{pnsq.id}_#{pnsq.user.id}"}="-"
   %td.description
-    =link_to(its_me?(pnsq.user) ? 'I' : pnsq.user.nick, user_nick_path(pnsq.user.nick))
-    .date="recorded on #{pnsq.created_at.to_formatted_s(:long)}"
+    =link_to(its_me?(pnsq.user) ? 'Yo' : pnsq.user.nick, user_nick_path(pnsq.user.nick))
+    .date="#{its_me?(pnsq.user) ? 'grabé' : 'grabó'} en #{pnsq.created_at.to_formatted_s(:long)}"
     .description-text=pnsq.text
 
     %audio{:controls => '', :id => "personal_pnsq_audio_#{pnsq.id}_#{pnsq.user.id}", :style => 'display:none'}
       %source{:src => pnsq.audio.url(:original), :type => pnsq.audio.content_type}
 
-  %td.actions{:id => "personal_pnsq_reply_#{pnsq.id}_#{pnsq.user.id}", :class => its_me?(pnsq.user) ? 'disabled' : nil, :title => its_me?(pnsq.user) ? nil : "Reply #{pnsq.user.nick}"}
+  %td.actions{:id => "personal_pnsq_reply_#{pnsq.id}_#{pnsq.user.id}", :class => its_me?(pnsq.user) ? 'disabled' : nil, :title => its_me?(pnsq.user) ? nil : "Contestar a #{pnsq.user.nick}"}
     %i.icon-reply
 
   :javascript

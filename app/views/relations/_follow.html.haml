@@ -5,7 +5,7 @@
     - if !(current_user.following?(user.id))
       .relation_tag{:id => "follow_#{user.id}"}
         .icon.icon-plus
-        .label="Follow"
+        .label="Seguir"
 
       :javascript
         $("#follow_#{user.id}").click(function() {
@@ -14,7 +14,7 @@
         
     - else
       .relation_tag{:id => "follow_#{user.id}", :style => 'background-color: #6A86C2; color: #FFF;'}
-        .label="Following"
+        .label="Siguiendo"
 
       :javascript
         $("#follow_#{user.id}").click(function() {

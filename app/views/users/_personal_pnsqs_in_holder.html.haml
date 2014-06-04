@@ -1,5 +1,5 @@
 .window_header
-  %h2="Personal messages"
+  %h2="Buzón de Voz"
 .content_in_holder
   %table.pnsq_in_holder
     - if !pnsqs.blank?
@@ -7,4 +7,4 @@
         = render :partial => 'users/personal_pnsq_row', :locals => {:pnsq => pnsq} 
            
     - else
-      .text="Not Personal Pnsqs Yet"
+      .text="Sin mensajes todavía"

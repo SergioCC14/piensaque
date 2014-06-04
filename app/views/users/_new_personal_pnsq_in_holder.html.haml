@@ -1,5 +1,5 @@
 .window_header
-  %h2="New personal Message"
+  %h2="Nuevo mensaje personal"
 .content_in_holder
-  .sub_title="To #{user.nick}"
+  .sub_title="Para #{user.nick}"
   = render :partial => 'pnsqs/maker_pnsq', :locals => {:pnsq => Pnsq.new, :to_user => user}
