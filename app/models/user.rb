@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
 	before_create :generate_remember_token
   before_create :generate_password
   before_save :clean_nick
+  after_create :check_request_invitation
 
   # Color para TASTE
   DEFAULT_COLOR="#FFFFFF"
@@ -96,6 +97,13 @@ class User < ActiveRecord::Base
   # Devuelve todos los PnsQ privados
   def privates_all
     return Pnsq.privates.where('to_user_id = ? OR user_id = ? ',self.id ,self.id).order('id DESC')
+  end
+
+  # Si viene de una invitación: la marcamos como hecha la invitación
+  def check_request_invitation
+    if (ri = RequestInvitation.find_by(email: self.email))
+      ri.update_attributes(:checked => true)
+    end
   end
 
   # Devuelve un array con los gustos musicales

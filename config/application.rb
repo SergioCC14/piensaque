@@ -8,6 +8,12 @@ if (Rails.env == 'development')
 end
 
 
+if (Rails.env == "production")
+  PIENSAQUE_PATH = "http://www.piensaque.com"
+elsif (Rails.env == "development")
+  PIENSAQUE_PATH = "http://beperk.com:3000"
+end
+
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))
