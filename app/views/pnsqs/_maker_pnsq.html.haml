@@ -26,7 +26,7 @@
         if (check_if_can_record()) {
           stop_record_audio("new_pnsq_#{to_user_id}", "#{current_user.id}");
           $("#pnsq_microphone_#{Time.now.to_i}").removeClass("recording"); 
-          prepare_for_modal_loading('Creating PnsQ. Please, wait..');
+          prepare_for_modal_loading('Creando PnsQ. Por favor, espere..');
         } else {
           alert('Primero debes aceptar los permisos de tu navegador. Es un símbolo con una cámara. Está situado en una esquina de la barra de direcciones.')
           }
