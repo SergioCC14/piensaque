@@ -1,6 +1,7 @@
 %h3="Gustos Musicales"
 %td.edit_musical_tastes
   .sub_title="Cuentanos cuales son los generos músicales que más te apasionan. De esta manera podrás personalizar tus mensajes."
+
 #taste_rock.edit_musical_taste{:style => "background-color: #{User::ROCK_COLOR}", :class => user.mt_rock ? "selected" : nil, :onclick => "check_mt('#taste_rock','#user_mt_rock')"}
   .taste_container
     .taste_text="Rock"
@@ -69,7 +70,3 @@
     $(button).toggleClass('selected');
     $(mt).click()
   }
-
-  // Some selected
-  check_mt('#taste_rock','#user_mt_rock');
-  check_mt('#taste_dance','#user_mt_dance');

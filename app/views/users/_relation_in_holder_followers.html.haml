@@ -10,6 +10,6 @@
           %td.name
             =link_to(relation.user.name, user_nick_path(relation.user.nick))
           %td.button
-            = render :partial => 'relations/follow', :locals => {:user => relation.user, :relation => relation} 
+            = render :partial => 'relations/follow', :locals => {:user => relation.user, :relation => Relation.where(:user_id => current_user.id, :user_relation => relation.user).first} 
     - else
       .text="Sin seguidores todavía"
