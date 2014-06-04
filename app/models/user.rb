@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
 
   has_one :playlists, :dependent => :destroy
   has_many :pnsqs, :dependent => :destroy
+  has_many :relations, :dependent => :destroy
 
 	before_create :assign_rank
 	before_create :generate_remember_token

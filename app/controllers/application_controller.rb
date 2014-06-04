@@ -17,7 +17,9 @@ class ApplicationController < ActionController::Base
       @session = Session.new
 
     else
-      @pnsq_list = current_user.pnsqs.publics.order('id DESC')
+      @pnsq_list = Pnsq.publics.joins(:user).uniq.joins('INNER JOIN relations ON (((pnsqs.user_id = relations.user_relation_id) AND (relations.user_id = 1)) OR (pnsqs.user_id = 1))').uniq.order('id DESC')
+
+      # @pnsq_list = Pnsq.publics.joins(:user).uniq.joins('INNER JOIN relations ON (pnsqs.user_id = relations.user_relation_id) AND (relations.user_id = #{current_user.id})').uniq.order('id DESC')
 
     end
   end
