@@ -2,7 +2,7 @@
 
 #user_container
   .user_settings_block
-    .title_section="Settings"
+    .title_section="Opciones"
     .information_block
       = form_for @user do |f|
         %div{:style => 'display:inline-block; width: 360px; margin-right:60px;'}
@@ -19,13 +19,13 @@
                   $('#wrapper_user_avatar').css('background', 'none').css('box-shadow','none').css('border-color', 'transparent');
                 });
                 
-              %a{:class => 'normal_link', :onclick => "$('#file_field_avatar_for_#{@user.id}').click();"}='Change your avatar'
+              %a{:class => 'normal_link', :onclick => "$('#file_field_avatar_for_#{@user.id}').click();"}='Cambia tu avatar'
           %table
             %tr.field
-              %td.label= f.label :name
+              %td.label= f.label :nombre
               %td.default_field_td
-                = f.text_field :name, :class => 'default_field', :style => 'width:155px;'
-                = f.text_field :surname, :class => 'default_field', :style => 'width: 150px'
+                = f.text_field :name, :class => 'default_field', :style => 'width:145px;'
+                = f.text_field :surname, :class => 'default_field', :style => 'width: 148px'
             %tr.field
               %td.label= f.label :nick
               %td.default_field_td= f.text_field :nick, :required => true, :class => 'default_field'
@@ -38,11 +38,11 @@
             %tr.field
               %td
               %td
-                =link_to("Change Password", change_password_in_holder_user_path(@user.id), :remote => true)
+                =link_to("Cambiar Contraseña", change_password_in_holder_user_path(@user.id), :remote => true)
             %tr.actions
               %td{:colspan => 2}
                 %div{:style => 'padding-top: 40px; text-align:right;'}
-                  = link_to("Save", "", :class => 'landing_button edit_form', :onclick => "prepare_for_modal_loading('Guardando cambios...'); $('#save_edit_#{@user.id}').click();", :remote => true)
+                  = link_to("Guardar", "", :class => 'landing_button edit_form', :onclick => "prepare_for_modal_loading('Guardando cambios...'); $('#save_edit_#{@user.id}').click();", :remote => true)
                   = f.submit '', :style => 'display:none', :id => "save_edit_#{@user.id}"
 
         .edit_musical_tastes

@@ -1,7 +1,6 @@
 
 #user_container
   .user_settings_block
-    .title_section="Register in PiensaQue"
     .information_block
       = form_for (User.new) do |f|
         %div{:style => 'display:inline-block; width: 360px; margin-right: 60px;'}
@@ -18,13 +17,13 @@
                   $('#wrapper_user_avatar').css('background', 'none').css('box-shadow','none').css('border-color', 'transparent');
                 });
                 
-              %a{:class => 'normal_link', :onclick => "$('#file_field_avatar_for_#{@user.id}').click();"}='Change your avatar'
+              %a{:class => 'normal_link', :onclick => "$('#file_field_avatar_for_#{@user.id}').click();"}='Cambia tu avatar'
           %table
             %tr.field
-              %td.label= f.label :name
+              %td.label= f.label :nombre
               %td.default_field_td
-                = text_field_tag :name, @user.name , :required => true, :class => 'default_field', :style => 'width:137px;'
-                = f.text_field :surname, :class => 'default_field', :style => 'width: 147px'
+                = text_field_tag :name, @user.name , :required => true, :class => 'default_field', :style => 'width:135px;'
+                = f.text_field :surname, :class => 'default_field', :style => 'width: 148px'
             
             %tr.field
               %td.label= f.label :nick
@@ -44,9 +43,7 @@
               %tr.actions
               %td{:colspan => 2}
                 %div{:style => 'padding-top: 20px; text-align:center;'}
-                  = link_to("Enter", "", :class => 'landing_button edit_form', :onclick => "prepare_for_modal_loading('Creando usuario...'); $('#save_edit_#{@user.id}').click()", :remote => true)
-                  ="or"  
-                  = link_to 'Cancel', root_path
+                  = link_to("Entrar", "", :class => 'landing_button edit_form right', :onclick => "prepare_for_modal_loading('Creando usuario...'); $('#save_edit_#{@user.id}').click()", :remote => true)
                   = f.submit '', :style => 'display:none', :id => "save_edit_#{@user.id}"
 
         .edit_musical_tastes

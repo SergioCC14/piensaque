@@ -178,8 +178,14 @@
               }
             }
             td.connections_panel {
-              font-size: 25px;
               text-align: right;
+              a{
+                display: inline-block;
+                margin: 0px 5px;
+                .relation_title {font-size: 26px; line-height: 26px;}
+                .relation_number {font-size: 16px;}
+              }
+              
             }
             td.user_row_bio {
               color: $background_normal;
@@ -228,6 +234,14 @@
 	text-align: center;
 	padding: 10px;
 	vertical-align: top;
+
+  .sub_title {
+    font-size: 14px;
+    padding: 5px 0px;
+    font-style: italic;
+    font-family: Arial, sans-serif;
+  }
+
 	.edit_musical_taste {
 		cursor: pointer;
 		display: inline-block;

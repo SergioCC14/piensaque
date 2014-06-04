@@ -8,8 +8,14 @@
         - if !its_me?(user)
           = render :partial => 'relations/follow', :locals => {:user => user, :relation => relation} 
       %td.connections_panel
-        =link_to("#{user.followers_count} Seguidores", relations_in_holder_user_path(user.id, :role => 'followers'), :remote => true)
-        =link_to("#{user.following_count} Siguiendo", relations_in_holder_user_path(user.id, :role => 'following'), :remote => true)
+        =link_to(relations_in_holder_user_path(user.id, :role => 'followers'), :remote => true) do
+          .relation_title.inline-block= "Seguidores"
+          .relation_number.inline-block= user.followers_count
+
+        =link_to(relations_in_holder_user_path(user.id, :role => 'following'), :remote => true) do
+          .relation_title.inline-block= "Siguiendo"
+          .relation_number.inline-block= user.following_count
+
     %tr
       %td
       %td.user_row_bio
