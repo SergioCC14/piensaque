@@ -17,9 +17,10 @@ class ApplicationController < ActionController::Base
       @session = Session.new
 
     else
-      @pnsq_list = Pnsq.publics.joins(:user).uniq.joins('INNER JOIN relations ON (((pnsqs.user_id = relations.user_relation_id) AND (relations.user_id = 1)) OR (pnsqs.user_id = 1))').uniq.order('id DESC')
+      @pnsq_list = Pnsq.publics.joins(:user).uniq.joins("INNER JOIN relations ON ((pnsqs.user_id = relations.user_relation_id) AND (relations.user_id = #{current_user.id}) AND (pnsqs.user_id = users.id) OR (pnsqs.user_id = #{current_user.id}))").uniq.order('id DESC')
 
-      # @pnsq_list = Pnsq.publics.joins(:user).uniq.joins('INNER JOIN relations ON (pnsqs.user_id = relations.user_relation_id) AND (relations.user_id = #{current_user.id})').uniq.order('id DESC')
+      # Si no sigues a nadie la relación de arriba no funcionará, por lo que cascamos sus propios Pnsqs
+      @pnsq_list = @pnsq_list.blank? ? current_user.pnsqs.publics : @pnsq_list
 
     end
   end
@@ -46,6 +47,13 @@ class ApplicationController < ActionController::Base
   def admin_panel
     if !signed_in? or !current_user.admin?
       redirect_to root_path
+    end
+  end
+
+  def error404
+    respond_to do |format|
+      format.js { render :nothing => true }
+      format.html { render :template => "layouts/404", :layout => 'application', :status => 404 }
     end
   end
 
