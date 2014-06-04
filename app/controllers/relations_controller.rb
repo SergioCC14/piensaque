@@ -21,7 +21,7 @@ class RelationsController < ApplicationController
   # DELETE /relation/:id
   def destroy
     if (@relation = Relation.find_by_id(params[:id]))
-
+      if (current_user.id == @relation.user_id)
         @user = User.find_by_id(@relation.user_relation_id)
         @relation.destroy
 
@@ -29,6 +29,9 @@ class RelationsController < ApplicationController
           format.html { render }
           format.js { render }
         end
+      else
+        error404
+      end
     else
       error404
     end
