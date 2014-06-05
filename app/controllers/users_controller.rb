@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       end
 
       respond_to do |format|
-        format.html { render }
+        format.html { redirect_to root_path }
         format.js { render }
       end
 
@@ -65,12 +65,12 @@ class UsersController < ApplicationController
 
       if !its_me?(@user)
         respond_to do |format|
-          format.html { render :nothing => true}
+          format.html { redirect_to root_path}
           format.js { render }
         end
       else
         respond_to do |format|
-          format.html { render :nothing => true}
+          format.html { redirect_to root_path}
           format.js { redirect_to root_path, notice: "You cannot send a personal message for yourself"}
         end
       end
@@ -91,7 +91,7 @@ class UsersController < ApplicationController
       @user.update_attributes(:notifications_count => 0)
 
       respond_to do |format|
-        format.html { render :nothing => true}
+        format.html { redirect_to root_path }
         format.js { render }
       end
 
@@ -193,7 +193,7 @@ class UsersController < ApplicationController
   def change_password_in_holder
     if (@user = User.find_by_id(params[:id]))
       respond_to do |format|
-        format.html { render :nothing => true }
+        format.html { redirect_to root_path }
         format.js { render }
       end
 
