@@ -6,8 +6,8 @@
     %table{:style => "background-color: #{color(pnsq)}"}
       %tr
         %td.avatar{:style => "background-image: url('#{pnsq.user.avatar.url(:cmedium)}'); "}
-          .audio-controls
-            .icon-play{:id => "play_#{pnsq.id}_#{pnsq.user.id}"}
+          .audio-controls{:id => "play_#{pnsq.id}_#{pnsq.user.id}"}
+            .icon-play
             .duration{:id => "duration_#{pnsq.id}_#{pnsq.user.id}"}
         
         %td.text

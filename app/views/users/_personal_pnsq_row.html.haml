@@ -1,8 +1,8 @@
 %tr{:class => its_me?(pnsq.user) ? "owner" : nil, :id => "personal_pnsq_#{pnsq.id}_#{pnsq.user.id}"}
   %td.avatar
     .background-avatar{:style => "background-image: url('#{pnsq.user.avatar.url(:cmedium)}'); "}
-      .audio-controls
-        .icon-play{:id => "personal_pnsq_play_#{pnsq.id}_#{pnsq.user.id}"}
+      .audio-controls{:id => "personal_pnsq_play_#{pnsq.id}_#{pnsq.user.id}"}
+        .icon-play
         .duration{:id => "personal_pnsq_duration_#{pnsq.id}_#{pnsq.user.id}"}="-"
   %td.description
     =link_to(its_me?(pnsq.user) ? 'Yo' : pnsq.user.nick, user_nick_path(pnsq.user.nick))
