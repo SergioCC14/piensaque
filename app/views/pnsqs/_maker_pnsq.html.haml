@@ -2,7 +2,7 @@
 - to_user = defined?(to_user) ? to_user : nil
 
 -# Multipart (documentacion)
-= form_for(pnsq, :multipart => true, :remote => true, :format => [:js], :html => {:id => "new_pnsq_#{to_user_id}"}) do |f|
+= form_for(pnsq, :remote => true, :format => [:js], :html => {:id => "new_pnsq_#{to_user_id}", :multipart => true}) do |f|
   %table.new_pnsq_panel#new_pnsq_panel
     %tr
       %td.record
