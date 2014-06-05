@@ -2,7 +2,7 @@
 #user_container
   .user_settings_block
     .information_block
-      = form_for (User.new) do |f|
+      = form_for User.new, :html => {:id => "new_user"} do |f|
         %div{:style => 'display:inline-block; width: 360px; margin-right: 60px;'}
           .avatar_block
             .avatar_img{:style => "background: url(#{@user.avatar.url(:cmedium)})", :id => 'wrapper_user_avatar'}
@@ -22,16 +22,16 @@
             %tr.field
               %td.label= f.label :nombre
               %td.default_field_td
-                = text_field_tag :name, @user.name , :required => true, :class => 'default_field', :style => 'width:135px;'
+                = text_field_tag 'user[name]', @user.name , :required => true, :class => 'default_field', :style => 'width:135px;'
                 = f.text_field :surname, :class => 'default_field', :style => 'width: 148px'
             
             %tr.field
               %td.label= f.label :nick
-              %td.default_field_td= text_field_tag :nick, @user.nick, :required => true, :class => 'default_field'
+              %td.default_field_td= text_field_tag 'user[nick]', @user.nick, :required => true, :class => 'default_field'
             
             %tr.field
               %td.label= f.label :email
-              %td.default_field_td= text_field_tag :email, @user.email, :required => true, :class => 'default_field'
+              %td.default_field_td= text_field_tag 'user[email]', @user.email, :required => true, :class => 'default_field'
             
             %tr.field
               %td.label= f.label :password
@@ -43,13 +43,18 @@
               %tr.actions
               %td{:colspan => 2}
                 %div{:style => 'padding-top: 20px; text-align:center;'}
-                  = link_to("Entrar", "", :class => 'landing_button edit_form right', :onclick => "prepare_for_modal_loading('Creando usuario...'); $('#save_edit_#{@user.id}').click()", :remote => true)
+                  = link_to("Entrar", "", :class => 'landing_button edit_form right', :onclick => "$('#save_edit_#{@user.id}').click()", :remote => true)
                   = f.submit '', :style => 'display:none', :id => "save_edit_#{@user.id}"
 
         .edit_musical_tastes
           = render :partial => 'users/edit_musical_tates', :locals => {:user => @user, :f => f}
 
-#footer_users
+    :javascript
+      $('#new_user').submit(function() {
+        prepare_for_modal_loading('Guardando cambios...');
+      })
+
+-#footer_users
   -#
     .footer_link="About"
     .footer_link="|"

@@ -162,15 +162,30 @@ class UsersController < ApplicationController
     # Comprueba si el nick ha sido usado, si ha sido usado lo modifica
     @user.used_nick(@user.nick)
 
+    # Genera una nueva contraseña
+    @user.generate_remember_token
 
-    respond_to do |format|
-      if (@user.save) and (!used_nick)
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    # Es un administrador
+    if signed_in?
+      respond_to do |format|
+        if (@user.save) and (!used_nick)
+          format.html { redirect_to @user, notice: 'User was successfully created.' }
+          format.json { render json: @user, status: :created, location: @user }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
+    
+    # Es un usuario de nuevo registro
+    else
+      iniciar_sesion(@user)
+
+      respond_to do |format|
+        format.html { redirect_to @user   }
+        format.js { render  }
+      end
+
     end
   end
 

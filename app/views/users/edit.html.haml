@@ -4,7 +4,7 @@
   .user_settings_block
     .title_section="Opciones"
     .information_block
-      = form_for @user do |f|
+      = form_for @user, :html => {:id => "edit_user"} do |f|
         %div{:style => 'display:inline-block; width: 360px; margin-right:60px;'}
           .avatar_block
             .avatar_img{:style => "background-image: url(#{@user.avatar.url(:cmedium)})", :id => 'wrapper_user_avatar'}
@@ -42,10 +42,13 @@
             %tr.actions
               %td{:colspan => 2}
                 %div{:style => 'padding-top: 40px; text-align:right;'}
-                  = link_to("Guardar", "", :class => 'landing_button edit_form', :onclick => "prepare_for_modal_loading('Guardando cambios...'); $('#save_edit_#{@user.id}').click();", :remote => true)
+                  = link_to("Guardar", "", :class => 'landing_button edit_form', :onclick => "$('#save_edit_#{@user.id}').click();", :remote => true)
                   = f.submit '', :style => 'display:none', :id => "save_edit_#{@user.id}"
 
         .edit_musical_tastes
           = render :partial => 'users/edit_musical_tates', :locals => {:user => @user, :f => f}
-              
+    :javascript
+      $('#edit_user').submit(function() {
+        prepare_for_modal_loading('Guardando cambios...');
+      })
 #footer_users

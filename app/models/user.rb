@@ -23,14 +23,11 @@ class User < ActiveRecord::Base
                                                   'image/gif'],
                                                    :message => "has to be a image"
                                           }
-
-  has_one :playlists, :dependent => :destroy
   has_many :pnsqs, :dependent => :destroy
   has_many :relations, :dependent => :destroy
 
 	before_create :assign_rank
-	before_create :generate_remember_token
-  before_create :generate_password
+  after_create :generate_password 
   before_save :clean_nick
   after_create :check_request_invitation
 
@@ -78,6 +75,7 @@ class User < ActiveRecord::Base
 
   # Quito espacios, elimino simbolos raros
   def self.clean_nick(nick)
+    
     return nick.force_encoding('utf-8').gsub(/[-‐‒–—―⁃−­]/, '-').gsub('#', 'sharp').gsub('+', 'plus').gsub('&', 'and').unaccent.to_ascii({'ñ' => 'ñ', 'Ñ' => 'Ñ'}).downcase.gsub(/[^a-zñ0-9 ]/, ' ').strip.gsub(/[ ]+/, '-')
   end
 
@@ -146,7 +144,6 @@ class User < ActiveRecord::Base
     return (self.password == User.encrypt("--#{password_to_check}--#{self.created_at}--#{self.password_salt}"))
   end
 
-  private
     # Genera un Token único por sesión al usuario
     def generate_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
@@ -160,5 +157,8 @@ class User < ActiveRecord::Base
       self.password = User.encrypt("--#{self.password}--#{self.created_at}--#{self.password_salt}")
       self.save
     end
+
+  private
+
 
 end

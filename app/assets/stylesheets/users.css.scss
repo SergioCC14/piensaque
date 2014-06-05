@@ -66,7 +66,8 @@
 		top: -5px;		
 		.main_content_user_menu {
 			margin: -5px;
-			padding:5px;
+			padding: 5px;
+      min-width: 150px;
 			img {
 				width: 40px;
 				position: relative;
@@ -91,6 +92,7 @@
   	background-color: #201D19;
   	font-size: 20px;
   	margin: 5px -5px 0;
+    right: 5px;
   	.header_sub_opt {
   		a {
   		padding-right: 10px;
