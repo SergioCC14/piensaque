@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
   after_create :generate_password 
   before_save :clean_nick
   after_create :check_request_invitation
+  after_create :notify_admins
 
   # Color para TASTE
   DEFAULT_COLOR="#FFFFFF"
@@ -102,6 +103,13 @@ class User < ActiveRecord::Base
   def check_request_invitation
     if (ri = RequestInvitation.find_by(email: self.email))
       ri.update_attributes(:checked => true)
+    end
+  end
+
+  # Notifica cuando se crea un usuario
+  def notify_admins
+    if (Rails.env == "production")
+      ApplicationMailer.new_user(self).deliver
     end
   end
 

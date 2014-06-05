@@ -1,0 +1,12 @@
+%center{style: "background-color: #505050; padding-bottom: 40px;"}
+  %div{style: "padding: 10px 0; margin-bottom: 10px;"}
+    %div{style: "color: #1E701E; font-size: 28px; background-color: #3D3D3D; width: 190px;"}="PiensaQue"
+
+  %center{style: "max-width: 600px; background-color: #D7D7D7; padding: 20px;"}
+    %h1="Nuevo Usuario Registrado"
+
+    %p
+      ="Usuario nº #{@user.id}: #{@user.nick}"
+
+    %p
+      %a{href: @url}="Ver su perfil"
