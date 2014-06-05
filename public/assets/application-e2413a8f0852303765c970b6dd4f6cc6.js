@@ -10738,7 +10738,7 @@ return jQuery;
   if (document.domain != 'localhost') {
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-43879685-1']);
-    _gaq.push(['_setDomainName', 'piensaque.herokuapp.com']);
+    _gaq.push(['_setDomainName', 'www.piensaque.com']);
     _gaq.push(['_trackPageview']);
 
     (function() {
@@ -10747,7 +10747,6 @@ return jQuery;
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   }
-
 ;
 (function() {
 
@@ -16485,6 +16484,16 @@ function check_if_can_record() {
   }
 }
 
+function check_if_still_recording(btn) {
+  setTimeout( function() {
+    if ((btn.hasClass('recording')) && (recording == true)) {
+      btn.click();
+    }
+  }, 8000 ); 
+  
+
+
+}
 ;
 /*License (MIT)
 
@@ -16788,6 +16797,15 @@ function loadPreview(input, previewImg) {
   }
 }
 
+// Prepara un contenedor oscuro para el fondo
+function ready_full_container() {
+  $('body').append('<div id="full_container"></div>')
+}
+
+// Cierra un contenedor oscuro para el fondo
+function close_full_container() {
+  $('#full_container').remove();
+}
 
 // Prepara para lanzar una nueva ventana modal
 function prepare_for_modal() {
@@ -16799,10 +16817,10 @@ function prepare_for_modal_2() {
   $('#place_for_window_in_holder').html('<div id="md-window" class="window_holder small md-modal md-effect-1"><div id ="md-inner_window" class="inner_window window md-content"><div id="closer_modal" class="md-close">X</div></div></div> <script> $("#closer_modal").click(function() {close_window();}); </script>');
 }
 
-// Prepara para lanzar una nueva ventana modal
-function prepare_for_modal_info(text) {
+// Prepara y lanza una nueva ventana modal
+function prepare_for_modal_loading(text) {
   $('#place_for_window_in_holder_info').html('<div id="md-window-info" class="window_holder md-modal info md-effect-10"><div id ="md-inner_window" class="inner_window window md-content"><div class="text">' + text + '</div><i class="icon-spinner"></div></div>');
-
+    show_modal_info();
 }
 
 // Muestra la ventana modal, después de estar montada 
@@ -16833,5 +16851,12 @@ function close_window_info() {
 function close_modals() {
   close_window();
   close_window_info();
+  $('#full_container').remove();
 }
-;
+recording = false;
+// Habilita la tecla ESC para cerrar todas las ventanas y contenedores de la página
+$(document).keyup(function(e){
+  if(e.which == 27){
+    close_modals();
+  }
+});

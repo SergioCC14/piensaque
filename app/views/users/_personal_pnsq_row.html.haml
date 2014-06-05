@@ -7,6 +7,9 @@
   %td.description
     =link_to(its_me?(pnsq.user) ? 'Yo' : pnsq.user.nick, user_nick_path(pnsq.user.nick))
     .date="#{its_me?(pnsq.user) ? 'grabé' : 'grabó'} en #{pnsq.created_at.to_formatted_s(:long)}"
+    .clearfix
+    .inline-block="Para"
+    =link_to(its_me?(pnsq.to_user) ? "mí" : pnsq.to_user.nick, user_nick_path(pnsq.to_user.nick), :class => 'inline-block')
     .description-text=pnsq.text
 
     %audio{:controls => '', :id => "personal_pnsq_audio_#{pnsq.id}_#{pnsq.user.id}", :style => 'display:none'}
