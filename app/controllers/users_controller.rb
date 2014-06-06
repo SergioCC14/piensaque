@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   def show
     if @user = !params[:id].blank? ? User.find(params[:id]) : User.find_by_nick(params[:nick])
 
-      @pnsqs = Pnsq.where(:user_id => @user.id).order('id DESC')
+      @pnsqs = Pnsq.publics.where(:user_id => @user.id).order('id DESC')
 
       # Comprueba si mostrar el botón de Seguir
       if (signed_in?) and (current_user.id != @user.id)
