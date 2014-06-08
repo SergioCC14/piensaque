@@ -15,3 +15,10 @@
     $('.search_list_holder').fadeIn();
     $.getScript('/users/search?field=' + $('input.search_input').val());
   })
+  
+  $('input.search_input').keydown(function(e) {  
+    if(e.which == 13){
+      $('.icon-search.search_icon').click();  
+    }
+  })
+  

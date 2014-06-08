@@ -36,7 +36,7 @@
     }
     setTimeout( function() {
       duration = parseInt($("#audio_#{pnsq.id}_#{pnsq.user.id}").get(0).duration) + "\""
-      if (duration == "NaN\"") {duration = ""}
+      if (duration == "NaN\"") {duration = "-"}
       $("#duration_#{pnsq.id}_#{pnsq.user.id}").text(duration);
     }, 1000 );
     $("#play_#{pnsq.id}_#{pnsq.user.id}").click(function() { 

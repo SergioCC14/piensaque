@@ -1,5 +1,5 @@
-%tr.user_search_row
-  %td.user_search_avatar
+%tr.user_search_row{:onclick => "window.location = '#{user_nick_path(user.nick)}'"}
+  %td.user_search_avatar  
     =image_tag(user.avatar.url(:cthumb))
   %td.user_search_nick
     =user.nick
