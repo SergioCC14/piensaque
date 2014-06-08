@@ -227,13 +227,16 @@ h3 {
   display: inline-block;
 }
 
+.small {
+  font-size: 10px;
+}
+
 .btn {
   background-color: $green_letter;
   padding: 6px 10px;
   display: inline-block;
   border-radius: 2px;
   font-size: 12px;
-
 }
 
 .btn:hover {

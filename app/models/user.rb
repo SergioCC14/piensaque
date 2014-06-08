@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   # Avatar
   has_attached_file :avatar, :styles => {
     icon:    '50x50#'   ,
-    thumb:   '100x100>'  ,
+    thumb:   '100x100>' ,
     cthumb:  '100x100#' ,
     cmedium: '200x200>' ,
     medium:  '200x200#' ,
@@ -22,7 +22,9 @@ class User < ActiveRecord::Base
                                                   'image/tif',
                                                   'image/gif'],
                                                    :message => "has to be a image"
-                                          }
+                                          },
+                        :size => { :in => 0..5.megabytes }
+
   has_many :pnsqs, :dependent => :destroy
   has_many :relations, :dependent => :destroy
 

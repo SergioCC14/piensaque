@@ -20,6 +20,7 @@
                 });
                 
               %a{:class => 'normal_link', :onclick => "$('#file_field_avatar_for_#{@user.id}').click();"}='Cambia tu avatar'
+              .small="Una imagen de máximo 5MB"
           %table
             %tr.field
               %td.label= f.label :nombre

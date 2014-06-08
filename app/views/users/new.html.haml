@@ -17,7 +17,9 @@
                   $('#wrapper_user_avatar').css('background', 'none').css('box-shadow','none').css('border-color', 'transparent');
                 });
                 
-              %a{:class => 'normal_link', :onclick => "$('#file_field_avatar_for_#{@user.id}').click();"}='Cambia tu avatar'
+              %a{:class => 'normal_link', :onclick => "$('#file_field_avatar_for_#{@user.id}').click();"}='Sube tu avatar'
+              .small="Una imagen de máximo 5MB"
+
           %table
             %tr.field
               %td.label= f.label :nombre
