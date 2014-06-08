@@ -1,0 +1,33 @@
+#user_container{:style => 'width: 100%;'}
+  .title_section{:style => 'padding: 5px;'}="PnsQs(#{Pnsq.publics.count}) - Privates (#{Pnsq.privates.count})"
+  .information_block
+    .application_admin_panel
+      #panel_pnsqs
+        %table
+          %tr.title.music
+            %td.cover="ID"
+            %td.cover="User ID"
+            %td.cover="To User ID"
+            %td.text="Text"
+            %td.text="Audio"
+            %td.text="created_at"
+            %td.cover
+            %td.cover
+          - for pnsq in @pnsqs
+            = form_for(pnsq, :remote => true) do |f|
+              %tr.pnsq{:style => cycle(nil, 'background-color: #C7C7C7; border-color:#BBBBBB')}
+                %td.cover= pnsq.id
+                %td.cover= link_to("#{pnsq.user.nick} (#{pnsq.user_id})", user_nick_path(pnsq.user.nick))
+                %td.cover
+                  = !pnsq.to_user_id.blank? ? link_to("#{pnsq.to_user.nick} (#{pnsq.to_user_id})", user_nick_path(pnsq.to_user.nick)) : "-"
+                %td.text=pnsq.text
+                  
+                %td.text
+                  %audio{:controls => ""}
+                    %source{:src => pnsq.audio.url(:original), :type => pnsq.audio.content_type}
+
+                %td.text=pnsq.created_at
+                %td= f.submit 'U', :style => '', :class => 'submit_admin',:id => "save_#{pnsq.id}"
+                %td=link_to('Delete',pnsq_path(pnsq), :confirm => "Are you sure?", :method => :delete)
+
+  = paginate @pnsqs

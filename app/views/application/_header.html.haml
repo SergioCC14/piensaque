@@ -30,7 +30,7 @@
 
 		.user_menu
 			.main_content_user_menu{:onclick => "$('#header_sub_menu').slideToggle();"}
-				=current_user.nick
+				=current_user.nick.capitalize
 				=image_tag(current_user.avatar.url(:cthumb))
 			.header_sub_menu#header_sub_menu
 				- if current_user.admin?

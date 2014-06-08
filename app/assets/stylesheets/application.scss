@@ -183,6 +183,29 @@ BODY{
   }
 }
 
+.pagination {
+  padding: 10 20px;
+  span {
+    background-color: $green_letter;
+    border: 1px solid #3D3D3D;
+    color: #3D3D3D;
+    padding: 5 10px;
+    border-radius: 2px;
+    margin: 0 2px;
+    a {
+      color: #3D3D3D;
+    }
+  }
+  .page.gap {
+    background-color: transparent;
+    border: medium none;
+  }
+  span.current {
+    color: #427B8F;
+    background-color: $green_letter_dark;
+    font-weight: 900;
+  }
+}
 
 .information_block {
   padding: 10px;

@@ -15,11 +15,17 @@
     %td.checkbox="Jazz?"
     %td.checkbox="Countr?"
     %td.checkbox="HipHop?"
+    %td.checkbox="Classical?"
+    %td.checkbox="Dance?"
+    %td.checkbox="Heavy?"
+    %td.checkbox="Reggae?"
+    %td.checkbox="Funk?"
+
   - for user in User.all.order('id ASC')
     = form_for(user, :remote => true) do |f|
       %tr.users{:style => cycle(nil, 'background-color: #C7C7C7; border-color:#BBBBBB')}
         %td.checkbox=image_tag(user.avatar.url(:cthumb))
-        %td.checkbox=link_to(user.id, user)
+        %td.checkbox=link_to(user.nick, user_nick_path(user.nick))
         %td.text=f.text_field :nick, :id => "nick_#{user.id}"
         %td.text=f.text_field :name, :id => "name_#{user.id}"
         %td.text=f.text_field :surname, :id => "surname_#{user.id}"
@@ -33,7 +39,14 @@
         %td.checkbox=f.check_box :mt_jazz, :id => "mt_jazz_#{user.id}"
         %td.checkbox=f.check_box :mt_country, :id => "mt_country#{user.id}"
         %td.checkbox=f.check_box :mt_hiphop, :id => "mt_hiphop#{user.id}"
-        %td= f.submit 'U', :style => '', :class => 'submit_admin',:id => "save_#{user.id}"
+
+        %td.checkbox=f.check_box :mt_classical, :id => "mt_classical#{user.id}"
+        %td.checkbox=f.check_box :mt_dance, :id => "mt_dance#{user.id}"
+        %td.checkbox=f.check_box :mt_heavy, :id => "mt_heavy#{user.id}"
+        %td.checkbox=f.check_box :mt_reggae, :id => "mt_reggae#{user.id}"
+        %td.checkbox=f.check_box :mt_funk, :id => "mt_funk#{user.id}"
+
+        %td.checkbox= f.submit 'U', :style => '', :class => 'submit_admin',:id => "save_#{user.id}"
       
       :javascript
         $('#target').keyup(function() {

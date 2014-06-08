@@ -7,6 +7,9 @@ class PnsqsController < ApplicationController
   # GET /pnsqs
   # GET /pnsqs.json
   def index
+
+    @pnsqs = Pnsq.all.order('id DESC').page(params[:page]).per(10)
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @pnsqs }

@@ -17,6 +17,9 @@ gem 'ruby-mp3info', :require => 'mp3info'
 # Gestión de errores por Mail
 gem 'exception_notification'
 
+# Paginador de listados
+gem 'kaminari'
+
 # Amazon SES (Simple Email Service)
 gem "aws-ses", :require => 'aws/ses'
 
