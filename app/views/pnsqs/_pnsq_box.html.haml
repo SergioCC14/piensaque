@@ -22,7 +22,7 @@
             - for tag in pnsq.tags
               .tag_text=tag.name
 
-        %audio{:controls => '', :id => "audio_#{pnsq.id}_#{pnsq.user.id}", :style => 'display:none'}
+        %audio{:id => "audio_#{pnsq.id}_#{pnsq.user.id}", :style => 'display:none; opacity: 0; '}
           %source{:src => pnsq.audio.url(:original), :type => pnsq.audio.content_type}
     .expander{:id => "expand_#{pnsq.id}_#{pnsq.user.id}"}="+"
     
@@ -35,8 +35,10 @@
       audio_id.get(0).play();
     }
     setTimeout( function() {
-      $("#duration_#{pnsq.id}_#{pnsq.user.id}").text(parseInt($("#audio_#{pnsq.id}_#{pnsq.user.id}").get(0).duration) + "\"")
-    }, 500 );
+      duration = parseInt($("#audio_#{pnsq.id}_#{pnsq.user.id}").get(0).duration) + "\""
+      if (duration == "NaN\"") {duration = ""}
+      $("#duration_#{pnsq.id}_#{pnsq.user.id}").text(duration);
+    }, 1000 );
     $("#play_#{pnsq.id}_#{pnsq.user.id}").click(function() { 
       playPnsq($("#audio_#{pnsq.id}_#{pnsq.user.id}"))
     });

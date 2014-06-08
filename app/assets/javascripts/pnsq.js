@@ -62,7 +62,7 @@ function stop_record_audio(form_id, user_id) {
   setTimeout(
       function() {
         uploadForm(form_id, user_id)
-      }, 50);
+      }, 250);
 }
 
 // Pnsq Audio Blob (GET y SET)
@@ -103,28 +103,31 @@ function doneEncoding( blob ) {
 
 // Para la subida del fichero
 function uploadForm(form_id, user_id) {
-  var form = new FormData(document.getElementById(form_id));
-  form.append("pnsq[audio]", getPnsq_audio(), "pnsq_" + user_id + "_" + Date.now() + ".wav");
+  setTimeout( function() {
+    var form = new FormData(document.getElementById(form_id));
+    form.append("pnsq[audio]", getPnsq_audio(), "pnsq_" + user_id + "_" + Date.now() + ".wav");
+    var request = new XMLHttpRequest();
+    var async = true;
 
-  var request = new XMLHttpRequest();
-  var async = true;
-  request.open("POST", "/pnsqs.js", async);
-  request.responseType = 'text/javascript'
+    request.open("POST", "/pnsqs.js", async);
+    request.responseType = 'text/javascript'
 
-  if (async) {
-      request.onreadystatechange = function() {
-          if (request.readyState == 4 && request.status == 200) {
-              var response = null;
-              try {
-                  setTimeout(request.responseText, 5);
-              } catch (e) {
-                  console.log(e);
-              }
-          }
-      }
-  }
-  request.send(form);
+    if (async) {
+        request.onreadystatechange = function() {
+            if (request.readyState == 4 && request.status == 200) {
+                var response = null;
+                try {
+                    setTimeout(request.responseText, 5);
+                } catch (e) {
+                    console.log(e);
+                }
+            }
+        }
+    }
+    request.send(form);
+  }, 200 ); 
 }
+
 
 // Comprobamos si el usuario ha acceptado los permisos
 function check_if_can_record() {
@@ -140,7 +143,7 @@ function check_if_still_recording(btn) {
     if ((btn.hasClass('recording')) && (recording == true)) {
       btn.click();
     }
-  }, 8000 ); 
+  }, 9000 ); 
   
 
 
