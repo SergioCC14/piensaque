@@ -1,3 +1,5 @@
+$('.search_list').removeClass('empty');
+
 <%- if !@users.blank? %>
   $(".search_list").html("<%= escape_javascript render(:partial => 'users/search', :locals => {:users => @users}) %>");
 

@@ -2,7 +2,7 @@
   %input.search_input{:placeholder => 'Buscar...'}
   .icon-search.search_icon
   .search_list_holder
-    %table.search_list
+    %table.search_list.empty
       %tr.loading
         %td
           %i.icon-spinner
@@ -15,10 +15,28 @@
     $('.search_list_holder').fadeIn();
     $.getScript('/users/search?field=' + $('input.search_input').val());
   })
-  
+
   $('input.search_input').keydown(function(e) {  
-    if(e.which == 13){
+    if (e.which == 13){
       $('.icon-search.search_icon').click();  
+    } else if (e.which == 27) {
+      $('.search_list_holder').fadeOut();
     }
   })
+
+  $('input.search_input').click(function() {
+    if (!$('.search_list').hasClass('empty')) {
+      $('.search_list_holder').fadeIn();
+    }
+  })
+
+  //Sacado de http://stackoverflow.com/questions/1403615/use-jquery-to-hide-a-div-when-the-user-clicks-outside-of-it
+  $(document).mouseup(function (e) {
+    var container = $('.search_list_holder')
+
+    if (!container.is(e.target)
+        && container.has(e.target).length === 0) {
+        container.fadeOut();
+    }
+  });
   
