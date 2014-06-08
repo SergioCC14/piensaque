@@ -15,7 +15,7 @@
 
 :javascript
   $('.icon-search.search_icon').click(function() {
+    $('.search_list').html("<tr class='loading'><td><i class='icon-spinner'></i></td><td>Cargando...</td></tr>")
+    $('.search_list_holder').fadeIn();
     $.getScript('/users/search?field=' + $('input.search_input').val());
-
-
   })
