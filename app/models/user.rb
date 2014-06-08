@@ -74,6 +74,35 @@ class User < ActiveRecord::Base
 		end
 	end
 
+  # Función que busca usuarios a partir de un texto
+  # Puede recibir una frase con nick, nombre o appellido
+  def self.search_users(field)
+    users = []
+    find = false
+    params = field.split(" ")[0..2].uniq
+
+    for p in params
+      if !(user = User.where('LOWER(nick) = ?', p.downcase)).blank?
+        users << user.first
+        find = true
+      end
+
+      if ((!find) and !(user = User.where('LOWER(name) = ?', p.downcase)).blank?)
+        users << user.first
+        find = true
+      end
+
+      if ((!find) and !(user = User.where('LOWER(surname) = ?', p.downcase)).blank?)
+        users << user.first
+      end
+
+      find = false
+    end
+
+    return users.uniq.compact
+    
+  end
+
   # Quito espacios, elimino simbolos raros
   def self.clean_nick(nick)
     

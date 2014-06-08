@@ -1,0 +1,21 @@
+.search_box
+  %input.search_input{:placeholder => 'Buscar...'}
+  .icon-search.search_icon
+  .search_list_holder
+    %table.search_list
+      %tr.loading
+        %td
+          %i.icon-spinner
+        %td
+          ="Cargando..."
+          
+      -#= render :partial => 'users/user_search_row', :locals => {:user => current_user}
+      -#= render :partial => 'users/user_search_row', :locals => {:user => current_user}
+      -#= render :partial => 'users/user_search_row', :locals => {:user => current_user}
+
+:javascript
+  $('.icon-search.search_icon').click(function() {
+    $.getScript('/users/search?field=' + $('input.search_input').val());
+
+
+  })

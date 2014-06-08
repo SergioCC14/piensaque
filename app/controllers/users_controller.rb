@@ -57,6 +57,20 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/search
+  def search
+    if !params[:field].blank?
+
+      @users = User.search_users(params[:field])
+
+      respond_to do |format|
+        format.html { render }
+        format.js { render}       
+      end
+
+    end
+  end
+
   # GET /users/:id/new_personal_pnsqs_in_holder
   # 
   # Ventana emergente para enviar un Mensaje Privado de Audio a un usuario @user

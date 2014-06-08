@@ -12,7 +12,7 @@
     =link_to(its_me?(pnsq.to_user) ? "mí" : pnsq.to_user.nick, user_nick_path(pnsq.to_user.nick), :class => 'inline-block')
     .description-text=pnsq.text
 
-    %audio{:controls => '', :id => "personal_pnsq_audio_#{pnsq.id}_#{pnsq.user.id}", :style => 'display:none'}
+    %audio{id => "personal_pnsq_audio_#{pnsq.id}_#{pnsq.user.id}", :style => 'display:none'}
       %source{:src => pnsq.audio.url(:original), :type => pnsq.audio.content_type}
 
   %td.actions{:id => "personal_pnsq_reply_#{pnsq.id}_#{pnsq.user.id}", :class => its_me?(pnsq.user) ? 'disabled' : nil, :title => its_me?(pnsq.user) ? nil : "Contestar a #{pnsq.user.nick}"}

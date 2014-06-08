@@ -19,7 +19,9 @@ PiensaQue::Application.routes.draw do
     end
 
     collection do
+      get :search
     end
+    
   end
 
   get '/signout', :to => 'sessions#destroy', :as => 'signout'

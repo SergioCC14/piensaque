@@ -26,7 +26,8 @@
 						- if signed_in? and (current_user.notifications_count > 0)
 							.notification_count#notification_count=current_user.notifications_count
 
-			
+		- if current_user.legendary_soldier?
+			= render :partial => 'users/search_box'
 
 		.user_menu
 			.main_content_user_menu{:onclick => "$('#header_sub_menu').slideToggle();"}

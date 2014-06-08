@@ -71,14 +71,15 @@
     .text {
       margin-bottom: 20px;
     }
-    i.icon-spinner:before {
-      font-size: 40px;
-      animation-name: spinner-loop;
-      animation-duration: 3s;
-      animation-iteration-count: infinite;
-      animation-direction: normal;
-      animation-delay: 0s;
-       -webkit-animation: -webkit-spinner-loop 3s normal infinite;
-    }
   }
+}
+
+i.icon-spinner:before {
+  font-size: 40px;
+  animation-name: spinner-loop;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-delay: 0s;
+   -webkit-animation: -webkit-spinner-loop 3s normal infinite;
 }

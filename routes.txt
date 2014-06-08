@@ -1,64 +1,71 @@
-                  Prefix Verb   URI Pattern                              Controller#Action
-                  musics GET    /musics(.:format)                        musics#index
-                         POST   /musics(.:format)                        musics#create
-               new_music GET    /musics/new(.:format)                    musics#new
-              edit_music GET    /musics/:id/edit(.:format)               musics#edit
-                   music GET    /musics/:id(.:format)                    musics#show
-                         PATCH  /musics/:id(.:format)                    musics#update
-                         PUT    /musics/:id(.:format)                    musics#update
-                         DELETE /musics/:id(.:format)                    musics#destroy
-                   pnsqs GET    /pnsqs(.:format)                         pnsqs#index
-                         POST   /pnsqs(.:format)                         pnsqs#create
-                new_pnsq GET    /pnsqs/new(.:format)                     pnsqs#new
-               edit_pnsq GET    /pnsqs/:id/edit(.:format)                pnsqs#edit
-                    pnsq GET    /pnsqs/:id(.:format)                     pnsqs#show
-                         PATCH  /pnsqs/:id(.:format)                     pnsqs#update
-                         PUT    /pnsqs/:id(.:format)                     pnsqs#update
-                         DELETE /pnsqs/:id(.:format)                     pnsqs#destroy
-     request_invitations GET    /request_invitations(.:format)           request_invitations#index
-                         POST   /request_invitations(.:format)           request_invitations#create
-  new_request_invitation GET    /request_invitations/new(.:format)       request_invitations#new
- edit_request_invitation GET    /request_invitations/:id/edit(.:format)  request_invitations#edit
-      request_invitation GET    /request_invitations/:id(.:format)       request_invitations#show
-                         PATCH  /request_invitations/:id(.:format)       request_invitations#update
-                         PUT    /request_invitations/:id(.:format)       request_invitations#update
-                         DELETE /request_invitations/:id(.:format)       request_invitations#destroy
-               relations GET    /relations(.:format)                     relations#index
-                         POST   /relations(.:format)                     relations#create
-            new_relation GET    /relations/new(.:format)                 relations#new
-           edit_relation GET    /relations/:id/edit(.:format)            relations#edit
-                relation GET    /relations/:id(.:format)                 relations#show
-                         PATCH  /relations/:id(.:format)                 relations#update
-                         PUT    /relations/:id(.:format)                 relations#update
-                         DELETE /relations/:id(.:format)                 relations#destroy
-                sessions GET    /sessions(.:format)                      sessions#index
-                         POST   /sessions(.:format)                      sessions#create
-             new_session GET    /sessions/new(.:format)                  sessions#new
-            edit_session GET    /sessions/:id/edit(.:format)             sessions#edit
-                 session GET    /sessions/:id(.:format)                  sessions#show
-                         PATCH  /sessions/:id(.:format)                  sessions#update
-                         PUT    /sessions/:id(.:format)                  sessions#update
-                         DELETE /sessions/:id(.:format)                  sessions#destroy
-                    tags GET    /tags(.:format)                          tags#index
-                         POST   /tags(.:format)                          tags#create
-                 new_tag GET    /tags/new(.:format)                      tags#new
-                edit_tag GET    /tags/:id/edit(.:format)                 tags#edit
-                     tag GET    /tags/:id(.:format)                      tags#show
-                         PATCH  /tags/:id(.:format)                      tags#update
-                         PUT    /tags/:id(.:format)                      tags#update
-                         DELETE /tags/:id(.:format)                      tags#destroy
-relations_in_holder_user GET    /users/:id/relations_in_holder(.:format) users#relations_in_holder
-                   users GET    /users(.:format)                         users#index
-                         POST   /users(.:format)                         users#create
-                new_user GET    /users/new(.:format)                     users#new
-               edit_user GET    /users/:id/edit(.:format)                users#edit
-                    user GET    /users/:id(.:format)                     users#show
-                         PATCH  /users/:id(.:format)                     users#update
-                         PUT    /users/:id(.:format)                     users#update
-                         DELETE /users/:id(.:format)                     users#destroy
-                 signout GET    /signout(.:format)                       sessions#destroy
-                   login GET    /login(.:format)                         sessions#index
-               user_nick GET    /:nick(.:format)                         users#show
-           settings_user GET    /:nick/settings(.:format)                users#edit
-             admin_panel GET    /a/panel(.:format)                       application#admin_panel
-                    root GET    /                                        application#index
+                          Prefix Verb   URI Pattern                                      Controller#Action
+                          musics GET    /musics(.:format)                                musics#index
+                                 POST   /musics(.:format)                                musics#create
+                       new_music GET    /musics/new(.:format)                            musics#new
+                      edit_music GET    /musics/:id/edit(.:format)                       musics#edit
+                           music GET    /musics/:id(.:format)                            musics#show
+                                 PATCH  /musics/:id(.:format)                            musics#update
+                                 PUT    /musics/:id(.:format)                            musics#update
+                                 DELETE /musics/:id(.:format)                            musics#destroy
+                           pnsqs GET    /pnsqs(.:format)                                 pnsqs#index
+                                 POST   /pnsqs(.:format)                                 pnsqs#create
+                        new_pnsq GET    /pnsqs/new(.:format)                             pnsqs#new
+                       edit_pnsq GET    /pnsqs/:id/edit(.:format)                        pnsqs#edit
+                            pnsq GET    /pnsqs/:id(.:format)                             pnsqs#show
+                                 PATCH  /pnsqs/:id(.:format)                             pnsqs#update
+                                 PUT    /pnsqs/:id(.:format)                             pnsqs#update
+                                 DELETE /pnsqs/:id(.:format)                             pnsqs#destroy
+             request_invitations GET    /request_invitations(.:format)                   request_invitations#index
+                                 POST   /request_invitations(.:format)                   request_invitations#create
+          new_request_invitation GET    /request_invitations/new(.:format)               request_invitations#new
+         edit_request_invitation GET    /request_invitations/:id/edit(.:format)          request_invitations#edit
+              request_invitation GET    /request_invitations/:id(.:format)               request_invitations#show
+                                 PATCH  /request_invitations/:id(.:format)               request_invitations#update
+                                 PUT    /request_invitations/:id(.:format)               request_invitations#update
+                                 DELETE /request_invitations/:id(.:format)               request_invitations#destroy
+                       relations GET    /relations(.:format)                             relations#index
+                                 POST   /relations(.:format)                             relations#create
+                    new_relation GET    /relations/new(.:format)                         relations#new
+                   edit_relation GET    /relations/:id/edit(.:format)                    relations#edit
+                        relation GET    /relations/:id(.:format)                         relations#show
+                                 PATCH  /relations/:id(.:format)                         relations#update
+                                 PUT    /relations/:id(.:format)                         relations#update
+                                 DELETE /relations/:id(.:format)                         relations#destroy
+                        sessions GET    /sessions(.:format)                              sessions#index
+                                 POST   /sessions(.:format)                              sessions#create
+                     new_session GET    /sessions/new(.:format)                          sessions#new
+                    edit_session GET    /sessions/:id/edit(.:format)                     sessions#edit
+                         session GET    /sessions/:id(.:format)                          sessions#show
+                                 PATCH  /sessions/:id(.:format)                          sessions#update
+                                 PUT    /sessions/:id(.:format)                          sessions#update
+                                 DELETE /sessions/:id(.:format)                          sessions#destroy
+                            tags GET    /tags(.:format)                                  tags#index
+                                 POST   /tags(.:format)                                  tags#create
+                         new_tag GET    /tags/new(.:format)                              tags#new
+                        edit_tag GET    /tags/:id/edit(.:format)                         tags#edit
+                             tag GET    /tags/:id(.:format)                              tags#show
+                                 PATCH  /tags/:id(.:format)                              tags#update
+                                 PUT    /tags/:id(.:format)                              tags#update
+                                 DELETE /tags/:id(.:format)                              tags#destroy
+  change_password_in_holder_user GET    /users/:id/change_password_in_holder(.:format)   users#change_password_in_holder
+new_personal_pnsq_in_holder_user GET    /users/:id/new_personal_pnsq_in_holder(.:format) users#new_personal_pnsq_in_holder
+   personal_pnsqs_in_holder_user GET    /users/:id/personal_pnsqs_in_holder(.:format)    users#personal_pnsqs_in_holder
+        relations_in_holder_user GET    /users/:id/relations_in_holder(.:format)         users#relations_in_holder
+            update_password_user PUT    /users/:id/update_password(.:format)             users#update_password
+             user_next_step_user GET    /users/:id/user_next_step(.:format)              users#user_next_step
+                                 POST   /users/:id/user_next_step(.:format)              users#user_next_step
+                    search_users GET    /users/search(.:format)                          users#search
+                           users GET    /users(.:format)                                 users#index
+                                 POST   /users(.:format)                                 users#create
+                        new_user GET    /users/new(.:format)                             users#new
+                       edit_user GET    /users/:id/edit(.:format)                        users#edit
+                            user GET    /users/:id(.:format)                             users#show
+                                 PATCH  /users/:id(.:format)                             users#update
+                                 PUT    /users/:id(.:format)                             users#update
+                                 DELETE /users/:id(.:format)                             users#destroy
+                         signout GET    /signout(.:format)                               sessions#destroy
+                           login GET    /login(.:format)                                 sessions#index
+                       user_nick GET    /:nick(.:format)                                 users#show
+                   settings_user GET    /:nick/settings(.:format)                        users#edit
+                     admin_panel GET    /a/panel(.:format)                               application#admin_panel
+                            root GET    /                                                application#index
