@@ -3650,6 +3650,13 @@ table.pnsq_in_holder td.actions.disabled {
 table.pnsq_in_holder tr.owner {
   background-color: #BCBCBC;
 }
+
+/* line 261, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/pnsqs.scss */
+audio.pnsq {
+  display: none;
+  width: 0px;
+  height: 0px;
+}
 /* line 1, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/relation.scss */
 .relation_tag {
   background-color: rgba(31, 29, 24, 0.8);
@@ -4451,6 +4458,11 @@ h3 {
 }
 
 /* line 230, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/styles.scss */
+.small {
+  font-size: 10px;
+}
+
+/* line 234, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/styles.scss */
 .btn {
   background-color: #83b32b;
   padding: 6px 10px;
@@ -4459,7 +4471,7 @@ h3 {
   font-size: 12px;
 }
 
-/* line 239, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/styles.scss */
+/* line 242, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/styles.scss */
 .btn:hover {
   cursor: pointer;
   background-color: #77a228;
@@ -5065,8 +5077,8 @@ img.tutorial_arrow {
   vertical-align: middle;
   font-size: 20px;
   position: relative;
-  top: -5px;
-  padding: 0px 0px 10px 5px;
+  top: -12px;
+  padding: 0px 0px 0px 5px;
 }
 /* line 81, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/users.css.scss */
 #header.pq_header .search_box .icon-search.search_icon:hover {
