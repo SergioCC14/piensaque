@@ -75,7 +75,7 @@ class User < ActiveRecord::Base
 	end
 
   # Función que busca usuarios a partir de un texto
-  # Puede recibir una frase con nick, nombre o appellido
+  # Puede recibir una frase con nick, nombre o apellido
   def self.search_users(field)
     return_users = []
     find = false
