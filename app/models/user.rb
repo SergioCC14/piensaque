@@ -77,29 +77,46 @@ class User < ActiveRecord::Base
   # Función que busca usuarios a partir de un texto
   # Puede recibir una frase con nick, nombre o appellido
   def self.search_users(field)
-    users = []
+    return_users = []
     find = false
+
+    # Field original pero sin dobles espacios
+    clean_field = field
+
+    # Field convertido en un array por palabra
     params = field.split(" ")[0..2].uniq
 
     for p in params
-      if !(user = User.where('LOWER(nick) = ?', p.downcase)).blank?
-        users << user.first
-        find = true
+      if !(users = User.where('LOWER(nick) = ?', p.downcase)).blank?
+        users.each{|u| return_users << u}
+        # find = true
       end
 
-      if ((!find) and !(user = User.where('LOWER(name) = ?', p.downcase)).blank?)
-        users << user.first
-        find = true
+      if ((!find) and !(users = User.where('LOWER(name) = ?', p.downcase)).blank?)
+        users.each{|u| return_users << u}
+        # find = true
       end
 
-      if ((!find) and !(user = User.where('LOWER(surname) = ?', p.downcase)).blank?)
-        users << user.first
+      if ((!find) and !(users = User.where('LOWER(surname) = ?', p.downcase)).blank?)
+        users.each{|u| return_users << u}
       end
-
-      find = false
+      # find = false
     end
 
-    return users.uniq.compact
+    # Esto lo hago por los nombres compuestos   
+    if !(users = User.where('LOWER(nick) = ?', clean_field.downcase)).blank?
+      users.each{|u| return_users << u}
+    end
+
+    if (!(users = User.where('LOWER(name) = ?', clean_field.downcase)).blank?)
+      users.each{|u| return_users << u}
+    end
+
+    if (!(users = User.where('LOWER(surname) = ?', clean_field.downcase)).blank?)
+      users.each{|u| return_users << u}
+    end
+
+    return return_users.uniq.compact
     
   end
 
