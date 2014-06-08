@@ -413,7 +413,36 @@ BODY #full_container {
   display: inline-block;
 }
 
-/* line 188, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 187, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+.pagination {
+  padding: 10 20px;
+}
+/* line 189, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+.pagination span {
+  background-color: #83b32b;
+  border: 1px solid #3D3D3D;
+  color: #3D3D3D;
+  padding: 5 10px;
+  border-radius: 2px;
+  margin: 0 2px;
+}
+/* line 196, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+.pagination span a {
+  color: #3D3D3D;
+}
+/* line 200, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+.pagination .page.gap {
+  background-color: transparent;
+  border: medium none;
+}
+/* line 204, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+.pagination span.current {
+  color: #427B8F;
+  background-color: #77a228;
+  font-weight: 900;
+}
+
+/* line 211, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .information_block {
   padding: 10px;
   margin: 5px;
@@ -421,14 +450,14 @@ BODY #full_container {
   border-radius: 5px;
   background-color: #cccccc;
 }
-/* line 194, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 217, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .information_block .not_pnsq {
   color: #505050;
   font-size: 35pt;
   text-align: center;
   padding: 25px;
 }
-/* line 200, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 223, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .information_block .pnsq_column {
   vertical-align: top;
   text-align: right;
@@ -436,98 +465,98 @@ BODY #full_container {
   width: 445px;
   padding: 10px;
 }
-/* line 206, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 229, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .information_block .pnsq_column .pnsq_hollow {
   text-align: left;
   display: inline;
 }
-/* line 211, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 234, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .information_block .middle_zone {
   display: inline-block;
   width: 60px;
   height: auto;
 }
 
-/* line 218, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 241, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .information_sub_block {
   padding: 5px 10px;
 }
 
-/* line 223, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 246, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .application_admin_panel h1.title_panel {
   cursor: pointer;
 }
-/* line 226, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 249, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .application_admin_panel table {
   text-align: center;
 }
-/* line 228, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 251, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .application_admin_panel table tr.title {
   font-weight: bold;
   background-color: #AAAAAA;
 }
-/* line 233, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 256, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .application_admin_panel table tr.users {
   width: auto;
 }
-/* line 235, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 258, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .application_admin_panel table tr.users td.checkbox {
   width: 30px;
 }
-/* line 238, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 261, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .application_admin_panel table tr.users td.checkbox img {
   width: 30px;
 }
-/* line 242, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 265, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .application_admin_panel table tr.users input[type="submit"] {
   padding: 0px;
 }
-/* line 246, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 269, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .application_admin_panel table tr.users td.text {
   width: 30px;
 }
-/* line 248, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 271, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .application_admin_panel table tr.users td.text input {
   width: 120px;
 }
-/* line 254, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 277, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .application_admin_panel tr.music {
   width: auto;
 }
-/* line 256, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 279, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .application_admin_panel tr.music td.cover {
   width: 10px;
 }
-/* line 258, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 281, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .application_admin_panel tr.music td.cover img {
   cursor: pointer;
   width: 60px;
 }
-/* line 263, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 286, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .application_admin_panel tr.music input[type="submit"] {
   padding: 0px;
 }
-/* line 267, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 290, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .application_admin_panel tr.music td.text {
   width: 30px;
 }
-/* line 269, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 292, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .application_admin_panel tr.music td.text audio {
   position: relative;
   top: -5px;
   width: 250px;
 }
-/* line 275, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 298, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .application_admin_panel tr.music td.text input {
   width: 120px;
 }
 
-/* line 282, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 305, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 286, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
+/* line 309, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/application.scss */
 .text-right {
   text-align: right;
 }
@@ -3620,6 +3649,13 @@ table.pnsq_in_holder td.actions.disabled {
 /* line 256, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/pnsqs.scss */
 table.pnsq_in_holder tr.owner {
   background-color: #BCBCBC;
+}
+
+/* line 261, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/pnsqs.scss */
+audio.pnsq {
+  display: none;
+  width: 0px;
+  height: 0px;
 }
 /* line 1, /Users/Sergio_bpk/piensaque/app/assets/stylesheets/relation.scss */
 .relation_tag {

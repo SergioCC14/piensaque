@@ -18,12 +18,12 @@ module UsersHelper
   # Busca entre tres usuarios (aleatoriamente) en PiensaQue y devuelve los nicks
   def some_users
     users = []
-    user_ids = User.ids.sort_by{rand}[1..3]
+    user_ids = User.ids.sort_by{rand}[1..4]
     
     for id in user_ids
       user = User.find_by(id: id)
 
-      users << "<a href=#{user_nick_path(user.nick)} class='normal_link'> #{name_or_nick(user)}</a>"
+      users << "<a href=#{user_nick_path(user.nick)} class='normal_link'> #{name_or_nick(user, true)}</a>"
     end
 
     return users.join(", ")
@@ -35,7 +35,7 @@ module UsersHelper
 
     if (!user.name.blank?)
       if !user.name.blank?
-        value = (!user.surname.blank? and surname) ? "#{user.name} #{user.surname}" : user.name 
+        value = (!user.surname.blank? and surname) ? "#{user.name.capitalize} #{user.surname.capitalize}" : user.name.capitalize
       end
 
     else
