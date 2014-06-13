@@ -4,7 +4,7 @@
 
 		= form_for(@request_invitation) do |f|
 			.field
-				= f.email_field(:email, :class => 'default_field', :placeholder => 'Email')
+				= f.email_field(:email, :class => 'default_field', :placeholder => 'Email', :required => true)
 
 			.actions{:style => 'margin-bottom: 0px;'}
 				= f.submit('Enviar',:class => 'default_submit')

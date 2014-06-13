@@ -25,7 +25,7 @@
     = form_for(user, :remote => true) do |f|
       %tr.users{:style => cycle(nil, 'background-color: #C7C7C7; border-color:#BBBBBB')}
         %td.checkbox=image_tag(user.avatar.url(:cthumb))
-        %td.checkbox=link_to(user.nick, user_nick_path(user.nick))
+        %td.checkbox=link_to(user.id, user_nick_path(user.nick))
         %td.text=f.text_field :nick, :id => "nick_#{user.id}"
         %td.text=f.text_field :name, :id => "name_#{user.id}"
         %td.text=f.text_field :surname, :id => "surname_#{user.id}"
