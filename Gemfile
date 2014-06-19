@@ -23,6 +23,9 @@ gem 'kaminari'
 # Amazon SES (Simple Email Service)
 gem "aws-ses", :require => 'aws/ses'
 
+# Diagramas UML (http://railroady.prestonlee.com/)
+gem "railroady"
+
 # Para limpiar nick
 gem 'unidecoder'
 gem 'sixarm_ruby_unaccent'
@@ -32,7 +35,6 @@ gem "asset_sync"
 
 group :production do
   gem 'rails_12factor'
-  
 end
 
 group :assets do
