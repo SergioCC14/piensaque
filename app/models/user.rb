@@ -91,18 +91,15 @@ class User < ActiveRecord::Base
     for p in params
       if !(users = User.where('LOWER(nick) = ?', p.downcase)).blank?
         users.each{|u| return_users << u}
-        # find = true
       end
 
       if ((!find) and !(users = User.where('LOWER(name) = ?', p.downcase)).blank?)
         users.each{|u| return_users << u}
-        # find = true
       end
 
       if ((!find) and !(users = User.where('LOWER(surname) = ?', p.downcase)).blank?)
         users.each{|u| return_users << u}
       end
-      # find = false
     end
 
     # Esto lo hago por los nombres compuestos   
